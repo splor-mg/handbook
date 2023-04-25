@@ -37,4 +37,4 @@ swcarpentry-fjuniorr/
 
 Faça commits frequentes ao longo dos estudos e um `git push` no fim do dia. Utilize os issues do seu repositório para dúvidas ou observações sobre o material.
 
-Dedique entre 50min e 2:30h por dia até finalizar todo o conteúdo.
+Dedique entre 50min e 3:20h por dia até finalizar todo o conteúdo.
