@@ -1,3 +1,11 @@
+---
+name: Onboarding
+about: Lista de tarefas para onboarding de novo servidor
+title: ''
+labels: ''
+assignees: ''
+---
+
 ## Olá!
 
 Bem vindo a Assessoria de Inteligência de Dados. Complete as seguintes tarefas para se familiarizar com nossa organização:
