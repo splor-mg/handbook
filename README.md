@@ -9,12 +9,6 @@
 
  Relação de boas práticas para utilização da ferramenta Git na Assessoria.
 
-
- ### Clone - clonar
-
-  > - *dependências* - após clonar a primeira vez, instalar dependências: `Rscript -e renv::install()`, ou `install.packages("renv")`;
-
-
  ### Branch
 
   > - vide item 'novo branch' no tópico 'Pull Request (PR)';
@@ -28,6 +22,11 @@
   > - *nomenclatura* - caso seja interessante separar o nome do branch em mais de uma palavra, utilize "-";
 
   > - *git merge main* - nos casos dos branches com duração de desenvolvimento e aplicação maiores, fazer merge do main para o branch com recorrência, de forma a evitar eventual quebra no que está sendo desenvolvido no branch;
+
+
+ ### Clone - clonar
+
+  > - *dependências* - após clonar a primeira vez, instalar dependências: `Rscript -e renv::install()`, ou `install.packages("renv")`;
 
 
  ### Comentários
