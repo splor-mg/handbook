@@ -14,12 +14,12 @@
   > - vide item 'novo branch' no tópico 'Pull Request (PR)';
 
   > - *critério para criação*: 
-        >> 1) *revisão* - é necessário que ao menos uma pessoa reveja o código, idealmente diferente daquela que participou da elaboração das alterações em questão - no caso de realizadas por mais de uma pessoa conjuntamente/de forma síncrona;
-        >> 2) *status* - esteja pronto para rodar no main/em produção.
+   >> 1) *revisão* - é necessário que ao menos uma pessoa reveja o código, idealmente diferente daquela que participou da elaboração das alterações em questão - no caso de realizadas por mais de uma pessoa conjuntamente/de forma síncrona;
+   >> 2) *status* - esteja pronto para rodar no main/em produção.
 
   > - *nomenclatura*
-   >> - i. não utilizar *acentuação* no nome do branch, nem *letas maiúsculas*;
-   >> - ii. caso seja interessante **separar o nome** do branch em mais de uma palavra, utilize "-";
+   >> 1) não utilizar *acentuação* no nome do branch, nem *letas maiúsculas*;
+   >> 2) caso seja interessante **separar o nome** do branch em mais de uma palavra, utilize "-";
 
   > - *git merge main* - nos casos dos branches com duração de desenvolvimento e aplicação maiores, fazer merge do main para o branch com recorrência, de forma a evitar eventual quebra no que está sendo desenvolvido no branch;
 
