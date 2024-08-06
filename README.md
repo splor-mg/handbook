@@ -17,9 +17,9 @@
         >> 1) *revisão* - é necessário que ao menos uma pessoa reveja o código, idealmente diferente daquela que participou da elaboração das alterações em questão - no caso de realizadas por mais de uma pessoa conjuntamente/de forma síncrona;
         >> 2) *status* - esteja pronto para rodar no main/em produção.
 
-  > - *nomenclatura* - não utilizar *acentuação* no nome do branch, nem *letas maiúsculas*;
-
-  > - *nomenclatura* - caso seja interessante separar o nome do branch em mais de uma palavra, utilize "-";
+  > - *nomenclatura*
+   >> - i. não utilizar *acentuação* no nome do branch, nem *letas maiúsculas*;
+   >> - ii. caso seja interessante **separar o nome** do branch em mais de uma palavra, utilize "-";
 
   > - *git merge main* - nos casos dos branches com duração de desenvolvimento e aplicação maiores, fazer merge do main para o branch com recorrência, de forma a evitar eventual quebra no que está sendo desenvolvido no branch;
 
@@ -35,7 +35,7 @@
 
  
  ### Commits
-  > - *estruturação* - idealmente separar alterações de *lógica* das alterações de *texto*. Isso tem o objetivo de facilitar a compreensão a respeito do que foi alterado, assim como para desfazer eventual equívoco.
+  > - *estruturação* - idealmente, separar alterações de *lógica* das alterações de *texto*. Isso tem o objetivo de facilitar a compreensão a respeito do que foi alterado, assim como para desfazer eventual equívoco.
 
 
  ### Issue
