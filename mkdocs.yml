@@ -1,0 +1,9 @@
+site_name: Handbook Assessoria de Inteligência de Dados
+
+# Repository
+repo_name: splor-mg/handbook
+repo_url: https://github.com/splor-mg/handbook
+edit_uri: edit/main/docs/
+
+theme:
+  name: material
