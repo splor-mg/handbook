@@ -1,17 +1,9 @@
-# Handbook AID
+---
+hide: 
+  - navigation
+  - footer
+---
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+# Bem vind(a)o! :simple-flower:{ .lg .middle }
 
-## Commandss
-
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
-
-## Project layout
-
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+Esse handbook tem a missão de divulgar o trabalho da Assessoria de Inteligência de Dados (AID/SPLOR), bem como de compartilhamento de conhecimentos e desenvolvimentos com os quais estamos trabalhando. 
