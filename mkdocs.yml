@@ -5,13 +5,10 @@ repo_name: splor-mg/handbook
 repo_url: https://github.com/splor-mg/handbook
 edit_uri: edit/main/docs/
 
-# --1<-- [start:nav]
 nav:
   - index.md
   - Blog:
     - blog/index.md
-# --1<-- [end:nav]
-
 
 # Configuration
 theme:
