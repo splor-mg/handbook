@@ -20,7 +20,7 @@ O encontro do dia 01/11/2024 marcou de forma fantástica a inauguração desse p
 
 Confira a gravação do encontro :-)
 
-![type:video](https://youtu.be/iBT8mRMXPFY)
+![type:video](https://www.youtube.com/embed/iBT8mRMXPFY)
 
 ## Referências
 
