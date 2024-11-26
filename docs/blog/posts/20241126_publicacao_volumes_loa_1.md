@@ -12,7 +12,7 @@ categories:
 A equipe da Assessoria de Inteligêcia de Dados acredita que o compartilhamento de conhecimento é central para que o desenvolvimento e consolidação de melhorias se tornem uma realidade nas mais diversas equipes e organizações.
 
 Nesse contexto, o trabalho de publicação dos volumes da LOA no ano de 2024.
-Este post mostra a primeira parte deste trabalho.
+Este post mostra a primeira parte deste trabalho, **realizado dia 16/09/2024**.
 
 <!-- more -->
 
