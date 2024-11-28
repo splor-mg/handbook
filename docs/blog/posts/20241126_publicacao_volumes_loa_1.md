@@ -26,6 +26,7 @@ Este post mostra a primeira parte deste trabalho, **realizado dia 16/09/2024**.
 
     - Resgata versões e dependências necessárias para rodar o projeto.
     - Sem estas versões projeto não funciona, o que significa que o código fonte não pode sofrer atualização de versões das ferramentas utilizadas.
+        - Essa regra não se aplica para as dependências listadas no arquivo [`requeriments.in`](https://github.com/splor-mg/volumes-docker/blob/main/requirements.in) atualizado pelo comando `uv pip compile requirements.in > requirements.txt`, pois dependências Python foram incluídas posteriormente como forma de melhorar o projeto (incluindo testes automatizadas, por exemplo).
 
 ## Segundo vídeo
 
@@ -34,7 +35,9 @@ Este post mostra a primeira parte deste trabalho, **realizado dia 16/09/2024**.
     - Comando descrito no [`READMDE.md`](https://github.com/splor-mg/volumes-docker/blob/main/README.md`) do projeto.
     - Comando `make image=ploa2025 relatorios=v0.7.64 execucao=v0.5.22 reest=v0.2.6`
     - Necessário arquivo `.env` com secrets.
+        - Incluir variáveis de ambiente, mesmo em um repo privado, pode ser perigoso. Algum acesso não autorizado à organização pode encontrar estas informações.
     - No vídeo, Francisco atualiza a versão do pacote relatórios.
+        - Segundo equipe a informação da versão do pacote relatórios a ser utilizada é dada pela DCMEFO.
     - A imagem gerada deve ser encaminhada para o DockerHub (esta ação não foi automatizada).
     - [Erro apresentado durante processo](https://github.com/splor-mg/volumes-docker/issues/30) não reconhecendo a flag `--secret` no Windows.
     - `/home/rstudio` é o diretório dentro do container criado a partir da imagem docker onde o processo de geração dos volumes ocorrerá.
