@@ -561,7 +561,10 @@ Este post mostra a primeira parte deste trabalho, <strong>realizado dia 16/09/20
 <p>Repositório <a href="https://github.com/splor-mg/volumes-docker">volumes-docker</a> responsável pela criação da imagem docker utilizada na geração dos volumes da <a href="https://github.com/splor-mg/volumes-loa">LOA</a> e do <a href="https://github.com/splor-mg/volumes-PPAG">PPAG</a>.</p>
 <ul>
 <li>Resgata versões e dependências necessárias para rodar o projeto.</li>
-<li>Sem estas versões projeto não funciona, o que significa que o código fonte não pode sofrer atualização de versões das ferramentas utilizadas.</li>
+<li>Sem estas versões projeto não funciona, o que significa que o código fonte não pode sofrer atualização de versões das ferramentas utilizadas.<ul>
+<li>Essa regra não se aplica para as dependências listadas no arquivo <a href="https://github.com/splor-mg/volumes-docker/blob/main/requirements.in"><code>requeriments.in</code></a> atualizado pelo comando <code>uv pip compile requirements.in &gt; requirements.txt</code>, pois dependências Python foram incluídas posteriormente como forma de melhorar o projeto (incluindo testes automatizadas, por exemplo).</li>
+</ul>
+</li>
 </ul>
 </li>
 </ol>
@@ -571,8 +574,14 @@ Este post mostra a primeira parte deste trabalho, <strong>realizado dia 16/09/20
 <li>No repositório <a href="https://github.com/splor-mg/volumes-docker">volumes-docker</a> local rodar comando responsável por buildar a imagem docker a ser utilizada.<ul>
 <li>Comando descrito no <a href="https://github.com/splor-mg/volumes-docker/blob/main/README.md`"><code>READMDE.md</code></a> do projeto.</li>
 <li>Comando <code>make image=ploa2025 relatorios=v0.7.64 execucao=v0.5.22 reest=v0.2.6</code></li>
-<li>Necessário arquivo <code>.env</code> com secrets.</li>
-<li>No vídeo, Francisco atualiza a versão do pacote relatórios.</li>
+<li>Necessário arquivo <code>.env</code> com secrets.<ul>
+<li>Incluir variáveis de ambiente, mesmo em um repo privado, pode ser perigoso. Algum acesso não autorizado à organização pode encontrar estas informações.</li>
+</ul>
+</li>
+<li>No vídeo, Francisco atualiza a versão do pacote relatórios.<ul>
+<li>Segundo equipe a informação da versão do pacote relatórios a ser utilizada é dada pela DCMEFO.</li>
+</ul>
+</li>
 <li>A imagem gerada deve ser encaminhada para o DockerHub (esta ação não foi automatizada).</li>
 <li><a href="https://github.com/splor-mg/volumes-docker/issues/30">Erro apresentado durante processo</a> não reconhecendo a flag <code>--secret</code> no Windows.</li>
 <li><code>/home/rstudio</code> é o diretório dentro do container criado a partir da imagem docker onde o processo de geração dos volumes ocorrerá.</li>
@@ -633,7 +642,7 @@ Este post mostra a primeira parte deste trabalho, <strong>realizado dia 16/09/20
     <span class="md-icon" title="Última atualização">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">26 de novembro de 2024 20:14:19</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">28 de novembro de 2024 14:37:20</span>
   </span>
 
     
