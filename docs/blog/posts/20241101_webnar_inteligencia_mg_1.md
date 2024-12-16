@@ -24,7 +24,7 @@ Confira a gravação do encontro :-)
 
 ## Referências
 
-- [Automatiza.MG](https://github.com/automatiza-mg)
-- [Handbook Diretoria Central de Desburocratização](https://automatiza-mg.github.io/handbook/)
-- [Mkdocs](https://pypi.org/project/mkdocs/)
+- [Automatiza.MG](https://github.com/automatiza-mg).
+- [Handbook Diretoria Central de Desburocratização](https://automatiza-mg.github.io/handbook/).
+- [Mkdocs](https://pypi.org/project/mkdocs/).
 - [Mkdocs-Material](https://squidfunk.github.io/mkdocs-material/).
