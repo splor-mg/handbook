@@ -10,7 +10,8 @@ categories:
 # Webnar Inteligência.MG #2 - Qlikview
 
 A ferramenta de BI `Qlikview` tem sido utilizada há vários anos na SPLOR em painéis de dados de grande importância para a execução das atividades, como o painel da `Reestimativa` e o `Relatório Operacional`, que trazem tempestividade e confiabilidade no acesso a informação.
-Com este webnar a Assessoria de Inteligência de Inteligência de Dados tem o objetivo principal de incentivar e auxiliar a construção de painéis de forma descentralizada por toda equipe SPLOR. Para isso é feito um `overview` dos principais pontos de uso ferramenta, começando do zero, desde a instalação até a construção final de um painel.
+
+Com este webnar a Assessoria de Inteligência de Dados tem o objetivo principal de incentivar e auxiliar a construção de painéis de forma descentralizada por toda equipe SPLOR. Para isso é feito um `overview` dos principais pontos de uso ferramenta, começando do zero, desde a instalação até a construção final de um painel.
 
 <!-- more -->
 
@@ -24,21 +25,20 @@ Pontos discorridos no webnar:
 - layout: criação e edição de painéis;
 - variáveis, setanalysis, disparadores.
 
-
 [Baixar material utilizado no Webnar](https://github.com/splor-mg/reprex/tree/main/reprex/20241107T105702)
 
 
-Bibliografia sugerida:
+## Bibliografia sugerida:
 
-Barry Harmsen, Miguel Garcia-QlikView 11 for Developers-Packt Publishing (2012);
+- Barry Harmsen, Miguel Garcia-QlikView 11 for Developers-Packt Publishing (2012);
 
-Stephen Redmond-QlikView for Developers Cookbook-Packt Publishing (2013);
+- Stephen Redmond-QlikView for Developers Cookbook-Packt Publishing (2013);
 
-[Manual Set Analysis](https://community.qlik.com/t5/Brasil/Manual-Set-Analysis-Completo-em-Portugu%C3%AAs-BR/td-p/1488633)
+- [Manual Set Analysis](https://community.qlik.com/t5/Brasil/Manual-Set-Analysis-Completo-em-Portugu%C3%AAs-BR/td-p/1488633)
 
-[Nota sobre modelagem linktable](https://splor-mg.github.io/notas/main/20231804T160439/)
+- [Nota sobre modelagem linktable](https://splor-mg.github.io/notas/main/20231804T160439/)
 
-Citações interessantes:
+## Citações interessantes:
 
 ```
 "So how do we incorporate two or more fact tables into one data model and treat them as two separate logical tables while, at the same time, avoiding the synthetic key issue? At first sight, it can seem like both options are mutually exclusive, but there is a workaround which is to create a Link Table. As its name implies, a link table essentially 'links' two or more fact tables by taking all common fields out of the original tables and placing them into a new one (the link table). The new link table contains all possible combination of values for that set of fields and, through a unique key, is associated to the original tables."
@@ -57,8 +57,6 @@ Citações interessantes:
 
 — Stephen Redmond, QlikView for Developers Cookbook, Packt Publishing (2013)
 ```
-
-
 
 
 Assista a gravação do encontro:
