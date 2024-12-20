@@ -63,4 +63,4 @@ Citações interessantes:
 
 Assista a gravação do encontro:
 
-![type:video](https://youtu.be/jYE_N9s7D60)
+![type:video](https://www.youtube.com/embed/jYE_N9s7D60)
