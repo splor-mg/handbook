@@ -1,6 +1,7 @@
 name: Publish documentation on GitHub pages
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - main
@@ -11,13 +12,13 @@ on:
 
 jobs:
   publish_documentation_on_github_pages:
-    runs-on: Ubuntu-24.04
+    runs-on: ubuntu-latest
     steps:
 
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
-          python-version: 3.13
+          python-version: 3.13.1
 
       - name: Check out repository
         uses: actions/checkout@v4
@@ -27,8 +28,8 @@ jobs:
       - name: Setup Git user
         uses: fregante/setup-git-user@v2
 
-      - name: Install packages
-        run: pip install -r requirements.txt
+      - name: Install Poetry
+        uses: snok/install-poetry@v1
 
       - name: Publish Documentation
-        run: mkdocs gh-deploy
+        run: poetry run task gh-deploy
