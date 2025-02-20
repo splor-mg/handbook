@@ -32,4 +32,6 @@ jobs:
         uses: snok/install-poetry@v1
 
       - name: Publish Documentation
-        run: poetry run task gh-deploy
+        run: |
+          poetry install
+          poetry run task gh-deploy
