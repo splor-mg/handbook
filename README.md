@@ -34,7 +34,7 @@ Siga os passos abaixo para configurar o projeto localmente:
    poetry run task serve
    ```
 
-O site estará disponível em `http://127.0.0.1:8000/`.
+O site estará disponível em [http://127.0.0.1:8000/](http://127.0.0.1:8000/).
 
 ## Build e Deploy
 
