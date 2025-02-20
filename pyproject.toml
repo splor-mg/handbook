@@ -21,3 +21,6 @@ dependencies = [
 [tool.taskipy.tasks]
 serve = { cmd = "mkdocs serve", help = "Liga servidor mkdocs." }
 gh-deploy = { cmd = "mkdocs gh-deploy", help = "Publica páginas GitHub pages." }
+
+[tool.poetry]
+package-mode = false
