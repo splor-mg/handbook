@@ -65,7 +65,7 @@ Feitas essas ponderações, considerando que o **direito à intimidade** é de r
 > _XI - **anonimização:** utilização de meios técnicos razoáveis e disponíveis no momento do tratamento, por meio dos quais um dado perde a possibilidade de associação, direta ou indireta, a um indivíduo;_
 
 
-## Dados disponibilizados na receita
+## 🏦 Dados disponibilizados na receita
 
 São os seguintes dados disponibilizados da receita orçamentária pública:
 
@@ -93,6 +93,6 @@ São os seguintes dados disponibilizados da receita orçamentária pública:
 
   - **`Valor Efetivado Ajustado`:** valor, em reais, da receita orçamentária efetivada ajustada conforme mês de contabilização.
 
-## Conclusão
+## 🏁 Conclusão
 
 Em conclusão, a análise da base da receita pública orçamentária **indica que não há dados, sensíveis ou não, que necessitem de proteção, ocultação ou anonimização.** As informações contidas nessa base, como códigos de classificação da receita, valores previstos e contabilizados, e identificadores de unidades orçamentárias, são de natureza essencialmente técnica e institucional, não envolvendo dados pessoais ou sensíveis que possam comprometer a privacidade de indivíduos ou entidades. A publicização desses dados está alinhada com os princípios de transparência e acesso à informação, garantindo o controle social e a fiscalização dos recursos públicos sem infringir normas de proteção de dados. **Portanto, a base da receita pode ser disponibilizada integralmente, assegurando o equilíbrio entre a transparência e a conformidade com a legislação vigente.**
