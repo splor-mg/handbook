@@ -7,7 +7,7 @@ categories:
   - Dados Abertos MG
 ---
 
-# 🔓 Projeto de Abertura de Dados de Minas Gerais - Dados Abertos MG
+# 🔓 Projeto de Abertura de Dados de Orçamento e Planejamento de Minas Gerais - Dados Abertos MG
 
 A transparência e a acessibilidade são pilares fundamentais para a gestão pública moderna. Nesse contexto, o projeto de Dados Abertos de Minas Gerais tem como objetivo estruturar, padronizar e disponibilizar informações sobre planejamento e orçamento do Estado em formato aberto, seguindo as diretrizes da Lei de Acesso à Informação (Lei 12.527/2011). A iniciativa visa ampliar o acesso da sociedade a dados públicos, fomentar a participação cidadã e fornecer uma base confiável para análise e tomada de decisão por gestores e pesquisadores.
 
