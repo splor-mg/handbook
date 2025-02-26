@@ -14,8 +14,7 @@ A análise acerca da proteção de dados na publicação das bases da receita p�
 > 🧠 _"Em um mundo onde os dados são constantemente coletados, a privacidade se torna um pré-requisito para a liberdade. Sem ela, os indivíduos perdem a capacidade de moldar suas próprias vidas."_
 > – Shoshana Zuboff, The Age of Surveillance Capitalism (2019).
 
-
-
+Veja mais sobre o projeto [Dados Abertos MG](20250221_1_dados_abertos.md)
 
 <!-- more -->
 
