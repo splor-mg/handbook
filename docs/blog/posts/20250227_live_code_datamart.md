@@ -16,7 +16,7 @@ Nesses encontros de Webnar, embora a tecnologia seja um ponto de especial atenç
 
 <!-- more -->
 
-O encontro do dia 27/02/2025 demos sequência a apresentação da pesquisa sobre as ferramentas para criação criação do banco de dados orçamentários. Foram apresentados o pacote python `fastapi` e `pydentic` para requisções http e criação de modelos de resposta padronizados. Também foram apresentados a utilização do `poetry` e do `taskipy` para gestão de dependências python e conjunto de tarefas respectivamente.
+O encontro do dia 27/02/2025 demos sequência a apresentação da pesquisa sobre as ferramentas para criação criação do banco de dados orçamentários no projeto Datamart. Foram apresentados o pacote python `fastapi` e `pydentic` para requisções http e criação de modelos de resposta padronizados. Também foram apresentados a utilização do `poetry` e do `taskipy` para gestão de dependências python e conjunto de tarefas respectivamente.
 
 Confira a gravação do encontro :-)
 
