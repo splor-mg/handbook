@@ -7,7 +7,7 @@ categories:
   - Live Code - Volumes LOA
 ---
 
-# 📑 Live Code - Volumes LOA - Encontro 2025-02-26
+# 🚀 Live Code - Volumes LOA - Encontro 2025-02-26
 
 O projeto de live code envolvendo os volumes da LOA tem o objetivo tanto a revisão e reestruturação do projeto, bem como a disseminação e documentação dos conhecimentos gerados
 
