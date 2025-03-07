@@ -20,10 +20,10 @@ O encontro do dia 27/02/2025 demos sequência a apresentação da pesquisa sobre
 
 Confira a gravação do encontro :-)
 
-![type:video](https://youtu.be/M0hDETTgu5c)
+![type:video](https://www.youtube.com/embed/M0hDETTgu5c)
 
 ## Referências
 
-- [Curso FastAPI do Zero aula 3](https://fastapidozero.dunossauro.com/03/).
-- [taskipy](https://pypi.org/project/taskipy/
+- [Curso FastAPI do Zero aula 3](https://fastapidozero.dunossauro.com/03/)
+- [taskipy](https://pypi.org/project/taskipy/)
 - [poetry](https://python-poetry.org/)
