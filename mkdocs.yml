@@ -14,6 +14,9 @@ nav:
 theme:
   name: material
   language: pt
+  features:
+    - content.code.annotate
+    - content.tabs.link
 
 markdown_extensions:
   - admonition
@@ -34,6 +37,11 @@ markdown_extensions:
   - md_in_html
   - toc:
       permalink: ⚓︎
+  - pymdownx.tabbed:
+      alternate_style: true
+      slugify: !!python/object/apply:pymdownx.slugs.slugify
+        kwds:
+          case: lower
   - pymdownx.superfences:
       custom_fences:
         - name: mermaid
