@@ -21,17 +21,20 @@ O projeto de live code envolvendo os volumes da LOA tem como objetivos a revisã
 
   - **`renv::install()`**
   
-    **Instala um ou mais pacotes** no ambiente do projeto, podendo buscar de fontes como CRAN, GitHub, Bioconductor, entre outros. Utiliza um cache global para evitar downloads repetidos e otimizar a instalação. **Não altera automaticamente o `renv.lock`**, sendo **necessário um `renv::snapshot()`** para registrar a mudança. Diferencia-se do `restore` já que **não consulta o lockfile** (`renv.lock`) diretamente, apesar de poder impactá-lo ao adicionar pacotes que não estavam registrados. Ele também instala dependências definidas no arquivo `DESCRIPTION`.
+    **Instala um ou mais pacotes** no ambiente do projeto, podendo buscar de fontes como CRAN, GitHub, Bioconductor, entre outros. Utiliza um cache global para evitar downloads repetidos e otimizar a instalação. **Não altera automaticamente o `renv.lock`**, sendo **necessário um `renv::snapshot()`** para registrar a mudança. Diferencia-se do `restore` já que **não consulta o lockfile** (`renv.lock`) diretamente, apesar de poder impactá-lo ao **adicionar pacotes que não estavam registrados**. Ele também instala dependências definidas no arquivo `DESCRIPTION`.
 
   - **`renv::update()`**
 
     **Atualiza os pacotes do ambiente do projeto para suas versões mais recentes** disponíveis nos repositórios configurados. Isso pode incluir pacotes de CRAN, GitHub e outras fontes. Também pode atualizar o próprio renv. Após a atualização, recomenda-se testar o código e, caso esteja funcionando, é **necessário executar `renv::snapshot()`** para registrar as novas versões no `renv.lock`.
+    Esse comando verifica a atualização de todos os **pacotes instalados no ambiente, independentemente de estarem no `renv.lock` ou no `DESCRIPTION`.** Isto é, e um pacote estiver instalado, mas não registrado no `renv.lock`, ele ainda será atualizado.
 
   - **`renv::snapshot()`**
 
     **Atualiza o `renv.lock`** com metadados sobre os **pacotes instalados no ambiente do projeto**, garantindo que o estado atual possa ser reproduzido posteriormente com `renv::restore()`. Esse comando é essencial para controle de versões e colaboração, pois permite que outros usuários reconstruam o ambiente do projeto com as versões exatas dos pacotes.
 
 Por fim, identificamos uma dependência no pacote `readxl`, o `cpp11`, que é incompatível com a versão fixada do R (3.6.3). A versão [1.4.0](https://readxl.tidyverse.org/news/index.html#readxl-145) do `readxl` foi a que fez a transição do `Rcpp` para o `cpp11`.
+
+Uma das razões pelas quais a criação da imagem Docker não enfrentava esse problema anteriormente é a ausência de um gerenciamento de dependências mais robusto. Além disso, o `cpp11` é uma dependência do pacote `readxl`, o qual não era listado como dependência direta do datapackage `volumes-docker`. Isso permitia que o ambiente funcionasse sem conflitos, já que o readxl e suas dependências não eram explicitamente gerenciados ou verificados.
 
 
 🔍 Confira a gravação do encontro:
