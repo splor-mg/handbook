@@ -18,6 +18,7 @@ nav:
 theme:
   name: material
   language: pt
+  custom_dir: overrides
   features:
     # - announce.dismiss
     - content.action.edit
