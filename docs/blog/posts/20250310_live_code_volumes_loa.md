@@ -19,14 +19,17 @@ O projeto de live code envolvendo os volumes da LOA tem como objetivos a revisã
 
     **Instala os pacotes** no ambiente do projeto a partir do `renv.lock`, garantindo que as versões sejam exatamente as registradas no lockfile. Se um pacote já estiver instalado na versão correta, ele não será reinstalado. Esse comando é útil para reproduzir o ambiente de um projeto em outro sistema ou para reverter atualizações.
 
+
   - **`renv::install()`**
   
     **Instala um ou mais pacotes** no ambiente do projeto, podendo buscar de fontes como CRAN, GitHub, Bioconductor, entre outros. Utiliza um cache global para evitar downloads repetidos e otimizar a instalação. **Não altera automaticamente o `renv.lock`**, sendo **necessário um `renv::snapshot()`** para registrar a mudança. Diferencia-se do `restore` já que **não consulta o lockfile** (`renv.lock`) diretamente, apesar de poder impactá-lo ao **adicionar pacotes que não estavam registrados**. Ele também instala dependências definidas no arquivo `DESCRIPTION`.
+
 
   - **`renv::update()`**
 
     **Atualiza os pacotes do ambiente do projeto para suas versões mais recentes** disponíveis nos repositórios configurados. Isso pode incluir pacotes de CRAN, GitHub e outras fontes. Também pode atualizar o próprio renv. Após a atualização, recomenda-se testar o código e, caso esteja funcionando, é **necessário executar `renv::snapshot()`** para registrar as novas versões no `renv.lock`.
     Esse comando verifica a atualização de todos os **pacotes instalados no ambiente, independentemente de estarem no `renv.lock` ou no `DESCRIPTION`.** Isto é, e um pacote estiver instalado, mas não registrado no `renv.lock`, ele ainda será atualizado.
+
 
   - **`renv::snapshot()`**
 
