@@ -2,7 +2,7 @@
 comments: true
 ---
 
-# Linha do tempo
+# Linha do tempo 🕰️
 
 A linha do tempo[^1] é uma ferramenta estratégica desenvolvida para auxiliar na **gestão e visualização dos projetos** da SPLOR-MG. Ela tem como objetivo tanto simplificar o trabalho dos gestores ao organizar, de forma clara e cronológica, o histórico e o andamento dos projetos, como facilitar o acesso da população aos trabalhos desenvolvimentos no âmbito do Poder Público.
 
