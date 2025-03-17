@@ -13,7 +13,7 @@ O projeto de live code envolvendo os volumes da LOA tem como objetivos a revisã
 
 <!-- more -->
 
-[No encontro do dia 10/03](https://github.com/splor-mg/handbook/issues/51) revisamos alguns conceitos centrais, conforme [documentação](https://rstudio.github.io/renv/articles/renv.html), a saber: 
+[No encontro do dia 10/03](https://github.com/splor-mg/handbook/issues/51) revisamos alguns conceitos centrais, conforme [documentação](https://rstudio.github.io/renv/articles/renv.html), a saber:
 
   - **`renv::restore()`**
 
@@ -21,7 +21,7 @@ O projeto de live code envolvendo os volumes da LOA tem como objetivos a revisã
 
 
   - **`renv::install()`**
-  
+
     **Instala um ou mais pacotes** no ambiente do projeto, podendo buscar de fontes como CRAN, GitHub, Bioconductor, entre outros. Utiliza um cache global para evitar downloads repetidos e otimizar a instalação. **Não altera automaticamente o `renv.lock`**, sendo **necessário um `renv::snapshot()`** para registrar a mudança. Diferencia-se do `restore` já que **não consulta o lockfile** (`renv.lock`) diretamente, apesar de poder impactá-lo ao **adicionar pacotes que não estavam registrados**. Ele também instala dependências definidas no arquivo `DESCRIPTION`.
 
 
@@ -42,4 +42,4 @@ Uma das razões pelas quais a criação da imagem Docker não enfrentava esse pr
 
 🔍 Confira a gravação do encontro:
 
-![type:video](https://www.youtube.com/embed/watch?v=lqHMfwh_0pQ)
+![type:video](https://www.youtube.com/embed/lqHMfwh_0pQ)
