@@ -9,22 +9,20 @@
       
       
       
-        <link rel="prev" href="../dados-abertos-mg/">
+        <link rel="prev" href="../live-code-datamart-2---aula-3-fastapi-pydantic/">
       
       
-        <link rel="next" href="../live-code-datamart/">
       
-      
-      <link rel="icon" href="../../../assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.5">
     
     
       
-        <title>Live Code - Volumes LOA - Handbook Assessoria de Inteligência de Dados</title>
+        <title>🚀 Live Code - Volumes LOA - Encontro 2025-03-10 - Handbook Assessoria de Inteligência de Dados</title>
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.8608ea7d.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.8608ea7d.min.css">
       
       
 
@@ -43,7 +41,7 @@
       
     
     
-    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -62,7 +60,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#live-code-volumes-loa" class="md-skip">
+        <a href="#live-code-volumes-loa-encontro-2025-03-10" class="md-skip">
           Ir para o conteúdo
         </a>
       
@@ -78,7 +76,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
-    <a href="../../.." title="Handbook Assessoria de Inteligência de Dados" class="md-header__button md-logo" aria-label="Handbook Assessoria de Inteligência de Dados" data-md-component="logo">
+    <a href="../.." title="Handbook Assessoria de Inteligência de Dados" class="md-header__button md-logo" aria-label="Handbook Assessoria de Inteligência de Dados" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -98,7 +96,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Live Code - Volumes LOA
+              🚀 Live Code - Volumes LOA - Encontro 2025-03-10
             
           </span>
         </div>
@@ -176,7 +174,9 @@
           
             
               
-              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden>
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -185,7 +185,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navegação" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../.." title="Handbook Assessoria de Inteligência de Dados" class="md-nav__button md-logo" aria-label="Handbook Assessoria de Inteligência de Dados" data-md-component="logo">
+    <a href="../.." title="Handbook Assessoria de Inteligência de Dados" class="md-nav__button md-logo" aria-label="Handbook Assessoria de Inteligência de Dados" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -215,7 +215,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../.." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -271,12 +271,14 @@
                 
   
   
+    
+  
   
     
   
   
-    <li class="md-nav__item">
-      <a href="../../" class="md-nav__link">
+    <li class="md-nav__item md-nav__item--active">
+      <a href="../" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -295,19 +297,17 @@
                 
   
   
-    
   
   
-  
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
         
           
           <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
@@ -322,7 +322,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2_2">
             <span class="md-nav__icon md-icon"></span>
             Categorias
@@ -338,7 +338,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../dados-abertos-mg/" class="md-nav__link">
+      <a href="../category/dados-abertos-mg/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -357,35 +357,12 @@
                 
   
   
-    
-  
   
     
-      
-    
   
   
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Live Code - Volumes LOA
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../category/live-code---volumes-loa/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -395,44 +372,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Índice">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Índice
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#live-code-volumes-loa-encontro-2025-03-10" class="md-nav__link">
-    <span class="md-ellipsis">
-      🚀 Live Code - Volumes LOA - Encontro 2025-03-10
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#live-code-volumes-loa-encontro-2025-02-26" class="md-nav__link">
-    <span class="md-ellipsis">
-      🚀 Live Code - Volumes LOA - Encontro 2025-02-26
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -447,7 +386,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../live-code-datamart/" class="md-nav__link">
+      <a href="../category/live-code-datamart/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -471,7 +410,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../markdown/" class="md-nav__link">
+      <a href="../category/markdown/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -495,7 +434,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../o-futuro-j%C3%A1-come%C3%A7ou/" class="md-nav__link">
+      <a href="../category/o-futuro-j%C3%A1-come%C3%A7ou/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -519,7 +458,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../volumes-loa/" class="md-nav__link">
+      <a href="../category/volumes-loa/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -543,7 +482,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../webnar-intelig%C3%AAnciamg/" class="md-nav__link">
+      <a href="../category/webnar-intelig%C3%AAnciamg/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -581,6 +520,8 @@
             
             
               
+                
+              
               <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
@@ -593,32 +534,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Índice
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#live-code-volumes-loa-encontro-2025-03-10" class="md-nav__link">
-    <span class="md-ellipsis">
-      🚀 Live Code - Volumes LOA - Encontro 2025-03-10
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#live-code-volumes-loa-encontro-2025-02-26" class="md-nav__link">
-    <span class="md-ellipsis">
-      🚀 Live Code - Volumes LOA - Encontro 2025-02-26
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -626,118 +541,178 @@
             
           
           
-  <div class="md-content" data-md-component="content">
-    <div class="md-content__inner">
-      <header class="md-typeset">
-        <h1 id="live-code-volumes-loa">Live Code - Volumes LOA<a class="headerlink" href="#live-code-volumes-loa" title="Permanent link">⚓︎</a></h1>
-      </header>
-      
-        <article class="md-post md-post--excerpt">
-  <header class="md-post__header">
-    
-      <nav class="md-post__authors md-typeset">
-        
-          <span class="md-author">
-            <img src="https://avatars.githubusercontent.com/u/19910140" alt="Carlos Henrique de Oliveira Brochado">
-          </span>
-        
-      </nav>
-    
-    <div class="md-post__meta md-meta">
-      <ul class="md-meta__list">
-        <li class="md-meta__item">
-          <time datetime="2025-03-10 00:00:00+00:00">10 de março de 2025</time></li>
-        
-          <li class="md-meta__item">
-            em
+  <div class="md-content md-content--post" data-md-component="content">
+    <div class="md-sidebar md-sidebar--post" data-md-component="sidebar" data-md-type="navigation">
+      <div class="md-sidebar__scrollwrap">
+        <div class="md-sidebar__inner md-post">
+          <nav class="md-nav md-nav--primary">
+            <div class="md-post__back">
+              <div class="md-nav__title md-nav__container">
+                <a href="../" class="md-nav__link">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+                  <span class="md-ellipsis">
+                    Voltar ao índice
+                  </span>
+                </a>
+              </div>
+            </div>
             
-              <a href="./" class="md-meta__link">Live Code - Volumes LOA</a></li>
-        
-        
+              <div class="md-post__authors md-typeset">
+                
+                  <div class="md-profile md-post__profile">
+                    <span class="md-author md-author--long">
+                      <img src="https://avatars.githubusercontent.com/u/19910140" alt="Carlos Henrique de Oliveira Brochado">
+                    </span>
+                    <span class="md-profile__description">
+                      <strong>
+                        
+                          Carlos Henrique de Oliveira Brochado
+                        
+                      </strong>
+                      <br>
+                      Creator
+                    </span>
+                  </div>
+                
+              </div>
+            
+            <ul class="md-post__meta md-nav__list">
+              <li class="md-nav__item md-nav__item--section">
+                <div class="md-post__title">
+                  <span class="md-ellipsis">
+                    Metadados
+                  </span>
+                </div>
+                <nav class="md-nav">
+                  <ul class="md-nav__list">
+                    <li class="md-nav__item">
+                      <div class="md-nav__link">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5z"/></svg>
+                        <time datetime="2025-03-10 00:00:00+00:00" class="md-ellipsis">10 de março de 2025</time>
+                      </div>
+                    </li>
+                    
+                    
+                      <li class="md-nav__item">
+                        <div class="md-nav__link">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 3v15h3V3zm3 2 4 13 3-1-4-13zM5 5v13h3V5zM3 19v2h18v-2z"/></svg>
+                          <span class="md-ellipsis">
+                            em
+                            
+                              <a href="../category/live-code---volumes-loa/">Live Code - Volumes LOA</a></span>
+                        </div>
+                      </li>
+                    
+                    
+                      
+                      <li class="md-nav__item">
+                        <div class="md-nav__link">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20a8 8 0 0 0 8-8 8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8m0-18a10 10 0 0 1 10 10 10 10 0 0 1-10 10C6.47 22 2 17.5 2 12A10 10 0 0 1 12 2m.5 5v5.25l4.5 2.67-.75 1.23L11 13V7z"/></svg>
+                          <span class="md-ellipsis">
+                            
+                              2 min de leitura
+                            
+                          </span>
+                        </div>
+                      </li>
+                    
+                  </ul>
+                </nav>
+              </li>
+            </ul>
+            
+          </nav>
           
-          <li class="md-meta__item">
-            
-              2 min de leitura
-            
-          </li>
-        
-      </ul>
-      
+        </div>
+      </div>
     </div>
-  </header>
-  <div class="md-post__content md-typeset">
-    <h2 id="live-code-volumes-loa-encontro-2025-03-10"><a class="toclink" href="../../-live-code---volumes-loa---encontro-2025-03-10/">🚀 Live Code - Volumes LOA - Encontro 2025-03-10</a></h2>
-<p>O projeto de live code envolvendo os volumes da LOA tem como objetivos a revisão e reestruturação do projeto, além da disseminação e documentação dos conhecimentos gerados.</p>
-
-    
-      <nav class="md-post__action">
-        <a href="../../-live-code---volumes-loa---encontro-2025-03-10/">
-          Continuar leitura
-        </a>
-      </nav>
-    
-  </div>
-</article>
-      
-        <article class="md-post md-post--excerpt">
-  <header class="md-post__header">
-    
-      <nav class="md-post__authors md-typeset">
-        
-          <span class="md-author">
-            <img src="https://avatars.githubusercontent.com/u/19910140" alt="Carlos Henrique de Oliveira Brochado">
-          </span>
-        
-      </nav>
-    
-    <div class="md-post__meta md-meta">
-      <ul class="md-meta__list">
-        <li class="md-meta__item">
-          <time datetime="2025-02-26 00:00:00+00:00">26 de fevereiro de 2025</time></li>
-        
-          <li class="md-meta__item">
-            em
-            
-              <a href="./" class="md-meta__link">Live Code - Volumes LOA</a></li>
-        
-        
-          
-          <li class="md-meta__item">
-            
-              2 min de leitura
-            
-          </li>
-        
-      </ul>
-      
-    </div>
-  </header>
-  <div class="md-post__content md-typeset">
-    <h2 id="live-code-volumes-loa-encontro-2025-02-26"><a class="toclink" href="../../-live-code---volumes-loa---encontro-2025-02-26/">🚀 Live Code - Volumes LOA - Encontro 2025-02-26</a></h2>
-<p>O projeto de live code envolvendo os volumes da LOA tem o objetivo tanto a revisão e reestruturação do projeto, bem como a disseminação e documentação dos conhecimentos gerados.</p>
-
-    
-      <nav class="md-post__action">
-        <a href="../../-live-code---volumes-loa---encontro-2025-02-26/">
-          Continuar leitura
-        </a>
-      </nav>
-    
-  </div>
-</article>
-      
+    <article class="md-content__inner md-typeset">
       
         
-          
-
-
-
-<nav class="md-pagination">
   
-</nav>
-        
+
+
+
+  
+  
+
+
+<div><h1 id="live-code-volumes-loa-encontro-2025-03-10">🚀 Live Code - Volumes LOA - Encontro 2025-03-10<a class="headerlink" href="#live-code-volumes-loa-encontro-2025-03-10" title="Permanent link">⚓︎</a></h1>
+<p>O projeto de live code envolvendo os volumes da LOA tem como objetivos a revisão e reestruturação do projeto, além da disseminação e documentação dos conhecimentos gerados.</p>
+<!-- more -->
+
+<p><a href="https://github.com/splor-mg/handbook/issues/51">No encontro do dia 10/03</a> revisamos alguns conceitos centrais, conforme <a href="https://rstudio.github.io/renv/articles/renv.html">documentação</a>, a saber:</p>
+<ul>
+<li>
+<p><strong><code>renv::restore()</code></strong></p>
+<p><strong>Instala os pacotes</strong> no ambiente do projeto a partir do <code>renv.lock</code>, garantindo que as versões sejam exatamente as registradas no lockfile. Se um pacote já estiver instalado na versão correta, ele não será reinstalado. Esse comando é útil para reproduzir o ambiente de um projeto em outro sistema ou para reverter atualizações.</p>
+</li>
+<li>
+<p><strong><code>renv::install()</code></strong></p>
+<p><strong>Instala um ou mais pacotes</strong> no ambiente do projeto, podendo buscar de fontes como CRAN, GitHub, Bioconductor, entre outros. Utiliza um cache global para evitar downloads repetidos e otimizar a instalação. <strong>Não altera automaticamente o <code>renv.lock</code></strong>, sendo <strong>necessário um <code>renv::snapshot()</code></strong> para registrar a mudança. Diferencia-se do <code>restore</code> já que <strong>não consulta o lockfile</strong> (<code>renv.lock</code>) diretamente, apesar de poder impactá-lo ao <strong>adicionar pacotes que não estavam registrados</strong>. Ele também instala dependências definidas no arquivo <code>DESCRIPTION</code>.</p>
+</li>
+<li>
+<p><strong><code>renv::update()</code></strong></p>
+<p><strong>Atualiza os pacotes do ambiente do projeto para suas versões mais recentes</strong> disponíveis nos repositórios configurados. Isso pode incluir pacotes de CRAN, GitHub e outras fontes. Também pode atualizar o próprio renv. Após a atualização, recomenda-se testar o código e, caso esteja funcionando, é <strong>necessário executar <code>renv::snapshot()</code></strong> para registrar as novas versões no <code>renv.lock</code>.
+Esse comando verifica a atualização de todos os <strong>pacotes instalados no ambiente, independentemente de estarem no <code>renv.lock</code> ou no <code>DESCRIPTION</code>.</strong> Isto é, e um pacote estiver instalado, mas não registrado no <code>renv.lock</code>, ele ainda será atualizado.</p>
+</li>
+<li>
+<p><strong><code>renv::snapshot()</code></strong></p>
+<p><strong>Atualiza o <code>renv.lock</code></strong> com metadados sobre os <strong>pacotes instalados no ambiente do projeto</strong>, garantindo que o estado atual possa ser reproduzido posteriormente com <code>renv::restore()</code>. Esse comando é essencial para controle de versões e colaboração, pois permite que outros usuários reconstruam o ambiente do projeto com as versões exatas dos pacotes.</p>
+</li>
+</ul>
+<p>Por fim, identificamos uma dependência no pacote <code>readxl</code>, o <code>cpp11</code>, que é incompatível com a versão fixada do R (3.6.3). A versão <a href="https://readxl.tidyverse.org/news/index.html#readxl-145">1.4.0</a> do <code>readxl</code> foi a que fez a transição do <code>Rcpp</code> para o <code>cpp11</code>.</p>
+<p>Uma das razões pelas quais a criação da imagem Docker não enfrentava esse problema anteriormente é a ausência de um gerenciamento de dependências mais robusto. Além disso, o <code>cpp11</code> é uma dependência do pacote <code>readxl</code>, o qual não era listado como dependência direta do datapackage <code>volumes-docker</code>. Isso permitia que o ambiente funcionasse sem conflitos, já que o readxl e suas dependências não eram explicitamente gerenciados ou verificados.</p>
+<p>🔍 Confira a gravação do encontro:</p>
+<p><div class="video-container"><iframe src="https://www.youtube.com/embed/lqHMfwh_0pQ" style="position:relative;width:100%;height:22.172vw" frameborder="0" allowfullscreen alt="type:video"></iframe></div></p></div>
+
+
+
+
+
+
+
+  
+    
+  
+  
+    
+  
+
+
+  <aside class="md-source-file">
+    
       
-    </div>
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Última atualização">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">17 de março de 2025 19:32:54</span>
+  </span>
+
+    
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Criada">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">11 de março de 2025 20:58:35</span>
+  </span>
+
+    
+    
+    
+  </aside>
+
+
+
+  
+
+
+
+      
+    </article>
   </div>
 
           
@@ -770,10 +745,10 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "Mais 1 nesta p\u00e1gina", "search.result.more.other": "Mais # nesta p\u00e1gina", "search.result.none": "Nenhum resultado encontrado", "search.result.one": "1 resultado encontrado", "search.result.other": "# resultados encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "Mais 1 nesta p\u00e1gina", "search.result.more.other": "Mais # nesta p\u00e1gina", "search.result.none": "Nenhum resultado encontrado", "search.result.one": "1 resultado encontrado", "search.result.other": "# resultados encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.f1b6f286.min.js"></script>
+      <script src="../../assets/javascripts/bundle.f1b6f286.min.js"></script>
       
     
   </body>
