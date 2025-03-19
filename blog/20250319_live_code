@@ -1,0 +1,44 @@
+---
+date: 2025-03-18
+authors: [hslinhares]
+draft: false
+comments: true
+categories:
+  - Live Code
+---
+
+# Live Code
+
+A equipe da Assessoria de Inteligêcia de Dados acredita que o compartilhamento de conhecimento é central para que o desenvolvimento e consolidação de melhorias se tornem uma realidade nas mais diversas equipes e organizações.
+
+Nesses encontros de Webnar, embora a tecnologia seja um ponto de especial atenção, quando discutimos e compartilhamos conhecimentos e achados envolvendo ferramentas como Git, GitHub, Python, Power Automate, R, dentro outros, há abertura para temas outros que compõem desfios da Administração Pública e envolvam orçamento, finanças públicas, planejamento, controle, transparência e afins.
+
+
+<!-- more -->
+
+O encontro do dia 18/03/2025 mostramos sobre a manutenção do `relatório operacional` que utiliza a ferramenta de BI `Qliview` no servidor `200.198.9.184`
+Confira a gravação do encontro :-)
+
+### Assuntos tratados
+- Acesso ao servidor e aos paineis Qlikview da SPLOR-MG, especialmente Relatório Operacional
+  - Utilizar "Conexão Área de Trabalho Remota" e preencher os campos "Computador" ( 200.198.9.184) e "Nome de usuário" (VM13525\Administrator);
+- O Relatório Operacional se encontra em "E:dcgf/" e se alimenta de:
+  - [Pacotes de dados do SIAFI](https://github.com/splor-mg/dados-armazem-siafi-2025).
+  - [Tabelas auxiliares](https://github.com/splor-mg/dados-aux-classificadores).
+  - [Reestimativa](https://github.com/splor-mg/dados-reestimativa-2025).
+  - [Programações anuais](https://github.com/splor-mg/dados-programacoes-anuais-2025)
+  - [Dads Obz ](https://github.com/splor-mg/dados-obz-2025)
+  - [Agrupamentos DCMEFO](https://github.com/splor-mg/aux-agrupamento-dcmefo)
+- Atualização do painel (.qvw)
+  - Como o arquivo é grande, a atualização envolve esvaziar os dados antes do versionamento.
+  - Após o versionamento, realiza-se o "reload".
+- O **gerenciamento das licenças do Qlikview** acontece no repositório [controle-licencas-qlikview](https://github.com/[splor-mg/controle-licencas-qlikview)
+- Como identificar **problemas de execução da atualização no servidor**
+  - Incerteza sobre existir ou não arquivos de log, mas gera arquivos ".Shared" durante a execução
+  - Os arquivos de tarefa `.bat` fazem duas coisas:
+    - 1. atualiza as pastas de arquivos de dados, em "E: assessoria_dados/dados"
+    - 2. atualiza o próprio painel do Qlikview
+  - Uma das primeiras etapas é ver se o actions dos referidos datapackages rodou ou não
+
+
+![type:video](https://www.youtube.com/embed/QFiQQSQjFR4)
