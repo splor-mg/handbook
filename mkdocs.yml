@@ -5,15 +5,65 @@ repo_name: splor-mg/handbook
 repo_url: https://github.com/splor-mg/handbook
 edit_uri: edit/main/docs/
 
+# --8<-- [start:nav]
 nav:
   - index.md
   - Blog:
     - blog/index.md
+  - Linha do Tempo:
+    - linha_do_tempo/index.md
+    - Projeto Dados Abertos MG: linha_do_tempo/projeto_dados_abertos_mg.md
+# --8<-- [end:nav]
 
 # Configuration
 theme:
   name: material
   language: pt
+  custom_dir: overrides
+  features:
+    # - announce.dismiss
+    - content.action.edit
+    - content.action.view
+    - navigation.footer
+    - content.code.annotate
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.indexes
+    # - content.tabs.link
+    - content.tooltips
+    # - header.autohide
+    # - navigation.expand
+    - navigation.indexes
+    # - navigation.instant
+    # - navigation.prune
+    # - navigation.sections
+    - navigation.top
+    - navigation.tracking
+    - search.highlight
+    - search.share
+    - search.suggest
+    - toc.follow
+    # - toc.integrate
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  font:
+    text: Roboto
+    code: Roboto Mono
+  favicon: assets/favicon.png
+  icon:
+    logo: logo
+
 
 markdown_extensions:
   - admonition
@@ -46,6 +96,27 @@ markdown_extensions:
       url_download: true
       auto_append:
         - abbreviations.md
+
+extra_css:
+  - assets/style.css
+  - https://unpkg.com/mermaid@10.4.0/dist/mermaid.css
+extra_javascript:
+  - assets/style.js
+  - https://unpkg.com/mermaid@10.4.0/dist/mermaid.min.js
+version:
+    provider: mike
+
+extra:
+  social: # Footer
+    - icon: fontawesome/solid/diagram-project
+      name: Projeto Automatiza-MG
+      link: https://automatiza-mg.github.io/automatizacoes/
+    - icon: fontawesome/brands/youtube
+      name: Canal automatiza-mg no YouTube.
+      link: https://www.youtube.com/@automatiza-mg
+    - icon: fontawesome/solid/flag
+      name: Material for MkDocs Icons, Emojis.
+      link: https://squidfunk.github.io/mkdocs-material/reference/icons-emojis/#search
 
 plugins:
   - git-revision-date-localized:
