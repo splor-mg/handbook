@@ -22,4 +22,4 @@ Para o dia seguimos na tentativa de resolver a incompatibilidade do pacote `cpp1
 
 🔍 Confira a gravação do encontro:
 
-![type:video](https://www.youtube.com/embed/watch?v=CQFdfFHoKgM)
+![type:video](https://www.youtube.com/embed/CQFdfFHoKgM)
