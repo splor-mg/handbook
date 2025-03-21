@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../gerenciamento-de-depend%C3%AAncias-em-python-com-poetry-2/">
+        <link rel="prev" href="../publica%C3%A7%C3%A3o-volumes-loa---parte-1/">
       
       
-        <link rel="next" href="../-projeto-de-abertura-de-dados-de-or%C3%A7amento-e-planejamento-de-minas-gerais---dados-abertos-mg/">
+        <link rel="next" href="../-publica%C3%A7%C3%A3o-das-bases-da-receita---an%C3%A1lise-sobre-prote%C3%A7%C3%A3o-de-dados/">
       
       
       <link rel="icon" href="../../assets/favicon.png">
@@ -20,7 +20,7 @@
     
     
       
-        <title>📑 Publicação das Bases da Receita - Análise sobre Proteção de Dados - Handbook Assessoria de Inteligência de Dados</title>
+        <title>Gerenciamento de Dependências em Python com Poetry 2+ - Handbook Assessoria de Inteligência de Dados</title>
       
     
     
@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#publicacao-das-bases-da-receita-analise-sobre-protecao-de-dados" class="md-skip">
+        <a href="#gerenciamento-de-dependencias-em-python-com-poetry-2" class="md-skip">
           Ir para o conteúdo
         </a>
       
@@ -117,7 +117,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              📑 Publicação das Bases da Receita - Análise sobre Proteção de Dados
+              Gerenciamento de Dependências em Python com Poetry 2+
             
           </span>
         </div>
@@ -825,28 +825,37 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#estudo-sobre-dados-sensiveis" class="md-nav__link">
+  <a href="#o-que-e-o-poetry" class="md-nav__link">
     <span class="md-ellipsis">
-      🎓 Estudo Sobre Dados Sensíveis
+      O que é o Poetry?
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="🎓 Estudo Sobre Dados Sensíveis">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#diferencas-entre-poetry-e-pip" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diferenças entre Poetry e Pip
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Diferenças entre Poetry e Pip">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#cnpj-e-dados-de-pessoa-juridica" class="md-nav__link">
+  <a href="#pip" class="md-nav__link">
     <span class="md-ellipsis">
-      📂 CNPJ e Dados de Pessoa Jurídica
+      Pip
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#nome-e-cpf-de-pessoas-fisicas-beneficiadas-com-pagamentos-publicos" class="md-nav__link">
+  <a href="#poetry" class="md-nav__link">
     <span class="md-ellipsis">
-      👤 Nome e CPF de Pessoas Físicas Beneficiadas com Pagamentos Públicos
+      Poetry
     </span>
   </a>
   
@@ -858,9 +867,87 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#dados-disponibilizados-na-receita" class="md-nav__link">
+  <a href="#como-utilizar-o-poetry" class="md-nav__link">
     <span class="md-ellipsis">
-      🏦 Dados disponibilizados na receita
+      Como Utilizar o Poetry
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Como Utilizar o Poetry">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#instalacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Instalação
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#criando-um-novo-projeto" class="md-nav__link">
+    <span class="md-ellipsis">
+      Criando um Novo Projeto
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inicializando-o-poetry-em-um-projeto-existente" class="md-nav__link">
+    <span class="md-ellipsis">
+      Inicializando o Poetry em um Projeto Existente
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#instalando-dependencias-clone-de-um-repositorio-ja-existente" class="md-nav__link">
+    <span class="md-ellipsis">
+      Instalando Dependências (clone de um repositório já existente)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adicionando-dependencias" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adicionando Dependências
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#executando-o-ambiente-virtual" class="md-nav__link">
+    <span class="md-ellipsis">
+      Executando o Ambiente Virtual
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#outros-comando-interessantes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Outros comando interessantes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#topicos-adicionais-importantes-para-pesquisa" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tópicos Adicionais Importantes para pesquisa
     </span>
   </a>
   
@@ -869,7 +956,16 @@
         <li class="md-nav__item">
   <a href="#conclusao" class="md-nav__link">
     <span class="md-ellipsis">
-      🏁 Conclusão
+      Conclusão
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#referencias" class="md-nav__link">
+    <span class="md-ellipsis">
+      Referências
     </span>
   </a>
   
@@ -904,12 +1000,27 @@
                 
                   <div class="md-profile md-post__profile">
                     <span class="md-author md-author--long">
-                      <img src="https://avatars.githubusercontent.com/u/19910140" alt="Carlos Henrique de Oliveira Brochado">
+                      <img src="https://avatars.githubusercontent.com/u/49699290" alt="Gabriel Braico Dornas">
                     </span>
                     <span class="md-profile__description">
                       <strong>
                         
-                          Carlos Henrique de Oliveira Brochado
+                          Gabriel Braico Dornas
+                        
+                      </strong>
+                      <br>
+                      Creator
+                    </span>
+                  </div>
+                
+                  <div class="md-profile md-post__profile">
+                    <span class="md-author md-author--long">
+                      <img src="https://avatars.githubusercontent.com/u/43452663" alt="Henrique de Souza Linhares">
+                    </span>
+                    <span class="md-profile__description">
+                      <strong>
+                        
+                          Henrique de Souza Linhares
                         
                       </strong>
                       <br>
@@ -942,7 +1053,7 @@
                           <span class="md-ellipsis">
                             em
                             
-                              <a href="../category/dados-abertos-mg/">Dados Abertos MG</a></span>
+                              <a href="../category/webnar-intelig%C3%AAnciamg/">Webnar Inteligência.MG</a></span>
                         </div>
                       </li>
                     
@@ -953,7 +1064,7 @@
                           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20a8 8 0 0 0 8-8 8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8m0-18a10 10 0 0 1 10 10 10 10 0 0 1-10 10C6.47 22 2 17.5 2 12A10 10 0 0 1 12 2m.5 5v5.25l4.5 2.67-.75 1.23L11 13V7z"/></svg>
                           <span class="md-ellipsis">
                             
-                              4 min de leitura
+                              6 min de leitura
                             
                           </span>
                         </div>
@@ -977,7 +1088,7 @@
 
 
   
-    <a href="https://github.com/splor-mg/handbook/edit/main/docs/blog/posts/20250221_2_publicacao_receita_protecao-dados.md" title="Editar esta página" class="md-content__button md-icon">
+    <a href="https://github.com/splor-mg/handbook/edit/main/docs/blog/posts/20250221_poetry.md" title="Editar esta página" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -986,94 +1097,185 @@
     
       
     
-    <a href="https://github.com/splor-mg/handbook/raw/main/docs/blog/posts/20250221_2_publicacao_receita_protecao-dados.md" title="Ver fonte desta página" class="md-content__button md-icon">
+    <a href="https://github.com/splor-mg/handbook/raw/main/docs/blog/posts/20250221_poetry.md" title="Ver fonte desta página" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"/></svg>
     </a>
   
 
 
-<div><h1 id="publicacao-das-bases-da-receita-analise-sobre-protecao-de-dados">📑 Publicação das Bases da Receita - Análise sobre Proteção de Dados<a class="headerlink" href="#publicacao-das-bases-da-receita-analise-sobre-protecao-de-dados" title="Permanent link">⚓︎</a></h1>
-<p>A análise acerca da proteção de dados na publicação das bases da receita pública orçamentária tem como objetivo identificar e mitigar riscos relacionados à exposição de informações sensíveis, garantindo a conformidade com as normas de privacidade e transparência. Esse processo envolve a avaliação criteriosa dos dados a serem disponibilizados, assegurando que nenhuma informação que possa comprometer a privacidade de indivíduos ou entidades seja divulgada indevidamente. A implementação de mecanismos de anonimização e controle é essencial para equilibrar a abertura de dados com a segurança das informações, promovendo o acesso público sem comprometer direitos fundamentais.</p>
-<blockquote>
-<p>🧠 <em>"Em um mundo onde os dados são constantemente coletados, a privacidade se torna um pré-requisito para a liberdade. Sem ela, os indivíduos perdem a capacidade de moldar suas próprias vidas."</em>
-– Shoshana Zuboff, The Age of Surveillance Capitalism (2019).</p>
-</blockquote>
-<p>Veja mais sobre o projeto <a href="../-projeto-de-abertura-de-dados-de-or%C3%A7amento-e-planejamento-de-minas-gerais---dados-abertos-mg/">Dados Abertos MG</a></p>
+<div><h1 id="gerenciamento-de-dependencias-em-python-com-poetry-2">Gerenciamento de Dependências em Python com Poetry 2+<a class="headerlink" href="#gerenciamento-de-dependencias-em-python-com-poetry-2" title="Permanent link">⚓︎</a></h1>
+<p>O <a href="https://python-poetry.org/docs/">Poetry</a> é uma ferramentas Python para, entre outros, realizar gerenciamento de dependências e publicação de pacotes.
+Para mim, ele se consolida a cada dia como uma alternativa robusta ao uso tradicional do <code>pip</code> e <code>virtualenv</code>, oferecendo uma solução integrada e mais eficiente para nossos projetos.</p>
 <!-- more -->
 
-<h2 id="estudo-sobre-dados-sensiveis">🎓  Estudo Sobre Dados Sensíveis<a class="headerlink" href="#estudo-sobre-dados-sensiveis" title="Permanent link">⚓︎</a></h2>
-<p>As principais normas que regulamentam a publicização de dados são:</p>
+<p>🚨 Vamos tratar mais a fundo aqui apenas das funcionalidades de gerenciamento de dependências, podendo as opções referentes a publicação de pacotes serem tratado em outro Post.</p>
+<h2 id="o-que-e-o-poetry">O que é o Poetry?<a class="headerlink" href="#o-que-e-o-poetry" title="Permanent link">⚓︎</a></h2>
+<p>O Poetry é uma ferramenta que simplifica a gestão de dependências e ambientes virtuais em projetos Python.
+Ele resolve automaticamente versões de pacotes, cria ambientes isolados e facilita a publicação de bibliotecas no <a href="https://pypi.org/">PyPI</a>.
+Além disso, sua abordagem baseada no arquivo <code>pyproject.toml</code> proporciona um gerenciamento mais organizado e replicável de nossos projetos.</p>
+<h2 id="diferencas-entre-poetry-e-pip">Diferenças entre Poetry e Pip<a class="headerlink" href="#diferencas-entre-poetry-e-pip" title="Permanent link">⚓︎</a></h2>
+<h3 id="pip">Pip<a class="headerlink" href="#pip" title="Permanent link">⚓︎</a></h3>
+<ol>
+<li>
+<p class="annotate">Usa arquivos <code>requirements.txt</code> para definir dependências. (1)</p>
+<ol>
+<li>
+<p><img alt="🙋‍♂️" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f64b-200d-2642-fe0f.svg" title=":man_raising_hand:"> Para instalar todas as dependências listadas em um arquivo <code>requirements.txt</code> você deve primeiro criar e ativar um ambiente virtual Python utilizando o módulo <code>venv</code>:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Criação ambiente virtual Python Linux Ubuntu</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">python3</span> <span class="o">-</span><span class="n">m</span> <span class="n">venv</span> <span class="n">venv</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># Criação ambiente virtual Python Windows</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">venv</span> <span class="n">venv</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="c1"># Ativação ambiente virtual Python Linux Ubuntu</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="n">source</span> <span class="n">venv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">activate</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="c1"># Ativação ambiente virtual Python Windows</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="n">source</span> <span class="n">venv</span><span class="o">/</span><span class="n">Scripts</span><span class="o">/</span><span class="n">activate</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="c1"># Instalação pacotes Linux e Windows</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">r</span> <span class="n">requirements</span><span class="o">.</span><span class="n">txt</span>
+</span></code></pre></div>
+</li>
+</ol>
+</li>
+<li>
+<p>Requer o uso separado de <code>virtualenv</code> ou <code>venv</code> para criar ambientes isolados.</p>
+</li>
+<li>Não possui um gerenciador de versões embutido.</li>
+</ol>
+<h3 id="poetry">Poetry<a class="headerlink" href="#poetry" title="Permanent link">⚓︎</a></h3>
 <ul>
-<li><strong>📜 Lei da Transparência</strong> - <a href="https://www.planalto.gov.br/ccivil_03/leis/lcp/lcp131.htm">Lei Complementar Federal n. 131, de 27 de maio de 2009</a>  </li>
-<li><strong>📜 Lei de Acesso à Informação (LAI)</strong> - <a href="https://www.planalto.gov.br/ccivil_03/_ato2011-2014/2011/lei/l12527.htm">Lei Federal n. 12.527, de 18 de novembro de 2011</a>  </li>
-<li><strong>📜 Decreto de Acesso à Informação (DAI)</strong> - <a href="https://www.planalto.gov.br/ccivil_03/_ato2011-2014/2012/decreto/d7724.htm">Decreto Federal n. 7.724, de 16 de maio de 2012</a>  </li>
-<li><strong>📜 Lei Geral de Proteção de Dados (LGPD)</strong> - <a href="https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm">Lei Federal n. 13.709, de 14 de agosto de 2018</a>  </li>
+<li>Utiliza <code>pyproject.toml</code> para definir dependências, tornando a configuração mais estruturada.</li>
+<li>Gerencia ambientes virtuais automaticamente.</li>
+<li>Possui resolução de dependências mais eficiente.</li>
+<li>Facilita a publicação de pacotes Python sem necessidade de comandos extras.</li>
 </ul>
-<hr>
-<h3 id="cnpj-e-dados-de-pessoa-juridica">📂 CNPJ e Dados de Pessoa Jurídica<a class="headerlink" href="#cnpj-e-dados-de-pessoa-juridica" title="Permanent link">⚓︎</a></h3>
-<p>O CNPJ é um dado público por natureza, conforme estabelecido pela <a href="https://www.planalto.gov.br/ccivil_03/leis/l8934.htm">Lei nº 8.934/1994</a>, que regula o Cadastro Nacional da Pessoa Jurídica (CNPJ). Portanto, a publicização do CNPJ de empresas que recebem pagamentos do Estado é permitida, desde que esteja relacionada à execução orçamentária e à transparência das despesas públicas.</p>
-<blockquote>
-<p><a href="https://www.planalto.gov.br/ccivil_03/_ato2011-2014/2012/decreto/d7724.htm">DAI</a></p>
-<p><em>Art. 7º É dever dos órgãos e entidades promover, independente de requerimento, a divulgação em seus sítios na Internet de informações de interesse coletivo ou geral por eles produzidas ou custodiadas, observado o disposto nos arts. 7º e 8º da Lei nº 12.527, de 2011.</em></p>
-<p><em>(...)</em></p>
-<p><em>V - licitações realizadas e em andamento, com editais, anexos e resultados, além dos <strong>contratos firmados e notas de empenho</strong> emitidas; (...)</em></p>
-</blockquote>
-<hr>
-<h3 id="nome-e-cpf-de-pessoas-fisicas-beneficiadas-com-pagamentos-publicos">👤 Nome e CPF de Pessoas Físicas Beneficiadas com Pagamentos Públicos<a class="headerlink" href="#nome-e-cpf-de-pessoas-fisicas-beneficiadas-com-pagamentos-publicos" title="Permanent link">⚓︎</a></h3>
-<p>A publicação de nomes e CPF de pessoas físicas que foram destinatárias de pagamentos públicos é um tema sensível, já que, enquanto exercentes de sua cidadania, seus dados pessoais têm proteção garantida pela LGPD e o direito à privacidade previsto na Constituição Federal.</p>
-<p>No entanto, ainda assim, <strong>não é consensual</strong> a proibição de publicação dessa informação caso a pessoa física seja contratante com a Administração Pública ou a ela vinculada.</p>
-<p>Feitas essas ponderações, considerando que o <strong>direito à intimidade</strong> é de relevante proteção no ordenamento jurídico brasileiro, acredito que o mais sensato seja um comportamento mais conservador em relação à proteção de um dado pessoal, sensível ou não. Portanto, entendo que devemos cuidar ou da <strong>ocultação</strong> ou da <strong>anonimização</strong> do nome e do CPF — a menos que haja um caso concreto sobre o qual seja aplicável base legal específica que autorize/determine a sua publicação.</p>
-<blockquote>
-<p><a href="https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm">LGPD</a></p>
-<p><em>Art. 5º Para os fins desta Lei, considera-se:</em></p>
-<p><em>I - <strong>dado pessoal:</strong> informação relacionada a pessoa natural identificada ou identificável;</em></p>
-<p><em>II - <strong>dado pessoal sensível:</strong> dado pessoal sobre origem racial ou étnica, convicção religiosa, opinião política, filiação a sindicato ou a organização de caráter religioso, filosófico ou político, dado referente à saúde ou à vida sexual, dado genético ou biométrico, quando vinculado a uma pessoa natural;</em></p>
-<p><em>(...)</em></p>
-<p><em>XI - <strong>anonimização:</strong> utilização de meios técnicos razoáveis e disponíveis no momento do tratamento, por meio dos quais um dado perde a possibilidade de associação, direta ou indireta, a um indivíduo;</em></p>
-</blockquote>
-<h2 id="dados-disponibilizados-na-receita">🏦 Dados disponibilizados na receita<a class="headerlink" href="#dados-disponibilizados-na-receita" title="Permanent link">⚓︎</a></h2>
-<p>São os seguintes dados disponibilizados da receita orçamentária pública:</p>
+<h2 id="como-utilizar-o-poetry">Como Utilizar o Poetry<a class="headerlink" href="#como-utilizar-o-poetry" title="Permanent link">⚓︎</a></h2>
+<h3 id="instalacao">Instalação<a class="headerlink" href="#instalacao" title="Permanent link">⚓︎</a></h3>
+<p><a href="https://python-poetry.org/docs/#installing-with-pipx">A primeira maneira sugerida pela documentação oficial</a> é utilizando o <a href="https://pipx.pypa.io/stable/installation/">pipx</a>:</p>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>pipx<span class="w"> </span>install<span class="w"> </span>poetry
+</span></code></pre></div>
+<h3 id="criando-um-novo-projeto">Criando um Novo Projeto<a class="headerlink" href="#criando-um-novo-projeto" title="Permanent link">⚓︎</a></h3>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>poetry<span class="w"> </span>new<span class="w"> </span>meu_projeto
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nb">cd</span><span class="w"> </span>meu_projeto
+</span></code></pre></div>
+<details class="note">
+<summary>Isso cria um diretório com a estrutura padrão de um pacote Python, incluindo <code>pyproject.toml</code>:</summary>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>meu-projeto
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>├──<span class="w"> </span>pyproject.toml
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>├──<span class="w"> </span>README.md
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>├──<span class="w"> </span>meu_projeto
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>│<span class="w">   </span>└──<span class="w"> </span>__init__.py
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>└──<span class="w"> </span>tests
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">    </span>└──<span class="w"> </span>__init__.py
+</span></code></pre></div>
+</details>
+<h3 id="inicializando-o-poetry-em-um-projeto-existente">Inicializando o Poetry em um Projeto Existente<a class="headerlink" href="#inicializando-o-poetry-em-um-projeto-existente" title="Permanent link">⚓︎</a></h3>
+<p>Se você já tem um projeto (repositório), e deseja incluir o Poetry criando o arquivo <code>pyproject.toml</code>, basta rodar:</p>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>poetry<span class="w"> </span>init<span class="w"> </span><span class="c1"># (1)!</span>
+</span></code></pre></div>
+<ol>
+<li><img alt="🙋‍♂️" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f64b-200d-2642-fe0f.svg" title=":man_raising_hand:"> O assistente iterativo ajudará a configurar o novo arquivo <code>pyproject.toml</code> que será incluído no projeto.
+Se quiser que o arquivo seja gerado sem essa iteração basta incluir a flag <code>-n</code> no comando (<code>poetry init -n</code>).</li>
+</ol>
+<h3 id="instalando-dependencias-clone-de-um-repositorio-ja-existente">Instalando Dependências (clone de um repositório já existente)<a class="headerlink" href="#instalando-dependencias-clone-de-um-repositorio-ja-existente" title="Permanent link">⚓︎</a></h3>
+<p>Se você já tem um projeto (repositório) que usa o Poetry (ou já contém o arquivo <code>pyproject.toml</code>) e deseja realizar o setup do mesmo em outro computador, basta rodar:</p>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>poetry<span class="w"> </span>install
+</span></code></pre></div>
+<p>O Poetry, então, seguirá a seguinte lógica:</p>
+<ol>
+<li><strong>Se o arquivo <code>poetry.lock</code> existir</strong> no repositório, serão instaladas as dependências exatamente nas versões especificadas nele, garantindo um ambiente reprodutível.</li>
+<li><strong>Se <code>poetry.lock</code> não existir</strong>, ele resolve as dependências a partir do <code>pyproject.toml</code>, gera o <code>poetry.lock</code> e então instala os pacotes.</li>
+</ol>
+<p>Agora, se o <code>pyproject.toml</code> foi modificado e você deseja ignorar essas alterações e instalar <strong>somente</strong> o que está no <code>poetry.lock</code>, você pode usar:</p>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>poetry<span class="w"> </span>install<span class="w"> </span>--no-root
+</span></code></pre></div>
+<p>Isso evita a reinstalação do próprio projeto no ambiente virtual e foca apenas nas dependências.</p>
+<p>Se precisar de mais controle, há também o comando:</p>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>poetry<span class="w"> </span>lock<span class="w"> </span>--no-update
+</span></code></pre></div>
+<p>Ele garante que o <code>poetry.lock</code> não seja modificado antes de uma instalação.
+Assim, quando você rodar <code>poetry install</code>, as dependências serão mantidas exatamente como estão no lockfile. 😊</p>
+<h3 id="adicionando-dependencias">Adicionando Dependências<a class="headerlink" href="#adicionando-dependencias" title="Permanent link">⚓︎</a></h3>
+<p>Para adicionar um pacote ao projeto:</p>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>poetry<span class="w"> </span>add<span class="w"> </span>requests<span class="w"> </span><span class="c1"># (1)!</span>
+</span></code></pre></div>
+<ol>
+<li><img alt="🙋‍♂️" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f64b-200d-2642-fe0f.svg" title=":man_raising_hand:"> O comando <code>poetry add</code>, além de adicionar o pacote nos arquivos <code>pyproject.toml</code> e <code>poetry.lock</code> ele também o instala.
+Se quiser que não instale mas somente insira nos arquivos <code>pyproject.toml</code> e <code>poetry.lock</code> utilize a flag <code>--lock</code> (<code>poetry add requests --lock</code>).</li>
+</ol>
+<p>Se for uma dependência de desenvolvimento:</p>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>poetry<span class="w"> </span>add<span class="w"> </span>pytest<span class="w"> </span>--group<span class="w"> </span><span class="nb">test</span>
+</span></code></pre></div>
+<h3 id="executando-o-ambiente-virtual">Executando o Ambiente Virtual<a class="headerlink" href="#executando-o-ambiente-virtual" title="Permanent link">⚓︎</a></h3>
+<p>O comando <code>poetry env activate</code> printa na tela o caminho para ativação de seu ambiente virtual, <strong>mas não o ativa</strong>.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked id="código" name="__tabbed_1" type="radio"><input id="resultado" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="código">Código</label><label for="resultado">Resultado</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-python highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="n">poetry</span> <span class="n">env</span> <span class="n">activate</span>
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="language-python highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="n">source</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">gabrielbdornas</span><span class="o">/</span><span class="n">code</span><span class="o">/</span><span class="n">splor</span><span class="o">-</span><span class="n">mg</span><span class="o">/</span><span class="n">handbook</span><span class="o">/.</span><span class="n">venv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">activate</span> <span class="c1"># (1)!</span>
+</span></code></pre></div>
+<ol>
+<li><img alt="🙋‍♂️" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f64b-200d-2642-fe0f.svg" title=":man_raising_hand:"> Para <a href="https://python-poetry.org/docs/main/configuration#virtualenvsin-project">criar o ambiente virtual dentro do seu projeto</a> é necessário configurar a variável Poetry <code>virtualenvs.in-project</code> para <code>true</code>. Toda documentação de configuração Poetry pode ser encontrada <a href="https://python-poetry.org/docs/main/configuration">aqui</a>. Para acessar a lista das configurações de sua instalção Poetry basta utilizar o comando <code>poetry config --list</code>.</li>
+</ol>
+</div>
+</div>
+</div>
+<p class="annotate"><a href="https://python-poetry.org/docs/main/managing-environments#activating-the-environment">A documentação sugere</a> que vocë pode usar o resultado deste comando para ativar o ambiente manualmente ou alimentar o comando <code>eval()</code> para esta ativação(1).</p>
+<ol>
+<li><img alt="🙋‍♂️" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f64b-200d-2642-fe0f.svg" title=":man_raising_hand:"> <a href="https://python-poetry.org/docs/managing-environments/#activating-the-environment">Versões anteriores do Poetry</a> utilizavam o comando <code>poetry shell</code> para ativação do ambiente virtual.</li>
+</ol>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="nb">eval</span><span class="w"> </span><span class="k">$(</span>poetry<span class="w"> </span>env<span class="w"> </span>activate<span class="k">)</span><span class="w"> </span><span class="c1"># (1)!</span>
+</span></code></pre></div>
+<ol>
+<li><img alt="🙋‍♂️" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f64b-200d-2642-fe0f.svg" title=":man_raising_hand:"> O comando <code>eval $(poetry env activate)</code> interpreta e executa o comando de ativação do ambiente virtual dentro do próprio terminal.
+  Ele pega um comando passado como argumento, no nosso caso <code>poetry env activate</code>, e o executa.
+  Ou seja, ele não ativa o ambiente diretamente, mas retorna a string com o comando de ativação correto para o terminal que você está usando (por exemplo, <code>source /caminho/do/venv/bin/activate</code>).
+  O terminal então executa a saída do comando <code>poetry env activate</code>, ativando o ambiente virtual sem iniciar um novo subprocesso.
+  Isso evita que você tenha que copiar e colar manualmente o comando de ativação.</li>
+</ol>
+<h2 id="outros-comando-interessantes">Outros comando interessantes<a class="headerlink" href="#outros-comando-interessantes" title="Permanent link">⚓︎</a></h2>
+<ol>
+<li><code>poetry list</code>: mostra todos os comandos Poetry disponíves.</li>
+<li><code>poetry show</code>: mostra os pacotes instalados.</li>
+</ol>
+<h2 id="topicos-adicionais-importantes-para-pesquisa">Tópicos Adicionais Importantes para pesquisa<a class="headerlink" href="#topicos-adicionais-importantes-para-pesquisa" title="Permanent link">⚓︎</a></h2>
+<ol>
+<li>
+<p><strong>Destaque para o suporte a múltiplas versões do Python</strong>: O Poetry pode gerenciar diferentes versões do Python de forma mais eficiente quando integrado ao <a href="https://github.com/pyenv/pyenv">Pyenv</a>.</p>
+</li>
+<li>
+<p><strong>Melhoria na explicação sobre <code>poetry.lock</code></strong>: Entender melhor seu funcionamento e como os processos de atualização podem impactar um projeto.</p>
+</li>
+<li>
+<p><strong>Seção sobre <code>poetry export</code></strong>: O Poetry permite exportar dependências para um formato compatível com <code>pip</code> com o comando <code>poetry export -f requirements.txt --output requirements.txt</code>.
+Isso pode ser útil para ambientes onde o Poetry não está instalado.</p>
+</li>
+<li>
+<p><strong>Dicas sobre troubleshooting</strong>: Algumas pessoas podem enfrentar problemas ao rodar <code>poetry install</code>, especialmente com dependências conflitantes.</p>
+</li>
+<li>
+<p><strong>Poetry e GitHub Actions</strong>: Automatização de atualização dos pacotes utilizando <a href="https://github.com/fuzzylabs/gha-poetry-update">GitHub Actions</a>.</p>
+</li>
+<li>
+<p><strong>Publicação de pacotes</strong>: Como dito no início, podemos utilizar o Poetry para publicação de pacotes Python.
+Entender bem este funcionamento, bem como a <a href="https://python-poetry.org/docs/main/pyproject#package-mode">exclusão desta funcionalidade</a> caso necessário também é interessante.</p>
+</li>
+</ol>
+<h2 id="conclusao">Conclusão<a class="headerlink" href="#conclusao" title="Permanent link">⚓︎</a></h2>
+<p>Com o Poetry 2+, gerenciar dependências se tornou mais intuitivo e confiável, tornando essa ferramenta uma excelente escolha para projetos Python de qualquer tamanho.
+A combinação de um gerenciamento estruturado, resolução eficiente de dependências e integração com PyPI e Pyenv torna o Poetry indispensável para desenvolvedores que buscam produtividade e consistência em seus projetos.
+Se você ainda não experimentou o Poetry, vale a pena adotá-lo para melhorar seu fluxo de trabalho e garantir um ambiente mais organizado e previsível.</p>
+<h2 id="referencias">Referências<a class="headerlink" href="#referencias" title="Permanent link">⚓︎</a></h2>
 <ul>
-<li>
-<p><strong><code>Ano de Exercício</code>:</strong> ano de exercício do orçamento fiscal.</p>
-</li>
-<li>
-<p><strong><code>Mês - Numérico</code>:</strong> mês numérico do registro da respectiva receita.</p>
-</li>
-<li>
-<p><strong><code>Unidade Orçamentária - Código</code>:</strong> código representativo da unidade orçamentária responsável pela identificação da receita arrecadada.</p>
-</li>
-<li>
-<p><strong><code>Fonte Recurso - Código</code>:</strong> código da fonte de recurso origem da receita orçamentária.</p>
-</li>
-<li>
-<p><strong><code>Classificação Receita - Código</code>:</strong> código  completo (13 dígitos) da classificação por natureza da receita (formato: xxxxxxxxxxxxx) correspondente a números de código decimal que integram a classificação da receita orçamentária.</p>
-</li>
-<li>
-<p><strong><code>Classificação Receita - Descrição</code>:</strong> descrição da classificação completa da natureza da receita.</p>
-</li>
-<li>
-<p><strong><code>Classificação Receita - Formatado</code>:</strong> código  completo (13 dígitos) da classificação por natureza da receita (formato: xxxx.x.xx.x.xx.xxx) correspondente a números de código decimal que integram a classificação da receita orçamentária.</p>
-</li>
-<li>
-<p><strong><code>Valor Previsto Inicial</code>:</strong> valor, em reais, da previsão inicial da receita constante da Lei Orçamentária.</p>
-</li>
-<li>
-<p><strong><code>Valor Previsto Adicional</code>:</strong> valor, em reais, da previsão adicional da receita.</p>
-</li>
-<li>
-<p><strong><code>Valor Previsto Atualizado</code>:</strong> valor, em reais, da previsão atualizada da receita, resultante da expressão: Valor previsto inicial + Valor previsto adicional.</p>
-</li>
-<li>
-<p><strong><code>Valor Contabilizado</code>:</strong> valor, em reais, da receita orçamentária contabilizada, aparecendo negativo quando houver cancelamento de receita.</p>
-</li>
-<li>
-<p><strong><code>Valor Efetivado Ajustado</code>:</strong> valor, em reais, da receita orçamentária efetivada ajustada conforme mês de contabilização.</p>
-</li>
-</ul>
-<h2 id="conclusao">🏁 Conclusão<a class="headerlink" href="#conclusao" title="Permanent link">⚓︎</a></h2>
-<p>Em conclusão, a análise da base da receita pública orçamentária <strong>indica que não há dados, sensíveis ou não, que necessitem de proteção, ocultação ou anonimização.</strong> As informações contidas nessa base, como códigos de classificação da receita, valores previstos e contabilizados, e identificadores de unidades orçamentárias, são de natureza essencialmente técnica e institucional, não envolvendo dados pessoais ou sensíveis que possam comprometer a privacidade de indivíduos ou entidades. A publicização desses dados está alinhada com os princípios de transparência e acesso à informação, garantindo o controle social e a fiscalização dos recursos públicos sem infringir normas de proteção de dados. <strong>Portanto, a base da receita pode ser disponibilizada integralmente, assegurando o equilíbrio entre a transparência e a conformidade com a legislação vigente.</strong></p></div>
+<li><a href="https://python-poetry.org/docs/">Documentação Poetry</a>.</li>
+<li><a href="https://www.youtube.com/watch?v=ZOSWdktsKf0">Live de Python - Poetry</a>.</li>
+</ul></div>
 
 
 
@@ -1096,7 +1298,7 @@
     <span class="md-icon" title="Última atualização">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">26 de fevereiro de 2025 13:46:04</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">21 de março de 2025 13:49:38</span>
   </span>
 
     
@@ -1106,7 +1308,7 @@
     <span class="md-icon" title="Criada">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">21 de fevereiro de 2025 21:48:56</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">21 de fevereiro de 2025 19:11:26</span>
   </span>
 
     
@@ -1193,7 +1395,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Rodapé" >
         
           
-          <a href="../gerenciamento-de-depend%C3%AAncias-em-python-com-poetry-2/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Gerenciamento de Dependências em Python com Poetry 2+">
+          <a href="../publica%C3%A7%C3%A3o-volumes-loa---parte-1/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Publicação volumes LOA - Parte 1">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -1203,20 +1405,20 @@
                 Anterior
               </span>
               <div class="md-ellipsis">
-                Gerenciamento de Dependências em Python com Poetry 2+
+                Publicação volumes LOA - Parte 1
               </div>
             </div>
           </a>
         
         
           
-          <a href="../-projeto-de-abertura-de-dados-de-or%C3%A7amento-e-planejamento-de-minas-gerais---dados-abertos-mg/" class="md-footer__link md-footer__link--next" aria-label="Próximo: 🔓 Projeto de Abertura de Dados de Orçamento e Planejamento de Minas Gerais - Dados Abertos MG">
+          <a href="../-publica%C3%A7%C3%A3o-das-bases-da-receita---an%C3%A1lise-sobre-prote%C3%A7%C3%A3o-de-dados/" class="md-footer__link md-footer__link--next" aria-label="Próximo: 📑 Publicação das Bases da Receita - Análise sobre Proteção de Dados">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Próximo
               </span>
               <div class="md-ellipsis">
-                🔓 Projeto de Abertura de Dados de Orçamento e Planejamento de Minas Gerais - Dados Abertos MG
+                📑 Publicação das Bases da Receita - Análise sobre Proteção de Dados
               </div>
             </div>
             <div class="md-footer__button md-icon">
