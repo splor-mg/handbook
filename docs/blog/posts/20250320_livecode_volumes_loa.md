@@ -15,7 +15,7 @@ As discussão agora se volta para o tratamento das informações de **token** (u
 
 <!-- more -->
 
-[No encontro do dia 20/03](https://github.com/splor-mg/handbook/issues/69) vimos que, apesar de os segredos estarem [bem definidos na organização](https://github.com/organizations/splor-mg/settings/secrets/actions) e utilizados corretamente no wordflow do  [Actions](https://github.com/splor-mg/volumes-docker/actions/workflows/publish_image.yaml), isso não foi suficiente para que o workflow conseguisse recuperar tais informações durante a construção da imagem Docker.
+[No encontro do dia 20/03](https://github.com/splor-mg/handbook/issues/69) vimos que, apesar de os segredos estarem [bem definidos na organização](https://github.com/organizations/splor-mg/settings/secrets/actions) e utilizados corretamente no workflow do  [Actions](https://github.com/splor-mg/volumes-docker/actions/workflows/publish_image.yaml), isso não foi suficiente para que o workflow conseguisse recuperar tais informações durante a construção da imagem Docker.
 
 Percebemos ainda a fragilidade que representa passar os dados sensíveis, como usuário e senha, tanto por argumento do [comando que inicia a construção da imagem docker](https://github.com/splor-mg/volumes-docker/blob/4f70d4e1272928fd4ec4e4f6c68dcc7886e42e73/.github/workflows/publish_image.yaml#L50-L64), quanto por meio da criação temporária de ambiente R.
 
