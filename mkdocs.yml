@@ -60,7 +60,6 @@ theme:
   font:
     text: Roboto
     code: Roboto Mono
-  favicon: assets/favicon.png
   icon:
     logo: logo
 
@@ -103,8 +102,6 @@ extra_css:
 extra_javascript:
   - assets/style.js
   - https://unpkg.com/mermaid@10.4.0/dist/mermaid.min.js
-version:
-    provider: mike
 
 extra:
   social: # Footer
@@ -130,11 +127,8 @@ plugins:
       archive: false
       categories_toc: true
       post_excerpt: required
-  - tags:
-      tags_file: index.md
+  - tags
   - mkdocs-video:
       video_muted: True
       video_controls: True
       video_autoplay: False
-  - mike:
-      version_selector: true
