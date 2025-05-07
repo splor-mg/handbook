@@ -52,4 +52,4 @@ Sinta-se à vontade para abrir issues e pull requests com sugestões e melhorias
 
 ---
 
-Qualquer dúvida, entre em contato!
+Qualquer dúvida, entre em contato!!
