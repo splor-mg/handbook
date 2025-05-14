@@ -7,7 +7,7 @@ categories:
   - Solução Sigplan/Sisor
 ---
 
-#  Reunião sobre o novo Sigplan: Módulo Pesquisa de Programa 
+#  Reunião sobre o novo Sigplan: Módulo Gerente do Programa 
 
 Reunião feita no dia 12/09/2024, que tratou sobre o gerente do programa no novo sistema.
 
