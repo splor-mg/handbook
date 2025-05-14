@@ -27,6 +27,9 @@ Ao acessar a plataforma, a sua interface é bastante intuitiva. Você pode arras
 
 Após a seleção do arquivo, você poderá configurar __idioma do áudio, o modo de transcrição e o número de locutores__. A documentação da ferramenta recomenda o modo Baleia :whale2: que maximiza a precisão e leva apenas alguns minutos para transcrever uma hora de áudio ou vídeo.
 
+![turbo_scribe](https://github.com/user-attachments/assets/fe03145d-409e-43ec-977f-3fdbf5415c1f)
+
+
 Uma vez que a transcrição estiver completa, é só clicar nela para abrir o texto. Você, ainda, pode clicar em qualquer lugar da transcrição para reproduzir o áudio naquele ponto do tempo, o que torna fácil verificar a precisão da transcrição.
 
 Nos meus testes, a transcrição de uma reunião foi bastante satisfatória. Particularmente, achei superior às ferramentas do MS Teams e do word para trasncrever. Como esperado, ocorreram alguns erros na transcrição do TurboScribe, principalmente no uso de siglas internas, quando diversos locutores falaram ao mesmo tempo e variações de sotaque. Assim, fica o alerta sobre a importância de revisarmos a transcrição. :triangular_flag_on_post:
