@@ -142,3 +142,8 @@ O SQLAlchemy se apresenta como uma ferramenta fundamental para a gestão de banc
 - **Flexibilidade de Implementação**: Permite adaptar-se a diferentes estruturas de dados orçamentários, seja para sistemas de planejamento (PPAG) ou execução orçamentária (LOA).
 
 A combinação desses recursos torna o SQLAlchemy uma escolha estratégica para projetos de gestão orçamentária, oferecendo tanto a robustez necessária para operações críticas quanto a flexibilidade para adaptação a diferentes necessidades de gestão financeira.
+
+
+👉 Confira a live do [Eduardo Mendes](https://www.youtube.com/@Dunossauro) que inspirou essa postagem:
+
+![type:video](https://www.youtube.com/embed/t4C1c62Z4Ag)
