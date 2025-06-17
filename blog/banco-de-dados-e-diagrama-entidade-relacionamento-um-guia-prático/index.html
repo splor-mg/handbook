@@ -9,10 +9,8 @@
       
       
       
-        <link rel="prev" href="../publica%C3%A7%C3%A3o-volumes-loa---parte-1/">
+        <link rel="prev" href="../reuni%C3%A3o-sobre-o-novo-sigplan-m%C3%B3dulo-gerente-do-programa/">
       
-      
-        <link rel="next" href="../-publica%C3%A7%C3%A3o-das-bases-da-receita---an%C3%A1lise-sobre-prote%C3%A7%C3%A3o-de-dados/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -20,7 +18,7 @@
     
     
       
-        <title>Gerenciamento de Dependências em Python com Poetry 2+ - Handbook Assessoria de Inteligência de Dados</title>
+        <title>Banco de Dados e Diagrama Entidade Relacionamento: Um Guia Prático - Handbook Assessoria de Inteligência de Dados</title>
       
     
     
@@ -76,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#gerenciamento-de-dependencias-em-python-com-poetry-2" class="md-skip">
+        <a href="#banco-de-dados-e-diagrama-entidade-relacionamento-um-guia-pratico" class="md-skip">
           Ir para o conteúdo
         </a>
       
@@ -117,7 +115,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Gerenciamento de Dependências em Python com Poetry 2+
+              Banco de Dados e Diagrama Entidade Relacionamento: Um Guia Prático
             
           </span>
         </div>
@@ -929,37 +927,46 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#o-que-e-o-poetry" class="md-nav__link">
+  <a href="#por-que-usar-um-der" class="md-nav__link">
     <span class="md-ellipsis">
-      O que é o Poetry?
+      Por que usar um DER?
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#diferencas-entre-poetry-e-pip" class="md-nav__link">
+  <a href="#os-tres-tipos-de-relacionamentos" class="md-nav__link">
     <span class="md-ellipsis">
-      Diferenças entre Poetry e Pip
+      Os Três Tipos de Relacionamentos
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Diferenças entre Poetry e Pip">
+    <nav class="md-nav" aria-label="Os Três Tipos de Relacionamentos">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#pip" class="md-nav__link">
+  <a href="#1-relacionamento-um-para-um-11" class="md-nav__link">
     <span class="md-ellipsis">
-      Pip
+      1. Relacionamento Um para Um (1:1)
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#poetry" class="md-nav__link">
+  <a href="#2-relacionamento-um-para-muitos-1n" class="md-nav__link">
     <span class="md-ellipsis">
-      Poetry
+      2. Relacionamento Um para Muitos (1:N)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-relacionamento-muitos-para-muitos-nm" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Relacionamento Muitos para Muitos (N:M)
     </span>
   </a>
   
@@ -971,87 +978,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#como-utilizar-o-poetry" class="md-nav__link">
+  <a href="#dicas-finais-para-criacao-de-um-bom-der" class="md-nav__link">
     <span class="md-ellipsis">
-      Como Utilizar o Poetry
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Como Utilizar o Poetry">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#instalacao" class="md-nav__link">
-    <span class="md-ellipsis">
-      Instalação
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#criando-um-novo-projeto" class="md-nav__link">
-    <span class="md-ellipsis">
-      Criando um Novo Projeto
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#inicializando-o-poetry-em-um-projeto-existente" class="md-nav__link">
-    <span class="md-ellipsis">
-      Inicializando o Poetry em um Projeto Existente
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#instalando-dependencias-clone-de-um-repositorio-ja-existente" class="md-nav__link">
-    <span class="md-ellipsis">
-      Instalando Dependências (clone de um repositório já existente)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#adicionando-dependencias" class="md-nav__link">
-    <span class="md-ellipsis">
-      Adicionando Dependências
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#executando-o-ambiente-virtual" class="md-nav__link">
-    <span class="md-ellipsis">
-      Executando o Ambiente Virtual
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#outros-comando-interessantes" class="md-nav__link">
-    <span class="md-ellipsis">
-      Outros comando interessantes
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#topicos-adicionais-importantes-para-pesquisa" class="md-nav__link">
-    <span class="md-ellipsis">
-      Tópicos Adicionais Importantes para pesquisa
+      Dicas finais para criação de um bom DER
     </span>
   </a>
   
@@ -1061,15 +990,6 @@
   <a href="#conclusao" class="md-nav__link">
     <span class="md-ellipsis">
       Conclusão
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#referencias" class="md-nav__link">
-    <span class="md-ellipsis">
-      Referências
     </span>
   </a>
   
@@ -1117,21 +1037,6 @@
                     </span>
                   </div>
                 
-                  <div class="md-profile md-post__profile">
-                    <span class="md-author md-author--long">
-                      <img src="https://avatars.githubusercontent.com/u/43452663" alt="Henrique de Souza Linhares">
-                    </span>
-                    <span class="md-profile__description">
-                      <strong>
-                        
-                          Henrique de Souza Linhares
-                        
-                      </strong>
-                      <br>
-                      Creator
-                    </span>
-                  </div>
-                
               </div>
             
             <ul class="md-post__meta md-nav__list">
@@ -1146,7 +1051,7 @@
                     <li class="md-nav__item">
                       <div class="md-nav__link">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5z"/></svg>
-                        <time datetime="2025-02-21 00:00:00+00:00" class="md-ellipsis">21 de fevereiro de 2025</time>
+                        <time datetime="2025-06-17 00:00:00+00:00" class="md-ellipsis">17 de junho de 2025</time>
                       </div>
                     </li>
                     
@@ -1157,7 +1062,7 @@
                           <span class="md-ellipsis">
                             em
                             
-                              <a href="../category/webnar-intelig%C3%AAnciamg/">Webnar Inteligência.MG</a></span>
+                              <a href="../category/banco-de-dados/">Banco de Dados</a></span>
                         </div>
                       </li>
                     
@@ -1168,7 +1073,7 @@
                           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20a8 8 0 0 0 8-8 8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8m0-18a10 10 0 0 1 10 10 10 10 0 0 1-10 10C6.47 22 2 17.5 2 12A10 10 0 0 1 12 2m.5 5v5.25l4.5 2.67-.75 1.23L11 13V7z"/></svg>
                           <span class="md-ellipsis">
                             
-                              6 min de leitura
+                              8 min de leitura
                             
                           </span>
                         </div>
@@ -1192,7 +1097,7 @@
 
 
   
-    <a href="https://github.com/splor-mg/handbook/edit/main/docs/blog/posts/20250221_poetry.md" title="Editar esta página" class="md-content__button md-icon">
+    <a href="https://github.com/splor-mg/handbook/edit/main/docs/blog/posts/20250617_banco_de_dados_e_diagrama_entidade_relacionamento_um_guia_pratico.md" title="Editar esta página" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -1201,185 +1106,706 @@
     
       
     
-    <a href="https://github.com/splor-mg/handbook/raw/main/docs/blog/posts/20250221_poetry.md" title="Ver fonte desta página" class="md-content__button md-icon">
+    <a href="https://github.com/splor-mg/handbook/raw/main/docs/blog/posts/20250617_banco_de_dados_e_diagrama_entidade_relacionamento_um_guia_pratico.md" title="Ver fonte desta página" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"/></svg>
     </a>
   
 
 
-<div><h1 id="gerenciamento-de-dependencias-em-python-com-poetry-2">Gerenciamento de Dependências em Python com Poetry 2+<a class="headerlink" href="#gerenciamento-de-dependencias-em-python-com-poetry-2" title="Permanent link">⚓︎</a></h1>
-<p>O <a href="https://python-poetry.org/docs/">Poetry</a> é uma ferramentas Python para, entre outros, realizar gerenciamento de dependências e publicação de pacotes.
-Para mim, ele se consolida a cada dia como uma alternativa robusta ao uso tradicional do <code>pip</code> e <code>virtualenv</code>, oferecendo uma solução integrada e mais eficiente para nossos projetos.</p>
+<div><h1 id="banco-de-dados-e-diagrama-entidade-relacionamento-um-guia-pratico">Banco de Dados e Diagrama Entidade Relacionamento: Um Guia Prático<a class="headerlink" href="#banco-de-dados-e-diagrama-entidade-relacionamento-um-guia-pratico" title="Permanent link">⚓︎</a></h1>
+<p>Você já se perguntou como os dados são organizados em um banco de dados?
+Como as informações se conectam entre si?
+O Diagrama Entidade Relacionamento (DER) é a ferramenta que nos ajuda a responder essas perguntas.
+Neste guia, vamos explorar os conceitos fundamentais do DER e como ele nos ajuda a estruturar nossos dados de forma clara e eficiente.</p>
 <!-- more -->
 
-<p>🚨 Vamos tratar mais a fundo aqui apenas das funcionalidades de gerenciamento de dependências, podendo as opções referentes a publicação de pacotes serem tratado em outro Post.</p>
-<h2 id="o-que-e-o-poetry">O que é o Poetry?<a class="headerlink" href="#o-que-e-o-poetry" title="Permanent link">⚓︎</a></h2>
-<p>O Poetry é uma ferramenta que simplifica a gestão de dependências e ambientes virtuais em projetos Python.
-Ele resolve automaticamente versões de pacotes, cria ambientes isolados e facilita a publicação de bibliotecas no <a href="https://pypi.org/">PyPI</a>.
-Além disso, sua abordagem baseada no arquivo <code>pyproject.toml</code> proporciona um gerenciamento mais organizado e replicável de nossos projetos.</p>
-<h2 id="diferencas-entre-poetry-e-pip">Diferenças entre Poetry e Pip<a class="headerlink" href="#diferencas-entre-poetry-e-pip" title="Permanent link">⚓︎</a></h2>
-<h3 id="pip">Pip<a class="headerlink" href="#pip" title="Permanent link">⚓︎</a></h3>
-<ol>
-<li>
-<p class="annotate">Usa arquivos <code>requirements.txt</code> para definir dependências. (1)</p>
-<ol>
-<li>
-<p><img alt="🙋‍♂️" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f64b-200d-2642-fe0f.svg" title=":man_raising_hand:"> Para instalar todas as dependências listadas em um arquivo <code>requirements.txt</code> você deve primeiro criar e ativar um ambiente virtual Python utilizando o módulo <code>venv</code>:</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Criação ambiente virtual Python Linux Ubuntu</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">python3</span> <span class="o">-</span><span class="n">m</span> <span class="n">venv</span> <span class="n">venv</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># Criação ambiente virtual Python Windows</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">venv</span> <span class="n">venv</span>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="c1"># Ativação ambiente virtual Python Linux Ubuntu</span>
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="n">source</span> <span class="n">venv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">activate</span>
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="c1"># Ativação ambiente virtual Python Windows</span>
-</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="n">source</span> <span class="n">venv</span><span class="o">/</span><span class="n">Scripts</span><span class="o">/</span><span class="n">activate</span>
-</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>
-</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="c1"># Instalação pacotes Linux e Windows</span>
-</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">r</span> <span class="n">requirements</span><span class="o">.</span><span class="n">txt</span>
-</span></code></pre></div>
-</li>
-</ol>
-</li>
-<li>
-<p>Requer o uso separado de <code>virtualenv</code> ou <code>venv</code> para criar ambientes isolados.</p>
-</li>
-<li>Não possui um gerenciador de versões embutido.</li>
-</ol>
-<h3 id="poetry">Poetry<a class="headerlink" href="#poetry" title="Permanent link">⚓︎</a></h3>
+<p>Um Diagrama Entidade Relacionamento, ou DER, é uma representação visual de como os dados estão organizados em um banco de dados.
+Neste contexto, é importante entender que:</p>
 <ul>
-<li>Utiliza <code>pyproject.toml</code> para definir dependências, tornando a configuração mais estruturada.</li>
-<li>Gerencia ambientes virtuais automaticamente.</li>
-<li>Possui resolução de dependências mais eficiente.</li>
-<li>Facilita a publicação de pacotes Python sem necessidade de comandos extras.</li>
+<li><strong>Entidade</strong> é sinônimo de <strong>tabela</strong> no banco de dados.</li>
+<li>Cada entidade possui <strong>atributos</strong> (ou colunas) que descrevem suas características.</li>
+<li>Os <strong>registros</strong> são as linhas de dados que preenchem estas tabelas.</li>
+<li>Os <strong>relacionamentos</strong> mostram como os registros de uma tabela se conectam com os registros de outra tabela.</li>
 </ul>
-<h2 id="como-utilizar-o-poetry">Como Utilizar o Poetry<a class="headerlink" href="#como-utilizar-o-poetry" title="Permanent link">⚓︎</a></h2>
-<h3 id="instalacao">Instalação<a class="headerlink" href="#instalacao" title="Permanent link">⚓︎</a></h3>
-<p><a href="https://python-poetry.org/docs/#installing-with-pipx">A primeira maneira sugerida pela documentação oficial</a> é utilizando o <a href="https://pipx.pypa.io/stable/installation/">pipx</a>:</p>
-<div class="language-sh highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>pipx<span class="w"> </span>install<span class="w"> </span>poetry
-</span></code></pre></div>
-<h3 id="criando-um-novo-projeto">Criando um Novo Projeto<a class="headerlink" href="#criando-um-novo-projeto" title="Permanent link">⚓︎</a></h3>
-<div class="language-sh highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>poetry<span class="w"> </span>new<span class="w"> </span>meu_projeto
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nb">cd</span><span class="w"> </span>meu_projeto
-</span></code></pre></div>
-<details class="note">
-<summary>Isso cria um diretório com a estrutura padrão de um pacote Python, incluindo <code>pyproject.toml</code>:</summary>
-<div class="language-sh highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>meu-projeto
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>├──<span class="w"> </span>pyproject.toml
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>├──<span class="w"> </span>README.md
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>├──<span class="w"> </span>meu_projeto
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>│<span class="w">   </span>└──<span class="w"> </span>__init__.py
-</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>└──<span class="w"> </span>tests
-</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">    </span>└──<span class="w"> </span>__init__.py
-</span></code></pre></div>
-</details>
-<h3 id="inicializando-o-poetry-em-um-projeto-existente">Inicializando o Poetry em um Projeto Existente<a class="headerlink" href="#inicializando-o-poetry-em-um-projeto-existente" title="Permanent link">⚓︎</a></h3>
-<p>Se você já tem um projeto (repositório), e deseja incluir o Poetry criando o arquivo <code>pyproject.toml</code>, basta rodar:</p>
-<div class="language-sh highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>poetry<span class="w"> </span>init<span class="w"> </span><span class="c1"># (1)!</span>
-</span></code></pre></div>
-<ol>
-<li><img alt="🙋‍♂️" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f64b-200d-2642-fe0f.svg" title=":man_raising_hand:"> O assistente iterativo ajudará a configurar o novo arquivo <code>pyproject.toml</code> que será incluído no projeto.
-Se quiser que o arquivo seja gerado sem essa iteração basta incluir a flag <code>-n</code> no comando (<code>poetry init -n</code>).</li>
-</ol>
-<h3 id="instalando-dependencias-clone-de-um-repositorio-ja-existente">Instalando Dependências (clone de um repositório já existente)<a class="headerlink" href="#instalando-dependencias-clone-de-um-repositorio-ja-existente" title="Permanent link">⚓︎</a></h3>
-<p>Se você já tem um projeto (repositório) que usa o Poetry (ou já contém o arquivo <code>pyproject.toml</code>) e deseja realizar o setup do mesmo em outro computador, basta rodar:</p>
-<div class="language-sh highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>poetry<span class="w"> </span>install
-</span></code></pre></div>
-<p>O Poetry, então, seguirá a seguinte lógica:</p>
-<ol>
-<li><strong>Se o arquivo <code>poetry.lock</code> existir</strong> no repositório, serão instaladas as dependências exatamente nas versões especificadas nele, garantindo um ambiente reprodutível.</li>
-<li><strong>Se <code>poetry.lock</code> não existir</strong>, ele resolve as dependências a partir do <code>pyproject.toml</code>, gera o <code>poetry.lock</code> e então instala os pacotes.</li>
-</ol>
-<p>Agora, se o <code>pyproject.toml</code> foi modificado e você deseja ignorar essas alterações e instalar <strong>somente</strong> o que está no <code>poetry.lock</code>, você pode usar:</p>
-<div class="language-sh highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>poetry<span class="w"> </span>install<span class="w"> </span>--no-root
-</span></code></pre></div>
-<p>Isso evita a reinstalação do próprio projeto no ambiente virtual e foca apenas nas dependências.</p>
-<p>Se precisar de mais controle, há também o comando:</p>
-<div class="language-sh highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>poetry<span class="w"> </span>lock<span class="w"> </span>--no-update
-</span></code></pre></div>
-<p>Ele garante que o <code>poetry.lock</code> não seja modificado antes de uma instalação.
-Assim, quando você rodar <code>poetry install</code>, as dependências serão mantidas exatamente como estão no lockfile. 😊</p>
-<h3 id="adicionando-dependencias">Adicionando Dependências<a class="headerlink" href="#adicionando-dependencias" title="Permanent link">⚓︎</a></h3>
-<p>Para adicionar um pacote ao projeto:</p>
-<div class="language-sh highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>poetry<span class="w"> </span>add<span class="w"> </span>requests<span class="w"> </span><span class="c1"># (1)!</span>
-</span></code></pre></div>
-<ol>
-<li><img alt="🙋‍♂️" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f64b-200d-2642-fe0f.svg" title=":man_raising_hand:"> O comando <code>poetry add</code>, além de adicionar o pacote nos arquivos <code>pyproject.toml</code> e <code>poetry.lock</code> ele também o instala.
-Se quiser que não instale mas somente insira nos arquivos <code>pyproject.toml</code> e <code>poetry.lock</code> utilize a flag <code>--lock</code> (<code>poetry add requests --lock</code>).</li>
-</ol>
-<p>Se for uma dependência de desenvolvimento:</p>
-<div class="language-sh highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>poetry<span class="w"> </span>add<span class="w"> </span>pytest<span class="w"> </span>--group<span class="w"> </span><span class="nb">test</span>
-</span></code></pre></div>
-<h3 id="executando-o-ambiente-virtual">Executando o Ambiente Virtual<a class="headerlink" href="#executando-o-ambiente-virtual" title="Permanent link">⚓︎</a></h3>
-<p>O comando <code>poetry env activate</code> printa na tela o caminho para ativação de seu ambiente virtual, <strong>mas não o ativa</strong>.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked id="código" name="__tabbed_1" type="radio"><input id="resultado" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="código">Código</label><label for="resultado">Resultado</label></div>
+<p>Por exemplo, em um sistema de biblioteca:
+- A entidade "Livro" (tabela) tem atributos como título, autor, ISBN.
+- A entidade "Autor" (tabela) tem atributos como nome e CPF.
+- Os registros são os cadastros dos livros e autores específicos.
+- O relacionamento mostra como cada livro está associado a seu(s) autore(s).</p>
+<p>Se você entendeu bem, já sacou que o DER nos ajuda a visualizar esta estrutura de um banco, mostrando as tabelas, suas colunas e como elas se conectam através dos relacionamentos.</p>
+<h2 id="por-que-usar-um-der">Por que usar um DER?<a class="headerlink" href="#por-que-usar-um-der" title="Permanent link">⚓︎</a></h2>
+<ul>
+<li><strong>Organização</strong>: Ajuda a estruturar as informações de forma clara e organizada.</li>
+<li><strong>Comunicação</strong>: Facilita a comunicação entre desenvolvedores e usuários.</li>
+<li><strong>Prevenção de erros</strong>: Permite identificar problemas antes de criar o banco de dados.</li>
+<li><strong>Documentação</strong>: Serve como documentação do sistema ou do próprio banco de dados.</li>
+</ul>
+<h2 id="os-tres-tipos-de-relacionamentos">Os Três Tipos de Relacionamentos<a class="headerlink" href="#os-tres-tipos-de-relacionamentos" title="Permanent link">⚓︎</a></h2>
+<p>Melhorar aqui a explicação do que são as relações.
+Falar que a relação é a representação de uma regra de negócio, não sendo, portanto uma verdade absoluta entre negócios diversos.</p>
+<h3 id="1-relacionamento-um-para-um-11">1. Relacionamento Um para Um (1:1)<a class="headerlink" href="#1-relacionamento-um-para-um-11" title="Permanent link">⚓︎</a></h3>
+<p>O relacionamento um para um (1:1) ocorre quando cada registro de uma entidade se relaciona com exatamente um registro de outra entidade, e vice-versa.</p>
+<p>Por exemplo, quando dizemos que um funcionário tem um único cargo atual<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>, podemos estabelecer que:</p>
+<ul>
+<li>Cada funcionário só pode ter um cargo atual por vez.</li>
+<li>Cada cargo só pode ser ocupado por um funcionário por vez.</li>
+<li>Esta relação é bidirecional e exclusiva, ou seja, a unicidade é garantida tanto do lado do funcionário quanto do lado do cargo.</li>
+</ul>
+<p><strong>Exemplo na prática:</strong></p>
+<details>
+<summary>Um funcionário por cargo</summary>
+<p>Um funcionário só pode ter um cargo atual, e um cargo só pode ser ocupado por um funcionário por vez.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked id="der" name="__tabbed_1" type="radio"><input id="tabelas" name="__tabbed_1" type="radio"><input id="resultado-da-consulta" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="der">DER</label><label for="tabelas">Tabelas</label><label for="resultado-da-consulta">Resultado da Consulta</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="language-python highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="n">poetry</span> <span class="n">env</span> <span class="n">activate</span>
-</span></code></pre></div>
+<div class="mermaid">erDiagram
+    FUNCIONARIO {
+        int id
+        string nome_pessoa
+    }
+    CARGO {
+        int id
+        string nome_cargo
+        int funcionario_id
+    }
+    FUNCIONARIO ||--|| CARGO : "ocupa"</div>
 </div>
 <div class="tabbed-block">
-<div class="language-python highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="n">source</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">gabrielbdornas</span><span class="o">/</span><span class="n">code</span><span class="o">/</span><span class="n">splor</span><span class="o">-</span><span class="n">mg</span><span class="o">/</span><span class="n">handbook</span><span class="o">/.</span><span class="n">venv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">activate</span> <span class="c1"># (1)!</span>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>nome_pessoa</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>João Silva</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Maria Santos</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Pedro Costa</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Maria José</td>
+</tr>
+<tr>
+<td>5</td>
+<td>João Paulo</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>nome_cargo</th>
+<th>funcionario_id</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Analista</td>
+<td>1</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Gerente</td>
+<td>2</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Coordenador</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<table>
+<thead>
+<tr>
+<th>id_cargo</th>
+<th>nome_cargo</th>
+<th>id_funcionario</th>
+<th>nome_pessoa</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Analista</td>
+<td>1</td>
+<td>João Silva</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Gerente</td>
+<td>2</td>
+<td>Maria Santos</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Coordenador</td>
+<td>3</td>
+<td>Pedro Costa</td>
+</tr>
+</tbody>
+</table>
+<details>
+<summary>Consulta SQL que une as tabelas</summary>
+<div class="language-sql highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">SELECT</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="k">c</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">id_cargo</span><span class="p">,</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="k">c</span><span class="p">.</span><span class="n">nome_cargo</span><span class="p">,</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="n">f</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">id_funcionario</span><span class="p">,</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="n">f</span><span class="p">.</span><span class="n">nome_pessoa</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="k">FROM</span><span class="w"> </span><span class="n">cargo</span><span class="w"> </span><span class="k">c</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="k">INNER</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">funcionario</span><span class="w"> </span><span class="n">f</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="k">ON</span><span class="w"> </span><span class="n">f</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">c</span><span class="p">.</span><span class="n">funcionario_id</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="k">c</span><span class="p">.</span><span class="n">id</span><span class="p">;</span>
 </span></code></pre></div>
-<ol>
-<li><img alt="🙋‍♂️" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f64b-200d-2642-fe0f.svg" title=":man_raising_hand:"> Para <a href="https://python-poetry.org/docs/main/configuration#virtualenvsin-project">criar o ambiente virtual dentro do seu projeto</a> é necessário configurar a variável Poetry <code>virtualenvs.in-project</code> para <code>true</code>. Toda documentação de configuração Poetry pode ser encontrada <a href="https://python-poetry.org/docs/main/configuration">aqui</a>. Para acessar a lista das configurações de sua instalção Poetry basta utilizar o comando <code>poetry config --list</code>.</li>
-</ol>
+</details>
 </div>
 </div>
 </div>
-<p class="annotate"><a href="https://python-poetry.org/docs/main/managing-environments#activating-the-environment">A documentação sugere</a> que vocë pode usar o resultado deste comando para ativar o ambiente manualmente ou alimentar o comando <code>eval()</code> para esta ativação(1).</p>
-<ol>
-<li><img alt="🙋‍♂️" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f64b-200d-2642-fe0f.svg" title=":man_raising_hand:"> <a href="https://python-poetry.org/docs/managing-environments/#activating-the-environment">Versões anteriores do Poetry</a> utilizavam o comando <code>poetry shell</code> para ativação do ambiente virtual.</li>
-</ol>
-<div class="language-sh highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="nb">eval</span><span class="w"> </span><span class="k">$(</span>poetry<span class="w"> </span>env<span class="w"> </span>activate<span class="k">)</span><span class="w"> </span><span class="c1"># (1)!</span>
+</details>
+<p>Outro exemplo poderia ser o casamento monogâmico.
+Como sabemos, em um casamento monogâmico, uma pessoa só pode ser casada com uma outra pessoa.</p>
+<p><strong>Exemplo na prática:</strong></p>
+<details>
+<summary>Casamento monogâmico</summary>
+<p>Uma pessoa só pode ser casada com uma outra pessoa, e vice-versa.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked id="der_1" name="__tabbed_2" type="radio"><input id="tabela" name="__tabbed_2" type="radio"><input id="resultado-da-consulta_1" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="der_1">DER</label><label for="tabela">Tabela</label><label for="resultado-da-consulta_1">Resultado da Consulta</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="mermaid">erDiagram
+    PESSOA {
+        int id
+        string cpf
+        string nome
+        int conjuge_id
+    }
+    PESSOA ||--|| PESSOA : "id = conjuge_id"</div>
+</div>
+<div class="tabbed-block">
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>cpf</th>
+<th>nome</th>
+<th>conjuge_id</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>12345678900</td>
+<td>João Silva</td>
+<td>2</td>
+</tr>
+<tr>
+<td>2</td>
+<td>98765432100</td>
+<td>Maria Santos</td>
+<td>1</td>
+</tr>
+<tr>
+<td>3</td>
+<td>11122233344</td>
+<td>Pedro Costa</td>
+<td>4</td>
+</tr>
+<tr>
+<td>4</td>
+<td>55566677788</td>
+<td>Ana Oliveira</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<table>
+<thead>
+<tr>
+<th>id_pessoa</th>
+<th>cpf_pessoa</th>
+<th>nome_pessoa</th>
+<th>id_conjuge</th>
+<th>cpf_conjuge</th>
+<th>nome_conjuge</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>12345678900</td>
+<td>João Silva</td>
+<td>2</td>
+<td>98765432100</td>
+<td>Maria Santos</td>
+</tr>
+<tr>
+<td>3</td>
+<td>11122233344</td>
+<td>Pedro Costa</td>
+<td>4</td>
+<td>55566677788</td>
+<td>Ana Oliveira</td>
+</tr>
+</tbody>
+</table>
+<details>
+<summary>Consulta SQL que une as tabelas</summary>
+<div class="language-sql highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">SELECT</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span><span class="n">p1</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">id_pessoa</span><span class="p">,</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="n">p1</span><span class="p">.</span><span class="n">cpf</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">cpf_pessoa</span><span class="p">,</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="n">p1</span><span class="p">.</span><span class="n">nome</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">nome_pessoa</span><span class="p">,</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="n">p2</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">id_conjuge</span><span class="p">,</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span><span class="n">p2</span><span class="p">.</span><span class="n">cpf</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">cpf_conjuge</span><span class="p">,</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">    </span><span class="n">p2</span><span class="p">.</span><span class="n">nome</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">nome_conjuge</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="k">FROM</span><span class="w"> </span><span class="n">pessoa</span><span class="w"> </span><span class="n">p1</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="k">INNER</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">pessoa</span><span class="w"> </span><span class="n">p2</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="k">ON</span><span class="w"> </span><span class="n">p1</span><span class="p">.</span><span class="n">conjuge_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p2</span><span class="p">.</span><span class="n">id</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">p1</span><span class="p">.</span><span class="n">id</span><span class="p">;</span>
 </span></code></pre></div>
+<blockquote>
+<p>💡 <strong>Nota</strong>: A consulta proposta retorna apenas 2 linhas (ao invés de 4) porque cada casal aparece uma única vez, com uma pessoa na posição "pessoa" e a outra na posição "cônjuge".
+Isso evita duplicação de informações, já que o relacionamento é bidirecional.</p>
+</blockquote>
+</details>
+</div>
+</div>
+</div>
+</details>
+<h3 id="2-relacionamento-um-para-muitos-1n">2. Relacionamento Um para Muitos (1:N)<a class="headerlink" href="#2-relacionamento-um-para-muitos-1n" title="Permanent link">⚓︎</a></h3>
+<p>O relacionamento um para N (1:N) ocorre quando um registro de uma entidade se relaciona com um ou vários registros de outra entidade.</p>
+<p>Por exemplo, é como uma mãe e seus filhos: uma mãe pode ter vários filhos, mas cada filho tem apenas uma mãe biológica.</p>
+<p><strong>Exemplo na prática:</strong></p>
+<details>
+<summary>Mãe e filho biológico</summary>
+<p>Uma mãe biológica pode ter vários filhos, mas cada filho tem apenas uma mãe biológica.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:3"><input checked id="der_2" name="__tabbed_3" type="radio"><input id="tabelas_1" name="__tabbed_3" type="radio"><input id="resultado-da-consulta_2" name="__tabbed_3" type="radio"><div class="tabbed-labels"><label for="der_2">DER</label><label for="tabelas_1">Tabelas</label><label for="resultado-da-consulta_2">Resultado da Consulta</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="mermaid">erDiagram
+    MAE {
+        int id
+        string nome
+        string cpf
+    }
+    FILHO {
+        int id
+        string nome
+        string cpf
+        int mae_id
+    }
+    MAE ||--o{ FILHO : "id = mae_id"</div>
+</div>
+<div class="tabbed-block">
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>nome</th>
+<th>cpf</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Maria Santos</td>
+<td>12345678900</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Ana Oliveira</td>
+<td>98765432100</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Carla Silva</td>
+<td>11122233344</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>nome</th>
+<th>cpf</th>
+<th>mae_id</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>João Silva</td>
+<td>55566677788</td>
+<td>1</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Pedro Santos</td>
+<td>99988877766</td>
+<td>1</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Lucas Oliveira</td>
+<td>44433322211</td>
+<td>2</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Sofia Silva</td>
+<td>77788899900</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<table>
+<thead>
+<tr>
+<th>id_mae</th>
+<th>nome_mae</th>
+<th>id_filho</th>
+<th>nome_filho</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Maria Santos</td>
+<td>1</td>
+<td>João Silva</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Maria Santos</td>
+<td>2</td>
+<td>Pedro Santos</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Ana Oliveira</td>
+<td>3</td>
+<td>Lucas Oliveira</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Carla Silva</td>
+<td>4</td>
+<td>Sofia Silva</td>
+</tr>
+</tbody>
+</table>
+<details>
+<summary>Consulta SQL que une as tabelas</summary>
+<div class="language-sql highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">SELECT</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="n">m</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">id_mae</span><span class="p">,</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="n">m</span><span class="p">.</span><span class="n">nome</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">nome_mae</span><span class="p">,</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="n">f</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">id_filho</span><span class="p">,</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="n">f</span><span class="p">.</span><span class="n">nome</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">nome_filho</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="k">FROM</span><span class="w"> </span><span class="n">mae</span><span class="w"> </span><span class="n">m</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="k">INNER</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">filho</span><span class="w"> </span><span class="n">f</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="k">ON</span><span class="w"> </span><span class="n">m</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">f</span><span class="p">.</span><span class="n">mae_id</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">m</span><span class="p">.</span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">f</span><span class="p">.</span><span class="n">id</span><span class="p">;</span>
+</span></code></pre></div>
+</details>
+</div>
+</div>
+</div>
+</details>
+<p>Outros exemplos de relação um para muitos (1:N) podem ser:</p>
+<ul>
+<li>Uma editora pode publicar vários livros.</li>
+<li>Um departamento pode ter vários funcionários.</li>
+<li>Uma categoria pode ter vários produtos.</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title"><strong>Hora de praticar!</strong></p>
+<p><img alt="🙋‍♂️" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f64b-200d-2642-fe0f.svg" title=":man_raising_hand:"> Agora que você já viu exemplos práticos de relacionamentos 1:1 e 1:N, que tal criar seus próprios? Tente:</p>
 <ol>
-<li><img alt="🙋‍♂️" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f64b-200d-2642-fe0f.svg" title=":man_raising_hand:"> O comando <code>eval $(poetry env activate)</code> interpreta e executa o comando de ativação do ambiente virtual dentro do próprio terminal.
-  Ele pega um comando passado como argumento, no nosso caso <code>poetry env activate</code>, e o executa.
-  Ou seja, ele não ativa o ambiente diretamente, mas retorna a string com o comando de ativação correto para o terminal que você está usando (por exemplo, <code>source /caminho/do/venv/bin/activate</code>).
-  O terminal então executa a saída do comando <code>poetry env activate</code>, ativando o ambiente virtual sem iniciar um novo subprocesso.
-  Isso evita que você tenha que copiar e colar manualmente o comando de ativação.</li>
+<li>Desenhar o DER.</li>
+<li>Criar as tabelas com alguns registros de exemplo.</li>
+<li>Escrever a consulta SQL que une as tabelas (Avançado!!).</li>
 </ol>
-<h2 id="outros-comando-interessantes">Outros comando interessantes<a class="headerlink" href="#outros-comando-interessantes" title="Permanent link">⚓︎</a></h2>
+<p><img alt="💡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f4a1.svg" title=":bulb:"> <strong>Dica</strong>: Use a ferramenta <a href="https://mermaid.js.org/syntax/entityRelationshipDiagram.html">Mermaid.js</a> <img alt="🧜‍♀️" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f9dc-200d-2640-fe0f.svg" title=":mermaid:"> para desenhar seu DER.
+Ela é gratuita e funciona direto no Markdown!</p>
+<p>Compartilhe seu resultado na sessão de comentários abaixo e vamos aprender juntos! <img alt="🚀" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f680.svg" title=":rocket:"></p>
+</div>
+<h3 id="3-relacionamento-muitos-para-muitos-nm">3. Relacionamento Muitos para Muitos (N:M)<a class="headerlink" href="#3-relacionamento-muitos-para-muitos-nm" title="Permanent link">⚓︎</a></h3>
+<p>O relacionamento muitos para muitos (N:M) ocorre quando registros de uma entidade podem se relacionar com vários registros de outra entidade, e vice-versa.
+Este tipo de relacionamento é mais complexo e geralmente requer uma tabela intermediária (tabela de junção) para ser implementado no banco de dados.</p>
+<p>Por exemplo, quando falamos de alunos e disciplinas:</p>
+<ul>
+<li>Um aluno pode se matricular em várias disciplinas.</li>
+<li>Uma disciplina pode ter vários alunos matriculados.</li>
+<li>Precisamos de uma tabela intermediária (matrícula) para registrar estas relações.</li>
+</ul>
+<p><strong>Exemplo na prática:</strong></p>
+<details>
+<summary>Alunos e Disciplinas</summary>
+<p>Um aluno pode se matricular em várias disciplinas, e uma disciplina pode ter vários alunos matriculados.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:3"><input checked id="der_3" name="__tabbed_4" type="radio"><input id="tabelas_2" name="__tabbed_4" type="radio"><input id="resultado-da-consulta_3" name="__tabbed_4" type="radio"><div class="tabbed-labels"><label for="der_3">DER</label><label for="tabelas_2">Tabelas</label><label for="resultado-da-consulta_3">Resultado da Consulta</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="mermaid">erDiagram
+    ALUNO {
+        int id
+        string nome
+        string matricula
+    }
+    DISCIPLINA {
+        int id
+        string nome
+        string codigo
+    }
+    MATRICULA {
+        int id
+        int aluno_id
+        int disciplina_id
+        date data_matricula
+    }
+    ALUNO ||--o{ MATRICULA : "id = aluno_id"
+    DISCIPLINA ||--o{ MATRICULA : "id = disciplina_id"</div>
+</div>
+<div class="tabbed-block">
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>nome</th>
+<th>matricula</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>João Silva</td>
+<td>2023001</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Maria Santos</td>
+<td>2023002</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Pedro Costa</td>
+<td>2023003</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>nome</th>
+<th>codigo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Matemática</td>
+<td>MAT001</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Português</td>
+<td>PORT001</td>
+</tr>
+<tr>
+<td>3</td>
+<td>História</td>
+<td>HIST001</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>aluno_id</th>
+<th>disciplina_id</th>
+<th>data_matricula</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>2023-02-01</td>
+</tr>
+<tr>
+<td>2</td>
+<td>1</td>
+<td>2</td>
+<td>2023-02-01</td>
+</tr>
+<tr>
+<td>3</td>
+<td>2</td>
+<td>1</td>
+<td>2023-02-01</td>
+</tr>
+<tr>
+<td>4</td>
+<td>2</td>
+<td>3</td>
+<td>2023-02-01</td>
+</tr>
+<tr>
+<td>5</td>
+<td>3</td>
+<td>2</td>
+<td>2023-02-01</td>
+</tr>
+<tr>
+<td>6</td>
+<td>3</td>
+<td>3</td>
+<td>2023-02-01</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<table>
+<thead>
+<tr>
+<th>id_aluno</th>
+<th>nome_aluno</th>
+<th>id_disciplina</th>
+<th>nome_disciplina</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>João Silva</td>
+<td>1</td>
+<td>Matemática</td>
+</tr>
+<tr>
+<td>1</td>
+<td>João Silva</td>
+<td>2</td>
+<td>Português</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Maria Santos</td>
+<td>1</td>
+<td>Matemática</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Maria Santos</td>
+<td>3</td>
+<td>História</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Pedro Costa</td>
+<td>2</td>
+<td>Português</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Pedro Costa</td>
+<td>3</td>
+<td>História</td>
+</tr>
+</tbody>
+</table>
+<details>
+<summary>Consulta SQL que une as tabelas</summary>
+<div class="language-sql highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">SELECT</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">    </span><span class="n">a</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">id_aluno</span><span class="p">,</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="n">a</span><span class="p">.</span><span class="n">nome</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">nome_aluno</span><span class="p">,</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="n">d</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">id_disciplina</span><span class="p">,</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span><span class="n">d</span><span class="p">.</span><span class="n">nome</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">nome_disciplina</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="k">FROM</span><span class="w"> </span><span class="n">aluno</span><span class="w"> </span><span class="n">a</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="k">INNER</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">matricula</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">m</span><span class="p">.</span><span class="n">aluno_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">id</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="k">INNER</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">disciplina</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">d</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m</span><span class="p">.</span><span class="n">disciplina_id</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">d</span><span class="p">.</span><span class="n">id</span><span class="p">;</span>
+</span></code></pre></div>
+<blockquote>
+<p>💡 <strong>Nota</strong>: Observe como a tabela MATRICULA serve como intermediária, permitindo que um aluno se relacione com várias disciplinas e vice-versa. Este é um padrão comum em relacionamentos N:M.</p>
+</blockquote>
+</details>
+</div>
+</div>
+</div>
+</details>
+<div class="admonition note">
+<p class="admonition-title"><strong>Hora de praticar!</strong></p>
+<p><img alt="🙋‍♂️" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f64b-200d-2642-fe0f.svg" title=":man_raising_hand:"> Consegue pensar em outros exemplos muitos para muitos (N:M)?
+Claro que consegue.
+Além de pensar,tente também:</p>
 <ol>
-<li><code>poetry list</code>: mostra todos os comandos Poetry disponíves.</li>
-<li><code>poetry show</code>: mostra os pacotes instalados.</li>
+<li>Desenhar o DER.</li>
+<li>Criar as tabelas com alguns registros de exemplo.</li>
+<li>Escrever a consulta SQL que une as tabelas (Avançado!!).</li>
 </ol>
-<h2 id="topicos-adicionais-importantes-para-pesquisa">Tópicos Adicionais Importantes para pesquisa<a class="headerlink" href="#topicos-adicionais-importantes-para-pesquisa" title="Permanent link">⚓︎</a></h2>
+<p><img alt="💡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f4a1.svg" title=":bulb:"> <strong>Dica</strong>: Use a ferramenta <a href="https://mermaid.js.org/syntax/entityRelationshipDiagram.html">Mermaid.js</a> <img alt="🧜‍♀️" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f9dc-200d-2640-fe0f.svg" title=":mermaid:"> para desenhar seu DER.
+Ela é gratuita e funciona direto no Markdown!</p>
+<p>Compartilhe seu resultado na sessão de comentários abaixo e vamos aprender juntos! <img alt="🚀" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f680.svg" title=":rocket:"></p>
+<details class="note">
+<summary>Sistema de Biblioteca</summary>
+<p>Agora que você já sabe tudo sobre o DER, e já praticou todos os tipos de relacionamento, porque não criar seu primeiro banco de dados?
+Como sugestão, pense no banco para uma biblioteca: <img alt="📖" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f4d6.svg" title=":book:"></p>
+<ul>
+<li>As <strong>entidades</strong> podem ser: Funcionários, Setores, Livros, Autores, Leitores, Empréstimos</li>
+<li>Os <strong>relacionamentos</strong> podem ser:<ul>
+<li>Um setor pode ter um funcionário responsável.</li>
+<li>Um funcionário pode ter uma chefia imediata.</li>
+<li>Um livro pode ser guardado em apenas um setor.</li>
+<li>Um livro pode ter vários autores.</li>
+<li>Um leitor pode pegar vários livros emprestados.</li>
+<li>Um livro pode ser emprestado várias vezes.</li>
+</ul>
+</li>
+</ul>
+<p>Se você conseguir desenhar este DER pode ter certeza que vai conseguir criar qualquer um.</p>
+</details>
+</div>
+<h2 id="dicas-finais-para-criacao-de-um-bom-der">Dicas finais para criação de um bom DER<a class="headerlink" href="#dicas-finais-para-criacao-de-um-bom-der" title="Permanent link">⚓︎</a></h2>
 <ol>
-<li>
-<p><strong>Destaque para o suporte a múltiplas versões do Python</strong>: O Poetry pode gerenciar diferentes versões do Python de forma mais eficiente quando integrado ao <a href="https://github.com/pyenv/pyenv">Pyenv</a>.</p>
-</li>
-<li>
-<p><strong>Melhoria na explicação sobre <code>poetry.lock</code></strong>: Entender melhor seu funcionamento e como os processos de atualização podem impactar um projeto.</p>
-</li>
-<li>
-<p><strong>Seção sobre <code>poetry export</code></strong>: O Poetry permite exportar dependências para um formato compatível com <code>pip</code> com o comando <code>poetry export -f requirements.txt --output requirements.txt</code>.
-Isso pode ser útil para ambientes onde o Poetry não está instalado.</p>
-</li>
-<li>
-<p><strong>Dicas sobre troubleshooting</strong>: Algumas pessoas podem enfrentar problemas ao rodar <code>poetry install</code>, especialmente com dependências conflitantes.</p>
-</li>
-<li>
-<p><strong>Poetry e GitHub Actions</strong>: Automatização de atualização dos pacotes utilizando <a href="https://github.com/fuzzylabs/gha-poetry-update">GitHub Actions</a>.</p>
-</li>
-<li>
-<p><strong>Publicação de pacotes</strong>: Como dito no início, podemos utilizar o Poetry para publicação de pacotes Python.
-Entender bem este funcionamento, bem como a <a href="https://python-poetry.org/docs/main/pyproject#package-mode">exclusão desta funcionalidade</a> caso necessário também é interessante.</p>
-</li>
+<li><strong>Comece simples</strong>: Identifique as entidades principais primeiro.</li>
+<li><strong>Use nomes claros</strong>: Escolha nomes que façam sentido para todos.</li>
+<li><strong>Pense nas relações</strong>: Como as entidades se conectam?</li>
+<li><strong>Valide com usuários</strong>: Certifique-se que o diagrama faz sentido para quem vai usar, ou se ela realmente representa a regra de negócio a ser atendida.</li>
 </ol>
 <h2 id="conclusao">Conclusão<a class="headerlink" href="#conclusao" title="Permanent link">⚓︎</a></h2>
-<p>Com o Poetry 2+, gerenciar dependências se tornou mais intuitivo e confiável, tornando essa ferramenta uma excelente escolha para projetos Python de qualquer tamanho.
-A combinação de um gerenciamento estruturado, resolução eficiente de dependências e integração com PyPI e Pyenv torna o Poetry indispensável para desenvolvedores que buscam produtividade e consistência em seus projetos.
-Se você ainda não experimentou o Poetry, vale a pena adotá-lo para melhorar seu fluxo de trabalho e garantir um ambiente mais organizado e previsível.</p>
-<h2 id="referencias">Referências<a class="headerlink" href="#referencias" title="Permanent link">⚓︎</a></h2>
-<ul>
-<li><a href="https://python-poetry.org/docs/">Documentação Poetry</a>.</li>
-<li><a href="https://www.youtube.com/watch?v=ZOSWdktsKf0">Live de Python - Poetry</a>.</li>
-</ul></div>
+<p>O Diagrama Entidade Relacionamento é uma ferramenta poderosa para planejar e entender a estrutura de um banco de dados.
+Ao dominar os tipos de relacionamentos você estará preparado para criar estruturas de dados eficientes e bem organizadas.</p>
+<p>Lembre-se: um bom DER é aquele que qualquer pessoa consegue entender, mesmo que não seja especialista em banco de dados.
+Por isso, use exemplos do dia a dia e mantenha a simplicidade!</p>
+<div class="footnote">
+<hr>
+<ol>
+<li id="fn:1">
+<p>É sempre importante ressaltar que os relacionamentos representam uma regra de negócio específica, que podem variar dependendo de situação. <a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">↩</a></p>
+</li>
+</ol>
+</div></div>
 
 
 
@@ -1402,7 +1828,7 @@ Se você ainda não experimentou o Poetry, vale a pena adotá-lo para melhorar s
     <span class="md-icon" title="Última atualização">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">21 de março de 2025 13:49:38</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">17 de junho de 2025 20:44:35</span>
   </span>
 
     
@@ -1412,7 +1838,7 @@ Se você ainda não experimentou o Poetry, vale a pena adotá-lo para melhorar s
     <span class="md-icon" title="Criada">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">21 de fevereiro de 2025 19:11:26</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">17 de junho de 2025 20:44:35</span>
   </span>
 
     
@@ -1499,7 +1925,7 @@ Se você ainda não experimentou o Poetry, vale a pena adotá-lo para melhorar s
       <nav class="md-footer__inner md-grid" aria-label="Rodapé" >
         
           
-          <a href="../publica%C3%A7%C3%A3o-volumes-loa---parte-1/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Publicação volumes LOA - Parte 1">
+          <a href="../reuni%C3%A3o-sobre-o-novo-sigplan-m%C3%B3dulo-gerente-do-programa/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Reunião sobre o novo Sigplan: Módulo Gerente do Programa">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -1509,27 +1935,11 @@ Se você ainda não experimentou o Poetry, vale a pena adotá-lo para melhorar s
                 Anterior
               </span>
               <div class="md-ellipsis">
-                Publicação volumes LOA - Parte 1
+                Reunião sobre o novo Sigplan: Módulo Gerente do Programa
               </div>
             </div>
           </a>
         
-        
-          
-          <a href="../-publica%C3%A7%C3%A3o-das-bases-da-receita---an%C3%A1lise-sobre-prote%C3%A7%C3%A3o-de-dados/" class="md-footer__link md-footer__link--next" aria-label="Próximo: 📑 Publicação das Bases da Receita - Análise sobre Proteção de Dados">
-            <div class="md-footer__title">
-              <span class="md-footer__direction">
-                Próximo
-              </span>
-              <div class="md-ellipsis">
-                📑 Publicação das Bases da Receita - Análise sobre Proteção de Dados
-              </div>
-            </div>
-            <div class="md-footer__button md-icon">
-              
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
-            </div>
-          </a>
         
       </nav>
     
