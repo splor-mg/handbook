@@ -18,7 +18,16 @@ O SQLAlchemy é um kit de ferramentas SQL abrangente e um Object Relational Mapp
 
 ## 🔍 O que é o SQLAlchemy?
 
-O SQLAlchemy é uma biblioteca Python que fornece uma camada de abstração completa para trabalhar com bancos de dados SQL. Desenvolvido desde 2005 por Michael Bayer, o SQLAlchemy implementa a especificação DBAPI (PEP 249) e oferece suporte tanto para operações síncronas quanto assíncronas.
+O SQLAlchemy é uma biblioteca Python que fornece um **conjunto de ferramentas para trabalhar com bancos de dados SQL** tornando a manutenção e consultas a esses bancos muito mais ágeis e consistentes. Desenvolvido desde 2005 por Michael Bayer, o SQLAlchemy implementa o protocolo padrão Python denominado **DBAPI** (formalizado pela PEP 249). Esse protocolo permite grande flexibilidade para tratar com diferentes drivers de bancos de dados por meio da padronização das interações via API[^api-def]. 
+
+Sua arquitetura é dividida em duas camadas principais: 
+
+  - o **Core** (núcleo), que fornece uma interface SQL pura, e 
+  - o **ORM** (Object Relational Mapper - Mapeamento dos Bancos Realcionais), que oferece uma abstração orientada a objetos - evidencia como os diferentes bancos relacionam entre si. 
+
+Por fim, cabe destacar que o SQLAlchemy suporta tanto operações síncronas quanto assíncronas através de suas APIs dedicadas (`sqlalchemy` e `sqlalchemy.ext.asyncio`), permitindo o desenvolvimento de aplicações que podem operar tanto em contextos web assíncronos quanto em ambientes síncronos tradicionais.
+
+[^api-def]: Uma API (Application Programming Interface, ou Interface de Programação de Aplicações) é um conjunto de regras, protocolos e ferramentas que permite que diferentes sistemas e aplicações se comuniquem entre si. Como funciona uma API? Imagine que você está em um restaurante: 1. você (cliente) faz um pedido ao garçom (API); 2. o garçom leva seu pedido para a cozinha (servidor); 3. a cozinha prepara o prato e o garçom traz até você. Da mesma forma, uma API atua como intermediária entre um cliente (seu aplicativo ou site) e um servidor (onde os dados ou serviços estão armazenados).
 
 ### Principais características:
 - Implementação completa da especificação DBAPI (PEP 249)
@@ -33,31 +42,32 @@ O SQLAlchemy é uma biblioteca Python que fornece uma camada de abstração comp
 ### 1. Core - A Base de Tudo
 
 O Core é o componente mais fundamental do SQLAlchemy, responsável por:
-- Gerenciar conexões com o banco de dados
-- Executar consultas
-- Definir tipos de dados
-- Implementar a linguagem de expressão SQL
+- Gerenciar conexões com o banco de dados através do sistema de Engine e Connection
+- Executar consultas com suporte a prepared statements e parâmetros vinculados
+- Definir tipos de dados com validação e conversão automática
+- Implementar a linguagem de expressão SQL com suporte a subqueries e CTEs
+- Gerenciar transações com suporte a savepoints e rollbacks
 
-#### Engine
-- Fábrica de conexões com o banco de dados
-- Gerencia o pool de conexões
-- Coordena operações baseadas no dialeto configurado
-- Exemplo: `create_engine('sqlite:///database.db')`
+??? note "Engine"
+    - Fábrica de conexões com o banco de dados
+    - Gerencia o pool de conexões
+    - Coordena operações baseadas no dialeto configurado
+    - Exemplo: `create_engine('sqlite:///database.db')`
 
-#### Dialetos
-- Implementam requisitos específicos de cada banco de dados
-- Traduzem expressões SQL genéricas para SQL específico do banco
-- Suportam nativamente:
-  - SQLite
-  - PostgreSQL
-  - MySQL/MariaDB
-  - Oracle
-  - Microsoft SQL Server
+??? note "Dialetos"
+    - Implementam requisitos específicos de cada banco de dados
+    - Traduzem expressões SQL genéricas para SQL específico do banco
+    - Suportam nativamente:
+      - SQLite
+      - PostgreSQL
+      - MySQL/MariaDB
+      - Oracle
+      - Microsoft SQL Server
 
-#### Pool de Conexões
-- Gerencia conexões de forma eficiente
-- Mantém conexões em memória para reutilização
-- Otimiza o desempenho da aplicação
+??? note "Pool de Conexões"
+    - Gerencia conexões de forma eficiente
+    - Mantém conexões em memória para reutilização
+    - Otimiza o desempenho da aplicação
 
 ### 2. Schema/Types
 - Define e gerencia a estrutura do banco de dados
