@@ -530,22 +530,26 @@ A normalização de banco de dados é um processo de organização de dados em t
 
 **Exemplo de violação:**
 
-  CLIENTE
-  ID | Nome | Telefones
-  1  | João | (11)9999-9999, (11)8888-8888
+```
+| ID | Nome | Telefones                  |
+|----|------|---------------------------|
+| 1  | João | (11)9999-9999, (11)8888-8888 |
+```
 
-  problema: `Telefones` é uma coluna composta, pois pode ter mais de um telefone para o mesmo cliente.
+problema: `Telefones` é uma coluna composta, pois pode ter mais de um telefone para o mesmo cliente.
 
 **Exemplo de correção:**
 
-  CLIENTE
-  ID | Nome  | ID_TELEFONE
-  1  | João  | 1
-  
-  TELEFONE-CLIENTE
-  ID | ID_CLIENTE | Telefone
-  1  | 1          | (11)9999-9999
-  2  | 1          | (11)8888-8888
+```
+| ID | Nome  | ID_TELEFONE |
+|----|-------|-------------|
+| 1  | João  | 1           |
+
+| ID | ID_CLIENTE | Telefone      |
+|----|------------|--------------|
+| 1  | 1          | (11)9999-9999|
+| 2  | 1          | (11)8888-8888|
+```
 
 Normalmente, as violações de 1NF são corrigidas através da criação de uma tabela para os atributos multivalorados.
 
@@ -556,24 +560,28 @@ Normalmente, as violações de 1NF são corrigidas através da criação de uma 
 
 **Exemplo de violação:**
 
-  PEDIDO_ITEM
-  ID_Pedido | ID_Produto | Nome_Produto | Quantidade | Preco_Unitario
-  1         | 101        | Notebook     | 2          | 1500.00
-  1         | 102        | Mouse        | 1          | 50.00
+```
+| ID_Pedido | ID_Produto | Nome_Produto | Quantidade | Preco_Unitario |
+|-----------|------------|--------------|------------|----------------|
+| 1         | 101        | Notebook     | 2          | 1500.00        |
+| 1         | 102        | Mouse        | 1          | 50.00          |
+```
 
-  problema: `Nome_Produto depende apenas de `ID_Produto`, mas não de `ID_Pedido` (chave primária)
+problema: `Nome_Produto` depende apenas de `ID_Produto`, mas não de `ID_Pedido` (chave primária)
 
 **Exemplo de correção:**
 
-  PEDIDO_ITEM
-  ID_Pedido | ID_Produto | Quantidade | Preco_Unitario
-  1         | 101        | 2          | 1500.00
-  1         | 102        | 1          | 50.00
+```
+| ID_Pedido | ID_Produto | Quantidade | Preco_Unitario |
+|-----------|------------|------------|----------------|
+| 1         | 101        | 2          | 1500.00        |
+| 1         | 102        | 1          | 50.00          |
 
-  PRODUTO
-  ID_Produto | Nome_Produto
-  101        | Notebook
-  102        | Mouse
+| ID_Produto | Nome_Produto |
+|------------|--------------|
+| 101        | Notebook     |
+| 102        | Mouse        |
+```
 
 Normalmente, as violações de 2NF são corrigidas através do **reposicionamento do atributo não-chave em na tabela-entidade própria**, normalmente já existente. Caso não exista, deve-se criar uma nova tabela para o atributo não-chave.
     
@@ -585,23 +593,27 @@ _obs: a dependência transitiva ocorre quando um atributo depende de outro atrib
 
 **Exemplo de violação:**
 
-FUNCIONARIO
-ID | Nome | ID_Departamento (A) | Nome_Departamento (B) | Cidade_Departamento (C)
-1  | Ana  | 10                  | TI                    | São Paulo
-2  | Bob  | 10                  | TI                    | São Paulo
+```
+| ID | Nome | ID_Departamento | Nome_Departamento | Cidade_Departamento |
+|----|------|-----------------|-------------------|--------------------|
+| 1  | Ana  | 10              | TI                | São Paulo          |
+| 2  | Bob  | 10              | TI                | São Paulo          |
+```
 
 problema: `Cidade_Departamento` depende de `Nome_Departamento`, mas não de `ID_Departamento`
 
 **Exemplo de correção:**
 
-FUNCIONARIO
-ID | Nome | ID_Departamento
-1  | Ana  | 10
-2  | Bob  | 10
+```
+| ID | Nome | ID_Departamento |
+|----|------|-----------------|
+| 1  | Ana  | 10              |
+| 2  | Bob  | 10              |
 
-DEPARTAMENTO
-ID_Departamento | Nome_Departamento | Cidade_Departamento
-10              | TI                | São Paulo
+| ID_Departamento | Nome_Departamento | Cidade_Departamento |
+|-----------------|-------------------|--------------------|
+| 10              | TI                | São Paulo          |
+```
 
 **Sob o ponto de vista conceitual, não há problema em haver violação das regras de normalização**, devendo esses problemas serem tratados sob o ponto de vista lógico.
   
