@@ -99,5 +99,13 @@ O terceiro encontro não foi gravado, pois se tratou de uma sessão de tira dúv
 ## 5º encontro
 O quinto encontro não foi gravado, pois foi foram feitas as mesmas atividades do 4º encontro na intenção de fixar as etapas do processo de trabalho.
 
+## 3º encontro
+
+### O que foi tratado nesse encontro
+
+- [x] O que é o pull request.
+- [x] Como realizar a revisão de um pull request.
+- [x] Como resolver conflitos em um pull request.
+
 
 🚨_Fique ligado, pois logo teremos novos encontros!_ 
