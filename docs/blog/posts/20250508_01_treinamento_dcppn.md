@@ -16,7 +16,7 @@ A equipe da Assessoria de Inteligência de Dados (AID) acredita que o compartilh
 
 Nesse sentido, a AID  e a Diretora Central de Planejamento, Programação e Normas (DCPPN) está empenhada em uma sequência de reuniões para tratar de temas como filosofia Doc as Code, Git, GitHub, Markdown, dentre outros. :rocket:
 
-Acompanhe os encontros gravados abaixo:
+Acompanhe os encontros abaixo:
 
 ## 1º encontro
 
