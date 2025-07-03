@@ -98,6 +98,3 @@ O terceiro encontro não foi gravado, pois se tratou de uma sessão de tira dúv
 
 ## 5º encontro
 O quinto encontro não foi gravado, pois foi foram feitas as mesmas atividades do 4º encontro na intenção de fixar as etapas do processo de trabalho.
-
-
-🚨_Fique ligado, pois logo teremos novos encontros!_ 
