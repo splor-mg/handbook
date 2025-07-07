@@ -1,5 +1,5 @@
 ---
-title: Blog Inteligência de Dados
+title: Blog da SPLOR
 ---
 
-# Blog Inteligência de Dados
+# Blog da SPLOR

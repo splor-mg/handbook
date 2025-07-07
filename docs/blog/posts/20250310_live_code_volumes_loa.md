@@ -4,7 +4,8 @@ authors: [carloshob]
 draft: false
 comments: true
 categories:
-  - Live Code - Volumes LOA
+  - Live Code
+  - Volumes LOA
 ---
 
 # 🚀 Live Code - Volumes LOA - Encontro 2025-03-10

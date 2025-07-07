@@ -4,7 +4,8 @@ authors: [hslinhares]
 draft: false
 comments: true
 categories:
-  - Live Code Datamart
+  - Live Code
+  - Datamart
 ---
 
 # Live Code Datamart #2 - Aula 3 Fastapi Pydantic
