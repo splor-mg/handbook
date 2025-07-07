@@ -84,12 +84,13 @@ Você sabia que você **não precisa nem mesmo instalar um programa no computado
 
 *Você vai usar os dois juntos: Git para registrar, GitHub para compartilhar.*
 
-!!!! Tip "Git vs GitHub"
+!!! Tip "Git vs GitHub"
     🎥 **Para entender melhor essa diferença, não deixe de assistir ao [Vídeo 2 - Git e GitHub: qual a diferença?](https://splor-mg.github.io/trilha-dev/aulas/dia_01/dia_01/) da nossa [trilha-dev](https://splor-mg.github.io/trilha-dev/)!**
 
 A plataforma do GitHub oferece uma ferramenta incrível chamada **GitHub Codespaces**, que é como ter um **computador virtual** rodando diretamente no seu navegador, com tudo que você precisa para programar já instalado e configurado. É como se você tivesse um "estúdio de desenvolvimento" completo, mas sem precisar instalar nada no seu computador!
 
-🎥 **Quer saber como usar? Assista ao [Vídeo 5 - Usando o Codespace](https://splor-mg.github.io/trilha-dev/aulas/dia_02/dia_02/) da nossa trilha!**
+!!! Tip "GitHub Codespace"
+    🎥 **Quer saber como usar? Assista ao [Vídeo 5 - Usando o Codespace](https://splor-mg.github.io/trilha-dev/aulas/dia_02/dia_02/) da nossa trilha!**
 
 ### Para quem quer instalar no computador
 

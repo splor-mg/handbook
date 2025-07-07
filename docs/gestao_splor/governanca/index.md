@@ -15,4 +15,4 @@ Nesta seção, você encontra os principais tópicos de governança da SPLOR:
 ---
 
 !!! note "Nota importante"
-    O **Git** é a principal ferramenta de colaboração utilizada pela SPLOR, e com isso, o **GitHub** foi eleita como a plataforma de compartilhamento. Para entender mais sobre essas ferramentas fundamentais, [clique aqui](git.md). 
+    O **Git** é a principal ferramenta de colaboração utilizada pela SPLOR, e com isso, o **GitHub** foi eleita como a plataforma de compartilhamento. Para entender mais sobre essas ferramentas fundamentais, [clique aqui](../ferramentas/git.md). 
