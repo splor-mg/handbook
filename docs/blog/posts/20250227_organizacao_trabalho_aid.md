@@ -4,7 +4,7 @@ authors: [gabrielbdornas]
 draft: false
 comments: true
 categories:
-  - O futuro já começou
+  - O Futuro Já Começou
 ---
 
 # Organização do Trabalho da Equipe AID

@@ -1,4 +1,4 @@
-site_name: Handbook Assessoria de Inteligência de Dados
+site_name: Handbook da Subsecretaria de Planejamento e Orçamento (SPLOR)
 
 # Repository
 repo_name: splor-mg/handbook
@@ -13,12 +13,38 @@ nav:
   - Linha do Tempo:
     - linha_do_tempo/index.md
     - Projeto Dados Abertos MG: linha_do_tempo/projeto_dados_abertos_mg.md
+  - Gestão SPLOR:
+    - gestao_splor/index.md
+    - Governança:
+      - gestao_splor/governanca/index.md
+      - Equipes: gestao_splor/governanca/equipes.md
+      - Papéis e Permissões: gestao_splor/governanca/papeis.md
+      - Duplo Fator de Autenticação: gestao_splor/governanca/duplo_fator_autenticacao.md
+    - Ferramentas:
+      - gestao_splor/ferramentas/index.md
+      - gestao_splor/ferramentas/git.md
+      - gestao_splor/ferramentas/instalacao.md
+    - Repositórios:
+      - gestao_splor/repositorios/nomenclaturas.md
+      - gestao_splor/repositorios/publico_privado.md
+    - Atividades (Issues):
+      - gestao_splor/issues/labels.md
+      - gestao_splor/issues/tipos.md
+    - Branches (Galhos):
+      - gestao_splor/branches/index.md
+    - Pull Requests:
+      - gestao_splor/pull_requests/index.md
+    - Gestão à Vista:
+      - gestao_splor/gestao_vista/projetos.md
+      - gestao_splor/gestao_vista/status.md
+      - gestao_splor/gestao_vista/datas.md
 # --8<-- [end:nav]
 
 # Configuration
 theme:
   name: material
   language: pt
+  logo: assets/logo-brasao-mg.png
   custom_dir: overrides
   features:
     # - announce.dismiss
@@ -32,7 +58,7 @@ theme:
     # - content.tabs.link
     - content.tooltips
     # - header.autohide
-    # - navigation.expand
+    - navigation.expand
     - navigation.indexes
     # - navigation.instant
     # - navigation.prune

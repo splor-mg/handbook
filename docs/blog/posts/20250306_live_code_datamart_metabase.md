@@ -4,7 +4,8 @@ authors: [gabrielbdornas]
 draft: false
 comments: true
 categories:
-  - Live Code - Datamart
+  - Live Code
+  - Datamart
 ---
 
 # 🚀 Live Code - Datamart - Encontro 2025-03-06
