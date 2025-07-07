@@ -1,0 +1,2903 @@
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../banco-de-dados-e-diagrama-entidade-relacionamento-um-guia-pr%C3%A1tico/">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.5">
+    
+    
+      
+        <title>Fundamentos para Modelagem de Dados - Handbook da Subsecretaria de Planejamento e Orçamento (SPLOR)</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.8608ea7d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/style.css">
+    
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@10.4.0/dist/mermaid.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#fundamentos-para-modelagem-de-dados" class="md-skip">
+          Ir para o conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
+    <a href="../.." title="Handbook da Subsecretaria de Planejamento e Orçamento (SPLOR)" class="md-header__button md-logo" aria-label="Handbook da Subsecretaria de Planejamento e Orçamento (SPLOR)" data-md-component="logo">
+      
+  <img src="../../assets/logo-brasao-mg.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Handbook da Subsecretaria de Planejamento e Orçamento (SPLOR)
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Fundamentos para Modelagem de Dados
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Pesquisar">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Compartilhar" aria-label="Compartilhar" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpar" aria-label="Limpar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando a pesquisa
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/splor-mg/handbook" title="Ir ao repositório" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    splor-mg/handbook
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Abas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  Bem vind(a)o! 🌹
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+    
+  
+  Blog
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../linha_do_tempo/" class="md-tabs__link">
+          
+  
+    
+  
+  Linha do Tempo
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../gestao_splor/" class="md-tabs__link">
+          
+  
+    
+  
+  Gestão SPLOR
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden>
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegação" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Handbook da Subsecretaria de Planejamento e Orçamento (SPLOR)" class="md-nav__button md-logo" aria-label="Handbook da Subsecretaria de Planejamento e Orçamento (SPLOR)" data-md-component="logo">
+      
+  <img src="../../assets/logo-brasao-mg.png" alt="logo">
+
+    </a>
+    Handbook da Subsecretaria de Planejamento e Orçamento (SPLOR)
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/splor-mg/handbook" title="Ir ao repositório" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    splor-mg/handbook
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bem vind(a)o! 🌹
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Blog
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Blog
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Categorias
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Categorias
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../category/banco-de-dados/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Banco de Dados
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../category/bancos-de-dados/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bancos de Dados
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../category/dados-abertos-mg/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Dados Abertos MG
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../category/datamart/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Datamart
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../category/ferramentas-%C3%BAteis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ferramentas úteis
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../category/live-code/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Live Code
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../category/markdown/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Markdown
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../category/modelagem-de-dados/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Modelagem de Dados
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../category/o-futuro-j%C3%A1-come%C3%A7ou/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    O Futuro Já Começou
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../category/sqlalchemy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SQLAlchemy
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../category/solu%C3%A7%C3%A3o-sigplansisor/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Solução Sigplan/Sisor
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../category/treinamento/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Treinamento
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../category/volumes-loa/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Volumes LOA
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../category/webnar-intelig%C3%AAnciamg/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Webnar Inteligência.MG
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../linha_do_tempo/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Linha do Tempo
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Linha do Tempo
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linha_do_tempo/projeto_dados_abertos_mg/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Projeto Dados Abertos MG
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../gestao_splor/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Gestão SPLOR
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Gestão SPLOR
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../gestao_splor/governanca/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Governança
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            Governança
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gestao_splor/governanca/equipes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Equipes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gestao_splor/governanca/papeis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Papéis e Permissões
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gestao_splor/governanca/duplo_fator_autenticacao/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Duplo Fator de Autenticação
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_3" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../gestao_splor/ferramentas/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Ferramentas
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            Ferramentas
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gestao_splor/ferramentas/git/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Git
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gestao_splor/ferramentas/instalacao/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Instalação e Configuração
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Repositórios
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            Repositórios
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gestao_splor/repositorios/nomenclaturas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Nomenclaturas
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gestao_splor/repositorios/publico_privado/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Repositórios Públicos vs Privados
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_5" id="__nav_4_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Atividades (Issues)
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_5">
+            <span class="md-nav__icon md-icon"></span>
+            Atividades (Issues)
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gestao_splor/issues/labels/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Labels de Issues
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gestao_splor/issues/tipos/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tipos de Issues
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_6" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../gestao_splor/branches/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Branches (Galhos)
+    
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_6">
+            <span class="md-nav__icon md-icon"></span>
+            Branches (Galhos)
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_7" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../gestao_splor/pull_requests/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Pull Requests
+    
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_7">
+            <span class="md-nav__icon md-icon"></span>
+            Pull Requests
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_8" id="__nav_4_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Gestão à Vista
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_8">
+            <span class="md-nav__icon md-icon"></span>
+            Gestão à Vista
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gestao_splor/gestao_vista/projetos/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Gestão por Projetos
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gestao_splor/gestao_vista/status/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Status de Atividades
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gestao_splor/gestao_vista/datas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Gestão de Datas
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#por-que-modelar" class="md-nav__link">
+    <span class="md-ellipsis">
+      Por que modelar?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#entidades" class="md-nav__link">
+    <span class="md-ellipsis">
+      Entidades
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#atributos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Atributos
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Atributos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tipos-de-atributos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tipos de Atributos
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#determinacao-de-atributos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Determinação de Atributos
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#regras-e-descricoes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Regras e Descrições
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#relacionamentos-entre-entidades" class="md-nav__link">
+    <span class="md-ellipsis">
+      Relacionamentos entre entidades
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Relacionamentos entre entidades">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cardinalidade" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cardinalidade
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#direcao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Direção
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hierarquia" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hierarquia
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#relacionamentos-ternarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      Relacionamentos Ternários
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ambientes-para-modelagem-de-dados" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ambientes para Modelagem de Dados
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#normalizacao-de-banco-de-dados-relacional" class="md-nav__link">
+    <span class="md-ellipsis">
+      Normalização de Banco de Dados Relacional
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Normalização de Banco de Dados Relacional">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1a-forma-normal-1nf" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧱 1ª Forma Normal (1NF)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2a-forma-normal-2nf" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧱 2ª Forma Normal (2NF)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3a-forma-normal-3nf" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧱 3ª Forma Normal (3NF)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+  <div class="md-content md-content--post" data-md-component="content">
+    <div class="md-sidebar md-sidebar--post" data-md-component="sidebar" data-md-type="navigation">
+      <div class="md-sidebar__scrollwrap">
+        <div class="md-sidebar__inner md-post">
+          <nav class="md-nav md-nav--primary">
+            <div class="md-post__back">
+              <div class="md-nav__title md-nav__container">
+                <a href="../" class="md-nav__link">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+                  <span class="md-ellipsis">
+                    Voltar ao índice
+                  </span>
+                </a>
+              </div>
+            </div>
+            
+              <div class="md-post__authors md-typeset">
+                
+                  <div class="md-profile md-post__profile">
+                    <span class="md-author md-author--long">
+                      <img src="https://avatars.githubusercontent.com/u/19910140" alt="Carlos Henrique de Oliveira Brochado">
+                    </span>
+                    <span class="md-profile__description">
+                      <strong>
+                        
+                          Carlos Henrique de Oliveira Brochado
+                        
+                      </strong>
+                      <br>
+                      Creator
+                    </span>
+                  </div>
+                
+              </div>
+            
+            <ul class="md-post__meta md-nav__list">
+              <li class="md-nav__item md-nav__item--section">
+                <div class="md-post__title">
+                  <span class="md-ellipsis">
+                    Metadados
+                  </span>
+                </div>
+                <nav class="md-nav">
+                  <ul class="md-nav__list">
+                    <li class="md-nav__item">
+                      <div class="md-nav__link">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5z"/></svg>
+                        <time datetime="2025-06-27 00:00:00+00:00" class="md-ellipsis">27 de junho de 2025</time>
+                      </div>
+                    </li>
+                    
+                    
+                      <li class="md-nav__item">
+                        <div class="md-nav__link">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 3v15h3V3zm3 2 4 13 3-1-4-13zM5 5v13h3V5zM3 19v2h18v-2z"/></svg>
+                          <span class="md-ellipsis">
+                            em
+                            
+                              <a href="../category/banco-de-dados/">Banco de Dados</a>, 
+                              <a href="../category/modelagem-de-dados/">Modelagem de Dados</a></span>
+                        </div>
+                      </li>
+                    
+                    
+                      
+                      <li class="md-nav__item">
+                        <div class="md-nav__link">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20a8 8 0 0 0 8-8 8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8m0-18a10 10 0 0 1 10 10 10 10 0 0 1-10 10C6.47 22 2 17.5 2 12A10 10 0 0 1 12 2m.5 5v5.25l4.5 2.67-.75 1.23L11 13V7z"/></svg>
+                          <span class="md-ellipsis">
+                            
+                              15 min de leitura
+                            
+                          </span>
+                        </div>
+                      </li>
+                    
+                  </ul>
+                </nav>
+              </li>
+            </ul>
+            
+          </nav>
+          
+        </div>
+      </div>
+    </div>
+    <article class="md-content__inner md-typeset">
+      
+        
+  
+
+
+
+  
+    <a href="https://github.com/splor-mg/handbook/edit/main/docs/blog/posts/20250627_modelagem_de_dados.md" title="Editar esta página" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://github.com/splor-mg/handbook/raw/main/docs/blog/posts/20250627_modelagem_de_dados.md" title="Ver fonte desta página" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"/></svg>
+    </a>
+  
+
+
+<div><h1 id="fundamentos-para-modelagem-de-dados">Fundamentos para Modelagem de Dados<a class="headerlink" href="#fundamentos-para-modelagem-de-dados" title="Permanent link">⚓︎</a></h1>
+<p>tNa empreitada de modernizar a gestão dos bancos de dados do Estado, encontramos na modelagem de dados um dos conhecimentos fundamentais indispensáveis. Nesta postagem, compartilho alguns dos conhecimentos adquiridos durante o curso <a href="https://www.udemy.com/course/mastering-data-modeling-fundamentals/?couponCode=LOCLZDOFFPBRCTRL">Mastering Data Modeling Fundamentals</a>, ministrado por Alan R. Simon, professor da Arizona State University e uma autoridade respeitada em modelagem de dados, data warehousing e arquitetura de sistemas de informação. </p>
+<!-- more -->
+
+<h2 id="por-que-modelar">Por que modelar?<a class="headerlink" href="#por-que-modelar" title="Permanent link">⚓︎</a></h2>
+<p>A modelagem de dados trata de uma representação daquilo que os dados realmente são no mundo real e nos fornece informações sobre as diversas características e regras que se aplicam aos dados.</p>
+<p>Como modelo, ela nos auxilia na abstração das especificidades da implementação de um banco de dados e, com isso, permite o foco em aspectos conceituais dos dados.</p>
+<p>A modelagem trabalha essencialmente com dados tabulares, ou seja, aqueles estruturados em linhas e colunas, onde uma linha (ou registro) representa uma observação ou entidade (sujeito de dados), e uma coluna (ou campo/atributo) representa uma variável ou característica dessa observação. Apesar de se parecer com uma planilha, guarda mais semântica de transação do que uma planilha.</p>
+<details class="info" open="open">
+<summary>Quando surgiu a modelagem?</summary>
+<p>A modelagem de dados como disciplina formal foi inaugurada pelo artigo seminal de Peter Chen, "<a href="https://dl.acm.org/doi/10.1145/320434.320440">The Entity-Relationship Model: Toward a Unified View of Data</a>", publicado em 1976 na ACM Transactions on Database Systems. Este trabalho estabeleceu os fundamentos conceituais que ainda hoje orientam a prática da modelagem de dados.</p>
+</details>
+<details class="info" open="open">
+<summary>O que a modelagem de dados faz?</summary>
+<p>A modelagem de dados tem quatro funções principais:</p>
+<p><strong>1. Identificar os principais sujeitos de dados</strong>
+Também chamados entidades, objetos, classes ou tabelas - são os "nouns" do sistema de dados.</p>
+<p><strong>2. Identificar os atributos</strong>
+As características ou propriedades de cada sujeito de dados.</p>
+<p><strong>3. Identificar as relações entre os sujeitos</strong>
+Como os registros de uma tabela se conectam com os registros de outra tabela.</p>
+<p><strong>4. Identificar as regras de negócio</strong>
+As regras específicas que se aplicam aos dados e suas relações.</p>
+</details>
+<details class="info" open="open">
+<summary>Como fazer modelagem de dados?</summary>
+<p>O processo de modelagem segue quatro etapas fundamentais:</p>
+<p><strong>1. Entender os dados</strong>
+Compreender os principais assuntos e conceitos do domínio.</p>
+<p><strong>2. Estabelecer as regras de negócio</strong>
+Definir como as regras de negócio serão replicadas no banco de dados.</p>
+<p><strong>3. Estabelecer os relacionamentos</strong>
+Mapear como os diferentes sujeitos de dados se conectam.</p>
+<p><strong>4. Resolver inconsistências</strong>
+Identificar e corrigir problemas, preenchendo lacunas no modelo.</p>
+</details>
+<h2 id="entidades">Entidades<a class="headerlink" href="#entidades" title="Permanent link">⚓︎</a></h2>
+<p>Uma entidade representa um <strong>objeto do mundo real</strong> que existe independentemente e sobre o qual queremos armazenar informações. Em termos práticos, uma entidade se torna uma <strong>tabela de banco de dados</strong> quando implementada.</p>
+<p><strong>Exemplos de entidades no orçamento:</strong>
+- Unidades Orçamentárias
+- Fontes de Recurso
+- Elementos de despesa
+- Função
+- Unidade de Programação de Gasto</p>
+<p>As entidades representam <strong>áreas temáticas importantes</strong> do domínio e podem ser entendidas como "nouns" do sistema - coisas sobre as quais queremos manter dados.</p>
+<details class="note" open="open">
+<summary>Entidades fortes vs entidades fracas</summary>
+<p>As entidades podem ser classificadas em dois tipos principais baseados em sua <strong>independência</strong> e <strong>capacidade de identificação</strong>:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked id="entidades-fortes" name="__tabbed_1" type="radio"><input id="entidades-fracas" name="__tabbed_1" type="radio"><input id="der" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="entidades-fortes">Entidades Fortes</label><label for="entidades-fracas">Entidades Fracas</label><label for="der">DER</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<ul>
+<li><strong>Existem independentemente</strong> de outras entidades</li>
+<li><strong>Podem ser identificadas unicamente</strong> por seus próprios atributos</li>
+<li><strong>Não dependem</strong> de nenhuma outra entidade para existir</li>
+<li><strong>Sempre possuem uma chave primária própria</strong></li>
+</ul>
+<p><strong>Exemplos:</strong></p>
+<ul>
+<li><strong>CLIENTE</strong> (identificado por CPF ou ID)</li>
+<li><strong>PRODUTO</strong> (identificado por código ou SKU)</li>
+<li><strong>DEPARTAMENTO</strong> (identificado por código ou nome)</li>
+</ul>
+</div>
+<div class="tabbed-block">
+<ul>
+<li><strong>Dependem de outras entidades</strong> para existir</li>
+<li><strong>Não podem ser identificadas unicamente</strong> apenas por seus próprios atributos</li>
+<li><strong>Precisam de uma entidade forte</strong> para ter significado</li>
+<li><strong>Sua chave primária inclui a chave da entidade forte</strong></li>
+</ul>
+<p><strong>Tipos de dependência:</strong></p>
+<ul>
+<li><strong>Dependência de identificação</strong>: A entidade fraca não pode ser identificada sem a entidade forte</li>
+<li><strong>Dependência de existência</strong>: A entidade fraca não pode existir sem a entidade forte</li>
+</ul>
+<p><strong>Exemplos:</strong></p>
+<ul>
+<li><strong>DEPENDENTE</strong> (depende de FUNCIONARIO)</li>
+<li><strong>ITEM_PEDIDO</strong> (depende de PEDIDO)</li>
+<li><strong>NOTA</strong> (depende de ALUNO e DISCIPLINA)</li>
+</ul>
+</div>
+<div class="tabbed-block">
+<div class="mermaid">erDiagram
+    FUNCIONARIO ||--o{ DEPENDENTE : "possui"
+    PEDIDO ||--o{ ITEM_PEDIDO : "contém"
+    ALUNO ||--o{ NOTA : "recebe"
+    DISCIPLINA ||--o{ NOTA : "avalia"</div>
+</div>
+</div>
+</div>
+<p><strong>Nota:</strong> As entidades fracas são representadas com bordas duplas em diagramas ER para indicar sua dependência.</p>
+</details>
+<h2 id="atributos">Atributos<a class="headerlink" href="#atributos" title="Permanent link">⚓︎</a></h2>
+<p>Um atributo representa uma <strong>característica ou propriedade</strong> de uma entidade. Em termos práticos, quando convertemos um modelo de dados em banco de dados, um atributo se torna uma <strong>coluna</strong> (ou campo) de uma tabela.</p>
+<p><strong>Exemplos:</strong></p>
+<ul>
+<li><strong>CLIENTE</strong>: nome, CPF, data_nascimento, email, telefone</li>
+<li><strong>PRODUTO</strong>: código, nome, preço, categoria, estoque</li>
+<li><strong>FUNCIONARIO</strong>: matricula, nome, salario, data_admissao</li>
+</ul>
+<h3 id="tipos-de-atributos"><strong>Tipos de Atributos</strong><a class="headerlink" href="#tipos-de-atributos" title="Permanent link">⚓︎</a></h3>
+<p>Os atributos podem ser <strong>simples</strong> ou  <strong>multivalorados</strong>.</p>
+<ul>
+<li><strong>Simples</strong>: Contêm apenas um valor (ex: uma pessoa normalmente tem somente um nome, somente uma idade, somente um CPF)</li>
+<li><strong>Multivalorados</strong>: Podem conter múltiplos valores (ex: uma pessoa pode ter um ou mais emails, telefones, endereços)</li>
+</ul>
+<h3 id="determinacao-de-atributos"><strong>Determinação de Atributos</strong><a class="headerlink" href="#determinacao-de-atributos" title="Permanent link">⚓︎</a></h3>
+<p>Normalmente, os atributos são definidos <strong>após</strong> as entidades serem identificadas. No entanto, houve um período em que a abordagem <code>bottom-up</code> ("de baixo para cima") era popular - primeiro identificavam-se todos os atributos possíveis e, em seguida, agrupavam-se quais pertenciam a cada entidade.</p>
+<h3 id="regras-e-descricoes"><strong>Regras e Descrições</strong><a class="headerlink" href="#regras-e-descricoes" title="Permanent link">⚓︎</a></h3>
+<p>Os atributos podem ter <strong>descrições e regras</strong> que definem:</p>
+<ul>
+<li><strong>Tipo de dados</strong> (ex: VARCHAR, INTEGER, DATE)</li>
+<li><strong>Valores possíveis</strong> (ex: "ativo", "inativo", "suspenso")</li>
+<li><strong>Restrições</strong> (ex: idade entre 0 e 150)</li>
+<li><strong>Obrigatoriedade</strong> (se pode ou não ser nulo)</li>
+</ul>
+<details class="note" open="open">
+<summary>Tipos de Dados</summary>
+<p>Os tipos de dados definem <strong>como os valores são armazenados e processados</strong> no banco de dados. Cada tipo tem características específicas que determinam o formato, tamanho e operações permitidas. A escolha correta do tipo de dados afeta a performance, armazenamento e integridade dos dados.</p>
+<details class="info" open="open">
+<summary>Tipos numéricos</summary>
+<ul>
+<li><strong>INTEGER/INT</strong>: Números inteiros (ex: 1, -5, 1000)</li>
+<li><strong>DECIMAL/NUMERIC</strong>: Números com casas decimais (ex: 10.50, 3.14159)</li>
+<li><strong>FLOAT/REAL</strong>: Números de ponto flutuante para cálculos científicos</li>
+<li><strong>BIGINT</strong>: Números inteiros muito grandes</li>
+</ul>
+</details>
+<details class="info" open="open">
+<summary>Tipos de texto</summary>
+<ul>
+<li><strong>VARCHAR(n)</strong>: Texto de tamanho variável até n caracteres</li>
+<li><strong>CHAR(n)</strong>: Texto de tamanho fixo com n caracteres</li>
+<li><strong>TEXT</strong>: Texto de tamanho ilimitado</li>
+<li><strong>LONGTEXT</strong>: Texto muito longo</li>
+</ul>
+</details>
+<details class="info" open="open">
+<summary>Tipos de data e hora</summary>
+<ul>
+<li><strong>DATE</strong>: Data (ex: 2024-01-15)</li>
+<li><strong>TIME</strong>: Hora (ex: 14:30:25)</li>
+<li><strong>DATETIME</strong>: Data e hora combinadas</li>
+<li><strong>TIMESTAMP</strong>: Marca temporal automática</li>
+</ul>
+</details>
+<details class="info" open="open">
+<summary>Tipos booleanos</summary>
+<ul>
+<li><strong>BOOLEAN/BOOL</strong>: Valores verdadeiro/falso (TRUE/FALSE, 1/0)</li>
+</ul>
+</details>
+<details class="info" open="open">
+<summary>Tipos binários</summary>
+<ul>
+<li><strong>BLOB</strong>: Dados binários (imagens, documentos)</li>
+<li><strong>BINARY</strong>: Dados binários de tamanho fixo</li>
+</ul>
+</details>
+</details>
+<details class="note" open="open">
+<summary>Valores Possíveis</summary>
+<p>Os valores possíveis definem <strong>quais valores são aceitos</strong> por um atributo, garantindo que apenas dados válidos sejam inseridos no banco de dados. Outro benefício da definição prévia dos valores possíveis é permitir uma validação automática acerca da consistência de dados e prevenção de erros.</p>
+<details class="info" open="open">
+<summary>Amplitude de valores</summary>
+<ul>
+<li><strong>Faixas numéricas</strong>: idade &gt;= 0 AND idade &lt;= 150</li>
+<li><strong>Intervalos de datas</strong>: data_nascimento &gt;= '1900-01-01' AND data_nascimento &lt;= CURRENT_DATE</li>
+<li><strong>Limites de texto</strong>: LENGTH(nome) &gt;= 2 AND LENGTH(nome) &lt;= 100</li>
+</ul>
+</details>
+<details class="info" open="open">
+<summary>Listas de valores</summary>
+<ul>
+<li><strong>Enumerados</strong>: status IN ('ativo', 'inativo', 'suspenso')</li>
+<li><strong>Códigos</strong>: tipo_pessoa IN ('F', 'J') (Física, Jurídica)</li>
+<li><strong>Categorias</strong>: categoria IN ('eletrônicos', 'vestuário', 'alimentos')</li>
+</ul>
+</details>
+<details class="info" open="open">
+<summary>Padrões (tegex)</summary>
+<ul>
+<li><strong>CPF</strong>: Formato XXX.XXX.XXX-XX</li>
+<li><strong>Email</strong>: Deve conter @ e domínio válido</li>
+<li><strong>Telefone</strong>: Formato (XX) XXXXX-XXXX</li>
+</ul>
+</details>
+<details class="info" open="open">
+<summary>Valores especiais</summary>
+<ul>
+<li><strong>NULL</strong>: Valor nulo (ausência de valor)</li>
+<li><strong>DEFAULT</strong>: Valor padrão quando não especificado</li>
+<li><strong>AUTO_INCREMENT</strong>: Valor automático incremental</li>
+</ul>
+</details>
+</details>
+<details class="note" open="open">
+<summary>Restrições de Atributos</summary>
+<p>As restrições são <strong>regras que definem limitações e condições</strong> que devem ser respeitadas pelos dados. Elas ajudam a garantir a <strong>integridade e consistência</strong> dos dados no modelo. São fundamentais para manter a <strong>qualidade dos dados</strong> e devem ser identificadas durante a modelagem conceitual, mesmo que sua implementação ocorra apenas no modelo físico.</p>
+<details class="info" open="open">
+<summary>1. Restrições de tipo</summary>
+<p>Definem o tipo de dados que um atributo pode armazenar.</p>
+<p><strong>Exemplos</strong>: VARCHAR(50), INTEGER, DATE, DECIMAL(10,2)</p>
+<p><strong>Objetivo</strong>: Garantir que os dados sejam do formato correto</p>
+</details>
+<details class="info" open="open">
+<summary>2. Restrições de domínio</summary>
+<p>Definem os valores válidos que um atributo pode assumir.</p>
+<p><strong>Amplitude dos dados</strong>: idade &gt; 0 e idade &lt; 150</p>
+<p><strong>Lista de valores</strong>: status IN ('ativo', 'inativo', 'suspenso')</p>
+<p><strong>Objetivo</strong>: Validar que os valores estão dentro do esperado</p>
+</details>
+<details class="info" open="open">
+<summary>3. Restrições de chave</summary>
+<p>Identificam atributos que devem ser únicos para cada registro.</p>
+<p><strong>Chave Primária</strong>: Identifica unicamente cada registro</p>
+<p><strong>Chave Única</strong>: Garante que não há duplicatas</p>
+<p><strong>Objetivo</strong>: Manter a unicidade dos dados</p>
+</details>
+<details class="info" open="open">
+<summary>4. Restrições de integridade referencial</summary>
+<p>Garantem que relacionamentos entre entidades sejam válidos.</p>
+<p><strong>Chave Estrangeira</strong>: Referencia uma chave primária em outra tabela</p>
+<p><strong>Objetivo</strong>: Manter a consistência entre tabelas relacionadas</p>
+</details>
+<details class="info" open="open">
+<summary>5. Restrições de negócio</summary>
+<p>Regras específicas do domínio que os dados devem seguir.</p>
+<p><strong>Exemplo</strong>: "Um funcionário não pode ter salário negativo"</p>
+<p><strong>Objetivo</strong>: Implementar lógica de negócio nos dados</p>
+</details>
+</details>
+<details class="note" open="open">
+<summary>Obrigatoriedade</summary>
+<p>A obrigatoriedade define se um atributo <strong>deve ou não ter um valor</strong>, controlando a completude dos dados no banco de dados. Afeta a integridade dos dados, bem como a experiência do usuário.</p>
+<details class="info" open="open">
+<summary>NOT NULL (obrigatório)</summary>
+<ul>
+<li><strong>Definição</strong>: O atributo <strong>deve</strong> ter um valor</li>
+<li><strong>Comportamento</strong>: Não aceita valores nulos</li>
+<li><strong>Exemplos</strong>: CPF, nome, data_nascimento</li>
+<li><strong>Uso</strong>: Para informações essenciais que sempre devem estar presentes</li>
+</ul>
+</details>
+<details class="info" open="open">
+<summary>NULL (opcional)</summary>
+<ul>
+<li><strong>Definição</strong>: O atributo <strong>pode</strong> não ter um valor</li>
+<li><strong>Comportamento</strong>: Aceita valores nulos</li>
+<li><strong>Exemplos</strong>: telefone_secundario, observacoes, foto_perfil</li>
+<li><strong>Uso</strong>: Para informações complementares que podem estar ausentes</li>
+</ul>
+</details>
+<details class="info" open="open">
+<summary>DEFAULT (valor padrão)</summary>
+<ul>
+<li><strong>Definição</strong>: Valor automaticamente atribuído quando não especificado</li>
+<li><strong>Exemplos</strong>: <ul>
+<li>data_cadastro DEFAULT CURRENT_TIMESTAMP</li>
+<li>status DEFAULT 'ativo'</li>
+<li>quantidade DEFAULT 1</li>
+</ul>
+</li>
+<li><strong>Uso</strong>: Para valores comuns que não precisam ser sempre informados</li>
+</ul>
+</details>
+<p><strong>Considerações Importantes:</strong></p>
+<ul>
+<li><strong>Chaves primárias</strong>: Sempre NOT NULL</li>
+<li><strong>Chaves estrangeiras</strong>: Podem ser NULL (dependendo da regra de negócio)</li>
+<li><strong>Campos de auditoria</strong>: Geralmente NOT NULL como DEFAULT</li>
+<li><strong>Campos opcionais</strong>: Devem ser NULL para permitir ausência</li>
+</ul>
+</details>
+<h2 id="relacionamentos-entre-entidades">Relacionamentos entre entidades<a class="headerlink" href="#relacionamentos-entre-entidades" title="Permanent link">⚓︎</a></h2>
+<p>Os relacionamentos representam as conexões ou associações lógicas entre diferentes entidades em um modelo de dados, descrevendo como elas interagem ou se relacionam entre si. Na notação clássica ER (Entity-Relationship), os relacionamentos são representados graficamente por um diamante (♢) conectando as entidades envolvidas, enquanto na notação "Crow's Foot" (Pé de Galinha) são representados simplesmente por linhas conectando as entidades, com símbolos especiais nas extremidades para indicar a cardinalidade do relacionamento.</p>
+<p>🚌 Os relacionamentos basicamente auxiliam na navegação, como uma espécie de estrada que lhe permite trafegar por todo conjunto de dados </p>
+<details class="info" open="open">
+<summary>Regras de negócio vs banco de dados</summary>
+<p>É a partir das regras de negócio é que podemos derivar as seguintes características do <strong>relacionamento</strong> entre as entidades: </p>
+<ul>
+<li><strong>Cardinalidade</strong></li>
+<li><strong>Obrigatoriedade</strong></li>
+<li><strong>Valores possíveis/restrições</strong></li>
+</ul>
+</details>
+<h3 id="cardinalidade"><strong>Cardinalidade</strong><a class="headerlink" href="#cardinalidade" title="Permanent link">⚓︎</a></h3>
+<p>A cardinalidade define quantas instâncias de uma entidade podem se relacionar com quantas instâncias de outra entidade em um relacionamento. É uma propriedade fundamental que determina a "força" ou "intensidade" do relacionamento entre duas entidades.</p>
+<p>A cardinalidade é determinada pelas regras de negócio e deve ser cuidadosamente analisada durante a modelagem conceitual, pois influencia diretamente a estrutura do banco de dados final.</p>
+<details class="info" open="open">
+<summary>Tipos e notação de cardinalidade</summary>
+<ul>
+<li><strong>1:1 (Um para Um)</strong>: Uma instância da entidade A se relaciona com exatamente uma instância da entidade B</li>
+<li><strong>1:N (Um para Muitos)</strong>: Uma instância da entidade A se relaciona com múltiplas instâncias da entidade B</li>
+<li><strong>N:1 (Muitos para Um)</strong>: Múltiplas instâncias da entidade A se relacionam com uma instância da entidade B</li>
+<li><strong>N:M (Muitos para Muitos)</strong>: Múltiplas instâncias da entidade A se relacionam com múltiplas instâncias da entidade B</li>
+</ul>
+<p><strong>Notação de Cardinalidade</strong>:</p>
+<ul>
+<li><strong>Notação Clássica ER</strong>: Usa símbolos específicos nas extremidades das linhas de relacionamento</li>
+<li><strong>Notação Crow`s Foot</strong>: Utiliza "pés de galinha" (três linhas) para indicar "muitos" e linhas simples para "um"</li>
+</ul>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked id="notação-clássica-er-entity-relationship" name="__tabbed_2" type="radio"><input id="notação-crows-foot-pé-de-galinha" name="__tabbed_2" type="radio"><input id="comparação-entre-as-notações" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="notação-clássica-er-entity-relationship">Notação Clássica ER (Entity-Relationship)</label><label for="notação-crows-foot-pé-de-galinha">Notação Crow's Foot (Pé de Galinha)</label><label for="comparação-entre-as-notações">Comparação entre as Notações</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>A notação clássica ER utiliza símbolos específicos nas extremidades das linhas de relacionamento para indicar a cardinalidade. Esta notação foi desenvolvida por Peter Chen e é amplamente utilizada em modelagem conceitual.</p>
+<p><strong>Símbolos utilizados:</strong></p>
+<ul>
+<li><code>|</code> (linha vertical) = exatamente um (1)</li>
+<li><code>O</code> (círculo) = zero ou um (0..1)</li>
+<li><code>||</code> (duas linhas verticais) = zero ou muitos (0..*)</li>
+<li><code>|</code> (linha vertical com barra) = um ou muitos (1..*)</li>
+</ul>
+<p><strong>Exemplo prático - Sistema Acadêmico:</strong></p>
+<div class="mermaid">erDiagram
+    DEPARTAMENTO ||--o{ PROFESSOR : "pertence a"
+    PROFESSOR ||--o{ AULA : "ministra"
+    AULA ||--o{ ALUNO : "matriculado em"
+    DEPARTAMENTO ||--o{ AULA : "oferece"
+    AULA ||--|| SALA : "ocorre em"</div>
+<p><strong>Explicação dos relacionamentos:</strong></p>
+<ul>
+<li><strong>DEPARTAMENTO ||--o{ PROFESSOR</strong>: Um departamento pode ter zero ou muitos professores, e um professor pertence a exatamente um departamento</li>
+<li><strong>PROFESSOR ||--o{ AULA</strong>: Um professor pode ministrar zero ou muitas aulas, e uma aula é ministrada por exatamente um professor</li>
+<li><strong>AULA ||--o{ ALUNO</strong>: Uma aula pode ter zero ou muitos alunos matriculados, e um aluno pode estar matriculado em zero ou muitas aulas</li>
+<li><strong>DEPARTAMENTO ||--o{ AULA</strong>: Um departamento pode oferecer zero ou muitas aulas, e uma aula é oferecida por exatamente um departamento</li>
+<li><strong>AULA ||--|| SALA</strong>: Uma aula ocorre em exatamente uma sala, e uma sala pode ser usada para exatamente uma aula por vez</li>
+</ul>
+</div>
+<div class="tabbed-block">
+<p>A notação Crow's Foot (pé de galinha) é uma representação mais visual e intuitiva que utiliza "pés de galinha" (três linhas divergentes ⋔) para indicar "muitos" e linhas simples para "um". Esta notação é muito popular em ferramentas de modelagem como ERwin, PowerDesigner e MySQL Workbench, mas sofre variações a depender da ferramenta utilizada.</p>
+<p><strong>Símbolos utilizados:</strong></p>
+<ul>
+<li><code>|</code> (linha simples) = exatamente um (1)</li>
+<li><code>O</code> (círculo) = zero ou um (0..1)</li>
+<li><code>|||</code> (três linhas) = zero ou muitos (0..*)</li>
+</ul>
+<p><strong>Representação visual real do Crow's Foot:</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>CLIENTE ||────0&lt; PEDIDO
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>(um)             (zero ou muitos)
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>(1,1)            (0,M)
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>PEDIDO ||────0&lt; ITEM_PEDIDO
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>(um)            (zero ou muitos)
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>(1,1)           (0,M)
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>PRODUTO ||────0&lt; ITEM_PEDIDO
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>(um)             (zero ou muitos)
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>(1,1)            (0,M)
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>CLIENTE ||────1M ENDERECO
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>(um)             (zero ou muitos)
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>(1,1)            (1,M)
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>PEDIDO ||────|| CARRINHO
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>(um)            (um)
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>(1,1)           (1,1)
+</span></code></pre></div>
+<p><strong>Exemplo prático - Sistema de E-commerce:</strong></p>
+<div class="mermaid">erDiagram
+    CLIENTE ||--o{ PEDIDO : "faz"
+    PEDIDO ||--|| CARRINHO : "contém"
+    PEDIDO ||--o{ ITEM_PEDIDO : "inclui"
+    PRODUTO ||--o{ ITEM_PEDIDO : "vendido em"
+    CATEGORIA ||--o{ PRODUTO : "classifica"
+    CLIENTE ||--o{ ENDERECO : "possui"</div>
+<p><strong>Explicação dos relacionamentos:</strong>
+- <strong>CLIENTE ||--o{ PEDIDO</strong>: Um cliente pode fazer zero ou muitos pedidos, e um pedido pertence a exatamente um cliente
+- <strong>PEDIDO ||--|| CARRINHO</strong>: Um pedido contém exatamente um carrinho, e um carrinho pertence a exatamente um pedido
+- <strong>PEDIDO ||--o{ ITEM_PEDIDO</strong>: Um pedido pode incluir um ou muitos itens, e um item de pedido pertence a exatamente um pedido
+- <strong>PRODUTO ||--o{ ITEM_PEDIDO</strong>: Um produto pode ser vendido em zero ou muitos itens de pedido, e um item de pedido refere-se a exatamente um produto
+- <strong>CATEGORIA ||--o{ PRODUTO</strong>: Uma categoria pode classificar zero ou muitos produtos, e um produto pertence a exatamente uma categoria
+- <strong>CLIENTE ||--o{ ENDERECO</strong>: Um cliente pode possuir zero ou muitos endereços, e um endereço pertence a exatamente um cliente</p>
+<p><strong>Nota:</strong> O diagrama Mermaid acima usa a notação textual equivalente, mas em ferramentas como ERwin, PowerDesigner ou MySQL Workbench, você veria visualmente os "pés de galinha" (três linhas divergentes) nas extremidades dos relacionamentos.</p>
+</div>
+<div class="tabbed-block">
+<table>
+<thead>
+<tr>
+<th>Cardinalidade</th>
+<th>Notação Clássica ER</th>
+<th>Notação Crow's Foot</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1:1</td>
+<td><code>||--||</code></td>
+<td><code>||--||</code></td>
+<td>Um para um</td>
+</tr>
+<tr>
+<td>1:N</td>
+<td><code>||--o{</code></td>
+<td><code>||--o{</code></td>
+<td>Um para muitos</td>
+</tr>
+<tr>
+<td>N:1</td>
+<td><code>}o--||</code></td>
+<td><code>}o--||</code></td>
+<td>Muitos para um</td>
+</tr>
+<tr>
+<td>M:N</td>
+<td><code>}o--o{</code></td>
+<td><code>}o--o{</code></td>
+<td>Muitos para muitos</td>
+</tr>
+<tr>
+<td>0..1:1</td>
+<td><code>O|--||</code></td>
+<td><code>O|--||</code></td>
+<td>Zero ou um para um</td>
+</tr>
+<tr>
+<td>1:0..1</td>
+<td><code>||--O|</code></td>
+<td><code>||--O|</code></td>
+<td>Um para zero ou um</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Vantagens de cada notação:</strong></p>
+<p><strong>Notação Clássica ER:</strong></p>
+<ul>
+<li>Mais formal e acadêmica</li>
+<li>Símbolos precisos e padronizados</li>
+<li>Ideal para documentação técnica detalhada</li>
+</ul>
+<p><strong>Notação Crow's Foot:</strong></p>
+<ul>
+<li>Mais intuitiva e visual</li>
+<li>Amplamente suportada por ferramentas</li>
+<li>Facilita a comunicação com stakeholders não técnicos</li>
+</ul>
+</div>
+</div>
+</div>
+</details>
+<h3 id="direcao"><strong>Direção</strong><a class="headerlink" href="#direcao" title="Permanent link">⚓︎</a></h3>
+<p>Cuida da nomeação (bidirecional ou unidirecional) de como ocorre a interação entre os diferentes objetos de dados existentes. Por exemplo, entre a entidade "professor" e a entidade "aula" podemos nomear pelo menos 1 relação que ocorre em duas direções (bidirecional): enquanto um professor oferta uma aula (direção "professor-aula"), uma aula é ofertada por um professor (direção "aula-professor").</p>
+<p><strong>Exemplo prático - Relacionamento bidirecional:</strong>
+- <strong>Professor</strong> → <strong>Aula</strong>: "oferece"
+- <strong>Aula</strong> → <strong>Professor</strong>: "é oferecida por"</p>
+<details class="info" open="open">
+<summary>⚠️ Atenção!</summary>
+<ul>
+<li>Os nomes de um relacionamento <strong>não precisam ser exclusivos</strong> a nível conceitual</li>
+<li>Recomenda-se usar nomes que representem a <strong>relação bidirecional</strong> entre duas entidades</li>
+<li>É possível haver <strong>múltiplos relacionamentos</strong> entre as mesmas entidades</li>
+<li>A direção ajuda na <strong>navegação</strong> e <strong>compreensão</strong> do modelo de dados</li>
+</ul>
+</details>
+<h3 id="hierarquia"><strong>Hierarquia</strong><a class="headerlink" href="#hierarquia" title="Permanent link">⚓︎</a></h3>
+<p>Trata da organização dos elementos de dados em <strong>níveis de autoridade, dependência ou generalidade</strong>, permitindo representar estruturas de <strong>parentesco</strong> ou de <strong>especialização</strong> entre entidades.</p>
+<p>No contexto da modelagem de dados, a hierarquia pode indicar:</p>
+<ul>
+<li><strong>Subordinação</strong>: uma entidade pode ser subordinada a outra (por exemplo, uma <em>Aula</em> está subordinada a um <em>Departamento Acadêmico</em>);</li>
+<li><strong>Composição</strong>: uma entidade pode ser <strong>parte de</strong> uma entidade maior (por exemplo, um <em>Departamento Acadêmico</em> é composto por <em>Instrutores</em>);</li>
+<li><strong>Especialização/Generalização</strong>: uma entidade pode ser uma especialização de outra (por exemplo, <em>Pessoa</em> pode ser generalização de <em>Aluno</em> e <em>Instrutor</em>).</li>
+</ul>
+<p>A hierarquia influencia:</p>
+<ul>
+<li><strong>A integridade referencial</strong>, pois uma entidade hierarquicamente inferior geralmente depende da existência da superior;</li>
+<li><strong>A propagação de atributos ou restrições</strong> (ex.: herança em modelos mais avançados como os objetos-relacionais);</li>
+<li><strong>A forma de navegação ou junção entre tabelas</strong> em consultas SQL, especialmente em joins que seguem a lógica hierárquica dos dados.</li>
+</ul>
+<details class="info" open="open">
+<summary>⚠️ Atenção!</summary>
+<ul>
+<li>Hierarquia não implica necessariamente direção de relacionamento, mas pode coexistir com ela;</li>
+<li>É comum representar hierarquia visualmente com árvores ou estruturas de <strong>camadas</strong>;</li>
+<li>Em bancos relacionais, hierarquias muitas vezes se expressam por <strong>chaves estrangeiras</strong> apontando para entidades superiores ou pela presença de <strong>campos identificadores</strong> hierárquicos (ex.: códigos estruturados)</li>
+</ul>
+</details>
+<h3 id="relacionamentos-ternarios"><strong>Relacionamentos Ternários</strong><a class="headerlink" href="#relacionamentos-ternarios" title="Permanent link">⚓︎</a></h3>
+<p>Um relacionamento ternário envolve <strong>três entidades simultaneamente</strong>, onde a relação entre duas entidades depende da terceira.</p>
+<details class="info" open="open">
+<summary>O que é um relacionamento ternário?</summary>
+<p><strong>Definição</strong>: Relacionamento que só faz sentido quando consideramos as três entidades juntas.</p>
+<p><strong>Exemplo prático</strong>: 
+- <strong>PROFESSOR</strong> ensina <strong>AULA</strong> em <strong>SALA</strong>
+- A pergunta "Qual professor ensina qual aula?" não é suficiente
+- Precisamos saber <strong>também</strong> "em qual sala" para ter a informação completa</p>
+<div class="mermaid">erDiagram
+    PROFESSOR ||--o{ AULA_PROFESSOR_SALA : "ministra em"
+    SALA ||--o{ AULA_PROFESSOR_SALA : "local de"
+    AULA ||--o{ AULA_PROFESSOR_SALA : "ocorre com"</div>
+</details>
+<details class="info" open="open">
+<summary>Outros exemplos</summary>
+<p><strong>Sistema de Vendas</strong>: VENDEDOR vende PRODUTO para CLIENTE</p>
+<p><strong>Sistema de Projetos</strong>: FUNCIONARIO trabalha em PROJETO como FUNCAO</p>
+<p><strong>Sistema de Seguros</strong>: SEGURADO possui APOLICE com COBERTURA</p>
+</details>
+<details class="info" open="open">
+<summary>Implementação</summary>
+<p><strong>Como implementar</strong>: Através de uma <strong>tabela de relacionamento</strong> que contém:
+- Chaves estrangeiras para as três entidades
+- Atributos específicos do relacionamento (se houver)
+- Chave primária composta</p>
+<p><strong>Quando usar</strong>:
+- Quando a relação entre duas entidades <strong>depende</strong> de uma terceira
+- Quando há <strong>atributos específicos</strong> do relacionamento
+- Quando a <strong>regra de negócio</strong> exige as três entidades</p>
+</details>
+<h2 id="ambientes-para-modelagem-de-dados">Ambientes para Modelagem de Dados<a class="headerlink" href="#ambientes-para-modelagem-de-dados" title="Permanent link">⚓︎</a></h2>
+<p>A modelagem de dados pode ocorrer em diferentes tipos de ambientes, dentre os quais se destacam os ambientes <strong>analítico e transacional</strong>. Os sistemas transacionais (ou operacionais) são a espinha dorsal das operações diárias das organizações, responsáveis por processar transações em tempo real – como vendas, cadastros ou movimentações financeiras. Já os sistemas analíticos têm como propósito transformar esses dados operacionais em insights estratégicos. Normalmente, os dados são extraídos dos sistemas transacionais e enviados para um ambiente analítico – como data marts ou data warehouses –, onde são modelados, integrados e otimizados para análises complexas. Esses ambientes utilizam estruturas dimensionalizadas (como esquemas em estrela ou floco de neve) e técnicas como OLAP, permitindo à SPLOR realizar desde análises históricas até projeções orçamentárias com agilidade e profundidade, sem impactar o desempenho dos sistemas operacionais.</p>
+<details class="info" open="open">
+<summary>Data Warehouse (DW), Data Mart e Data Lake</summary>
+<ul>
+<li>
+<p><strong>Data Warehouse (DW)</strong>: repositório centralizado de dados <strong>estruturados</strong>, otimizado para análise e relatórios, com esquema rigidamente construído (schema-on-write). Ex.: DW de um varejista com vendas, estoques e dados de clientes. Pode ser entendido como uma "fonte da verdade" para análises estruturadas;</p>
+</li>
+<li>
+<p><strong>Data Mart</strong>: é um subconjunto de um DW, focado em uma <strong>análise específica</strong>/ em atender as necessidades analíticas de um setor. Ex.: Data Mart dos dados das vendas de um varejista. Pode ser entendido como uma  "loja de departamento" para necessidades específicas;</p>
+</li>
+<li>
+<p><strong>Data Lake</strong>: armazena dados brutos, <strong>estruturados, semiestruturados e não estruturados</strong>. A diferença básica entre um dado estruturado e um não-estruturado é que aqueles contam com um formato fixo, padronizado como tabelas com linhas e colunas, enquanto estes não seguem nenum modelo organizacinal para mapeamento dos dados, tais como vídeos, um pdf com parecer jurídico, um e-mail, etc.</p>
+</li>
+</ul>
+</details>
+<details class="info" open="open">
+<summary>📊 Metodologias de Modelagem de Dados</summary>
+<table>
+<thead>
+<tr>
+<th>Aspecto</th>
+<th>Transacional</th>
+<th>Analítico (DW)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Nível conceitual</strong></td>
+<td>Espelha o mundo real</td>
+<td>Dimensional</td>
+</tr>
+<tr>
+<td><strong>Nível lógico (relacional)</strong></td>
+<td>Regras de normalização de dados com desnormalização deliberada</td>
+<td>Tabelas de fatos e dimensões conforme melhores práticas</td>
+</tr>
+<tr>
+<td><strong>Nível lógico (não relacional)</strong></td>
+<td>NoSQL, construções OODBMS, etc.</td>
+<td>Cubos, bancos de dados colunares, etc.</td>
+</tr>
+<tr>
+<td><strong>Nível físico</strong></td>
+<td>Blocos/trilhas, distribuição MPP, etc.</td>
+<td>Blocos/trilhas, distribuição MPP, buckets da AWS, HDFS NameNodes e DataNodes, etc.</td>
+</tr>
+<tr>
+<td>---------------------------------</td>
+<td>--------------------------------------------------------------</td>
+<td>----------------------------------------------------------------------------------</td>
+</tr>
+<tr>
+<td><strong>Objetivo principal</strong></td>
+<td>Suporte a operações do dia a dia</td>
+<td>Apoio à análise e tomada de decisão</td>
+</tr>
+<tr>
+<td><strong>Modelo conceitual</strong></td>
+<td>Baseado no mundo real (entidades e relacionamentos)</td>
+<td>Modelo dimensional (fatos e dimensões)</td>
+</tr>
+<tr>
+<td><strong>Normalização</strong></td>
+<td>Normalizada (com possível desnormalização pontual)</td>
+<td>Desnormalizada para performance de leitura</td>
+</tr>
+<tr>
+<td><strong>Estrutura relacional</strong></td>
+<td>Muitas tabelas com relacionamentos complexos</td>
+<td>Tabelas de fatos e dimensões com chaves simples</td>
+</tr>
+<tr>
+<td><strong>Performance</strong></td>
+<td>Otimizada para escrita e transações rápidas</td>
+<td>Otimizada para leitura e consultas complexas</td>
+</tr>
+<tr>
+<td><strong>Atualizações</strong></td>
+<td>Frequentes e em tempo real</td>
+<td>Atualizações periódicas (batch ou streaming controlado)</td>
+</tr>
+<tr>
+<td><strong>Tipo de dados</strong></td>
+<td>Dados operacionais e atuais</td>
+<td>Dados históricos e agregados</td>
+</tr>
+<tr>
+<td><strong>Tecnologias comuns</strong></td>
+<td>RDBMS (MySQL, PostgreSQL, Oracle), NoSQL, OODBMS</td>
+<td>OLAP, bancos colunares, Hadoop, Redshift, BigQuery, etc.</td>
+</tr>
+<tr>
+<td><strong>Esquema típico</strong></td>
+<td><strong>Modelo Entidade-Relacionamento</strong> (ER)</td>
+<td><strong>Esquema Estrela</strong> ou <strong>Floco de Neve</strong></td>
+</tr>
+<tr>
+<td><strong>Exemplo de uso</strong></td>
+<td>Sistema bancário, ERP, e-commerce</td>
+<td>BI, dashboards, relatórios gerenciais, análise preditiva</td>
+</tr>
+</tbody>
+</table>
+</details>
+<h2 id="normalizacao-de-banco-de-dados-relacional">Normalização de Banco de Dados Relacional<a class="headerlink" href="#normalizacao-de-banco-de-dados-relacional" title="Permanent link">⚓︎</a></h2>
+<p>A normalização de banco de dados é um processo de organização de dados em tabelas para reduzir redundância e dependências, previnir anomalias, garantir a integridade referencial, melhorando a coesão e eficiência do banco de dados. São 3 as principais formas de normalização, sendo que cada uma delas têm consigo regras às quais o banco de dados deve obedecer. <strong>É importante destacar que a normalização é aplicada principalmente em sistemas transacionais (operacionais), enquanto sistemas analíticos (como Data Warehouses) frequentemente utilizam desnormalização intencional para otimizar consultas complexas e melhorar a performance de leitura.</strong></p>
+<h3 id="1a-forma-normal-1nf"><strong>🧱 1ª Forma Normal (1NF)</strong><a class="headerlink" href="#1a-forma-normal-1nf" title="Permanent link">⚓︎</a></h3>
+<ul>
+<li>cada linha deve ser única (chave primária)</li>
+<li>cada coluna/grupo deve ser atômico (não pode se repetir ou se dividir)</li>
+</ul>
+<p><strong>Exemplo de violação:</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>| ID | Nome | Telefones                  |
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>|----|------|---------------------------|
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>| 1  | João | (11)9999-9999, (11)8888-8888 |
+</span></code></pre></div>
+<p>problema: <code>Telefones</code> é uma coluna composta, pois pode ter mais de um telefone para o mesmo cliente.</p>
+<p><strong>Exemplo de correção:</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>| ID | Nome  | ID_TELEFONE |
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>|----|-------|-------------|
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>| 1  | João  | 1           |
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>| ID | ID_CLIENTE | Telefone      |
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>|----|------------|--------------|
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>| 1  | 1          | (11)9999-9999|
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>| 2  | 1          | (11)8888-8888|
+</span></code></pre></div>
+<p>Normalmente, as violações de 1NF são corrigidas através da criação de uma tabela para os atributos multivalorados.</p>
+<h3 id="2a-forma-normal-2nf"><strong>🧱 2ª Forma Normal (2NF)</strong><a class="headerlink" href="#2a-forma-normal-2nf" title="Permanent link">⚓︎</a></h3>
+<ul>
+<li>deve estar na 1NF</li>
+<li>todas as colunas não-chave devem depender da chave primária inteira ("no partial key dependencies")</li>
+</ul>
+<p><strong>Exemplo de violação:</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>| ID_Pedido | ID_Produto | Nome_Produto | Quantidade | Preco_Unitario |
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>|-----------|------------|--------------|------------|----------------|
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>| 1         | 101        | Notebook     | 2          | 1500.00        |
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>| 1         | 102        | Mouse        | 1          | 50.00          |
+</span></code></pre></div>
+<p>problema: <code>Nome_Produto</code> depende apenas de <code>ID_Produto</code>, mas não de <code>ID_Pedido</code> (chave primária)</p>
+<p><strong>Exemplo de correção:</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>| ID_Pedido | ID_Produto | Quantidade | Preco_Unitario |
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>|-----------|------------|------------|----------------|
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>| 1         | 101        | 2          | 1500.00        |
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>| 1         | 102        | 1          | 50.00          |
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>| ID_Produto | Nome_Produto |
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>|------------|--------------|
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>| 101        | Notebook     |
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>| 102        | Mouse        |
+</span></code></pre></div>
+<p>Normalmente, as violações de 2NF são corrigidas através do <strong>reposicionamento do atributo não-chave em na tabela-entidade própria</strong>, normalmente já existente. Caso não exista, deve-se criar uma nova tabela para o atributo não-chave.</p>
+<h3 id="3a-forma-normal-3nf"><strong>🧱 3ª Forma Normal (3NF)</strong><a class="headerlink" href="#3a-forma-normal-3nf" title="Permanent link">⚓︎</a></h3>
+<ul>
+<li>deve estar na 2NF</li>
+<li>não deve haver dependências transitivas entre os atributos
+<em>obs: a dependência transitiva ocorre quando um atributo depende de outro atributo que depende de uma chave primária (A -&gt; B -&gt; C, onde A é a chave primária e C é a dependência transitiva, então A -&gt; C é uma dependência transitiva)</em></li>
+</ul>
+<p><strong>Exemplo de violação:</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>| ID | Nome | ID_Departamento | Nome_Departamento | Cidade_Departamento |
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>|----|------|-----------------|-------------------|--------------------|
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>| 1  | Ana  | 10              | TI                | São Paulo          |
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>| 2  | Bob  | 10              | TI                | São Paulo          |
+</span></code></pre></div>
+<p>problema: <code>Cidade_Departamento</code> depende de <code>Nome_Departamento</code>, mas não de <code>ID_Departamento</code></p>
+<p><strong>Exemplo de correção:</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>| ID | Nome | ID_Departamento |
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>|----|------|-----------------|
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>| 1  | Ana  | 10              |
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>| 2  | Bob  | 10              |
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>| ID_Departamento | Nome_Departamento | Cidade_Departamento |
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>|-----------------|-------------------|--------------------|
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>| 10              | TI                | São Paulo          |
+</span></code></pre></div>
+<p><strong>Sob o ponto de vista conceitual, não há problema em haver violação das regras de normalização</strong>, devendo esses problemas serem tratados sob o ponto de vista lógico.</p></div>
+
+
+
+
+
+
+
+  
+    
+  
+  
+    
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Última atualização">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">7 de julho de 2025 14:59:37</span>
+  </span>
+
+    
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Criada">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">7 de julho de 2025 14:59:37</span>
+  </span>
+
+    
+    
+    
+  </aside>
+
+
+
+  
+
+
+
+  <h2 id="__comments">Comentários</h2>
+  <!-- Insert generated snippet here -->
+  <script src="https://giscus.app/client.js"
+      data-repo="automatiza-mg/handbook"
+      data-repo-id="R_kgDOKOVUVA"
+      data-category="Q&A"
+      data-category-id="DIC_kwDOKOVUVM4CZq25"
+      data-mapping="pathname"
+      data-strict="0"
+      data-reactions-enabled="1"
+      data-emit-metadata="0"
+      data-input-position="bottom"
+      data-theme="preferred_color_scheme"
+      data-lang="en"
+      crossorigin="anonymous"
+      async>
+</script>
+  <!-- Synchronize Giscus theme with palette -->
+  <script>
+    var giscus = document.querySelector("script[src*=giscus]")
+
+    /* Set palette on initial load */
+    var palette = __md_get("__palette")
+    if (palette && typeof palette.color === "object") {
+      var theme = palette.color.scheme === "slate" ? "dark" : "light"
+      giscus.setAttribute("data-theme", theme)
+    }
+
+    /* Register event handlers after documented loaded */
+    document.addEventListener("DOMContentLoaded", function() {
+      var ref = document.querySelector("[data-md-component=palette]")
+      ref.addEventListener("change", function() {
+        var palette = __md_get("__palette")
+        if (palette && typeof palette.color === "object") {
+          var theme = palette.color.scheme === "slate" ? "dark" : "light"
+
+          /* Instruct Giscus to change theme */
+          var frame = document.querySelector(".giscus-frame")
+          frame.contentWindow.postMessage(
+            { giscus: { setConfig: { theme } } },
+            "https://giscus.app"
+          )
+        }
+      })
+    })
+  </script>
+  
+
+      
+    </article>
+  </div>
+
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Voltar ao topo
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+        
+      
+      <nav class="md-footer__inner md-grid" aria-label="Rodapé" >
+        
+          
+          <a href="../banco-de-dados-e-diagrama-entidade-relacionamento-um-guia-pr%C3%A1tico/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Banco de Dados e Diagrama Entidade Relacionamento: Um Guia Prático">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              <div class="md-ellipsis">
+                Banco de Dados e Diagrama Entidade Relacionamento: Um Guia Prático
+              </div>
+            </div>
+          </a>
+        
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://automatiza-mg.github.io/automatizacoes/" target="_blank" rel="noopener" title="Projeto Automatiza-MG" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M0 80c0-26.5 21.5-48 48-48h96c26.5 0 48 21.5 48 48v16h192V80c0-26.5 21.5-48 48-48h96c26.5 0 48 21.5 48 48v96c0 26.5-21.5 48-48 48h-96c-26.5 0-48-21.5-48-48v-16H192v16c0 1.7-.1 3.4-.3 5L272 288h96c26.5 0 48 21.5 48 48v96c0 26.5-21.5 48-48 48h-96c-26.5 0-48-21.5-48-48v-96c0-1.7.1-3.4.3-5L144 224H48c-26.5 0-48-21.5-48-48z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://www.youtube.com/@automatiza-mg" target="_blank" rel="noopener" title="Canal automatiza-mg no YouTube." class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305m-317.51 213.508V175.185l142.739 81.205z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://squidfunk.github.io/mkdocs-material/reference/icons-emojis/#search" target="_blank" rel="noopener" title="Material for MkDocs Icons, Emojis." class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M64 32C64 14.3 49.7 0 32 0S0 14.3 0 32v448c0 17.7 14.3 32 32 32s32-14.3 32-32V352l64.3-16.1c41.1-10.3 84.6-5.5 122.5 13.4 44.2 22.1 95.5 24.8 141.7 7.4l34.7-13c12.5-4.7 20.8-16.6 20.8-30V66c0-23-24.2-38-44.8-27.7l-9.6 4.8c-46.3 23.2-100.8 23.2-147.1 0-35.1-17.6-75.4-22-113.5-12.5L64 48z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.action.edit", "content.action.view", "navigation.footer", "content.code.annotate", "navigation.tabs", "navigation.tabs.sticky", "navigation.indexes", "content.tooltips", "navigation.expand", "navigation.indexes", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "Mais 1 nesta p\u00e1gina", "search.result.more.other": "Mais # nesta p\u00e1gina", "search.result.none": "Nenhum resultado encontrado", "search.result.one": "1 resultado encontrado", "search.result.other": "# resultados encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.f1b6f286.min.js"></script>
+      
+        <script src="../../assets/style.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@10.4.0/dist/mermaid.min.js"></script>
+      
+    
+  </body>
+</html>
