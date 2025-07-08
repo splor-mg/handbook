@@ -2,13 +2,14 @@
 title: Gestão SPLOR
 ---
 
-# 🏛️ Gestão SPLOR 
+# 🏛️ Gestão SPLOR
 
-Vivemos uma profunda **transformação da sociedade e das ferramentas e tecnologias por meio das quais realizamos nosso trabalho** - especialmente após o advento da [inteligência artificial generativa](https://pt.wikipedia.org/wiki/Intelig%C3%AAncia_artificial_generativa). 
+Vivemos uma profunda **transformação da sociedade e das ferramentas e tecnologias por meio das quais realizamos nosso trabalho** - especialmente após o advento da [inteligência artificial generativa](https://pt.wikipedia.org/wiki/Intelig%C3%AAncia_artificial_generativa).
 
-Nesse contexto, torna-se inevitável, e um tanto quanto inadiável, revisitar a forma como atuamos e entregamos valor à sociedade. O cenário atual de **modernização** nos reforça a percepção de que, enquanto não **abraçarmos amplamente a utilização da tecnologia** e literalmente a colocarmos para **trabalhar a nosso favor**, estaremos condenados ao atraso, aos infindáveis trabalhos repetitivos e "burocráticos" que, além de parecerem intermináveis, muitas vezes se distanciam da realidade social e deixam de servir ao interesse público.
+Nesse contexto, torna-se inevitável, e um tanto quanto inadiável, revisitar a forma como atuamos e entregamos valor à sociedade.
+O cenário atual de **modernização** nos reforça a percepção de que, enquanto não **abraçarmos amplamente a utilização da tecnologia** e literalmente a colocarmos para **trabalhar a nosso favor**, estaremos condenados ao atraso, aos infindáveis trabalhos repetitivos e "burocráticos" que, além de parecerem intermináveis, muitas vezes se distanciam da realidade social e deixam de servir ao interesse público.
 
-🔎 Veja só como estamos lidando com esse **desafio de modernização**: 
+🔎 Veja só como estamos lidando com esse **desafio de modernização**:
 
 <!-- Cards em HTML -->
 <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 2rem;">
@@ -34,4 +35,3 @@ Nesse contexto, torna-se inevitável, e um tanto quanto inadiável, revisitar a 
     <p>Automatizamos tarefas repetitivas e promovemos a transparência, liberando tempo para inovação e análise estratégica.</p>
   </div>
 </div>
-
