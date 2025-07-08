@@ -28,18 +28,18 @@ Essa organização de equipe permite:
 
 #### 1. Criação do Time
 - Apenas **owners** da organização (membros da AID) podem [criar times](https://github.com/orgs/splor-mg/teams)
-- Nome do time deve seguir o padrão: `[SIGLA_UNIDADE]`
-- Descrição deve incluir o nome completo da unidade
+- O nome do time deve seguir o padrão: `[SIGLA_UNIDADE]`
+- A descrição deve incluir o nome completo da unidade
 
 #### 2. Adição de Membros
 - Cada unidade deve [adicionar seus membros](https://github.com/orgs/splor-mg/teams) ao time correspondente
-- Membros podem ter diferentes níveis de permissão dentro do time
-- Recomenda-se ter pelo menos um **maintainer** por time
+- Os membros podem ter diferentes níveis de permissão dentro do time
+- Recomenda-se ter pelo menos um **[maintainer](https://splor-mg.github.io/handbook/gestao_splor/governanca/papeis/#diferentes-niveis-de-permissao)** por time
 
 #### 3. Permissões de Repositório
-- Times podem ter acesso a repositórios específicos
-- Permissões podem ser: **Read**, **Write**, **Admin**
-- Acesso pode ser concedido a repositórios públicos ou privados
+- Os times podem ter acesso a repositórios específicos
+- As permissoes dos membros podem ser: **Read**, **Write**, **Admin**
+- O acesso dos membros pode ser concedido a repositórios públicos ou privados
 
 ### Benefícios da Organização em Times
 
@@ -57,3 +57,9 @@ Essa organização de equipe permite:
 - Pull requests podem ser atribuídos a times
 - Code reviews podem ser solicitadas de times específicos
 - Facilita a distribuição de trabalho
+
+??? tip
+
+    Não se esqueça de trocar a seu avatar do Github, colocando a sua foto.:man_in_tuxedo:
+    
+    Assim, fica mais fácil dos seus colegas te marcarem e você não perde nenhuma notificação! 
