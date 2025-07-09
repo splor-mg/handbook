@@ -4,7 +4,7 @@ authors: [carloshob]
 draft: false
 comments: true
 categories:
-  - Bancos de Dados
+  - Banco de Dados
   - SQLAlchemy
 ---
 
