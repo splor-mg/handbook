@@ -10,7 +10,7 @@ categories:
 
 # Fundamentos para Modelagem de Dados
 
- tNa empreitada de modernizar a gestão dos bancos de dados do Estado, encontramos na modelagem de dados um dos conhecimentos fundamentais indispensáveis. Nesta postagem, compartilho alguns dos conhecimentos adquiridos durante o curso [Mastering Data Modeling Fundamentals](https://www.udemy.com/course/mastering-data-modeling-fundamentals/?couponCode=LOCLZDOFFPBRCTRL), ministrado por Alan R. Simon, professor da Arizona State University e uma autoridade respeitada em modelagem de dados, data warehousing e arquitetura de sistemas de informação. 
+ Na empreitada de modernizar a gestão dos bancos de dados do Estado, encontramos na modelagem de dados um dos conhecimentos fundamentais indispensáveis. Nesta postagem, compartilho alguns dos conhecimentos adquiridos durante o curso [Mastering Data Modeling Fundamentals](https://www.udemy.com/course/mastering-data-modeling-fundamentals/?couponCode=LOCLZDOFFPBRCTRL), ministrado por Alan R. Simon, professor da Arizona State University e uma autoridade respeitada em modelagem de dados, data warehousing e arquitetura de sistemas de informação. 
 
 
 <!-- more -->
