@@ -23,10 +23,10 @@ Como modelo, ela nos auxilia na abstração das especificidades da implementaç�
 
 A modelagem trabalha essencialmente com dados tabulares, ou seja, aqueles estruturados em linhas e colunas, onde uma linha (ou registro) representa uma observação ou entidade (sujeito de dados), e uma coluna (ou campo/atributo) representa uma variável ou característica dessa observação. Apesar de se parecer com uma planilha, guarda mais semântica de transação do que uma planilha.
 
-???+ info "Quando surgiu a modelagem?"
+??? info "Quando surgiu a modelagem?"
     A modelagem de dados como disciplina formal foi inaugurada pelo artigo seminal de Peter Chen, "[The Entity-Relationship Model: Toward a Unified View of Data](https://dl.acm.org/doi/10.1145/320434.320440)", publicado em 1976 na ACM Transactions on Database Systems. Este trabalho estabeleceu os fundamentos conceituais que ainda hoje orientam a prática da modelagem de dados.
 
-???+ info "O que a modelagem de dados faz?"
+??? info "O que a modelagem de dados faz?"
     A modelagem de dados tem quatro funções principais:
 
     **1. Identificar os principais sujeitos de dados**
@@ -41,7 +41,7 @@ A modelagem trabalha essencialmente com dados tabulares, ou seja, aqueles estrut
     **4. Identificar as regras de negócio**
     As regras específicas que se aplicam aos dados e suas relações.
 
-???+ info "Como fazer modelagem de dados?"
+??? info "Como fazer modelagem de dados?"
     O processo de modelagem segue quatro etapas fundamentais:
 
     **1. Entender os dados**
@@ -69,7 +69,7 @@ Uma entidade representa um **objeto do mundo real** que existe independentemente
 
 As entidades representam **áreas temáticas importantes** do domínio e podem ser entendidas como "nouns" do sistema - coisas sobre as quais queremos manter dados.
 
-???+ note "Entidades fortes vs entidades fracas"
+??? note "Entidades fortes vs entidades fracas"
     As entidades podem ser classificadas em dois tipos principais baseados em sua **independência** e **capacidade de identificação**:
 
     === "Entidades Fortes"
@@ -146,70 +146,70 @@ Os atributos podem ter **descrições e regras** que definem:
 - **Restrições** (ex: idade entre 0 e 150)
 - **Obrigatoriedade** (se pode ou não ser nulo)
 
-???+ note "Tipos de Dados"
+??? note "Tipos de Dados"
     Os tipos de dados definem **como os valores são armazenados e processados** no banco de dados. Cada tipo tem características específicas que determinam o formato, tamanho e operações permitidas. A escolha correta do tipo de dados afeta a performance, armazenamento e integridade dos dados.
 
-    ???+ info "Tipos numéricos"
+    ??? info "Tipos numéricos"
         - **INTEGER/INT**: Números inteiros (ex: 1, -5, 1000)
         - **DECIMAL/NUMERIC**: Números com casas decimais (ex: 10.50, 3.14159)
         - **FLOAT/REAL**: Números de ponto flutuante para cálculos científicos
         - **BIGINT**: Números inteiros muito grandes
 
 
-    ???+ info "Tipos de texto"
+    ??? info "Tipos de texto"
         - **VARCHAR(n)**: Texto de tamanho variável até n caracteres
         - **CHAR(n)**: Texto de tamanho fixo com n caracteres
         - **TEXT**: Texto de tamanho ilimitado
         - **LONGTEXT**: Texto muito longo
 
-    ???+ info "Tipos de data e hora"
+    ??? info "Tipos de data e hora"
         - **DATE**: Data (ex: 2024-01-15)
         - **TIME**: Hora (ex: 14:30:25)
         - **DATETIME**: Data e hora combinadas
         - **TIMESTAMP**: Marca temporal automática
 
-    ???+ info "Tipos booleanos"
+    ??? info "Tipos booleanos"
         - **BOOLEAN/BOOL**: Valores verdadeiro/falso (TRUE/FALSE, 1/0)
 
-    ???+ info "Tipos binários"
+    ??? info "Tipos binários"
         - **BLOB**: Dados binários (imagens, documentos)
         - **BINARY**: Dados binários de tamanho fixo
 
-???+ note "Valores Possíveis"
+??? note "Valores Possíveis"
     Os valores possíveis definem **quais valores são aceitos** por um atributo, garantindo que apenas dados válidos sejam inseridos no banco de dados. Outro benefício da definição prévia dos valores possíveis é permitir uma validação automática acerca da consistência de dados e prevenção de erros.
 
-    ???+ info "Amplitude de valores"
+    ??? info "Amplitude de valores"
         - **Faixas numéricas**: idade >= 0 AND idade <= 150
         - **Intervalos de datas**: data_nascimento >= '1900-01-01' AND data_nascimento <= CURRENT_DATE
         - **Limites de texto**: LENGTH(nome) >= 2 AND LENGTH(nome) <= 100
 
-    ???+ info "Listas de valores"
+    ??? info "Listas de valores"
         - **Enumerados**: status IN ('ativo', 'inativo', 'suspenso')
         - **Códigos**: tipo_pessoa IN ('F', 'J') (Física, Jurídica)
         - **Categorias**: categoria IN ('eletrônicos', 'vestuário', 'alimentos')
 
-    ???+ info "Padrões (tegex)"
+    ??? info "Padrões (tegex)"
         - **CPF**: Formato XXX.XXX.XXX-XX
         - **Email**: Deve conter @ e domínio válido
         - **Telefone**: Formato (XX) XXXXX-XXXX
 
-    ???+ info "Valores especiais"
+    ??? info "Valores especiais"
         - **NULL**: Valor nulo (ausência de valor)
         - **DEFAULT**: Valor padrão quando não especificado
         - **AUTO_INCREMENT**: Valor automático incremental
 
 
-???+ note "Restrições de Atributos"
+??? note "Restrições de Atributos"
     As restrições são **regras que definem limitações e condições** que devem ser respeitadas pelos dados. Elas ajudam a garantir a **integridade e consistência** dos dados no modelo. São fundamentais para manter a **qualidade dos dados** e devem ser identificadas durante a modelagem conceitual, mesmo que sua implementação ocorra apenas no modelo físico.
 
-    ???+ info "1. Restrições de tipo"
+    ??? info "1. Restrições de tipo"
         Definem o tipo de dados que um atributo pode armazenar.
         
         **Exemplos**: VARCHAR(50), INTEGER, DATE, DECIMAL(10,2)
         
         **Objetivo**: Garantir que os dados sejam do formato correto
 
-    ???+ info "2. Restrições de domínio"
+    ??? info "2. Restrições de domínio"
         Definem os valores válidos que um atributo pode assumir.
         
         **Amplitude dos dados**: idade > 0 e idade < 150
@@ -218,7 +218,7 @@ Os atributos podem ter **descrições e regras** que definem:
         
         **Objetivo**: Validar que os valores estão dentro do esperado
 
-    ???+ info "3. Restrições de chave"
+    ??? info "3. Restrições de chave"
         Identificam atributos que devem ser únicos para cada registro.
         
         **Chave Primária**: Identifica unicamente cada registro
@@ -227,36 +227,36 @@ Os atributos podem ter **descrições e regras** que definem:
         
         **Objetivo**: Manter a unicidade dos dados
 
-    ???+ info "4. Restrições de integridade referencial"
+    ??? info "4. Restrições de integridade referencial"
         Garantem que relacionamentos entre entidades sejam válidos.
         
         **Chave Estrangeira**: Referencia uma chave primária em outra tabela
         
         **Objetivo**: Manter a consistência entre tabelas relacionadas
 
-    ???+ info "5. Restrições de negócio"
+    ??? info "5. Restrições de negócio"
         Regras específicas do domínio que os dados devem seguir.
         
         **Exemplo**: "Um funcionário não pode ter salário negativo"
         
         **Objetivo**: Implementar lógica de negócio nos dados
 
-???+ note "Obrigatoriedade"
+??? note "Obrigatoriedade"
     A obrigatoriedade define se um atributo **deve ou não ter um valor**, controlando a completude dos dados no banco de dados. Afeta a integridade dos dados, bem como a experiência do usuário.
 
-    ???+ info "NOT NULL (obrigatório)"
+    ??? info "NOT NULL (obrigatório)"
         - **Definição**: O atributo **deve** ter um valor
         - **Comportamento**: Não aceita valores nulos
         - **Exemplos**: CPF, nome, data_nascimento
         - **Uso**: Para informações essenciais que sempre devem estar presentes
 
-    ???+ info "NULL (opcional)"
+    ??? info "NULL (opcional)"
         - **Definição**: O atributo **pode** não ter um valor
         - **Comportamento**: Aceita valores nulos
         - **Exemplos**: telefone_secundario, observacoes, foto_perfil
         - **Uso**: Para informações complementares que podem estar ausentes
 
-    ???+ info "DEFAULT (valor padrão)"
+    ??? info "DEFAULT (valor padrão)"
         - **Definição**: Valor automaticamente atribuído quando não especificado
         - **Exemplos**: 
             - data_cadastro DEFAULT CURRENT_TIMESTAMP
@@ -278,7 +278,7 @@ Os relacionamentos representam as conexões ou associações lógicas entre dife
 
 🚌 Os relacionamentos basicamente auxiliam na navegação, como uma espécie de estrada que lhe permite trafegar por todo conjunto de dados 
 
-???+ info "Regras de negócio vs banco de dados"
+??? info "Regras de negócio vs banco de dados"
     É a partir das regras de negócio é que podemos derivar as seguintes características do **relacionamento** entre as entidades: 
 
     - **Cardinalidade**
@@ -291,7 +291,7 @@ A cardinalidade define quantas instâncias de uma entidade podem se relacionar c
 
 A cardinalidade é determinada pelas regras de negócio e deve ser cuidadosamente analisada durante a modelagem conceitual, pois influencia diretamente a estrutura do banco de dados final.
 
-???+ info "Tipos e notação de cardinalidade"
+??? info "Tipos e notação de cardinalidade"
     - **1:1 (Um para Um)**: Uma instância da entidade A se relaciona com exatamente uma instância da entidade B
     - **1:N (Um para Muitos)**: Uma instância da entidade A se relaciona com múltiplas instâncias da entidade B
     - **N:1 (Muitos para Um)**: Múltiplas instâncias da entidade A se relacionam com uma instância da entidade B
@@ -421,7 +421,7 @@ Cuida da nomeação (bidirecional ou unidirecional) de como ocorre a interação
 - **Professor** → **Aula**: "oferece"
 - **Aula** → **Professor**: "é oferecida por"
 
-???+ info "⚠️ Atenção!"
+??? info "⚠️ Atenção!"
     - Os nomes de um relacionamento **não precisam ser exclusivos** a nível conceitual
     - Recomenda-se usar nomes que representem a **relação bidirecional** entre duas entidades
     - É possível haver **múltiplos relacionamentos** entre as mesmas entidades
@@ -444,7 +444,7 @@ A hierarquia influencia:
 - **A propagação de atributos ou restrições** (ex.: herança em modelos mais avançados como os objetos-relacionais);
 - **A forma de navegação ou junção entre tabelas** em consultas SQL, especialmente em joins que seguem a lógica hierárquica dos dados.
 
-???+ info "⚠️ Atenção!"
+??? info "⚠️ Atenção!"
     - Hierarquia não implica necessariamente direção de relacionamento, mas pode coexistir com ela;
     - É comum representar hierarquia visualmente com árvores ou estruturas de **camadas**;
     - Em bancos relacionais, hierarquias muitas vezes se expressam por **chaves estrangeiras** apontando para entidades superiores ou pela presença de **campos identificadores** hierárquicos (ex.: códigos estruturados)
@@ -453,7 +453,7 @@ A hierarquia influencia:
 
 Um relacionamento ternário envolve **três entidades simultaneamente**, onde a relação entre duas entidades depende da terceira.
 
-???+ info "O que é um relacionamento ternário?"
+??? info "O que é um relacionamento ternário?"
     **Definição**: Relacionamento que só faz sentido quando consideramos as três entidades juntas.
 
     **Exemplo prático**: 
@@ -468,14 +468,14 @@ Um relacionamento ternário envolve **três entidades simultaneamente**, onde a 
         AULA ||--o{ AULA_PROFESSOR_SALA : "ocorre com"
     ```
 
-???+ info "Outros exemplos"
+??? info "Outros exemplos"
     **Sistema de Vendas**: VENDEDOR vende PRODUTO para CLIENTE
     
     **Sistema de Projetos**: FUNCIONARIO trabalha em PROJETO como FUNCAO
     
     **Sistema de Seguros**: SEGURADO possui APOLICE com COBERTURA
 
-???+ info "Implementação"
+??? info "Implementação"
     **Como implementar**: Através de uma **tabela de relacionamento** que contém:
     - Chaves estrangeiras para as três entidades
     - Atributos específicos do relacionamento (se houver)
@@ -491,7 +491,7 @@ Um relacionamento ternário envolve **três entidades simultaneamente**, onde a 
 
 A modelagem de dados pode ocorrer em diferentes tipos de ambientes, dentre os quais se destacam os ambientes **analítico e transacional**. Os sistemas transacionais (ou operacionais) são a espinha dorsal das operações diárias das organizações, responsáveis por processar transações em tempo real – como vendas, cadastros ou movimentações financeiras. Já os sistemas analíticos têm como propósito transformar esses dados operacionais em insights estratégicos. Normalmente, os dados são extraídos dos sistemas transacionais e enviados para um ambiente analítico – como data marts ou data warehouses –, onde são modelados, integrados e otimizados para análises complexas. Esses ambientes utilizam estruturas dimensionalizadas (como esquemas em estrela ou floco de neve) e técnicas como OLAP, permitindo à SPLOR realizar desde análises históricas até projeções orçamentárias com agilidade e profundidade, sem impactar o desempenho dos sistemas operacionais.
 
-???+ info "Data Warehouse (DW), Data Mart e Data Lake"
+??? info "Data Warehouse (DW), Data Mart e Data Lake"
     - **Data Warehouse (DW)**: repositório centralizado de dados **estruturados**, otimizado para análise e relatórios, com esquema rigidamente construído (schema-on-write). Ex.: DW de um varejista com vendas, estoques e dados de clientes. Pode ser entendido como uma "fonte da verdade" para análises estruturadas;
 
     - **Data Mart**: é um subconjunto de um DW, focado em uma **análise específica**/ em atender as necessidades analíticas de um setor. Ex.: Data Mart dos dados das vendas de um varejista. Pode ser entendido como uma  "loja de departamento" para necessidades específicas;
@@ -499,7 +499,7 @@ A modelagem de dados pode ocorrer em diferentes tipos de ambientes, dentre os qu
     - **Data Lake**: armazena dados brutos, **estruturados, semiestruturados e não estruturados**. A diferença básica entre um dado estruturado e um não-estruturado é que aqueles contam com um formato fixo, padronizado como tabelas com linhas e colunas, enquanto estes não seguem nenum modelo organizacinal para mapeamento dos dados, tais como vídeos, um pdf com parecer jurídico, um e-mail, etc.
 
 
-???+ info "📊 Metodologias de Modelagem de Dados"
+??? info "📊 Metodologias de Modelagem de Dados"
     | Aspecto                           | Transacional                                                   | Analítico (DW)                                                                     |
     | --------------------------------- | -------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
     | **Nível conceitual**              | Espelha o mundo real                                           | Dimensional                                                                        |
