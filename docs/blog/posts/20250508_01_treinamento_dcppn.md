@@ -101,8 +101,29 @@ O quinto encontro não foi gravado, pois foi foram feitas as mesmas atividades d
 
 ## 6º encontro
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/vFP-UxnzXXU?si=GkV961BXn0pw2Xye" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 ### O que foi tratado nesse encontro
 
-- [x] O que é o pull request.
-- [x] Como realizar a revisão de um pull request.
-- [x] Como resolver conflitos em um pull request.
+- [x] O que é o pull request
+
+Um pull request (ou solicitação de pull) é uma proposta para integrar as mudanças de uma branch  em outra, sendo realizada uma revisão  antes de mesclar as alterações na branch principal de um projeto (geralmente, chamada main). Em outras palavras, é uma forma de um membro da equipe notificar que terminou de trabalhar em uma nova funcionalidade, documentação ou correção e está pronto para que o seu trabalho seja integrado ao projeto principal
+
+- [x] Como realizar a revisão de um pull request e resolver conflitos.
+
+Um conflito em um pull request ocorre quando o sistema de controle de versão, no caso o Git, não consegue mesclar automaticamente as alterações de duas branches diferentes devido a alterações conflitantes nos mesmos arquivos ou linhas de código. Isso geralmente acontece quando duas ou mais pessoas trabalham no mesmo trecho de código simultaneamente. Como resolver conflitos?
+
+- **Abrir a pull request e identificar os arquivos com conflitos:** 
+O git indica quais arquivos precisam ser resolvidos.
+
+- **Abrir o arquivo com conflito e examinar as marcações:** 
+Você verá as áreas com conflitos, indicando as versões de código de cada branch. Os marcadores especiais  são: <<<<<<<, =======, e >>>>>>>.
+
+- **Escolher qual versão manter ou mesclar as alterações:** 
+Você pode escolher manter a versão de uma das branches, mesclar as alterações manualmente, ou remover partes de ambos os códigos para criar uma nova versão. 
+
+- **Remover os marcadores de conflito:** 
+Depois de resolver o conflito, você deve remover os marcadores do código.
+
+- **Fazer commit das alterações e atualizar a pull request:** 
+Após resolver todos os conflitos, você pode fazer commit das alterações e concluir a mesclagem.
