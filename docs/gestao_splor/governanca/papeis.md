@@ -116,3 +116,4 @@ No GitHub, existem diferentes níveis de permissão e papéis que variam conform
 3. **Adicionar colaboradores** apropriados
 4. **Configurar labels** e templates
 5. **Documentar** no handbook
+
