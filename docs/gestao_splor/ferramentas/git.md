@@ -9,15 +9,9 @@ Quando uma equipe está trabalhando conjuntamente na elaboração de um document
 ![Charge Final](../../assets/gestao-splor/charge-doc-final.gif)
 
 
-Agora, imagina só esse desafio se, ao invés de uma equipe, o **mundo todo** estivesse contribuindo para a elaboração desse documento?!
+Agora, imagina só esse desafio se, ao invés de uma equipe, o **mundo todo** estivesse contribuindo para a elaboração desse documento?! O Git nasceu justamente desse contexto. Em 2005, o desenvolvimento do kernel Linux, um dos **maiores projetos de código aberto do mundo**, estava enfrentando desafios com seu sistema de controle de versão. Imagine as contribuições do mundo todo eram geridas e processadas individualmente **por email!!**. 
 
-O Git nasceu justamente desse contexto. Em 2005, o desenvolvimento do kernel Linux, um dos **maiores projetos de código aberto do mundo**, estava enfrentando desafios com seu sistema de controle de versão. 
-
-Imagine as contribuições do mundo todo eram geridas e processadas individualmente **por email!!**. 
-
-Foi então que Linus Torvalds, o criador do Linux, se viu instigado a desenvolver uma **ferramenta para coordenar a colaboração e, com isso, o versionamento dos documentos produzidos coletivamente.** 
-
-Ele precisava de algo que fosse rápido, facilmente distribuído e que permitisse a colaboração de milhares de desenvolvedores de forma simultânea e eficiente. 
+Foi então que Linus Torvalds, o criador do Linux, se viu instigado a desenvolver uma **ferramenta para coordenar a colaboração e, com isso, o versionamento dos documentos produzidos coletivamente.** Ele precisava de algo que fosse rápido, facilmente distribuído e que permitisse a colaboração de milhares de desenvolvedores de forma simultânea e eficiente. 
 
 **Eis que surgiu o Git!** e, desde sua criação, ele vem revolucionando a forma como equipes trabalham conjuntamente.
 
