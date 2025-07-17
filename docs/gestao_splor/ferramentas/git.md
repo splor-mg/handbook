@@ -2,16 +2,18 @@
 title: Git
 ---
 
-# Git — O superpoder da colaboração
+# :simple-github: Git — O superpoder da colaboração
 
 Quando uma equipe está trabalhando conjuntamente na elaboração de um documento, um dos maiores desafios é coordenar a contribuição de todos e, talvez o maior deles, como, por raios, **nomear e saber qual, de fato, é a versão final desse arquivo**.
 
 ![Charge Final](../../assets/gestao-splor/charge-doc-final.gif)
 
 
-Agora imagina só esse desafio se, ao invés de uma equipe, o **mundo todo** estivesse contribuindo para a elaboração desse documento?!
+Agora, imagina só esse desafio se, ao invés de uma equipe, o **mundo todo** estivesse contribuindo para a elaboração desse documento?! O Git nasceu justamente desse contexto. Em 2005, o desenvolvimento do kernel Linux, um dos **maiores projetos de código aberto do mundo**, estava enfrentando desafios com seu sistema de controle de versão. Imagine as contribuições do mundo todo eram geridas e processadas individualmente **por email!!**. 
 
-O Git nasceu justamente desse contexto. Em 2005, o desenvolvimento do kernel Linux, um dos **maiores projetos de código aberto do mundo**, estava enfrentando desafios com seu sistema de controle de versão — imagina, as contribuições do mundo todo eram geridas e processadas individualmente **por email!!**. Foi então que Linus Torvalds, o criador do Linux, se viu instigado a desenvolver uma **ferramenta para coordenar a colaboração e, com isso, o versionamento dos documentos produzidos coletivamente.** Ele precisava de algo que fosse rápido, facilmente distribuído e que permitisse a colaboração de milhares de desenvolvedores de forma simultânea e eficiente. **Eis que surgiu o Git!** e, desde sua criação, ele vem revolucionando a forma como equipes trabalham conjuntamente.
+Foi então que Linus Torvalds, o criador do Linux, se viu instigado a desenvolver uma **ferramenta para coordenar a colaboração e, com isso, o versionamento dos documentos produzidos coletivamente.** Ele precisava de algo que fosse rápido, facilmente distribuído e que permitisse a colaboração de milhares de desenvolvedores de forma simultânea e eficiente. 
+
+**Eis que surgiu o Git!** e, desde sua criação, ele vem revolucionando a forma como equipes trabalham conjuntamente.
 
 🔍 Dá só uma olhada nesse [TEDx de Clay Shirky](https://www.youtube.com/watch?v=CEN4XNth61o&t) sobre como o Git está contribuindo para **materializar o tão sonhado projeto de Governo Aberto**:
 
@@ -21,7 +23,9 @@ O Git nasceu justamente desse contexto. Em 2005, o desenvolvimento do kernel Lin
 
 ## Como o Git funciona?
 
-Apesar de poder parecer complexo à primeira vista, as **operações básicas do Git são surpreendentemente simples**. Quando várias pessoas estão trabalhando juntas em um mesmo documento, normalmente enfrentamos pelo menos 4 grandes desafios (cada um deles, simplesmente **um potencial — e literal — pesadelo** sem uma ferramenta de colaboração):
+Apesar de poder parecer complexo à primeira vista, as **operações básicas do Git são surpreendentemente simples**. 
+
+Quando várias pessoas estão trabalhando juntas em um mesmo documento, normalmente enfrentamos pelo menos 4 grandes desafios, sendo cada um deles, simplesmente, **um potencial e literal pesadelo** sem uma ferramenta de colaboração:
 
 1. **Qual é a versão mais recente do arquivo?** Ou: como recuperar uma **versão específica** do arquivo e retomar o trabalho a partir dela?
 2. **Como documentar as alterações** de forma a informar às(aos) demais colaborador(as)es o que foi feito? Ou como perceber exatamente **o que mudou de uma versão para outra**?

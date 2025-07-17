@@ -6,7 +6,7 @@ title: Instalação e Configuração
 
 Vamos instalar o Git no seu computador! O processo é simples e rápido. Escolha o seu sistema operacional abaixo:
 
-## 🪟 Windows
+## :material-microsoft-windows: Windows
 
 ### Opção 1: Git for Windows (Recomendado)
 1. Acesse [git-scm.com](https://git-scm.com/download/win)
@@ -25,7 +25,7 @@ choco install git
 winget install --id Git.Git -e --source winget
 ```
 
-## 🍎 macOS
+## :simple-macos: macOS
 
 ### Opção 1: Via Homebrew (Recomendado)
 ```bash
@@ -41,7 +41,7 @@ xcode-select --install
 1. Acesse [git-scm.com](https://git-scm.com/download/mac)
 2. Baixe e instale o pacote
 
-## 🐧 Linux
+## :simple-linux: Linux
 
 ### Ubuntu/Debian
 ```bash
@@ -79,8 +79,8 @@ Você deve ver algo como: `git version 2.39.0`
 Agora vamos configurar suas credenciais:
 
 ```bash
-git config --global user.name "Seu Nome Completo"
-git config --global user.email "seu.email@splor.mg.gov.br"
+git config --global user.name <Seu Nome Completo>
+git config --global user.email <seu_email_github@email.com>
 ```
 
 ### Configurações Recomendadas para SPLOR
@@ -110,7 +110,7 @@ git config --global credential.helper store
 ### Alternativa: SSH Keys
 ```bash
 # Gerar chave SSH
-ssh-keygen -t ed25519 -C "seu.email@splor.mg.gov.br"
+ssh-keygen -t ed25519 -C "seu_email_github@email.com"
 
 # Adicionar à conta GitHub
 # Copie o conteúdo de ~/.ssh/id_ed25519.pub
@@ -122,8 +122,9 @@ ssh-keygen -t ed25519 -C "seu.email@splor.mg.gov.br"
 Agora que o Git está instalado e configurado, você pode:
 
 1. **Criar seu primeiro repositório**: `git init`
-2. **Clonar um repositório existente**: `git clone [url]`
-3. **Fazer seu primeiro commit**: `git add . && git commit -m "Primeiro commit"`
+2. **Clonar um repositório existente**: `git clone <endereço_ssh>`
+3. **Adicionar suas alterações**:`git add .`
+4. **Fazer seu primeiro commit**: `git commit -m "Primeiro commit"`
 
 ## 🆘 Precisa de Ajuda?
 
