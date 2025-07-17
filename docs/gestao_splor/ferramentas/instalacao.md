@@ -79,8 +79,8 @@ Você deve ver algo como: `git version 2.39.0`
 Agora vamos configurar suas credenciais:
 
 ```bash
-git config --global user.name "seu_usuário_github"
-git config --global user.email "seu_email_github"
+git config --global user.name <Seu Nome Completo>
+git config --global user.email <seu_email_github@email.com>
 ```
 
 ### Configurações Recomendadas para SPLOR
@@ -110,7 +110,7 @@ git config --global credential.helper store
 ### Alternativa: SSH Keys
 ```bash
 # Gerar chave SSH
-ssh-keygen -t ed25519 -C "seu.email@splor.mg.gov.br"
+ssh-keygen -t ed25519 -C "seu_email_github@email.com"
 
 # Adicionar à conta GitHub
 # Copie o conteúdo de ~/.ssh/id_ed25519.pub
@@ -122,8 +122,9 @@ ssh-keygen -t ed25519 -C "seu.email@splor.mg.gov.br"
 Agora que o Git está instalado e configurado, você pode:
 
 1. **Criar seu primeiro repositório**: `git init`
-2. **Clonar um repositório existente**: `git clone <chave_SSH>`
-3. **Fazer seu primeiro commit**: `git add . && git commit -m "Primeiro commit"`
+2. **Clonar um repositório existente**: `git clone <endereço_ssh>`
+3. **Adicionar suas alterações**:`git add .`
+4. **Fazer seu primeiro commit**: `git commit -m "Primeiro commit"`
 
 ## 🆘 Precisa de Ajuda?
 
