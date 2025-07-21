@@ -104,10 +104,10 @@ git config --global credential.helper store
 
 ### Para GitHub (Recomendado)
 1. Acesse [github.com](https://github.com)
-2. Faça login na sua conta
-3. Vá em Settings > Developer settings > Personal access tokens
-4. Gere um novo token com permissões de `repo`
-5. Use esse token como senha quando solicitado
+1. Faça login na sua conta
+1. Vá em Settings > Developer settings > Personal access tokens
+1. Gere um novo token com permissões de `repo`
+1. Use esse token como senha quando solicitado
 
 ### Alternativa: SSH Keys
 ```bash
