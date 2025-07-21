@@ -4,16 +4,18 @@ title: Instalação e Configuração
 
 # Instalação e Configuração
 
-Vamos instalar o Git no seu computador! O processo é simples e rápido. Escolha o seu sistema operacional abaixo:
+Vamos instalar o Git no seu computador!
+O processo é simples e rápido.
+Escolha o seu sistema operacional abaixo:
 
 ## :material-microsoft-windows: Windows
 
 ### Opção 1: Git for Windows (Recomendado)
-1. Acesse [git-scm.com](https://git-scm.com/download/win)
-2. Baixe o instalador (será detectado automaticamente)
-3. Execute o arquivo `.exe` baixado
-4. **Importante**: Durante a instalação, mantenha as opções padrão
-5. Clique em "Next" até finalizar
+1. Acesse [git-scm.com](https://git-scm.com/download/win).
+2. Baixe o instalador (será detectado automaticamente).
+3. Execute o arquivo `.exe` baixado.
+4. **Importante**: Durante a instalação, mantenha as opções padrão.
+5. Clique em "Next" até finalizar.
 
 ### Opção 2: Via Chocolatey (para desenvolvedores)
 ```bash
@@ -102,10 +104,10 @@ git config --global credential.helper store
 
 ### Para GitHub (Recomendado)
 1. Acesse [github.com](https://github.com)
-2. Faça login na sua conta
-3. Vá em Settings > Developer settings > Personal access tokens
-4. Gere um novo token com permissões de `repo`
-5. Use esse token como senha quando solicitado
+1. Faça login na sua conta
+1. Vá em Settings > Developer settings > Personal access tokens
+1. Gere um novo token com permissões de `repo`
+1. Use esse token como senha quando solicitado
 
 ### Alternativa: SSH Keys
 ```bash
@@ -134,4 +136,5 @@ Agora que o Git está instalado e configurado, você pode:
 
 ---
 
-**Dica**: Se você nunca usou linha de comando, não se preocupe! O Git também funciona com interfaces gráficas como GitHub Desktop, GitKraken ou integração com editores como VS Code. 
+**Dica**: Se você nunca usou linha de comando, não se preocupe!
+O Git também funciona com interfaces gráficas como GitHub Desktop, GitKraken ou integração com editores como VS Code.
