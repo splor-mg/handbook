@@ -38,6 +38,8 @@ nav:
       - gestao_splor/gestao_vista/projetos.md
       - gestao_splor/gestao_vista/status.md
       - gestao_splor/gestao_vista/datas.md
+  - FAQ:
+    - faq/index.md
 # --8<-- [end:nav]
 
 # Configuration
