@@ -40,6 +40,14 @@ nav:
       - gestao_splor/gestao_vista/datas.md
   - FAQ:
     - faq/index.md
+  - Links Úteis:
+    - links_uteis/index.md
+    - DCAF:
+      - links_uteis/dcaf/paineis.md
+      - links_uteis/dcaf/receita.md
+      - links_uteis/dcaf/sistemas.md
+      - links_uteis/dcaf/grp.md
+
 # --8<-- [end:nav]
 
 # Configuration
