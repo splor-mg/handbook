@@ -20,6 +20,7 @@ nav:
       - Equipes: gestao_splor/governanca/equipes.md
       - Papéis e Permissões: gestao_splor/governanca/papeis.md
       - Duplo Fator de Autenticação: gestao_splor/governanca/duplo_fator_autenticacao.md
+      - Bitwarden Cofre de Senhas: gestao_splor/governanca/bitwarden.md
     - Ferramentas:
       - gestao_splor/ferramentas/index.md
       - gestao_splor/ferramentas/git.md
