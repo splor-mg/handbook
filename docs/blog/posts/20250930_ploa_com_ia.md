@@ -71,7 +71,7 @@ Existem pelo menos três abordagens para reconstruir e validar a geração dos v
 - ✅ Garante reprodutibilidade completa
 - ✅ Ideal para verificação inicial
 
-#### **2. 🟡 Validação Avançada**
+#### **2. 🟡 Validação de Referência**
 
 **Configuração:**
 - **Imagem Docker**: mesma do ano anterior
