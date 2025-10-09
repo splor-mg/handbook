@@ -9,9 +9,9 @@ title: Bitwarden - Cofre de Senhas
 A **gestão adequada de senhas** é fundamental para a segurança digital da SPLOR. Com o aumento de ataques cibernéticos e vazamentos de dados, **reforçar os protocolos de segurança** para proteger informações pessoais e institucionais tornou-se uma prioridade absoluta.
 
 !!! warning "Atenção!"
-    Lembre-se que além dos [**dados sensíveis**](https://splor-mg.github.io/handbook/blog/-publica%C3%A7%C3%A3o-das-bases-da-receita---an%C3%A1lise-sobre-prote%C3%A7%C3%A7%C3%A3o-de-dados/) dos próprios integrantes da equipe SPLOR, como CPF, e-mails pessoais etc., alguns dos conjuntos de dados geridos pela organização contêm **informações sensíveis de terceiros, exigindo ainda mais cuidado e responsabilidade** no controle de acessos e permissões, especialmente com a **segurança das nossas senhas**.
+    Lembre-se que além dos [**dados sensíveis**](../../blog/posts/20250221_2_publicacao_receita_protecao-dados.md) dos próprios integrantes da equipe SPLOR, como CPF, e-mails pessoais etc., alguns dos conjuntos de dados geridos pela organização contêm **informações sensíveis de terceiros, exigindo ainda mais cuidado e responsabilidade** no controle de acessos e permissões, especialmente com a **segurança das nossas senhas**.
 
-## :material-vault: Sobre a Escolha do Bitwarden?
+## :material-safe: Sobre a Escolha do Bitwarden
 
 **Gestão Centralizada e Segura!**
 
