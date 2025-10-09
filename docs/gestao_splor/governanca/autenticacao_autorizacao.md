@@ -10,7 +10,7 @@ categories:
   - Secrets
 ---
 
-# 🔐 Autenticação, Autorização e Tokens JWT no GitHub
+# 🔐 GitHub APP - Autenticação, Autorização e Tokens JWT
 
 Esta postagem intui apresentar os conceitos fundamentais sobre tokens, explorando sua relação com autenticação e autorização, e documentar nossa experiência prática na gestão desses recursos. Abordaremos os diferentes tipos de tokens disponíveis no GitHub, como configurá-los adequadamente, e compartilharemos as práticas que adotamos para gerenciar `Organization Secrets`. 
 
@@ -41,7 +41,9 @@ Como os tokens entram nisso? O token é a “prova” apresentada em cada requis
 
 ---
 
-## 🔑 **Tokens: O que são e por que são importantes**
+## 🔑 **Tokens**
+
+O que são e por que são importantes?
 
 Os Tokens são utilizados, basicamente, para fazer uma **autenticação automática**, substituindo a etapa de autenticação convencional (login interativo), na qual digitamos manualmente `login` e `senha` do usuário.
 
@@ -90,9 +92,9 @@ Tokens, portanto, são credenciais de acesso usadas por sistemas (e pessoas, às
 ---
 
 
-## **🔐 Organization secrets** _vs_ **tokens**
+## **🔐 Secrets** _vs_ **tokens**
 
-**O que são secrets**
+**O que são os organization secrets**
 
 Secrets são um **cofre onde armazenamos credenciais sensíveis**, como tokens (PAT, tokens de GitHub App), chaves de API e chaves privadas. São pares chave–valor criptografados mantidos pelo GitHub para uso em automações (principalmente GitHub Actions e Dependabot). 
 
@@ -154,9 +156,9 @@ Eles NÃO são um tipo de token.
 ---
 
 
-## **🎯  Nossos atuais desafios com tokens e secrets**
+## **🎯  Desafios**
 
-Hoje utilizamos principalmente:
+Desde o início da criação da organização `splor-mg` no GitHub utilizamos principalmente:
 
 - **Organization Secrets** para centralizar credenciais usadas por múltiplos repositórios via Actions.
 - **Tokens armazenados** em repositórios privados para integrações pontuais (scripts, jobs específicos).
@@ -182,7 +184,7 @@ Benefícios percebidos:
 
 ---
 
-## **✅ Práticas modernas para gestão de tokens e automação**
+## **✅ Práticas modernas**
 
 **1. Evitar tokens pessoais (PATs) para automação**
 
@@ -235,3 +237,352 @@ Todos esses provedores suportam autenticação via OIDC (OpenID Connect):
     - Vantagem: zero secrets estáticos, integração nativa com AWS/Azure/GCP
 
 
+---
+
+
+## 🚀 Implementando GitHub App
+
+
+Agora que entendemos os conceitos e desafios, vamos implementar uma solução moderna usando **GitHub Apps**. Esta abordagem resolve os principais problemas identificados: isolamento de credenciais, rotação automática, auditoria nativa e rate limits separados.
+
+**Por que GitHub App?**
+
+- **Identidade própria**: o App tem sua própria identidade, independente de usuários
+- **Rate limits separados**: cada App tem sua própria cota de API, evitando conflitos
+- **Rotação automática**: tokens são gerados sob demanda e expiram automaticamente
+- **Auditoria nativa**: todas as ações são rastreadas como "GitHub App X"
+- **Permissões granulares**: controle fino sobre o que o App pode fazer
+
+---
+
+**Passo a passo: Criando um GitHub App**
+
+**1. Criar o GitHub App na organização**
+
+1. **Acesse as configurações da organização**:
+   - Vá para `https://github.com/orgs/SUA_ORGANIZACAO/settings`
+   - Clique em **Developer settings** → **GitHub Apps**
+
+2. **Criar novo App**:
+   - Clique em **New GitHub App**
+   - Preencha os campos obrigatórios:
+     - **GitHub App name**: `meu-app-autenticacao` (nome único)
+     - **Homepage URL**: URL do seu repositório ou documentação
+     - **Webhook**: Deixe desabilitado para começar
+     - **Description**: "App para autenticação e automação"
+
+3. **Configurar permissões**:
+   ```
+   Repository permissions:
+   - Contents: Read (para ler arquivos)
+   - Issues: Write (para gerenciar issues)
+   - Metadata: Read (informações básicas)
+   - Pull requests: Read (se necessário)
+   
+   Organization permissions:
+   - Members: Read (se precisar listar membros)
+   ```
+
+4. **Configurar eventos** (opcional):
+   - Marque apenas os eventos que seu App realmente precisa
+   - Exemplo: `Issues`, `Repository` se for monitorar mudanças
+
+5. **Salvar e instalar**:
+   - Clique em **Create GitHub App**
+   - Na página do App, clique em **Install App**
+   - Selecione a organização e configure as permissões
+
+**2. Obter as credenciais necessárias**
+
+Após criar o App, você precisará de três informações:
+
+1. **App ID** (ID numérico):
+   - Na página do App → **General**
+   - Copie o **App ID** (exemplo: `123456`)
+
+2. **Installation ID** (ID da instalação):
+   - Na página do App → **Install App** → **Installations**
+   - Clique na instalação da sua organização
+   - O ID aparece na URL: `.../installations/789012`
+
+3. **Private Key** (chave privada):
+   - Na página do App → **General** → **Private keys**
+   - Clique em **Generate a private key**
+   - **IMPORTANTE**: Baixe o arquivo `.pem` imediatamente
+   - Esta chave só é mostrada uma vez!
+
+??? warning "⚠️ Segurança da chave privada"
+    A chave privada é **extremamente sensível**. Trate-a como uma senha mestra:
+    - Nunca commite no Git
+    - Armazene em secrets do GitHub
+    - Use apenas em ambientes seguros
+    - Rotacione periodicamente
+
+---
+
+**Implementação: Script de Autenticação**
+
+Agora vamos implementar o código que usa essas credenciais para obter tokens temporários. Vamos analisar um exemplo prático baseado no script `github_app_auth.py`:
+
+**Estrutura básica do script**
+
+```python
+#!/usr/bin/env python3
+"""
+Helper para autenticação via GitHub App.
+Gera JWT assinado com a chave privada do App e troca por um
+installation access token, que é o token usado nas chamadas à API.
+"""
+
+import base64
+import json
+import os
+import time
+from pathlib import Path
+import jwt  # PyJWT
+import requests
+
+GITHUB_API_URL = "https://api.github.com"
+```
+
+**1. Lendo a chave privada**
+
+```python
+def _read_private_key_from_env_or_path() -> str:
+    """
+    Lê a chave privada do GitHub App.
+    Prioridade:
+      1. GITHUB_APP_PRIVATE_KEY (conteúdo PEM bruto ou base64)
+      2. GITHUB_APP_PRIVATE_KEY_PATH (caminho para arquivo .pem)
+    """
+    # Tentar ler da variável de ambiente primeiro
+    key_inline = os.getenv("GITHUB_APP_PRIVATE_KEY")
+    if key_inline:
+        # Permitir que venha em base64 (útil para secrets)
+        stripped = key_inline.strip()
+        if "BEGIN" in stripped:
+            return stripped  # Já está em formato PEM
+        try:
+            return base64.b64decode(stripped).decode("utf-8")
+        except Exception:
+            return stripped  # Usar como está
+    
+    # Fallback: ler de arquivo
+    key_path = os.getenv("GITHUB_APP_PRIVATE_KEY_PATH")
+    if not key_path:
+        raise RuntimeError("Missing GITHUB_APP_PRIVATE_KEY or GITHUB_APP_PRIVATE_KEY_PATH")
+    
+    path = Path(key_path).expanduser()
+    if not path.exists():
+        raise RuntimeError(f"Private key file not found: {path}")
+    
+    return path.read_text(encoding="utf-8")
+```
+
+??? info "💡 Por que duas formas de ler a chave?"
+    - **Variável de ambiente**: ideal para GitHub Actions (secrets)
+    - **Arquivo**: útil para desenvolvimento local
+    - **Base64**: permite armazenar a chave em secrets do GitHub sem quebras de linha
+
+**2. Criando o JWT (JSON Web Token)**
+
+```python
+def _create_app_jwt(app_id: str, private_key_pem: str) -> str:
+    """
+    Cria um JWT RS256 com expiração curta (60s) para o GitHub App.
+    """
+    now = int(time.time())
+    payload = {
+        "iat": now - 5,  # pequena folga de clock skew
+        "exp": now + 55,  # expira em 55 segundos
+        "iss": app_id,    # ID do App (issuer)
+    }
+    
+    # Assinar com a chave privada usando algoritmo RS256
+    token = jwt.encode(payload, private_key_pem, algorithm="RS256")
+    return token
+```
+
+??? info "🔍 Entendendo o JWT"
+    O JWT é como um "bilhete de identidade" temporário que prova que você é o GitHub App:
+    - **iat** (issued at): quando foi criado
+    - **exp** (expires): quando expira (curto, por segurança)
+    - **iss** (issuer): quem emitiu (ID do seu App)
+    - **Assinatura**: prova que foi criado com sua chave privada
+
+**3. Trocando JWT por token de instalação**
+
+```python
+def _create_installation_token(app_jwt: str, installation_id: str) -> str:
+    """
+    Troca o JWT do App por um installation access token.
+    """
+    url = f"{GITHUB_API_URL}/app/installations/{installation_id}/access_tokens"
+    headers = {
+        "Authorization": f"Bearer {app_jwt}",
+        "Accept": "application/vnd.github+json",
+    }
+    
+    resp = requests.post(url, headers=headers)
+    if resp.status_code not in (200, 201):
+        raise RuntimeError(
+            f"Failed to create installation token ({resp.status_code}): {resp.text}"
+        )
+    
+    data = resp.json()
+    return data["token"]  # Este é o token que usaremos nas chamadas da API
+```
+
+**4. Função principal (orquestrando tudo)**
+
+```python
+def get_github_app_installation_token() -> str:
+    """
+    Obtém um installation token usando variáveis de ambiente:
+      - GITHUB_APP_ID
+      - GITHUB_APP_INSTALLATION_ID  
+      - GITHUB_APP_PRIVATE_KEY ou GITHUB_APP_PRIVATE_KEY_PATH
+    """
+    # 1. Ler credenciais das variáveis de ambiente
+    app_id = os.getenv("GITHUB_APP_ID")
+    installation_id = os.getenv("GITHUB_APP_INSTALLATION_ID")
+    
+    if not app_id or not installation_id:
+        raise RuntimeError("Missing GITHUB_APP_ID or GITHUB_APP_INSTALLATION_ID")
+    
+    # 2. Ler a chave privada
+    private_key_pem = _read_private_key_from_env_or_path()
+    
+    # 3. Criar JWT com a chave privada
+    app_jwt = _create_app_jwt(app_id, private_key_pem)
+    
+    # 4. Trocar JWT por token de instalação
+    return _create_installation_token(app_jwt, installation_id)
+```
+
+---
+
+**⚙️ Configuração do ambiente**
+
+**Para desenvolvimento local**
+
+Crie um arquivo `.env` na raiz do seu projeto:
+
+```bash
+# GitHub App credentials
+GITHUB_APP_ID=123456
+GITHUB_APP_INSTALLATION_ID=789012
+GITHUB_APP_PRIVATE_KEY_PATH=/caminho/para/sua/chave.pem
+```
+
+**Para GitHub Actions**
+
+Configure os secrets no repositório:
+
+1. **Repository Secrets**:
+   - `GH_APP_ID`
+   - `GH_APP_INSTALLATION_ID`  
+   - `GH_APP_PRIVATE_KEY`: conteúdo da chave privada (formato PEM)
+
+2. **No workflow**:
+```yaml
+- name: Generate GitHub App token
+  id: app-token
+  uses: actions/create-github-app-token@v2
+  with:
+    app-id: ${{ secrets.GH_APP_ID }}
+    private-key: ${{ secrets.GH_APP_PRIVATE_KEY }}
+    owner: ${{ github.repository_owner }}
+
+- name: Use the token
+  run: |
+    # Seu script aqui
+  env:
+    GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
+```
+
+---
+
+**🚀 Exemplo prático: Usando o token**
+
+```python
+import requests
+from github_app_auth import get_github_app_installation_token
+
+def list_repositories():
+    """Lista repositórios da organização usando GitHub App"""
+    
+    # Obter token via GitHub App
+    token = get_github_app_installation_token()
+    
+    # Usar o token nas chamadas da API
+    headers = {
+        'Authorization': f'token {token}',
+        'Accept': 'application/vnd.github.v3+json'
+    }
+    
+    # Exemplo: listar repositórios
+    response = requests.get(
+        'https://api.github.com/orgs/sua-organizacao/repos',
+        headers=headers
+    )
+    
+    if response.status_code == 200:
+        repos = response.json()
+        print(f"Encontrados {len(repos)} repositórios")
+        return repos
+    else:
+        print(f"Erro: {response.status_code} - {response.text}")
+        return []
+
+# Usar a função
+repos = list_repositories()
+```
+
+---
+
+**✅ Vantagens desta abordagem**
+
+1. **Segurança**: tokens temporários, chave privada nunca exposta
+2. **Isolamento**: rate limits separados, sem conflitos
+3. **Auditoria**: todas as ações são rastreadas como "GitHub App X"
+4. **Flexibilidade**: permissões configuráveis por instalação
+5. **Manutenção**: rotação automática, sem intervenção manual
+
+
+---
+
+**🏢 Desafio organizacional: Coordenação da migração**
+
+Em uma organização com múltiplos setores, o maior desafio não é técnico, mas **coordenativo**. Cada unidade pode vir a desenvolver suas próprias automações usando tokens (PATs, GITHUB_TOKEN) ao longo do tempo, criando um cenário fragmentado e difícil de gerenciar.
+
+**O desafio real**
+
+- **Inventário completo**: identificar todos os repositórios que utilizam tokens
+- **Mapeamento de dependências**: entender quais workflows dependem de cada token
+- **Coordenação entre setores**: alinhar diferentes equipes para uma migração coordenada
+- **Planejamento de impacto**: minimizar interrupções durante a transição
+- **Capacitação**: treinar equipes nos novos procedimentos
+
+**Estratégia de migração organizacional**
+
+1. **Auditoria completa**: varrer todos os repositórios passados que utilizam tokens
+2. **Priorização por criticidade**: começar pelos processos mais importantes
+3. **Comunicação centralizada**: manter todas as unidades informadas sobre o progresso
+4. **Suporte técnico**: oferecer assistência durante a migração
+5. **Monitoramento contínuo**: acompanhar a adoção e identificar resistências
+
+---
+
+**🔍 Reflexão: Protocolo de monitoramento**
+
+Uma questão fundamental surge: **será necessário criar protocolos organizacionais para verificar se PATs (Personal Access Tokens) estão sendo utilizados?**
+
+Para organizações de médio a grande porte, uma leitura inicial da documentação sobre o tema indica que **sim, é recomendável** estabelecer protocolos de monitoramento. Isso garante:
+
+- **Controle centralizado** sobre credenciais
+- **Segurança aprimorada** com rotação automática
+- **Visibilidade** sobre uso de recursos
+- **Padronização** de práticas de automação
+
+A migração para GitHub Apps não é apenas uma modernização técnica, mas uma **evolução na governança de segurança** que beneficia toda a organização.
