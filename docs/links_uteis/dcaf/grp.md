@@ -1,1 +1,0 @@
-[GRP](https://ssc.prodemge.gov.br/ssc-idp-frontend/)
