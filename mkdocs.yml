@@ -40,13 +40,13 @@ nav:
       - gestao_splor/gestao_vista/datas.md
   - FAQ:
     - faq/index.md
-  - Links Úteis:
-    - links_uteis/index.md
+  - Diretorias:
+    - diretorias/index.md
     - DCAF:
-      - links_uteis/dcaf/paineis.md
-      - links_uteis/dcaf/receita.md
-      - links_uteis/dcaf/sistemas.md
-      - links_uteis/dcaf/grp.md
+      - diretorias/dcaf/sobre.md
+      - diretorias/dcaf/links_uteis.md
+      - diretorias/dcaf/index.md
+
 
 # --8<-- [end:nav]
 
