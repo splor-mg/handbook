@@ -41,6 +41,14 @@ nav:
       - gestao_splor/gestao_vista/datas.md
   - FAQ:
     - faq/index.md
+  - Diretorias:
+    - diretorias/index.md
+    - DCAF:
+      - diretorias/dcaf/sobre.md
+      - diretorias/dcaf/links_uteis.md
+      - diretorias/dcaf/index.md
+
+
 # --8<-- [end:nav]
 
 # Configuration
