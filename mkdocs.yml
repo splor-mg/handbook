@@ -22,6 +22,7 @@ nav:
       - Duplo Fator de Autenticação: gestao_splor/governanca/duplo_fator_autenticacao.md
       - Autenticação com Github App: gestao_splor/governanca/autenticacao_autorizacao.md
       - Bitwarden Cofre de Senhas: gestao_splor/governanca/bitwarden_cofre_senhas.md
+      - Autenticação com Github App: gestao_splor/governanca/autenticacao_autorizacao.md
     - Ferramentas:
       - gestao_splor/ferramentas/index.md
       - gestao_splor/ferramentas/git.md
