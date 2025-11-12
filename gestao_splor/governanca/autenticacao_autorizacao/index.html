@@ -1,0 +1,3000 @@
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../duplo_fator_autenticacao/">
+      
+      
+        <link rel="next" href="../bitwarden_cofre_senhas/">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.5">
+    
+    
+      
+        <title>Autenticação com Github App - Handbook da Subsecretaria de Planejamento e Orçamento (SPLOR)</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.8608ea7d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/style.css">
+    
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@10.4.0/dist/mermaid.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#github-app-autenticacao-autorizacao-e-tokens-jwt" class="md-skip">
+          Ir para o conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
+    <a href="../../.." title="Handbook da Subsecretaria de Planejamento e Orçamento (SPLOR)" class="md-header__button md-logo" aria-label="Handbook da Subsecretaria de Planejamento e Orçamento (SPLOR)" data-md-component="logo">
+      
+  <img src="../../../assets/logo-brasao-mg.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Handbook da Subsecretaria de Planejamento e Orçamento (SPLOR)
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Autenticação com Github App
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Pesquisar">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Compartilhar" aria-label="Compartilhar" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpar" aria-label="Limpar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando a pesquisa
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/splor-mg/handbook" title="Ir ao repositório" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    splor-mg/handbook
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Abas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+    
+  
+  Bem vind(a)o! 🌹
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../blog/" class="md-tabs__link">
+          
+  
+    
+  
+  Blog
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../linha_do_tempo/" class="md-tabs__link">
+          
+  
+    
+  
+  Linha do Tempo
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../" class="md-tabs__link">
+          
+  
+    
+  
+  Gestão SPLOR
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../faq/" class="md-tabs__link">
+          
+  
+    
+  
+  FAQ
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../diretorias/" class="md-tabs__link">
+          
+  
+    
+  
+  Diretorias
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegação" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Handbook da Subsecretaria de Planejamento e Orçamento (SPLOR)" class="md-nav__button md-logo" aria-label="Handbook da Subsecretaria de Planejamento e Orçamento (SPLOR)" data-md-component="logo">
+      
+  <img src="../../../assets/logo-brasao-mg.png" alt="logo">
+
+    </a>
+    Handbook da Subsecretaria de Planejamento e Orçamento (SPLOR)
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/splor-mg/handbook" title="Ir ao repositório" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    splor-mg/handbook
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bem vind(a)o! 🌹
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../blog/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Blog
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Blog
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Categorias
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Categorias
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../blog/category/banco-de-dados/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Banco de Dados
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../blog/category/dados-abertos-mg/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Dados Abertos MG
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../blog/category/datamart/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Datamart
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../blog/category/ferramentas-%C3%BAteis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ferramentas úteis
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../blog/category/live-code/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Live Code
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../blog/category/markdown/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Markdown
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../blog/category/mkdocs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Mkdocs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../blog/category/modelagem-de-dados/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Modelagem de Dados
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../blog/category/o-futuro-j%C3%A1-come%C3%A7ou/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    O Futuro Já Começou
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../blog/category/sqlalchemy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SQLAlchemy
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../blog/category/treinamento/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Treinamento
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../blog/category/volumes-loa/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Volumes LOA
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../blog/category/webnar-intelig%C3%AAnciamg/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Webnar Inteligência.MG
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../linha_do_tempo/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Linha do Tempo
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Linha do Tempo
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../linha_do_tempo/projeto_dados_abertos_mg/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Projeto Dados Abertos MG
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Gestão SPLOR
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Gestão SPLOR
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Governança
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            Governança
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../equipes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Equipes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../papeis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Papéis e Permissões
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../duplo_fator_autenticacao/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Duplo Fator de Autenticação
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Autenticação com Github App
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Autenticação com Github App
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#antes-de-tudo-autenticacao-x-autorizacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧭 Antes de tudo: Autenticação x Autorização
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tokens" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔑 Tokens
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#secrets-vs-tokens" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔐 Secrets vs tokens
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔐 Secrets vs tokens">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#qual-a-relacao-entre-secrets-e-tokens" class="md-nav__link">
+    <span class="md-ellipsis">
+      Qual a relação entre secrets e tokens
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#desafios" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎯 Desafios
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#praticas-modernas" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ Práticas modernas
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementando-github-app" class="md-nav__link">
+    <span class="md-ellipsis">
+      🚀 Implementando GitHub App
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bitwarden_cofre_senhas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bitwarden Cofre de Senhas
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_3" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../ferramentas/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Ferramentas
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            Ferramentas
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ferramentas/git/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Git
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ferramentas/instalacao/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Instalação e Configuração
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Repositórios
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            Repositórios
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../repositorios/nomenclaturas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Nomenclaturas
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../repositorios/publico_privado/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Repositórios Públicos vs Privados
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_5" id="__nav_4_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Atividades (Issues)
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_5">
+            <span class="md-nav__icon md-icon"></span>
+            Atividades (Issues)
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../issues/labels/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Labels de Issues
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../issues/tipos/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tipos de Issues
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_6" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../branches/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Branches (Galhos)
+    
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_6">
+            <span class="md-nav__icon md-icon"></span>
+            Branches (Galhos)
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_7" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../pull_requests/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Pull Requests
+    
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_7">
+            <span class="md-nav__icon md-icon"></span>
+            Pull Requests
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_8" id="__nav_4_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Gestão à Vista
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_8">
+            <span class="md-nav__icon md-icon"></span>
+            Gestão à Vista
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gestao_vista/projetos/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Gestão por Projetos
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gestao_vista/status/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Status de Atividades
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gestao_vista/datas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Gestão de Datas
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../faq/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    FAQ
+    
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            FAQ
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../diretorias/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Diretorias
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Diretorias
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+          
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../diretorias/dcaf/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    DCAF
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6_2" id="__nav_6_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2">
+            <span class="md-nav__icon md-icon"></span>
+            DCAF
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../diretorias/dcaf/sobre/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sobre
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../diretorias/dcaf/links_uteis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Links úteis relacionados
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#antes-de-tudo-autenticacao-x-autorizacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧭 Antes de tudo: Autenticação x Autorização
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tokens" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔑 Tokens
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#secrets-vs-tokens" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔐 Secrets vs tokens
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔐 Secrets vs tokens">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#qual-a-relacao-entre-secrets-e-tokens" class="md-nav__link">
+    <span class="md-ellipsis">
+      Qual a relação entre secrets e tokens
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#desafios" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎯 Desafios
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#praticas-modernas" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ Práticas modernas
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementando-github-app" class="md-nav__link">
+    <span class="md-ellipsis">
+      🚀 Implementando GitHub App
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/splor-mg/handbook/edit/main/docs/gestao_splor/governanca/autenticacao_autorizacao.md" title="Editar esta página" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://github.com/splor-mg/handbook/raw/main/docs/gestao_splor/governanca/autenticacao_autorizacao.md" title="Ver fonte desta página" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"/></svg>
+    </a>
+  
+
+
+<div><h1 id="github-app-autenticacao-autorizacao-e-tokens-jwt">🔐 GitHub APP - Autenticação, Autorização e Tokens JWT<a class="headerlink" href="#github-app-autenticacao-autorizacao-e-tokens-jwt" title="Permanent link">⚓︎</a></h1>
+<p>Esta postagem intui apresentar os conceitos fundamentais sobre tokens, explorando sua relação com autenticação e autorização, e documentar nossa experiência prática na gestão desses recursos. Abordaremos os diferentes tipos de tokens disponíveis no GitHub, como configurá-los adequadamente, e compartilharemos as práticas que adotamos para gerenciar <code>Organization Secrets</code>. </p>
+<p>Por fim, discutiremos os principais desafios enfrentados — incluindo limitações de rate limit (erro 429) — e apresentaremos as estratégias para modernizar nossa gestão de tokens.</p>
+<!-- more -->
+
+<hr>
+<div class="admonition tldr">
+<p class="admonition-title">Contexto SPLOR</p>
+<p>Dentro da organização <a href="https://github.com/orgs/splor-mg/repositories">splor-mg</a> mantemos diversos repositórios/pastas — a maioria pública, porém alguns privados com informações sensíveis.</p>
+<p>Atualmente, para operar esse ecossistema e criar algumas rotinas de automação, usamos tokens em várias frentes: integrações externas (para buscar bases no gmail, por exemplo), scripts, pipelines do GitHub Actions, bots e automações internas. </p>
+<p>Esse é o contexto no qual se insere a nossa gestão de chaves de acesso e tokens.</p>
+</div>
+<h2 id="antes-de-tudo-autenticacao-x-autorizacao">🧭 <strong>Antes de tudo: Autenticação x Autorização</strong><a class="headerlink" href="#antes-de-tudo-autenticacao-x-autorizacao" title="Permanent link">⚓︎</a></h2>
+<ul>
+<li>
+<p><strong>Autenticação</strong>: é o mecanismo de identificar quem você é.</p>
+<blockquote>
+<ul>
+<li>Exemplo: “Eu sou o App X instalado na nossa organização” ou “eu sou o usuário Y autenticado com este token”.</li>
+</ul>
+</blockquote>
+</li>
+<li>
+<p><strong>Autorização</strong>: define o que você pode fazer depois de identificado ("quais papeis/escopos/permissões você tem?")</p>
+<blockquote>
+<ul>
+<li>Exemplo: “Este token pode ler repositórios privados, mas não pode deletá-los”.</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<p>Como os tokens entram nisso? O token é a “prova” apresentada em cada requisição para dizer quem está falando (<strong>autenticação</strong>); e, ao mesmo tempo, esse token também carrega limites de acesso (escopos/permissões) que determinam o que pode ser feito (<strong>autorização</strong>).</p>
+<hr>
+<h2 id="tokens">🔑 <strong>Tokens</strong><a class="headerlink" href="#tokens" title="Permanent link">⚓︎</a></h2>
+<p>O que são e por que são importantes?</p>
+<p>Os Tokens são utilizados, basicamente, para fazer uma <strong>autenticação automática</strong>, substituindo a etapa de autenticação convencional (login interativo), na qual digitamos manualmente <code>login</code> e <code>senha</code> do usuário.</p>
+<p>Tokens, portanto, são credenciais de acesso usadas por sistemas (e pessoas, às vezes) para chamar a API do GitHub sem precisar de login interativo.</p>
+<p><strong>Por que importam:</strong></p>
+<ul>
+<li>Automatizam tarefas (CI/CD, bots, integrações);</li>
+<li>Permitem controle fino de permissões (mínimo necessário);</li>
+<li>Aumentam rastreabilidade (quem/qual sistema fez o quê e quando);</li>
+<li>Facilitam rotação e revogação sem impactar contas de usuários.</li>
+</ul>
+<p><strong>Tipos mais comuns no nosso contexto:</strong></p>
+<ul>
+<li>GITHUB_TOKEN (Actions): token efêmero gerado por execução do GitHub Actions, com permissões configuráveis por workflow.</li>
+<li>PAT (Personal Access Token): credencial pessoal; hoje existe o modelo Fine-grained (recomendado) com escopo mais restrito.</li>
+</ul>
+<details class="info">
+<summary>Como podemos gerar e encontrar tokens no GitHub</summary>
+<p><strong>1) GITHUB_TOKEN (gerado automaticamente no GitHub Actions)</strong></p>
+<ul>
+<li>Onde aparece: disponível em cada execução de workflow como variável <code>GITHUB_TOKEN</code>.</li>
+<li>Como habilitar/ajustar permissões: no arquivo do workflow (<code>.github/workflows/*.yml</code>), defina <code>permissions:</code> por job ou no topo do workflow.</li>
+<li>Escopo e validade: é efêmero (só vale durante a execução). Ideal para operações dentro do próprio repositório, com princípio do menor privilégio.</li>
+</ul>
+<div class="admonition hint">
+<p class="admonition-title">Exemplo mínimo no workflow:</p>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">permissions</span><span class="p">:</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nt">contents</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">write</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="nt">issues</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">read</span>
+</span></code></pre></div>
+</div>
+<p><strong>2) PAT (Personal Access Token) — Fine-grained/classic</strong></p>
+<ul>
+<li>Onde gerar, na sua conta pessoal do GitHub vá em <code>Settings</code> → <code>Developer settings</code> → <code>Personal access tokens</code> → <code>Fine-grained tokens/Tokens(classic)</code> → <code>Generate new token</code>.</li>
+<li>Como configurar: escolha organização, repositórios e permissões específicas. Preferível o modelo fine-grained (mais restritivo e auditável).</li>
+<li>Onde ver/gerenciar depois: na mesma tela de <code>Developer settings</code> (revogar, regenerar, ajustar escopos/expiração).</li>
+<li>Uso típico: scripts locais, integrações pontuais que precisam agir “em nome” de um usuário com escopo limitado.</li>
+</ul>
+<p>Boas práticas rápidas:
+- Defina expiração curta e rotacione regularmente.
+- Conceda acesso apenas aos repositórios necessários.
+- Evite usar PAT pessoais em automações críticas de longo prazo</p>
+</details>
+<hr>
+<h2 id="secrets-vs-tokens"><strong>🔐 Secrets</strong> <em>vs</em> <strong>tokens</strong><a class="headerlink" href="#secrets-vs-tokens" title="Permanent link">⚓︎</a></h2>
+<p><strong>O que são os organization secrets</strong></p>
+<p>Secrets são um <strong>cofre onde armazenamos credenciais sensíveis</strong>, como tokens (PAT, tokens de GitHub App), chaves de API e chaves privadas. São pares chave–valor criptografados mantidos pelo GitHub para uso em automações (principalmente GitHub Actions e Dependabot). </p>
+<p>Eles NÃO são um tipo de token.</p>
+<p><strong>Como encontrar ou cadastrar um <code>secret</code></strong></p>
+<ul>
+<li><strong>Organization Secrets</strong>: dentro da organização do GitHub, vá em <code>Settings</code> → <code>Security</code> → <code>Secrets and variables</code> → <code>Actions</code> → <code>New organization secret</code>. Defina nome, valor e visibilidade (todos os repos ou um subconjunto).</li>
+<li><strong>Repository Secrets</strong>: vá em <code>Repo Settings</code> → <code>Secrets and variables</code> → <code>Actions</code> → <code>New repository secret</code>.</li>
+<li><strong>Environment Secrets</strong>: vá em <code>Repo Settings</code> → <code>Environments</code> → selecione o ambiente → <code>Add secret</code>.</li>
+</ul>
+<details class="info">
+<summary>Escopos disponíveis</summary>
+<ul>
+<li><strong>Organization Secrets</strong>: visíveis para vários repositórios da organização (conforme regras de visibilidade).</li>
+<li><strong>Repository Secrets</strong>: visíveis apenas dentro de um repositório específico.</li>
+<li><strong>Environment Secrets</strong>: visíveis para um ambiente de um repositório (ex.: <code>dev</code>, <code>stage</code>, <code>prod</code>) com proteções adicionais (aprovação, regras de branch).</li>
+</ul>
+</details>
+<details class="info">
+<summary>Exemplo: quando cadastrar um secret</summary>
+<p>Cenário: um workflow precisa publicar um pacote em um registro externo (ou acessar uma API de terceiros como Gmail/Sheets/Databricks). Gere a credencial no provedor (ou um PAT fine‑grained/App token no GitHub) e armazene-a como secret.</p>
+<p><strong>Passos típicos:</strong></p>
+<ul>
+<li>1) Gere o token na origem (ex.: PAT fine‑grained com acesso somente leitura ao repositório <code>X</code>).</li>
+<li>2) Cadastre o token como <code>ORGANIZATION_SECRET_X</code> na organização (ou como secret do repositório/ambiente, se for um caso isolado).</li>
+<li>3) No workflow, consuma o secret via <code>secrets.ORGANIZATION_SECRET_X</code>.</li>
+</ul>
+</details>
+<details class="info">
+<summary>Exemplo: uso no arquivo workflow YAML</summary>
+<p>Um workflow do GitHub Actions consome um secret para autenticar em um serviço externo e publicar um pacote:</p>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nt">jobs</span><span class="p">:</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="nt">publish</span><span class="p">:</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="nt">permissions</span><span class="p">:</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">      </span><span class="nt">contents</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">read</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Login no provedor</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">          </span><span class="no">tool login --token "${{ secrets.ORGANIZATION_SECRET_X }}"</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Publicar pacote</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tool publish</span>
+</span></code></pre></div>
+</details>
+<details class="warning">
+<summary>Atenção: limitações dos Organization Secrets</summary>
+<p><code>Organization Secrets</code> <strong>não são aplicáveis a repositórios privados</strong>. Se você precisa inserir automações em repositórios privados que dependam de tokens de autenticação/autorização, você deverá salvar o token diretamente como <code>Repository secrets</code> dentro do repositório específico.</p>
+</details>
+<h3 id="qual-a-relacao-entre-secrets-e-tokens"><strong>Qual a relação entre secrets e tokens</strong><a class="headerlink" href="#qual-a-relacao-entre-secrets-e-tokens" title="Permanent link">⚓︎</a></h3>
+<ul>
+<li>Tokens são as CREDENCIAIS (quem é você e o que pode fazer).</li>
+<li>Secrets são o MEIO SEGURO de armazenar e disponibilizar essas credenciais para automações.</li>
+</ul>
+<details class="hint">
+<summary>Dicas práticas:</summary>
+<ul>
+<li><strong>Rotação</strong>: quando você rotaciona um token, deve atualizar o secret correspondente. Prefira nomes estáveis de secret para não quebrar workflows.</li>
+<li><strong>Isolamento</strong>: evite usar o MESMO token em dezenas de repositórios via um único Organization Secret; isso concentra risco e consumo. Em casos amplos, prefira GitHub Apps com permissões por instalação.</li>
+<li><strong>Princípio do menor privilégio</strong>: crie tokens com escopo mínimo e armazene-os como secrets no menor escopo necessário (environment/repo antes de organization, quando fizer sentido).</li>
+<li><strong>Observabilidade</strong>: documente quais workflows usam cada secret para facilitar auditoria e resposta a incidentes.</li>
+</ul>
+</details>
+<hr>
+<h2 id="desafios"><strong>🎯  Desafios</strong><a class="headerlink" href="#desafios" title="Permanent link">⚓︎</a></h2>
+<p>Desde o início da criação da organização <code>splor-mg</code> no GitHub utilizamos principalmente:</p>
+<ul>
+<li><strong>Organization Secrets</strong> para centralizar credenciais usadas por múltiplos repositórios via Actions.</li>
+<li><strong>Tokens armazenados</strong> em repositórios privados para integrações pontuais (scripts, jobs específicos).</li>
+</ul>
+<p>Benefícios percebidos:</p>
+<ul>
+<li>Centralização facilita reuso e reduz duplicação de credenciais.</li>
+<li>Onboarding mais simples para pipelines padronizados.</li>
+</ul>
+<p><strong>Lacunas e riscos do arranjo atual:</strong></p>
+<ul>
+<li><strong>Compartilhamento excessivo</strong>: um mesmo token pode ser usado por vários fluxos diferentes, aumentando impacto em caso de vazamento ou expiração.</li>
+<li><strong>Escopos amplos demais</strong>: permissões além do necessário elevam superfície de risco.</li>
+<li><strong>Observabilidade limitada</strong>: difícil rastrear qual fluxo consumiu qual credencial (e em que volume).</li>
+<li><strong>Rotação irregular</strong>: há tokens com prazos/lógicas de rotação distintos, o que dificulta governança.</li>
+<li><strong>Acoplamento a pessoas</strong>: uso de PAT pessoais em automações cria dependência de contas individuais.</li>
+<li><strong>Tratamento de erro heterogêneo</strong>: falhas de credencial (expirada/revogada) e de autorização (permissão insuficiente) se confundem com problemas de infraestrutura.</li>
+<li><strong><code>429 Too Many Requests</code></strong>: quando vários fluxos concentram chamadas usando o mesmo token, a cota de uso daquele token se esgota e surgem falhas intermitentes em pipelines/integrações. O 429 é um sintoma de consolidação de tráfego e falta de isolamento entre credenciais, além de ausência de backoff adequado em alguns consumidores.</li>
+<li><strong>Dificuldade de auditoria</strong>: sem padronização, fica mais difícil responder “quem executou esta ação?” e “por meio de qual credencial?”.</li>
+<li><strong>Rotação e validade</strong>: tokens sem expiração ou com expiração mal gerida causam paradas silenciosas quando vencem.</li>
+<li><strong>Permissões desbalanceadas</strong>: overpermission (excesso) ou underpermission (falta) geram erros “Forbidden” ou, pior, riscos desnecessários.</li>
+</ul>
+<hr>
+<h2 id="praticas-modernas"><strong>✅ Práticas modernas</strong><a class="headerlink" href="#praticas-modernas" title="Permanent link">⚓︎</a></h2>
+<p><strong>1. Evitar tokens pessoais (PATs) para automação</strong></p>
+<ul>
+<li>São difíceis de gerenciar (revogação, rotação, auditoria).</li>
+<li>Se o funcionário sair, o token pode ficar órfão.</li>
+<li>Melhor usar GitHub Apps ou OIDC (OpenID Connect) para obter credenciais temporárias.</li>
+</ul>
+<p><strong>2. Usar GitHub Apps em vez de PATs</strong></p>
+<ul>
+<li>Um GitHub App instalado na organização/conta tem seu próprio rate limit separado.</li>
+<li>Garante auditoria e segurança, pois os tokens são rotacionados automaticamente e têm escopo reduzido.</li>
+</ul>
+<p><strong>3. Usar provedores de nuvem (AWS, Azure ou GCP)</strong></p>
+<p>Os principais provedores de nuvem oferecem serviços de computação, armazenamento e infraestrutura:</p>
+<ul>
+<li><strong>AWS (Amazon Web Services)</strong>: plataforma de nuvem da Amazon, líder de mercado com serviços como EC2, S3, Lambda</li>
+<li><strong>Azure</strong>: plataforma de nuvem da Microsoft, integrada ao ecossistema corporativo Windows/Office</li>
+<li><strong>GCP (Google Cloud Platform)</strong>: plataforma de nuvem do Google, forte em machine learning e analytics</li>
+</ul>
+<p>Todos esses provedores suportam autenticação via OIDC (OpenID Connect):</p>
+<ul>
+<li>O GitHub Actions pode gerar credenciais de nuvem temporárias via OIDC, sem precisar guardar secrets estáticos.</li>
+<li>Exemplo: um workflow obtém credenciais da AWS só durante a execução, eliminando risco de vazamento.</li>
+</ul>
+<details class="info">
+<summary>Evolução dos sistemas de autenticação do GitHub</summary>
+<p><strong>1ª Geração - Tokens clássicos (2013-2022)</strong></p>
+<ul>
+<li>PATs com escopos amplos e fixos (ex.: <code>repo</code>, <code>admin:org</code>)</li>
+<li>Problema: permissões excessivas, difícil auditoria, rotação manual</li>
+</ul>
+<p><strong>2ª Geração - OAuth Apps (2012-presente)</strong></p>
+<ul>
+<li>Aplicações terceiras podem solicitar acesso limitado via OAuth</li>
+<li>Problema: ainda dependente de tokens pessoais, escopo por aplicação</li>
+</ul>
+<p><strong>3ª Geração - Tokens Fine-grained (2022-presente)</strong></p>
+<ul>
+<li>PATs com escopo granular por repositório específico</li>
+<li>Melhoria: controle fino de permissões, mas ainda tokens pessoais</li>
+</ul>
+<p><strong>4ª Geração - GitHub Apps (2016-presente)</strong></p>
+<ul>
+<li>Aplicações com identidade própria, tokens por instalação</li>
+<li>Vantagem: isolamento total, rotação automática, auditoria nativa, rate limits separados</li>
+</ul>
+<p><strong>5ª Geração - OIDC + Cloud Providers (2021-presente)</strong></p>
+<ul>
+<li>GitHub Actions gera credenciais temporárias via OpenID Connect</li>
+<li>Vantagem: zero secrets estáticos, integração nativa com AWS/Azure/GCP</li>
+</ul>
+</details>
+<hr>
+<h2 id="implementando-github-app">🚀 Implementando GitHub App<a class="headerlink" href="#implementando-github-app" title="Permanent link">⚓︎</a></h2>
+<p>Agora que entendemos os conceitos e desafios, vamos implementar uma solução moderna usando <strong>GitHub Apps</strong>. Esta abordagem resolve os principais problemas identificados: isolamento de credenciais, rotação automática, auditoria nativa e rate limits separados.</p>
+<p><strong>Por que GitHub App?</strong></p>
+<ul>
+<li><strong>Identidade própria</strong>: o App tem sua própria identidade, independente de usuários</li>
+<li><strong>Rate limits separados</strong>: cada App tem sua própria cota de API, evitando conflitos</li>
+<li><strong>Rotação automática</strong>: tokens são gerados sob demanda e expiram automaticamente</li>
+<li><strong>Auditoria nativa</strong>: todas as ações são rastreadas como "GitHub App X"</li>
+<li><strong>Permissões granulares</strong>: controle fino sobre o que o App pode fazer</li>
+</ul>
+<hr>
+<p><strong>Passo a passo: Criando um GitHub App</strong></p>
+<p><strong>1. Criar o GitHub App na organização</strong></p>
+<ol>
+<li><strong>Acesse as configurações da organização</strong>:</li>
+<li>Vá para <code>https://github.com/orgs/SUA_ORGANIZACAO/settings</code></li>
+<li>
+<p>Clique em <strong>Developer settings</strong> → <strong>GitHub Apps</strong></p>
+</li>
+<li>
+<p><strong>Criar novo App</strong>:</p>
+</li>
+<li>Clique em <strong>New GitHub App</strong></li>
+<li>
+<p>Preencha os campos obrigatórios:</p>
+<ul>
+<li><strong>GitHub App name</strong>: <code>meu-app-autenticacao</code> (nome único)</li>
+<li><strong>Homepage URL</strong>: URL do seu repositório ou documentação</li>
+<li><strong>Webhook</strong>: Deixe desabilitado para começar</li>
+<li><strong>Description</strong>: "App para autenticação e automação"</li>
+</ul>
+</li>
+<li>
+<p><strong>Configurar permissões</strong>:
+   </p><div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Repository permissions:
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>- Contents: Read (para ler arquivos)
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>- Issues: Write (para gerenciar issues)
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>- Metadata: Read (informações básicas)
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>- Pull requests: Read (se necessário)
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>Organization permissions:
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>- Members: Read (se precisar listar membros)
+</span></code></pre></div>
+</li>
+<li>
+<p><strong>Configurar eventos</strong> (opcional):</p>
+</li>
+<li>Marque apenas os eventos que seu App realmente precisa</li>
+<li>
+<p>Exemplo: <code>Issues</code>, <code>Repository</code> se for monitorar mudanças</p>
+</li>
+<li>
+<p><strong>Salvar e instalar</strong>:</p>
+</li>
+<li>Clique em <strong>Create GitHub App</strong></li>
+<li>Na página do App, clique em <strong>Install App</strong></li>
+<li>Selecione a organização e configure as permissões</li>
+</ol>
+<p><strong>2. Obter as credenciais necessárias</strong></p>
+<p>Após criar o App, você precisará de três informações:</p>
+<ol>
+<li><strong>App ID</strong> (ID numérico):</li>
+<li>Na página do App → <strong>General</strong></li>
+<li>
+<p>Copie o <strong>App ID</strong> (exemplo: <code>123456</code>)</p>
+</li>
+<li>
+<p><strong>Installation ID</strong> (ID da instalação):</p>
+</li>
+<li>Na página do App → <strong>Install App</strong> → <strong>Installations</strong></li>
+<li>Clique na instalação da sua organização</li>
+<li>
+<p>O ID aparece na URL: <code>.../installations/789012</code></p>
+</li>
+<li>
+<p><strong>Private Key</strong> (chave privada):</p>
+</li>
+<li>Na página do App → <strong>General</strong> → <strong>Private keys</strong></li>
+<li>Clique em <strong>Generate a private key</strong></li>
+<li><strong>IMPORTANTE</strong>: Baixe o arquivo <code>.pem</code> imediatamente</li>
+<li>Esta chave só é mostrada uma vez!</li>
+</ol>
+<details class="warning">
+<summary>⚠️ Segurança da chave privada</summary>
+<p>A chave privada é <strong>extremamente sensível</strong>. Trate-a como uma senha mestra:
+- Nunca commite no Git
+- Armazene em secrets do GitHub
+- Use apenas em ambientes seguros
+- Rotacione periodicamente</p>
+</details>
+<hr>
+<p><strong>Implementação: Script de Autenticação</strong></p>
+<p>Agora vamos implementar o código que usa essas credenciais para obter tokens temporários. Vamos analisar um exemplo prático baseado no script <code>github_app_auth.py</code>:</p>
+<p><strong>Estrutura básica do script</strong></p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="ch">#!/usr/bin/env python3</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="sd">"""</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="sd">Helper para autenticação via GitHub App.</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="sd">Gera JWT assinado com a chave privada do App e troca por um</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="sd">installation access token, que é o token usado nas chamadas à API.</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="sd">"""</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="kn">import</span><span class="w"> </span><span class="nn">base64</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="kn">import</span><span class="w"> </span><span class="nn">jwt</span>  <span class="c1"># PyJWT</span>
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>
+</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="n">GITHUB_API_URL</span> <span class="o">=</span> <span class="s2">"https://api.github.com"</span>
+</span></code></pre></div>
+<p><strong>1. Lendo a chave privada</strong></p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">_read_private_key_from_env_or_path</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">    </span><span class="sd">"""</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="sd">    Lê a chave privada do GitHub App.</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="sd">    Prioridade:</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="sd">      1. GITHUB_APP_PRIVATE_KEY (conteúdo PEM bruto ou base64)</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="sd">      2. GITHUB_APP_PRIVATE_KEY_PATH (caminho para arquivo .pem)</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="sd">    """</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>    <span class="c1"># Tentar ler da variável de ambiente primeiro</span>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>    <span class="n">key_inline</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">"GITHUB_APP_PRIVATE_KEY"</span><span class="p">)</span>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>    <span class="k">if</span> <span class="n">key_inline</span><span class="p">:</span>
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>        <span class="c1"># Permitir que venha em base64 (útil para secrets)</span>
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>        <span class="n">stripped</span> <span class="o">=</span> <span class="n">key_inline</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>        <span class="k">if</span> <span class="s2">"BEGIN"</span> <span class="ow">in</span> <span class="n">stripped</span><span class="p">:</span>
+</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>            <span class="k">return</span> <span class="n">stripped</span>  <span class="c1"># Já está em formato PEM</span>
+</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>        <span class="k">try</span><span class="p">:</span>
+</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>            <span class="k">return</span> <span class="n">base64</span><span class="o">.</span><span class="n">b64decode</span><span class="p">(</span><span class="n">stripped</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">"utf-8"</span><span class="p">)</span>
+</span><span id="__span-4-17"><a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a>        <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+</span><span id="__span-4-18"><a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a>            <span class="k">return</span> <span class="n">stripped</span>  <span class="c1"># Usar como está</span>
+</span><span id="__span-4-19"><a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a>
+</span><span id="__span-4-20"><a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a>    <span class="c1"># Fallback: ler de arquivo</span>
+</span><span id="__span-4-21"><a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a>    <span class="n">key_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">"GITHUB_APP_PRIVATE_KEY_PATH"</span><span class="p">)</span>
+</span><span id="__span-4-22"><a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">key_path</span><span class="p">:</span>
+</span><span id="__span-4-23"><a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a>        <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">"Missing GITHUB_APP_PRIVATE_KEY or GITHUB_APP_PRIVATE_KEY_PATH"</span><span class="p">)</span>
+</span><span id="__span-4-24"><a id="__codelineno-4-24" name="__codelineno-4-24" href="#__codelineno-4-24"></a>
+</span><span id="__span-4-25"><a id="__codelineno-4-25" name="__codelineno-4-25" href="#__codelineno-4-25"></a>    <span class="n">path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">key_path</span><span class="p">)</span><span class="o">.</span><span class="n">expanduser</span><span class="p">()</span>
+</span><span id="__span-4-26"><a id="__codelineno-4-26" name="__codelineno-4-26" href="#__codelineno-4-26"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+</span><span id="__span-4-27"><a id="__codelineno-4-27" name="__codelineno-4-27" href="#__codelineno-4-27"></a>        <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Private key file not found: </span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</span><span id="__span-4-28"><a id="__codelineno-4-28" name="__codelineno-4-28" href="#__codelineno-4-28"></a>
+</span><span id="__span-4-29"><a id="__codelineno-4-29" name="__codelineno-4-29" href="#__codelineno-4-29"></a>    <span class="k">return</span> <span class="n">path</span><span class="o">.</span><span class="n">read_text</span><span class="p">(</span><span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span>
+</span></code></pre></div>
+<details class="info">
+<summary>💡 Por que duas formas de ler a chave?</summary>
+<ul>
+<li><strong>Variável de ambiente</strong>: ideal para GitHub Actions (secrets)</li>
+<li><strong>Arquivo</strong>: útil para desenvolvimento local</li>
+<li><strong>Base64</strong>: permite armazenar a chave em secrets do GitHub sem quebras de linha</li>
+</ul>
+</details>
+<p><strong>2. Criando o JWT (JSON Web Token)</strong></p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">_create_app_jwt</span><span class="p">(</span><span class="n">app_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">private_key_pem</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">    </span><span class="sd">"""</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="sd">    Cria um JWT RS256 com expiração curta (60s) para o GitHub App.</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="sd">    """</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>    <span class="n">now</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">())</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>    <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>        <span class="s2">"iat"</span><span class="p">:</span> <span class="n">now</span> <span class="o">-</span> <span class="mi">5</span><span class="p">,</span>  <span class="c1"># pequena folga de clock skew</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>        <span class="s2">"exp"</span><span class="p">:</span> <span class="n">now</span> <span class="o">+</span> <span class="mi">55</span><span class="p">,</span>  <span class="c1"># expira em 55 segundos</span>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>        <span class="s2">"iss"</span><span class="p">:</span> <span class="n">app_id</span><span class="p">,</span>    <span class="c1"># ID do App (issuer)</span>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>    <span class="p">}</span>
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>    <span class="c1"># Assinar com a chave privada usando algoritmo RS256</span>
+</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>    <span class="n">token</span> <span class="o">=</span> <span class="n">jwt</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">payload</span><span class="p">,</span> <span class="n">private_key_pem</span><span class="p">,</span> <span class="n">algorithm</span><span class="o">=</span><span class="s2">"RS256"</span><span class="p">)</span>
+</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>    <span class="k">return</span> <span class="n">token</span>
+</span></code></pre></div>
+<details class="info">
+<summary>🔍 Entendendo o JWT</summary>
+<p>O JWT é como um "bilhete de identidade" temporário que prova que você é o GitHub App:
+- <strong>iat</strong> (issued at): quando foi criado
+- <strong>exp</strong> (expires): quando expira (curto, por segurança)
+- <strong>iss</strong> (issuer): quem emitiu (ID do seu App)
+- <strong>Assinatura</strong>: prova que foi criado com sua chave privada</p>
+</details>
+<p><strong>3. Trocando JWT por token de instalação</strong></p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">_create_installation_token</span><span class="p">(</span><span class="n">app_jwt</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">installation_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">    </span><span class="sd">"""</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="sd">    Troca o JWT do App por um installation access token.</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="sd">    """</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>    <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">GITHUB_API_URL</span><span class="si">}</span><span class="s2">/app/installations/</span><span class="si">{</span><span class="n">installation_id</span><span class="si">}</span><span class="s2">/access_tokens"</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>    <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>        <span class="s2">"Authorization"</span><span class="p">:</span> <span class="sa">f</span><span class="s2">"Bearer </span><span class="si">{</span><span class="n">app_jwt</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>        <span class="s2">"Accept"</span><span class="p">:</span> <span class="s2">"application/vnd.github+json"</span><span class="p">,</span>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>    <span class="p">}</span>
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>    <span class="n">resp</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>    <span class="k">if</span> <span class="n">resp</span><span class="o">.</span><span class="n">status_code</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">201</span><span class="p">):</span>
+</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>        <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span>
+</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>            <span class="sa">f</span><span class="s2">"Failed to create installation token (</span><span class="si">{</span><span class="n">resp</span><span class="o">.</span><span class="n">status_code</span><span class="si">}</span><span class="s2">): </span><span class="si">{</span><span class="n">resp</span><span class="o">.</span><span class="n">text</span><span class="si">}</span><span class="s2">"</span>
+</span><span id="__span-6-15"><a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a>        <span class="p">)</span>
+</span><span id="__span-6-16"><a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a>
+</span><span id="__span-6-17"><a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a>    <span class="n">data</span> <span class="o">=</span> <span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</span><span id="__span-6-18"><a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a>    <span class="k">return</span> <span class="n">data</span><span class="p">[</span><span class="s2">"token"</span><span class="p">]</span>  <span class="c1"># Este é o token que usaremos nas chamadas da API</span>
+</span></code></pre></div>
+<p><strong>4. Função principal (orquestrando tudo)</strong></p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">get_github_app_installation_token</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">    </span><span class="sd">"""</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="sd">    Obtém um installation token usando variáveis de ambiente:</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="sd">      - GITHUB_APP_ID</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="sd">      - GITHUB_APP_INSTALLATION_ID  </span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="sd">      - GITHUB_APP_PRIVATE_KEY ou GITHUB_APP_PRIVATE_KEY_PATH</span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="sd">    """</span>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>    <span class="c1"># 1. Ler credenciais das variáveis de ambiente</span>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>    <span class="n">app_id</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">"GITHUB_APP_ID"</span><span class="p">)</span>
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>    <span class="n">installation_id</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">"GITHUB_APP_INSTALLATION_ID"</span><span class="p">)</span>
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>
+</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">app_id</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">installation_id</span><span class="p">:</span>
+</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a>        <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">"Missing GITHUB_APP_ID or GITHUB_APP_INSTALLATION_ID"</span><span class="p">)</span>
+</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a>
+</span><span id="__span-7-15"><a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a>    <span class="c1"># 2. Ler a chave privada</span>
+</span><span id="__span-7-16"><a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a>    <span class="n">private_key_pem</span> <span class="o">=</span> <span class="n">_read_private_key_from_env_or_path</span><span class="p">()</span>
+</span><span id="__span-7-17"><a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a>
+</span><span id="__span-7-18"><a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a>    <span class="c1"># 3. Criar JWT com a chave privada</span>
+</span><span id="__span-7-19"><a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a>    <span class="n">app_jwt</span> <span class="o">=</span> <span class="n">_create_app_jwt</span><span class="p">(</span><span class="n">app_id</span><span class="p">,</span> <span class="n">private_key_pem</span><span class="p">)</span>
+</span><span id="__span-7-20"><a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a>
+</span><span id="__span-7-21"><a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a>    <span class="c1"># 4. Trocar JWT por token de instalação</span>
+</span><span id="__span-7-22"><a id="__codelineno-7-22" name="__codelineno-7-22" href="#__codelineno-7-22"></a>    <span class="k">return</span> <span class="n">_create_installation_token</span><span class="p">(</span><span class="n">app_jwt</span><span class="p">,</span> <span class="n">installation_id</span><span class="p">)</span>
+</span></code></pre></div>
+<hr>
+<p><strong>⚙️ Configuração do ambiente</strong></p>
+<p><strong>Para desenvolvimento local</strong></p>
+<p>Crie um arquivo <code>.env</code> na raiz do seu projeto:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1"># GitHub App credentials</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="nv">GITHUB_APP_ID</span><span class="o">=</span><span class="m">123456</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="nv">GITHUB_APP_INSTALLATION_ID</span><span class="o">=</span><span class="m">789012</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="nv">GITHUB_APP_PRIVATE_KEY_PATH</span><span class="o">=</span>/caminho/para/sua/chave.pem
+</span></code></pre></div>
+<p><strong>Para GitHub Actions</strong></p>
+<p>Configure os secrets no repositório:</p>
+<ol>
+<li><strong>Repository Secrets</strong>:</li>
+<li><code>GH_APP_ID</code></li>
+<li><code>GH_APP_INSTALLATION_ID</code>  </li>
+<li>
+<p><code>GH_APP_PRIVATE_KEY</code>: conteúdo da chave privada (formato PEM)</p>
+</li>
+<li>
+<p><strong>No workflow</strong>:
+</p><div class="language-yaml highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Generate GitHub App token</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">  </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">app-token</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">  </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/create-github-app-token@v2</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">  </span><span class="nt">with</span><span class="p">:</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">    </span><span class="nt">app-id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.GH_APP_ID }}</span>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="w">    </span><span class="nt">private-key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.GH_APP_PRIVATE_KEY }}</span>
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ github.repository_owner }}</span>
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>
+</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Use the token</span>
+</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="w">  </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+</span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="w">    </span><span class="no"># Seu script aqui</span>
+</span><span id="__span-9-12"><a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a><span class="w">  </span><span class="nt">env</span><span class="p">:</span>
+</span><span id="__span-9-13"><a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a><span class="w">    </span><span class="nt">GITHUB_TOKEN</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ steps.app-token.outputs.token }}</span>
+</span></code></pre></div>
+</li>
+</ol>
+<hr>
+<p><strong>🚀 Exemplo prático: Usando o token</strong></p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">github_app_auth</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_github_app_installation_token</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="k">def</span><span class="w"> </span><span class="nf">list_repositories</span><span class="p">():</span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="w">    </span><span class="sd">"""Lista repositórios da organização usando GitHub App"""</span>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>    <span class="c1"># Obter token via GitHub App</span>
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>    <span class="n">token</span> <span class="o">=</span> <span class="n">get_github_app_installation_token</span><span class="p">()</span>
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>
+</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>    <span class="c1"># Usar o token nas chamadas da API</span>
+</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a>    <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+</span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a>        <span class="s1">'Authorization'</span><span class="p">:</span> <span class="sa">f</span><span class="s1">'token </span><span class="si">{</span><span class="n">token</span><span class="si">}</span><span class="s1">'</span><span class="p">,</span>
+</span><span id="__span-10-13"><a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a>        <span class="s1">'Accept'</span><span class="p">:</span> <span class="s1">'application/vnd.github.v3+json'</span>
+</span><span id="__span-10-14"><a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a>    <span class="p">}</span>
+</span><span id="__span-10-15"><a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a>
+</span><span id="__span-10-16"><a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a>    <span class="c1"># Exemplo: listar repositórios</span>
+</span><span id="__span-10-17"><a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a>    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+</span><span id="__span-10-18"><a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a>        <span class="s1">'https://api.github.com/orgs/sua-organizacao/repos'</span><span class="p">,</span>
+</span><span id="__span-10-19"><a id="__codelineno-10-19" name="__codelineno-10-19" href="#__codelineno-10-19"></a>        <span class="n">headers</span><span class="o">=</span><span class="n">headers</span>
+</span><span id="__span-10-20"><a id="__codelineno-10-20" name="__codelineno-10-20" href="#__codelineno-10-20"></a>    <span class="p">)</span>
+</span><span id="__span-10-21"><a id="__codelineno-10-21" name="__codelineno-10-21" href="#__codelineno-10-21"></a>
+</span><span id="__span-10-22"><a id="__codelineno-10-22" name="__codelineno-10-22" href="#__codelineno-10-22"></a>    <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
+</span><span id="__span-10-23"><a id="__codelineno-10-23" name="__codelineno-10-23" href="#__codelineno-10-23"></a>        <span class="n">repos</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</span><span id="__span-10-24"><a id="__codelineno-10-24" name="__codelineno-10-24" href="#__codelineno-10-24"></a>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Encontrados </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">repos</span><span class="p">)</span><span class="si">}</span><span class="s2"> repositórios"</span><span class="p">)</span>
+</span><span id="__span-10-25"><a id="__codelineno-10-25" name="__codelineno-10-25" href="#__codelineno-10-25"></a>        <span class="k">return</span> <span class="n">repos</span>
+</span><span id="__span-10-26"><a id="__codelineno-10-26" name="__codelineno-10-26" href="#__codelineno-10-26"></a>    <span class="k">else</span><span class="p">:</span>
+</span><span id="__span-10-27"><a id="__codelineno-10-27" name="__codelineno-10-27" href="#__codelineno-10-27"></a>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Erro: </span><span class="si">{</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="si">}</span><span class="s2"> - </span><span class="si">{</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</span><span id="__span-10-28"><a id="__codelineno-10-28" name="__codelineno-10-28" href="#__codelineno-10-28"></a>        <span class="k">return</span> <span class="p">[]</span>
+</span><span id="__span-10-29"><a id="__codelineno-10-29" name="__codelineno-10-29" href="#__codelineno-10-29"></a>
+</span><span id="__span-10-30"><a id="__codelineno-10-30" name="__codelineno-10-30" href="#__codelineno-10-30"></a><span class="c1"># Usar a função</span>
+</span><span id="__span-10-31"><a id="__codelineno-10-31" name="__codelineno-10-31" href="#__codelineno-10-31"></a><span class="n">repos</span> <span class="o">=</span> <span class="n">list_repositories</span><span class="p">()</span>
+</span></code></pre></div>
+<hr>
+<p><strong>✅ Vantagens desta abordagem</strong></p>
+<ol>
+<li><strong>Segurança</strong>: tokens temporários, chave privada nunca exposta</li>
+<li><strong>Isolamento</strong>: rate limits separados, sem conflitos</li>
+<li><strong>Auditoria</strong>: todas as ações são rastreadas como "GitHub App X"</li>
+<li><strong>Flexibilidade</strong>: permissões configuráveis por instalação</li>
+<li><strong>Manutenção</strong>: rotação automática, sem intervenção manual</li>
+</ol>
+<hr>
+<p><strong>🏢 Desafio organizacional: Coordenação da migração</strong></p>
+<p>Em uma organização com múltiplos setores, o maior desafio não é técnico, mas <strong>coordenativo</strong>. Cada unidade pode vir a desenvolver suas próprias automações usando tokens (PATs, GITHUB_TOKEN) ao longo do tempo, criando um cenário fragmentado e difícil de gerenciar.</p>
+<p><strong>O desafio real</strong></p>
+<ul>
+<li><strong>Inventário completo</strong>: identificar todos os repositórios que utilizam tokens</li>
+<li><strong>Mapeamento de dependências</strong>: entender quais workflows dependem de cada token</li>
+<li><strong>Coordenação entre setores</strong>: alinhar diferentes equipes para uma migração coordenada</li>
+<li><strong>Planejamento de impacto</strong>: minimizar interrupções durante a transição</li>
+<li><strong>Capacitação</strong>: treinar equipes nos novos procedimentos</li>
+</ul>
+<p><strong>Estratégia de migração organizacional</strong></p>
+<ol>
+<li><strong>Auditoria completa</strong>: varrer todos os repositórios passados que utilizam tokens</li>
+<li><strong>Priorização por criticidade</strong>: começar pelos processos mais importantes</li>
+<li><strong>Comunicação centralizada</strong>: manter todas as unidades informadas sobre o progresso</li>
+<li><strong>Suporte técnico</strong>: oferecer assistência durante a migração</li>
+<li><strong>Monitoramento contínuo</strong>: acompanhar a adoção e identificar resistências</li>
+</ol>
+<hr>
+<p><strong>🔍 Reflexão: Protocolo de monitoramento</strong></p>
+<p>Uma questão fundamental surge: <strong>será necessário criar protocolos organizacionais para verificar se PATs (Personal Access Tokens) estão sendo utilizados?</strong></p>
+<p>Para organizações de médio a grande porte, uma leitura inicial da documentação sobre o tema indica que <strong>sim, é recomendável</strong> estabelecer protocolos de monitoramento. Isso garante:</p>
+<ul>
+<li><strong>Controle centralizado</strong> sobre credenciais</li>
+<li><strong>Segurança aprimorada</strong> com rotação automática</li>
+<li><strong>Visibilidade</strong> sobre uso de recursos</li>
+<li><strong>Padronização</strong> de práticas de automação</li>
+</ul>
+<p>A migração para GitHub Apps não é apenas uma modernização técnica, mas uma <strong>evolução na governança de segurança</strong> que beneficia toda a organização.</p></div>
+
+
+
+
+
+
+
+  
+    
+  
+  
+    
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Última atualização">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">12 de novembro de 2025 21:31:47</span>
+  </span>
+
+    
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Criada">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">12 de novembro de 2025 21:31:47</span>
+  </span>
+
+    
+    
+    
+  </aside>
+
+
+
+
+
+  <h2 id="__comments">Comentários</h2>
+  <!-- Insert generated snippet here -->
+  <script src="https://giscus.app/client.js"
+      data-repo="automatiza-mg/handbook"
+      data-repo-id="R_kgDOKOVUVA"
+      data-category="Q&A"
+      data-category-id="DIC_kwDOKOVUVM4CZq25"
+      data-mapping="pathname"
+      data-strict="0"
+      data-reactions-enabled="1"
+      data-emit-metadata="0"
+      data-input-position="bottom"
+      data-theme="preferred_color_scheme"
+      data-lang="en"
+      crossorigin="anonymous"
+      async>
+</script>
+  <!-- Synchronize Giscus theme with palette -->
+  <script>
+    var giscus = document.querySelector("script[src*=giscus]")
+
+    /* Set palette on initial load */
+    var palette = __md_get("__palette")
+    if (palette && typeof palette.color === "object") {
+      var theme = palette.color.scheme === "slate" ? "dark" : "light"
+      giscus.setAttribute("data-theme", theme)
+    }
+
+    /* Register event handlers after documented loaded */
+    document.addEventListener("DOMContentLoaded", function() {
+      var ref = document.querySelector("[data-md-component=palette]")
+      ref.addEventListener("change", function() {
+        var palette = __md_get("__palette")
+        if (palette && typeof palette.color === "object") {
+          var theme = palette.color.scheme === "slate" ? "dark" : "light"
+
+          /* Instruct Giscus to change theme */
+          var frame = document.querySelector(".giscus-frame")
+          frame.contentWindow.postMessage(
+            { giscus: { setConfig: { theme } } },
+            "https://giscus.app"
+          )
+        }
+      })
+    })
+  </script>
+  
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Voltar ao topo
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Rodapé" >
+        
+          
+          <a href="../duplo_fator_autenticacao/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Duplo Fator de Autenticação">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              <div class="md-ellipsis">
+                Duplo Fator de Autenticação
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../bitwarden_cofre_senhas/" class="md-footer__link md-footer__link--next" aria-label="Próximo: Bitwarden Cofre de Senhas">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Próximo
+              </span>
+              <div class="md-ellipsis">
+                Bitwarden Cofre de Senhas
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://automatiza-mg.github.io/automatizacoes/" target="_blank" rel="noopener" title="Projeto Automatiza-MG" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M0 80c0-26.5 21.5-48 48-48h96c26.5 0 48 21.5 48 48v16h192V80c0-26.5 21.5-48 48-48h96c26.5 0 48 21.5 48 48v96c0 26.5-21.5 48-48 48h-96c-26.5 0-48-21.5-48-48v-16H192v16c0 1.7-.1 3.4-.3 5L272 288h96c26.5 0 48 21.5 48 48v96c0 26.5-21.5 48-48 48h-96c-26.5 0-48-21.5-48-48v-96c0-1.7.1-3.4.3-5L144 224H48c-26.5 0-48-21.5-48-48z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://www.youtube.com/@automatiza-mg" target="_blank" rel="noopener" title="Canal automatiza-mg no YouTube." class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305m-317.51 213.508V175.185l142.739 81.205z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://squidfunk.github.io/mkdocs-material/reference/icons-emojis/#search" target="_blank" rel="noopener" title="Material for MkDocs Icons, Emojis." class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M64 32C64 14.3 49.7 0 32 0S0 14.3 0 32v448c0 17.7 14.3 32 32 32s32-14.3 32-32V352l64.3-16.1c41.1-10.3 84.6-5.5 122.5 13.4 44.2 22.1 95.5 24.8 141.7 7.4l34.7-13c12.5-4.7 20.8-16.6 20.8-30V66c0-23-24.2-38-44.8-27.7l-9.6 4.8c-46.3 23.2-100.8 23.2-147.1 0-35.1-17.6-75.4-22-113.5-12.5L64 48z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.action.edit", "content.action.view", "navigation.footer", "content.code.annotate", "navigation.tabs", "navigation.tabs.sticky", "navigation.indexes", "content.tooltips", "navigation.expand", "navigation.indexes", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "Mais 1 nesta p\u00e1gina", "search.result.more.other": "Mais # nesta p\u00e1gina", "search.result.none": "Nenhum resultado encontrado", "search.result.one": "1 resultado encontrado", "search.result.other": "# resultados encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.f1b6f286.min.js"></script>
+      
+        <script src="../../../assets/style.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@10.4.0/dist/mermaid.min.js"></script>
+      
+    
+  </body>
+</html>
