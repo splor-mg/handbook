@@ -58,7 +58,14 @@ Se você sabe escrever um e-mail, já tem o básico necessário para começar a 
     - Sempre finalizados com pontos (`.`) e não com ponto e vírgula (`;`) ou sem ponto (`.`).
 
 - Nomenclatura de arquivos e pastas:
-    - Arquivos e pastas serão sempre nomeados no padrão [snake_small_case](https://en.wikipedia.org/wiki/Snake_case).
+    - Arquivos e pastas deverão ser nomeados, como regra geral, no padrão [snake_small_case](https://en.wikipedia.org/wiki/Snake_case).
+    - Quando houver um padrão específico já estabelecido no repositório, este deverá prevalecer, em consonância com o princípio de consistência interna mencionado na [PEP-0008](https://peps.python.org/pep-0008/#naming-conventions).
+    > _New modules and packages (including third party frameworks) should be written to these standards, but where an existing library has a different style, **internal consistency is preferred** (Naming Conventions - PEP-0008)._
+    - Para arquivos que carregam múltiplas informações distintas no nome, como prefixo, sufixo, tipo de documento, autoria, ano, etc., pode-se combinar `snake_case` e `kebab-case` para melhorar a legibilidade.
+    Sugestão de utilizar `snake_case` (`_`) para separar diferentes "campos" do nome e hífens (`-`) para separar palavras dentro de um mesmo campo.
+    Exemplos:
+     - `adr-001_definicao-estrutura-tabelas.md` -> padrão: `[adr]-[número]_[nome-resumido]`.
+     - `dispensa-licitacao_parecer-juridico_age_2022.pdf` -> padrão `[tema]_[tipo-documento]_[autoria]_[data-elaboração]`.
     - Arquivos e pastas em projetos `mkdocs` deverão ser criados, preferencialmente, dentro da pasta `docs`.
     - Arquivos do post deverão iniciar com data no padrão `yyyymmaa`[^3] (Exemplo: `20250716_nome_post_reduzido.md`).
 
