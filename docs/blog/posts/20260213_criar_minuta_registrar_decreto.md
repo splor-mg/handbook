@@ -11,7 +11,7 @@ categories:
 **Apresentado por:** Henrique de Souza Linhares e Guilherme de Melo Ferreira (SEPLAG)
 
 Este tutorial demonstra o fluxo completo para a elaboração de um decreto orçamentário (GRP), desde o login no sistema até o registro final após a publicação. Abaixo, resumimos os passos essenciais apresentados no vídeo.
-
+<!-- more -->
 ---
 
 ## 1. Acesso e Navegação Inicial
