@@ -20,7 +20,7 @@ Iremos apresentar os processos de ETL da SPLOR, e também discutir suas possíve
 
     Este post tenta fazer um grande resumo do que foi conversado, mas se preferir, pode acompanhar tudo na íntegra!
 
-    ![type:video](https://www.youtube.com/embed/)
+    ![type:video](https://www.youtube.com/embed/NSFcQLo-15Y)
 
 No encontro do dia 26/02/2026 a conversa foi com a equipe da Casa Civil (SCC), mais especificamente com nosso colega Gabriel Aguiar.
 A ideia era apresentar as ferramentas que estamos desenvolvendo (AID) para nosso novo processo de ETL.
