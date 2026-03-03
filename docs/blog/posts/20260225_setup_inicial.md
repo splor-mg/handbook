@@ -507,7 +507,9 @@ git config --global url."https://github.com/".insteadOf git@github.com:
 
 ### 14.2 Fork do repositório Dotfiles
 
-Agora será feito um fork do repositório [lewagon/dotfiles](https://github.com/lewagon/dotfiles), que possui uma configuração padrão que pode ser utilizada, mas que deve ser clonada no computador, uma vez que a configuração é pessoal.
+A SPLOR utiliza um fork próprio do [repositório original do Le Wagon](https://github.com/lewagon/dotfiles), que contém as configurações padrão recomendadas pela equipe.
+
+Utilize sempre o repositório corporativo [splor-mg/dotfiles](https://github.com/splor-mg/dotfiles), que possui uma configuração padrão que pode ser utilizada, mas que deve ser clonada no computador, uma vez que a configuração é pessoal.
 
 Para isso, execute os seguintes comandos:
 
@@ -516,7 +518,7 @@ mkdir -p ~/code/$GITHUB_USERNAME && cd $_
 ```
 
 ```bash
-gh repo fork lewagon/dotfiles –clone
+gh repo fork splor-mg/dotfiles –clone
 ```
 
 ### 14.3 Instalador do Dotfiles
