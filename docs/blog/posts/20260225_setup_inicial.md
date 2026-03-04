@@ -11,6 +11,8 @@ categories:
 
 Neste treinamento, montamos um passo a passo com instruções para configurar a máquina, com base no [tutorial de setup do Le Wagon](https://github.com/lewagon/setup/blob/master/windows.pt.md).
 
+Você deve ter permissão de Administrador da máquina para conseguir realizar as instalações. Para isso, faça a solicitação conforme orientações "[Permissão para Gerenciar o Próprio Computador](https://cecad365.sharepoint.com/:u:/r/sites/cartadeservicos/SitePages/Administrador-Local-da-M%C3%A1quina.aspx?csf=1&web=1&e=1I6m5p)" da carta de serviços Subgef.
+
 <!-- more -->
 
 ## 1. Criação da conta no GitHub
@@ -61,12 +63,11 @@ Outro ponto importante é consultar se a virtualização está habilitada. Para 
 
 ## 4. Configurar proxy (CAMG)
 
-Pesquise no Windows por "Editar as variáveis de ambiente do sistema" e clique em "Variáveis de Ambiente...". Nas variáveis de usuário, clique em "Novo..." e adicione a seguinte variável:
+Caso esteja na CAMG, será necessário configurar proxy.
 
-* **Nome da variável**: http_proxy
-* **Valor da variável**: http://proxy.prodemge.gov.br:8080
+Para isso, pesquise no Windows por "Editar as variáveis de ambiente do sistema" e clique em "Variáveis de Ambiente...". Nas variáveis de usuário, clique em "Novo...".
 
-![Variáveis de ambiente](../../assets/setup-inicial/variaveis_de_ambiente.png)
+O valor a ser informado da variável deve ser solicitado a algum membro da equipe. Esta informação também pode ser consultada no Bitwarden da assessoria.
 
 O terminal deve ser reiniciado para aceitar a nova configuração.
 
@@ -173,14 +174,32 @@ Por fim, para ter certeza que foi criado um usuário, escreva `whoami` no termin
 
 ### 6.3 Configurar proxy
 
-No terminal Ubuntu, escreva a seguinte linha:
+O proxy também deve ser configurado no Linux, pois se trata de uma máquina diferente. Para isso, no terminal Ubuntu, abra o arquivo .bashrc no seu diretório pessoal com o nano:
 
 ```bash
-export http_proxy="http://usuario:senha@proxy.prodemge.gov.br:8080"
+nano ~/.bashrc
 ```
 
-:warning: Altere "usuario" e "senha" para seu login na rede CAMG, mantendo-os separando por ":".
+Role a página até o final do arquivo e adicione uma linha para cada variável de ambiente:
 
+```bash
+export NOME_VARIAVEL="valor"
+```
+
+Para o valor da variável, utilize o mesmo do tópico "4. Configurar proxy (CAMG)"
+
+Salve o arquivo (no nano, pressione `Ctrl` + `O`, depois `Enter` e, em seguida, `Ctrl` + `X` para sair).
+
+Recarregue a configuração para que as alterações entrem em vigor imediatamente ou feche e abra novamente o terminal:
+
+```bash
+source ~/.bashrc
+```
+
+Teste sua variável, substituindo "NOME_VARIAVEL" pelo nome da sua variável.
+```bash
+echo $NOME_VARIAVEL
+```
 
 ## 7. Visual Studio Code
 
@@ -356,6 +375,10 @@ Digite `Y` para a pergunta "Do you want to change your default shell to zsh?" e 
 
 ![Oh-My-Zsh](../../assets/setup-inicial/zsh.png)
 
+### 11.1 Configurar proxy
+
+Refaça o passo a passo do tópico "6.3 Configurar proxy", substituindo "~/.zshrc" ao invés de "~/.bashrc".
+
 
 ## 12. Vinculando seu navegador padrão ao Ubuntu
 
@@ -442,6 +465,8 @@ O gh fará algumas perguntas:
 
 2. **Enter a passphrase for your new SSH key (Optional)**: Digite algo que você deseja e que você lembrará. É uma senha para proteger sua chave privada armazenada no disco rígido. Em seguida, pressione `Enter`.
 
+    :warning: Recomendamos que pressione `Enter`, para que não seja necessário digitar o "passphrase" a todo momento.
+
 3. **Title for your SSH key**: Você pode deixá-lo no "GitHub CLI" proposto, pressione `Enter`.
 
 Você obterá então a seguinte saída:
@@ -478,17 +503,15 @@ Esta variável só é definida enquanto o terminal estiver aberto. Se ele for fe
 
 ### 14.1 Configurar proxy
 
-Novamente, deverá ser configurado o proxy para o GitHub CLI. Para isso, execute os seguintes comandos:
+Novamente, deverá ser configurado o proxy para o GitHub CLI. Para isso, resgate execute os seguintes comandos:
 
 ```bash
-git config --global http.proxy http://usuario:senha@proxy.prodemge.gov.br:8080
+git config --global http.proxy PROXY
 ```
 
 ```bash
 gh config set git_protocol https
 ```
-
-:warning: Altere "usuario" e "senha" para seu login na rede CAMG, mantendo-os separando por ":".
 
 Faça login novamente com o comando:
 
@@ -585,7 +608,7 @@ Salve o arquivo `.zshrc` com `Ctrl` + `S` e feche o editor de texto.
 Primeiro, caso queira voltar o diretório para a home (~), digite o comando:
 
 ```bash
-cd ../../..
+cd
 ```
 ### 16.2 Atualização do Python (Opcional)
 
