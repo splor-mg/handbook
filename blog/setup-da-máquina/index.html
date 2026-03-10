@@ -1,0 +1,3260 @@
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../-tutorial-cria%C3%A7%C3%A3o-e-registro-de-decreto-no-grp/">
+      
+      
+        <link rel="next" href="../etl---reuni%C3%A3o-0061/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.5">
+    
+    
+      
+        <title>Setup da máquina - Handbook da Subsecretaria de Planejamento e Orçamento (SPLOR)</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.8608ea7d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/style.css">
+    
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@10.4.0/dist/mermaid.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#setup-da-maquina" class="md-skip">
+          Ir para o conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
+    <a href="../.." title="Handbook da Subsecretaria de Planejamento e Orçamento (SPLOR)" class="md-header__button md-logo" aria-label="Handbook da Subsecretaria de Planejamento e Orçamento (SPLOR)" data-md-component="logo">
+      
+  <img src="../../assets/logo-brasao-mg.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Handbook da Subsecretaria de Planejamento e Orçamento (SPLOR)
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Setup da máquina
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Pesquisar">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Compartilhar" aria-label="Compartilhar" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpar" aria-label="Limpar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando a pesquisa
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/splor-mg/handbook" title="Ir ao repositório" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    splor-mg/handbook
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Abas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  Bem vind(a)o! 🌹
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+    
+  
+  Blog
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../linha_do_tempo/" class="md-tabs__link">
+          
+  
+    
+  
+  Linha do Tempo
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../gestao_splor/" class="md-tabs__link">
+          
+  
+    
+  
+  Gestão SPLOR
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../faq/" class="md-tabs__link">
+          
+  
+    
+  
+  FAQ
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../diretorias/" class="md-tabs__link">
+          
+  
+    
+  
+  Diretorias
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden>
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegação" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Handbook da Subsecretaria de Planejamento e Orçamento (SPLOR)" class="md-nav__button md-logo" aria-label="Handbook da Subsecretaria de Planejamento e Orçamento (SPLOR)" data-md-component="logo">
+      
+  <img src="../../assets/logo-brasao-mg.png" alt="logo">
+
+    </a>
+    Handbook da Subsecretaria de Planejamento e Orçamento (SPLOR)
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/splor-mg/handbook" title="Ir ao repositório" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    splor-mg/handbook
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bem vind(a)o! 🌹
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Blog
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Blog
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Categorias
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Categorias
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../category/banco-de-dados/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Banco de Dados
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../category/dados-abertos-mg/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Dados Abertos MG
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../category/datamart/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Datamart
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../category/etl/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ETL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../category/ferramentas-%C3%BAteis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ferramentas úteis
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../category/grp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GRP
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../category/live-code/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Live Code
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../category/markdown/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Markdown
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../category/mkdocs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Mkdocs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../category/modelagem-de-dados/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Modelagem de Dados
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../category/o-futuro-j%C3%A1-come%C3%A7ou/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    O Futuro Já Começou
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../category/qlikview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Qlikview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../category/sqlalchemy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SQLAlchemy
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../category/treinamento/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Treinamento
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../category/volumes-loa/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Volumes LOA
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../category/webnar-intelig%C3%AAnciamg/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Webnar Inteligência.MG
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../linha_do_tempo/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Linha do Tempo
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Linha do Tempo
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linha_do_tempo/projeto_dados_abertos_mg/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Projeto Dados Abertos MG
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../gestao_splor/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Gestão SPLOR
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Gestão SPLOR
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../gestao_splor/governanca/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Governança
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            Governança
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gestao_splor/governanca/equipes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Equipes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gestao_splor/governanca/papeis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Papéis e Permissões
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gestao_splor/governanca/duplo_fator_autenticacao/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Duplo Fator de Autenticação
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gestao_splor/governanca/autenticacao_autorizacao/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Autenticação com Github App
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gestao_splor/governanca/bitwarden_cofre_senhas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bitwarden Cofre de Senhas
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_3" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../gestao_splor/ferramentas/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Ferramentas
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            Ferramentas
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gestao_splor/ferramentas/git/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Git
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gestao_splor/ferramentas/instalacao/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Instalação e Configuração
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Repositórios
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            Repositórios
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gestao_splor/repositorios/nomenclaturas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Nomenclaturas
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gestao_splor/repositorios/publico_privado/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Repositórios Públicos vs Privados
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_5" id="__nav_4_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Atividades (Issues)
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_5">
+            <span class="md-nav__icon md-icon"></span>
+            Atividades (Issues)
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gestao_splor/issues/labels/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Labels de Issues
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gestao_splor/issues/tipos/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tipos de Issues
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_6" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../gestao_splor/branches/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Branches (Galhos)
+    
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_6">
+            <span class="md-nav__icon md-icon"></span>
+            Branches (Galhos)
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_7" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../gestao_splor/pull_requests/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Pull Requests
+    
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_7">
+            <span class="md-nav__icon md-icon"></span>
+            Pull Requests
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_8" id="__nav_4_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Gestão à Vista
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_8">
+            <span class="md-nav__icon md-icon"></span>
+            Gestão à Vista
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gestao_splor/gestao_vista/projetos/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Gestão por Projetos
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gestao_splor/gestao_vista/status/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Status de Atividades
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gestao_splor/gestao_vista/datas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Gestão de Datas
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../faq/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    FAQ
+    
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            FAQ
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../diretorias/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Diretorias
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Diretorias
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+          
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../diretorias/dcaf/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    DCAF
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6_2" id="__nav_6_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2">
+            <span class="md-nav__icon md-icon"></span>
+            DCAF
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../diretorias/dcaf/sobre/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sobre
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../diretorias/dcaf/links_uteis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Links úteis relacionados
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-criacao-da-conta-no-github" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Criação da conta no GitHub
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Criação da conta no GitHub">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-autenticacao-em-dois-fatores" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1 Autenticação em dois fatores
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-versao-do-windows" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Versão do Windows
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-virtualizacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Virtualização
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-configurar-proxy-camg" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Configurar proxy (CAMG)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-subsistema-windows-para-linux-wsl" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Subsistema Windows para Linux (WSL)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Subsistema Windows para Linux (WSL)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#para-windows-10-2004-instale-o-wsl-1-primeiro" class="md-nav__link">
+    <span class="md-ellipsis">
+      Para Windows 10 &lt; 2004: instale o WSL 1 primeiro
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#para-windows-10-com-wsl-1-atualizar-para-wsl-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Para Windows 10 com WSL 1: Atualizar para WSL 2
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#para-windows-10-com-wsl-1-torne-o-wsl-2-o-subsistema-windows-padrao-para-linux" class="md-nav__link">
+    <span class="md-ellipsis">
+      Para Windows 10 com WSL 1: Torne o WSL 2 o subsistema Windows padrão para Linux
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-ubuntu" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Ubuntu
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Ubuntu">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-versao-do-ubuntu" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1 Versão do Ubuntu
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-conferencia-do-nome-de-usuario" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.2 Conferencia do nome de usuário
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-configurar-proxy" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.3 Configurar proxy
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-visual-studio-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Visual Studio Code
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Visual Studio Code">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-instalacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.1 Instalação
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-conectando-o-vs-code-ao-ubuntu" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.2 Conectando o VS Code ao Ubuntu
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-windows-terminal" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Windows Terminal
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-configuracoes-do-vs-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. Configurações do VS Code
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. Configurações do VS Code">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#91-extensoes" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.1 Extensões
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#92-configuracao-do-live-share" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.2 Configuração do Live Share
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-ferramentas-de-linha-de-comando" class="md-nav__link">
+    <span class="md-ellipsis">
+      10 Ferramentas de linha de comando
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10 Ferramentas de linha de comando">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#101-localidade" class="md-nav__link">
+    <span class="md-ellipsis">
+      10.1 Localidade
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#102-zsh-e-git" class="md-nav__link">
+    <span class="md-ellipsis">
+      10.2 Zsh e Git
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#103-instalacao-da-cli-do-github" class="md-nav__link">
+    <span class="md-ellipsis">
+      10.3 Instalação da CLI do GitHub
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-oh-my-zsh" class="md-nav__link">
+    <span class="md-ellipsis">
+      11. Oh-My-Zsh
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11. Oh-My-Zsh">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#111-configurar-proxy" class="md-nav__link">
+    <span class="md-ellipsis">
+      11.1 Configurar proxy
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-vinculando-seu-navegador-padrao-ao-ubuntu" class="md-nav__link">
+    <span class="md-ellipsis">
+      12. Vinculando seu navegador padrão ao Ubuntu
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-utilizando-o-github-cli" class="md-nav__link">
+    <span class="md-ellipsis">
+      13. Utilizando o GitHub CLI
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14-dotfiles-configuracao-padrao" class="md-nav__link">
+    <span class="md-ellipsis">
+      14. Dotfiles (configuração padrão)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="14. Dotfiles (configuração padrão)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#141-configurar-protocolo-ssh" class="md-nav__link">
+    <span class="md-ellipsis">
+      14.1 Configurar protocolo ssh
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#142-fork-do-repositorio-dotfiles" class="md-nav__link">
+    <span class="md-ellipsis">
+      14.2 Fork do repositório Dotfiles
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#143-instalador-do-dotfiles" class="md-nav__link">
+    <span class="md-ellipsis">
+      14.3 Instalador do Dotfiles
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#144-instalador-git" class="md-nav__link">
+    <span class="md-ellipsis">
+      14.4 Instalador git
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15-desativar-prompt-de-senha-ssh" class="md-nav__link">
+    <span class="md-ellipsis">
+      15. Desativar prompt de senha SSH
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#16-instalar-o-poetry" class="md-nav__link">
+    <span class="md-ellipsis">
+      16. Instalar o Poetry
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="16. Instalar o Poetry">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#161-voltando-a-home-opcional" class="md-nav__link">
+    <span class="md-ellipsis">
+      16.1 Voltando à home (Opcional)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#162-atualizacao-do-python-opcional" class="md-nav__link">
+    <span class="md-ellipsis">
+      16.2 Atualização do Python (Opcional)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#163-instalacao-do-poetry" class="md-nav__link">
+    <span class="md-ellipsis">
+      16.3 Instalação do Poetry
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#17-conclusao" class="md-nav__link">
+    <span class="md-ellipsis">
+      17. Conclusão
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+  <div class="md-content md-content--post" data-md-component="content">
+    <div class="md-sidebar md-sidebar--post" data-md-component="sidebar" data-md-type="navigation">
+      <div class="md-sidebar__scrollwrap">
+        <div class="md-sidebar__inner md-post">
+          <nav class="md-nav md-nav--primary">
+            <div class="md-post__back">
+              <div class="md-nav__title md-nav__container">
+                <a href="../" class="md-nav__link">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+                  <span class="md-ellipsis">
+                    Voltar ao índice
+                  </span>
+                </a>
+              </div>
+            </div>
+            
+              <div class="md-post__authors md-typeset">
+                
+                  <div class="md-profile md-post__profile">
+                    <span class="md-author md-author--long">
+                      <img src="https://avatars.githubusercontent.com/u/92945733?v=4" alt="Maria Eduarda Ferreira Oliveira Duque">
+                    </span>
+                    <span class="md-profile__description">
+                      <strong>
+                        
+                          Maria Eduarda Ferreira Oliveira Duque
+                        
+                      </strong>
+                      <br>
+                      Creator
+                    </span>
+                  </div>
+                
+              </div>
+            
+            <ul class="md-post__meta md-nav__list">
+              <li class="md-nav__item md-nav__item--section">
+                <div class="md-post__title">
+                  <span class="md-ellipsis">
+                    Metadados
+                  </span>
+                </div>
+                <nav class="md-nav">
+                  <ul class="md-nav__list">
+                    <li class="md-nav__item">
+                      <div class="md-nav__link">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5z"/></svg>
+                        <time datetime="2026-02-25 00:00:00+00:00" class="md-ellipsis">25 de fevereiro de 2026</time>
+                      </div>
+                    </li>
+                    
+                    
+                      <li class="md-nav__item">
+                        <div class="md-nav__link">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 3v15h3V3zm3 2 4 13 3-1-4-13zM5 5v13h3V5zM3 19v2h18v-2z"/></svg>
+                          <span class="md-ellipsis">
+                            em
+                            
+                              <a href="../category/treinamento/">Treinamento</a></span>
+                        </div>
+                      </li>
+                    
+                    
+                      
+                      <li class="md-nav__item">
+                        <div class="md-nav__link">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20a8 8 0 0 0 8-8 8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8m0-18a10 10 0 0 1 10 10 10 10 0 0 1-10 10C6.47 22 2 17.5 2 12A10 10 0 0 1 12 2m.5 5v5.25l4.5 2.67-.75 1.23L11 13V7z"/></svg>
+                          <span class="md-ellipsis">
+                            
+                              15 min de leitura
+                            
+                          </span>
+                        </div>
+                      </li>
+                    
+                  </ul>
+                </nav>
+              </li>
+            </ul>
+            
+          </nav>
+          
+        </div>
+      </div>
+    </div>
+    <article class="md-content__inner md-typeset">
+      
+        
+  
+
+
+
+  
+    <a href="https://github.com/splor-mg/handbook/edit/main/docs/blog/posts/20260225_setup_inicial.md" title="Editar esta página" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://github.com/splor-mg/handbook/raw/main/docs/blog/posts/20260225_setup_inicial.md" title="Ver fonte desta página" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"/></svg>
+    </a>
+  
+
+
+<div><h1 id="setup-da-maquina">Setup da máquina<a class="headerlink" href="#setup-da-maquina" title="Permanent link">⚓︎</a></h1>
+<p>Neste treinamento, montamos um passo a passo com instruções para configurar a máquina, com base no <a href="https://github.com/lewagon/setup/blob/master/windows.pt.md">tutorial de setup do Le Wagon</a>.</p>
+<p>Você deve ter permissão de Administrador da máquina para conseguir realizar as instalações. Para isso, faça a solicitação conforme orientações "<a href="https://cecad365.sharepoint.com/:u:/r/sites/cartadeservicos/SitePages/Administrador-Local-da-M%C3%A1quina.aspx?csf=1&amp;web=1&amp;e=1I6m5p">Permissão para Gerenciar o Próprio Computador</a>" da carta de serviços Subgef.</p>
+<!-- more -->
+
+<h2 id="1-criacao-da-conta-no-github">1. Criação da conta no GitHub<a class="headerlink" href="#1-criacao-da-conta-no-github" title="Permanent link">⚓︎</a></h2>
+<p>No <a href="https://github.com/">GitHub</a>, crie um conta, caso ainda não possua e informe:</p>
+<ul>
+<li><strong>E-mail</strong>: preferencialmente e-mail pessoal;</li>
+<li><strong>Password</strong>;</li>
+<li><strong>Username</strong>: nome simples, fácil de lembrar, ficará visível para demais usuários.</li>
+</ul>
+<p>Após a criação, adicione uma foto para que demais usuários possam reconhece-lo.</p>
+<h3 id="11-autenticacao-em-dois-fatores">1.1 Autenticação em dois fatores<a class="headerlink" href="#11-autenticacao-em-dois-fatores" title="Permanent link">⚓︎</a></h3>
+<p>Ative a autenticação em dois fatores do GitHub em: <em>Settings</em> &gt; <em>Password and authentication</em>.
+Dentro da seção "<em>Two-factor authentication</em>", escolha o método que preferir.</p>
+<p>Caso opte por "<em>Authenticator app</em>", é possível escolher o aplicativo "<em>Authenticator</em>" da Microsoft. Assim, será liberado um QR Code para que você escaneie e, sempre que fizer login, será requisitado um código, que pode ser resgatado no aplicativo.</p>
+<h2 id="2-versao-do-windows">2. Versão do Windows<a class="headerlink" href="#2-versao-do-windows" title="Permanent link">⚓︎</a></h2>
+<p>Para consultar a versão do Windows, pressione <code>Windows</code> + <code>R</code> e escreva <code>winver</code>. Ao apertar <code>Enter</code> ou clicar em "OK", ele irá te mostrar a versão do Windows do seu computador.</p>
+<p><img alt="Versão do Windows" src="../../assets/setup-inicial/versao_windows.png"></p>
+<p>Caso seja Windows 11 ou Windows 10 (versão superior a 2004), pode-se prosseguir com o tutorial, mas caso contrário, deve-se conferir se há algum update disponível, utilizando os botões <code>Windows</code> + <code>R</code> e escrevendo <code>ms-settings:windowsupdate</code>.</p>
+<h2 id="3-virtualizacao">3. Virtualização<a class="headerlink" href="#3-virtualizacao" title="Permanent link">⚓︎</a></h2>
+<p>Outro ponto importante é consultar se a virtualização está habilitada. Para isso, pressione <code>Windows</code> + <code>R</code>, escreva <code>taskmgr</code> e consulte a aba de "Desempenho".</p>
+<p><img alt="Painel de Controle" src="../../assets/setup-inicial/painel_de_controle.png"></p>
+<details class="warning">
+<summary>Virtualização desativada</summary>
+<p>Se a virtualização estiver desativada, é necessário acessar o BIOS/UEFI do computador para ativá-lo.</p>
+<ul>
+<li>Pressione <code>Windows</code> + <code>R</code></li>
+<li>Digite <code>shutdown.exe /r /o /t 1</code></li>
+<li>Aguarde o computador desligar</li>
+<li>Clique em "Solucionar problemas"</li>
+<li>Clique em "Opções avançadas"</li>
+<li>Clique em "Configurações de firmware UEFI"</li>
+<li>Clique em "Reiniciar"</li>
+</ul>
+<p>A opção de ativar a virtualização, na maioria das vezes, está nas configurações avançadas, nas configurações da CPU ou nas configurações do Northbridge. Ela pode estar nomeada como "Intel VT-x", "Tecnologia de virtualização Intel", "Extensões de virtualização", "Vanderpool" e entre outros no caso da Intel, ou como "Modo SVM" ou "AMD-V", no caso de AMD. Salve as alterações após a ativação e reinicie o computador através da opção apropriada.</p>
+</details>
+<h2 id="4-configurar-proxy-camg">4. Configurar proxy (CAMG)<a class="headerlink" href="#4-configurar-proxy-camg" title="Permanent link">⚓︎</a></h2>
+<p>Caso esteja na CAMG, será necessário configurar proxy.</p>
+<p>Para isso, pesquise no Windows por "Editar as variáveis de ambiente do sistema" e clique em "Variáveis de Ambiente...". Nas variáveis de usuário, clique em "Novo...".</p>
+<p>O valor a ser informado da variável deve ser solicitado a algum membro da equipe. Esta informação também pode ser consultada no Bitwarden da assessoria.</p>
+<p>O terminal deve ser reiniciado para aceitar a nova configuração.</p>
+<h2 id="5-subsistema-windows-para-linux-wsl">5. Subsistema Windows para Linux (WSL)<a class="headerlink" href="#5-subsistema-windows-para-linux-wsl" title="Permanent link">⚓︎</a></h2>
+<p>O <a href="https://learn.microsoft.com/en-us/windows/wsl/faq">WSL</a> é o ambiente de desenvolvimento que será utilizado para executar o Ubuntu. Para instalar:</p>
+<ul>
+<li>Pressione <code>Windows</code> + <code>R</code></li>
+<li>Digite <code>cmd</code></li>
+<li>Pressione <code>Ctrl</code> + <code>Shift</code> + <code>Enter</code></li>
+<li>Aceite a confirmação sobre a elevação de privilégio, caso apareça.</li>
+<li>Execute o comando <code>wsl --install</code></li>
+</ul>
+<details class="warning">
+<summary>Solução de problemas para Windows 10</summary>
+<h4 id="para-windows-10-2004-instale-o-wsl-1-primeiro">Para Windows 10 &lt; 2004: instale o WSL 1 primeiro<a class="headerlink" href="#para-windows-10-2004-instale-o-wsl-1-primeiro" title="Permanent link">⚓︎</a></h4>
+<ul>
+<li>Pressione <code>Windows</code> + <code>R</code></li>
+<li>Digite <code>powershell</code></li>
+<li>Pressione <strong><code>Ctrl</code> + <code>Shift</code> + <code>Enter</code></strong></li>
+</ul>
+<p>Você pode ter que aceitar a confirmação do UAC sobre a elevação de privilégio.</p>
+<p>Uma janela de terminal azul aparecerá:
+* Copie os seguintes comandos um por um (<code>Ctrl</code> + <code>C</code>)
+* Cole-os na janela do PowerShell (<code>Ctrl</code> + <code>V</code> ou clicando com o botão direito na janela)
+* Execute-os pressionando <code>Enter</code></p>
+<div class="language-powershell highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nb">Enable-WindowsOptionalFeature</span> <span class="n">-Online</span> <span class="n">-FeatureName</span> <span class="n">Microsoft-Windows-Subsystem-Linux</span>
+</span></code></pre></div>
+<div class="language-powershell highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">dism</span><span class="p">.</span><span class="n">exe</span> <span class="p">/</span><span class="n">online</span> <span class="p">/</span><span class="nb">enable-feature</span> <span class="p">/</span><span class="n">featurename</span><span class="p">:</span><span class="n">Microsoft-Windows-Subsystem-Linux</span> <span class="p">/</span><span class="n">all</span> <span class="p">/</span><span class="n">norestart</span>
+</span></code></pre></div>
+<div class="language-powershell highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">dism</span><span class="p">.</span><span class="n">exe</span> <span class="p">/</span><span class="n">online</span> <span class="p">/</span><span class="nb">enable-feature</span> <span class="p">/</span><span class="n">featurename</span><span class="p">:</span><span class="n">VirtualMachinePlatform</span> <span class="p">/</span><span class="n">all</span> <span class="p">/</span><span class="n">norestart</span>
+</span></code></pre></div>
+<p><img alt="✔" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/2714.svg" title=":heavy_check_mark:"> Se todos os três comandos foram executados sem nenhum erro, reinicie o computador e continue abaixo <img alt="👍" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f44d.svg" title=":+1:"></p>
+<p><img alt="❌" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/274c.svg" title=":x:"> Se você encontrar uma mensagem de erro (ou se vir algum texto em vermelho na janela), por favor <strong>entre em contato com um professor</strong></p>
+<h4 id="para-windows-10-com-wsl-1-atualizar-para-wsl-2">Para Windows 10 com WSL 1: Atualizar para WSL 2<a class="headerlink" href="#para-windows-10-com-wsl-1-atualizar-para-wsl-2" title="Permanent link">⚓︎</a></h4>
+<p>Se você estiver executando o Windows 10, atualizaremos o WSL para a versão 2.</p>
+<p>Assim que o computador for reiniciado, precisamos baixar o instalador WSL2.</p>
+<ul>
+<li>Vá para a <a href="https://aka.ms/wsl2kernel">página de download</a></li>
+<li>Baixe o "pacote de atualização do kernel WSL2 Linux"</li>
+<li>Abra o arquivo que você acabou de baixar</li>
+<li>Clique em <code>Avançar</code></li>
+<li>Clique em <code>Concluir</code></li>
+</ul>
+<p><img alt="✔" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/2714.svg" title=":heavy_check_mark:"> Se não encontrou nenhuma mensagem de erro, você está pronto <img alt="👍" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f44d.svg" title=":+1:"></p>
+<p><img alt="❌" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/274c.svg" title=":x:"> Se você encontrar o erro "Esta atualização se aplica apenas a máquinas com o subsistema Windows para Linux", <strong>clique com o botão direito</strong> no programa e selecione <code>uninstall</code>; você poderá instalá-lo normalmente desta vez.</p>
+<h4 id="para-windows-10-com-wsl-1-torne-o-wsl-2-o-subsistema-windows-padrao-para-linux">Para Windows 10 com WSL 1: Torne o WSL 2 o subsistema Windows padrão para Linux<a class="headerlink" href="#para-windows-10-com-wsl-1-torne-o-wsl-2-o-subsistema-windows-padrao-para-linux" title="Permanent link">⚓︎</a></h4>
+<p>Se você estiver executando o Windows 10, definiremos a versão padrão do WSL como 2.</p>
+<p>Agora que o WSL 2 está instalado, vamos torná-lo a versão padrão:
+* Pressione <code>Windows</code> + <code>R</code>
+* Digite <code>cmd</code>
+* Pressione <code>Enter</code></p>
+<p>Na janela que aparece, digite:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>wsl<span class="w"> </span>--set-default-version<span class="w"> </span><span class="m">2</span>
+</span></code></pre></div>
+<p><img alt="✔" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/2714.svg" title=":heavy_check_mark:"> Se você vir "A operação foi concluída com sucesso", você pode fechar este terminal e continuar seguindo as instruções abaixo <img alt="👍" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f44d.svg" title=":+1:"></p>
+<p><img alt="❌" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/274c.svg" title=":x:"> Se a mensagem que você receber for sobre Virtualização, por favor <strong>entre em contato com um professor</strong></p>
+<details class="warning">
+<summary>Ativar recurso Windows da Plataforma de Máquina Virtual</summary>
+<p>Siga as etapas descritas <a href="https://www.configserverfirewall.com/windows-10/please-enable-the-virtual-machine-platform-windows-feature-and-ensure-virtualization-is-enabled-in-%20the-bios/#:~:text=To%20enable%20WSL%202,%20Open,Windows%20feature%20on%20or%20off.&amp;text=Garanta%20que%20the%20Virtual%20Machine,Windows%20will%20enable%20WSL%20%202">aqui</a> até você ativar a <strong>Plataforma de Máquina Virtual</strong> e o <strong>Subsistema Windows para Linux</strong>.</p>
+</details>
+<details class="warning">
+<summary>Ativar recurso Hyper-V do Windows</summary>
+<p>Siga as etapas descritas <a href="https://winaero.com/enable-use-hyper-v-windows-10/">aqui</a> até ativar o grupo <strong>Hyper-V</strong></p>
+<p><img alt="ℹ" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/2139.svg" title=":information_source:"> Se você estiver executando o Windows 10 <strong>Home edition</strong>, o recurso Hyper-V não estará disponível para o seu sistema operacional. Não bloqueia e você ainda pode continuar seguindo as instruções abaixo <img alt="👌" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f44c.svg" title=":ok_hand:"></p>
+</details>
+</details>
+<h2 id="6-ubuntu">6. Ubuntu<a class="headerlink" href="#6-ubuntu" title="Permanent link">⚓︎</a></h2>
+<p>O processo anterior instala o Ubuntu e, neste terminal, é solicitado que você defina um nome de usuário e uma senha.</p>
+<p><strong>Observação</strong>: Ao digitar a senha, nada aparecerá na tela, pois é um recurso de segurança para mascarar a senha. Após digitar a senha, pressione <code>Enter</code>.</p>
+<h3 id="61-versao-do-ubuntu">6.1 Versão do Ubuntu<a class="headerlink" href="#61-versao-do-ubuntu" title="Permanent link">⚓︎</a></h3>
+<p>Para conferir a versão do Ubuntu, pressione <code>Windows</code> + <code>R</code>, escreva <code>cmd</code> e digite o comando <code>wsl -l -v</code>. Se a versão apontada não for a 2, escreva o comando <code>wsl --set-version Ubuntu 2</code>.</p>
+<h3 id="62-conferencia-do-nome-de-usuario">6.2 Conferencia do nome de usuário<a class="headerlink" href="#62-conferencia-do-nome-de-usuario" title="Permanent link">⚓︎</a></h3>
+<p>Por fim, para ter certeza que foi criado um usuário, escreva <code>whoami</code> no terminal do Ubuntu. Ao apertar <code>Enter</code>, ele deve retornar o nome que você deu ao seu usuário.</p>
+<h3 id="63-configurar-proxy">6.3 Configurar proxy<a class="headerlink" href="#63-configurar-proxy" title="Permanent link">⚓︎</a></h3>
+<p>O proxy também deve ser configurado no Linux, pois se trata de uma máquina diferente. Para isso, no terminal Ubuntu, abra o arquivo .bashrc no seu diretório pessoal com o nano:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>nano<span class="w"> </span>~/.bashrc
+</span></code></pre></div>
+<p>Role a página até o final do arquivo e adicione uma linha para cada variável de ambiente:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">NOME_VARIAVEL</span><span class="o">=</span><span class="s2">"valor"</span>
+</span></code></pre></div>
+<p>Para o valor da variável, utilize o mesmo do tópico "4. Configurar proxy (CAMG)"</p>
+<p>Salve o arquivo (no nano, pressione <code>Ctrl</code> + <code>O</code>, depois <code>Enter</code> e, em seguida, <code>Ctrl</code> + <code>X</code> para sair).</p>
+<p>Recarregue a configuração para que as alterações entrem em vigor imediatamente ou feche e abra novamente o terminal:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nb">source</span><span class="w"> </span>~/.bashrc
+</span></code></pre></div>
+<p>Teste sua variável, substituindo "NOME_VARIAVEL" pelo nome da sua variável.
+</p><div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nb">echo</span><span class="w"> </span><span class="nv">$NOME_VARIAVEL</span>
+</span></code></pre></div>
+<h2 id="7-visual-studio-code">7. Visual Studio Code<a class="headerlink" href="#7-visual-studio-code" title="Permanent link">⚓︎</a></h2>
+<h3 id="71-instalacao">7.1 Instalação<a class="headerlink" href="#71-instalacao" title="Permanent link">⚓︎</a></h3>
+<p>Para instalar o editor de texto <a href="https://code.visualstudio.com/">Visual Studio Code</a>, vá para a <a href="https://code.visualstudio.com/download">página de download do Visual Studio Code</a> e clique no botão "Windows". Abra o arquivo baixado e o instale com as seguintes opções:</p>
+<p><img alt="Instalação VS Code" src="../../assets/setup-inicial/instalacao_vscode.png"></p>
+<p>Quando a instalação for concluída, inicie o VS Code.</p>
+<h3 id="72-conectando-o-vs-code-ao-ubuntu">7.2 Conectando o VS Code ao Ubuntu<a class="headerlink" href="#72-conectando-o-vs-code-ao-ubuntu" title="Permanent link">⚓︎</a></h3>
+<p>Para fazer com que o VS Code interaja corretamente com o Ubuntu, no terminal do Ubuntu, cole o seguinte comando:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>code<span class="w"> </span>--install-extension<span class="w"> </span>ms-vscode-remote.remote-wsl
+</span></code></pre></div>
+<p>Na aba de "Remote Explorer", deve constar o Ubuntu. Você pode abri-lo na janela atual ou abrir uma nova. Dessa forma, na parte inferior da janela irá constar "WSL: Ubuntu".</p>
+<p><img alt="Remote Explorer" src="../../assets/setup-inicial/remote_explorer.png"></p>
+<h2 id="8-windows-terminal">8. Windows Terminal<a class="headerlink" href="#8-windows-terminal" title="Permanent link">⚓︎</a></h2>
+<details class="note">
+<summary>Windows 10: Instalar Windows Terminal</summary>
+<p>Abra a "Microsoft Store" e procure por "Windows Terminal" na barra de pesquisa. Selecione "Terminal do Windows" e clique em "Instalar".</p>
+<p><img alt="⚠" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/26a0.svg" title=":warning:"> Não instale o <strong>Windows Terminal Preview</strong>, apenas o <strong>Windows Terminal</strong>!</p>
+<details class="note">
+<summary>Desinstale a versão errada do Terminal do Windows</summary>
+<p>Para desinstalar uma versão errada do Terminal Windows, basta ir até a Lista de Programas Instalados do Windows 10:</p>
+<ul>
+<li>Pressione <code>Windows</code> + <code>R</code></li>
+<li>Digite <code>ms-settings:appsfeatures</code></li>
+<li>Pressione <code>Enter</code></li>
+</ul>
+<p>Encontre o software para desinstalar e clique no botão desinstalar.</p>
+<p>Assim que a instalação for concluída, o botão "Instalar" se torna um botão "Iniciar": clique nele.</p>
+</details>
+</details>
+<p>Para tornar o Ubuntu o terminal padrão, com o Terminal do Windows aberto, pressione <code>Ctrl</code> + <code>,</code> e altere o perfil padrão para "Ubuntu". Clique em "Salvar".</p>
+<p><img alt="Inicialização do Terminal" src="../../assets/setup-inicial/inicializacao_terminal.png"></p>
+<p>Depois, clique em "Abrir o arquivo JSON" e faça as seguintes edições:</p>
+<ol>
+<li>
+<p>Acrescente a linha abaixo, após <mark>"defaultProfile": "{...}",</mark>:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="s2">"warning.multiLinePaste"</span>:<span class="w"> </span>false,
+</span></code></pre></div>
+</li>
+<li>
+<p>Acrescente a linha abaixo, onde contém <mark>"name": "Ubuntu",</mark>:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="s2">"commandline"</span>:<span class="w"> </span><span class="s2">"wsl.exe ~"</span>,
+</span></code></pre></div>
+</li>
+</ol>
+<p><img alt="JSON do Terminal" src="../../assets/setup-inicial/json_terminal.png"></p>
+<p>Salve as alterações apertando <code>Ctrl</code> + <code>S</code> e feche o arquivo JSON.</p>
+<p>Agora, ao abrir o Terminal do Windows, ele irá iniciar o Ubuntu por padrão.</p>
+<h2 id="9-configuracoes-do-vs-code">9. Configurações do VS Code<a class="headerlink" href="#9-configuracoes-do-vs-code" title="Permanent link">⚓︎</a></h2>
+<h3 id="91-extensoes">9.1 Extensões<a class="headerlink" href="#91-extensoes" title="Permanent link">⚓︎</a></h3>
+<p>Copie e cole os códigos com as extensões abaixo no terminal Ubuntu.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>code<span class="w"> </span>--install-extension<span class="w"> </span>ms-vscode.sublime-keybindings
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>code<span class="w"> </span>--install-extension<span class="w"> </span>emmanuelbeziat.vscode-great-icons
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>code<span class="w"> </span>--install-extension<span class="w"> </span>github.github-vscode-theme
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>code<span class="w"> </span>--install-extension<span class="w"> </span>MS-vsliveshare.vsliveshare
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>code<span class="w"> </span>--install-extension<span class="w"> </span>shopify.ruby-lsp
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>code<span class="w"> </span>--install-extension<span class="w"> </span>dbaeumer.vscode-eslint
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>code<span class="w"> </span>--install-extension<span class="w"> </span>Rubymaniac.vscode-paste-and-indent
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>code<span class="w"> </span>--install-extension<span class="w"> </span>alexcvzz.vscode-sqlite
+</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>code<span class="w"> </span>--install-extension<span class="w"> </span>anteprimorac.html-end-tag-labels
+</span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a>code<span class="w"> </span>--install-extension<span class="w"> </span>rayhanw.erb-helpers
+</span></code></pre></div>
+<h3 id="92-configuracao-do-live-share">9.2 Configuração do Live Share<a class="headerlink" href="#92-configuracao-do-live-share" title="Permanent link">⚓︎</a></h3>
+<p>O Live Share é uma extensão do VS Code que permite compartilhar o código no editor de texto para depuração e programação em pares. Para configurá-lo, inicie o VS Code e, em seu terminal, execute o comando <code>code</code>.</p>
+<p>Vá até a aba "Live Share" com ícone de seta.</p>
+<p><strong>Observação</strong>: Caso esteja na CAMG, será necessário informar seu login e senha da rede.</p>
+<p><img alt="Live Share" src="../../assets/setup-inicial/live_share.png"></p>
+<p>Após isso, clique em "Share (Read/Write)" e depois em "GitHub", para fazer login na sua conta. Um pop-up irá aparecer solicitando que seja feito o login, clique em "Permitir".</p>
+<p>Assim, você será redirecionado para uma página no GitHub, em seu navegador, solicitando autorização do Visual Studio Code. Clique em "Continuar" e em "Autorizar GitHub". Irão aparecer alguns pop-ups adicionais, que você pode fechar.</p>
+<h2 id="10-ferramentas-de-linha-de-comando">10 Ferramentas de linha de comando<a class="headerlink" href="#10-ferramentas-de-linha-de-comando" title="Permanent link">⚓︎</a></h2>
+<h3 id="101-localidade">10.1 Localidade<a class="headerlink" href="#101-localidade" title="Permanent link">⚓︎</a></h3>
+<p>Para verificar a localidade, que é um mecanismo que permite personalizar programas de acordo com seu idioma e país, digite <code>locale</code> no terminal do Ubuntu.</p>
+<p>Se a saída não contiver <code>LANG=en_US.UTF-8</code>, execute o seguinte comando em um terminal Ubuntu para instalar a localidade em inglês:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>sudo<span class="w"> </span>locale-gen<span class="w"> </span>en_US.UTF-8
+</span></code></pre></div>
+<p>Digite a sua senha, quando solicitado.</p>
+<details class="warning">
+<summary>Caso não consiga mudar a localidade</summary>
+<p>Caso receba o aviso <code>bash: warning: setlocale: LC_ALL: cannot change locale (en_US.utf-8)</code>, execute os comandos a seguir:
+</p><div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>sudo<span class="w"> </span>update-locale<span class="w"> </span><span class="nv">LANG</span><span class="o">=</span>en_US.UTF8
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>update
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>language-pack-en<span class="w"> </span>language-pack-en-base<span class="w"> </span>manpages
+</span></code></pre></div>
+</details>
+<h3 id="102-zsh-e-git">10.2 Zsh e Git<a class="headerlink" href="#102-zsh-e-git" title="Permanent link">⚓︎</a></h3>
+<p>Ao invés de usar o <code>bash</code> <a href="https://en.wikipedia.org/wiki/Shell_(computing)">shell</a>, será utilizado o <code>zsh</code>, bem como o <a href="https://git-scm.com/"><code>git</code></a>, para controle de versão.</p>
+<p>Para instalá-los, junto com outras ferramentas, abra o terminal Ubuntu e execute os seguintes comandos:
+</p><div class="language-bash highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>update
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>curl<span class="w"> </span>git<span class="w"> </span>imagemagick<span class="w"> </span>jq<span class="w"> </span>unzip<span class="w"> </span>vim<span class="w"> </span>zsh<span class="w"> </span>tree
+</span></code></pre></div>
+<p>Digite a sua senha, quando solicitado.</p>
+<h3 id="103-instalacao-da-cli-do-github">10.3 Instalação da CLI do GitHub<a class="headerlink" href="#103-instalacao-da-cli-do-github" title="Permanent link">⚓︎</a></h3>
+<p>Para instalar a CLI (interface de comando), execute os comandos abaixo e digite sua senha, quando solicitado:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>remove<span class="w"> </span>-y<span class="w"> </span>gitsome<span class="w"> </span><span class="c1"># gh command can conflict with gitsome if already installed</span>
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://cli.github.com/packages/githubcli-archive-keyring.gpg<span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>dd<span class="w"> </span><span class="nv">of</span><span class="o">=</span>/usr/share/keyrings/githubcli-archive-keyring.gpg
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">"deb [arch=</span><span class="k">$(</span>dpkg<span class="w"> </span>--print-architecture<span class="k">)</span><span class="s2"> signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>tee<span class="w"> </span>/etc/apt/sources.list.d/github-cli.list<span class="w"> </span>&gt;<span class="w"> </span>/dev/null
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>update
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>gh
+</span></code></pre></div>
+<p>Para verificar se o <code>gh</code> foi instalado, execute <code>gh --version</code>.</p>
+<h2 id="11-oh-my-zsh">11. Oh-My-Zsh<a class="headerlink" href="#11-oh-my-zsh" title="Permanent link">⚓︎</a></h2>
+<p>Para instalar o plugin <a href="https://ohmyz.sh/"><code>zsh</code></a>, execute o seguinte comando no terminal Ubuntu:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>sh<span class="w"> </span>-c<span class="w"> </span><span class="s2">"</span><span class="k">$(</span>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh<span class="k">)</span><span class="s2">"</span>
+</span></code></pre></div>
+<p>Digite <code>Y</code> para a pergunta "Do you want to change your default shell to zsh?" e digite sua senha, quando solicitado.</p>
+<p><img alt="Oh-My-Zsh" src="../../assets/setup-inicial/zsh.png"></p>
+<h3 id="111-configurar-proxy">11.1 Configurar proxy<a class="headerlink" href="#111-configurar-proxy" title="Permanent link">⚓︎</a></h3>
+<p>Refaça o passo a passo do tópico "6.3 Configurar proxy", substituindo "~/.zshrc" ao invés de "~/.bashrc".</p>
+<h2 id="12-vinculando-seu-navegador-padrao-ao-ubuntu">12. Vinculando seu navegador padrão ao Ubuntu<a class="headerlink" href="#12-vinculando-seu-navegador-padrao-ao-ubuntu" title="Permanent link">⚓︎</a></h2>
+<p>Para ter certeza que será possível interagir com o navegador instalado no Windows a partir do terminal Ubuntu, deve-se defini-lo como navegador padrão.</p>
+<details class="note">
+<summary>Google Chrome como navegador padrão</summary>
+<p>Execute o comando:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>ls<span class="w"> </span>/mnt/c/Program<span class="se">\ </span>Files<span class="se">\ \(</span>x86<span class="se">\)</span>/Google/Chrome/Application/chrome.exe
+</span></code></pre></div>
+<p><img alt="❌" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/274c.svg" title=":x:"> Caso tenha recebido um erro como <code>ls: não é possível acessar...</code>, execute os seguintes comandos:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">"export BROWSER=\"/mnt/c/Program Files/Google/Chrome/Application/chrome.exe\""</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.zshrc
+</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">"export GH_BROWSER=\"'/mnt/c/Program Files/Google/Chrome/Application/chrome.exe'\""</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.zshrc
+</span></code></pre></div>
+<p><img alt="✔" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/2714.svg" title=":heavy_check_mark:"> Caso não tenha recebido nenhum erro, execute os seguintes comandos:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">"export BROWSER=\"/mnt/c/Program Files (x86)/Google/Chrome/Application/chrome.exe\""</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.zshrc
+</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">"export GH_BROWSER=\"'/mnt/c/Program Files (x86)/Google/Chrome/Application/chrome.exe'\""</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.zshrc
+</span></code></pre></div>
+</details>
+<details class="note">
+<summary>Mozilla Firefox como seu navegador padrão</summary>
+<p>Execute o comando:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>ls<span class="w"> </span>/mnt/c/Program<span class="se">\ </span>Files<span class="se">\ \(</span>x86<span class="se">\)</span>/Mozilla<span class="se">\ </span>Firefox/firefox.exe
+</span></code></pre></div>
+<p><img alt="❌" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/274c.svg" title=":x:"> Caso tenha recebido um erro como <code>ls: não é possível acessar...</code>, execute os seguintes comandos:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">"export BROWSER=\"/mnt/c/Program Files/Mozilla Firefox/firefox.exe\""</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.zshrc
+</span><span id="__span-25-2"><a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">"export GH_BROWSER=\"'/mnt/c/Program Files/Mozilla Firefox/firefox.exe'\""</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.zshrc
+</span></code></pre></div>
+<p><img alt="✔" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/2714.svg" title=":heavy_check_mark:"> Caso não tenha recebido nenhum erro, execute os seguintes comandos:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">"export BROWSER=\"/mnt/c/Program Files (x86)/Mozilla Firefox/firefox.exe\""</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.zshrc
+</span><span id="__span-26-2"><a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">"export GH_BROWSER=\"'/mnt/c/Program Files (x86)/Mozilla Firefox/firefox.exe'\""</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.zshrc
+</span></code></pre></div>
+</details>
+<details class="note">
+<summary>Microsoft Edge como navegador padrão</summary>
+<p>Execute os comandos:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">"export BROWSER=\"/mnt/c/Program Files (x86)/Microsoft/Edge/Application/msedge.exe\""</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.zshrc
+</span><span id="__span-27-2"><a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">"export GH_BROWSER=\"'/mnt/c/Program Files (x86)/Microsoft/Edge/Application/msedge.exe'\""</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.zshrc
+</span></code></pre></div>
+</details>
+<p>Reinicie seu terminal e, para conferir se o Browser foi definido corretamente, execute o comando abaixo:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="o">[</span><span class="w"> </span>-z<span class="w"> </span><span class="s2">"</span><span class="nv">$BROWSER</span><span class="s2">"</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"ERROR: please define a BROWSER environment variable ⚠️"</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"Browser defined 👌"</span>
+</span></code></pre></div>
+<p>Caso não retorne a mensagem, tente outro navegador e não esqueça de resetar o terminal com o comando <code>exec zsh</code>.</p>
+<h2 id="13-utilizando-o-github-cli">13. Utilizando o GitHub CLI<a class="headerlink" href="#13-utilizando-o-github-cli" title="Permanent link">⚓︎</a></h2>
+<p>Primeiramente, vamos usar o <a href="https://cli.github.com/">GitHub CLI</a> (<code>gh</code>) para conectar ao GitHub usando SSH, um protocolo para fazer login usando chaves SSH, ao invés de usuário/senha. Dessa forma, execute o seguinte comando no terminal do Ubuntu:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>gh<span class="w"> </span>auth<span class="w"> </span>login<span class="w"> </span>-s<span class="w"> </span><span class="s1">'user:email'</span><span class="w"> </span>-w<span class="w"> </span>--git-protocol<span class="w"> </span>ssh
+</span></code></pre></div>
+<p><img alt="⚠" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/26a0.svg" title=":warning:"> Não edite o "email".</p>
+<p>O gh fará algumas perguntas:</p>
+<ol>
+<li>
+<p><strong>Generate a new SSH key to add to your GitHub account?</strong>: Pressione <code>Enter</code> para pedir ao gh para gerar as chaves SSH para você.</p>
+<p>Se você já possui chaves SSH, verá <strong>Upload your SSH public key to your GitHub account?</strong>. Com as setas, selecione o caminho do arquivo de sua chave pública e pressione <code>Enter</code>.</p>
+</li>
+<li>
+<p><strong>Enter a passphrase for your new SSH key (Optional)</strong>: Digite algo que você deseja e que você lembrará. É uma senha para proteger sua chave privada armazenada no disco rígido. Em seguida, pressione <code>Enter</code>.</p>
+<p><img alt="⚠" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/26a0.svg" title=":warning:"> Recomendamos que pressione <code>Enter</code>, para que não seja necessário digitar o "passphrase" a todo momento.</p>
+</li>
+<li>
+<p><strong>Title for your SSH key</strong>: Você pode deixá-lo no "GitHub CLI" proposto, pressione <code>Enter</code>.</p>
+</li>
+</ol>
+<p>Você obterá então a seguinte saída:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>!<span class="w"> </span>First<span class="w"> </span>copy<span class="w"> </span>your<span class="w"> </span>one-time<span class="w"> </span>code:<span class="w"> </span>0EF9-D015
+</span><span id="__span-30-2"><a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a>-<span class="w"> </span>Press<span class="w"> </span>Enter<span class="w"> </span>to<span class="w"> </span>open<span class="w"> </span>github.com<span class="w"> </span><span class="k">in</span><span class="w"> </span>your<span class="w"> </span>browser...
+</span></code></pre></div>
+<p>Siga as instruções de copiar o código e depois pressione <code>Enter</code>.</p>
+<p>O navegador será aberto e irá solicitar que você autorize o GitHub CLI a usar sua conta GitHub. Aceite, informe o código que lhe foi passado e autorize o GitHub (será necessário informar o código da autenticação de dois fatores).</p>
+<p>Para verificar se você está conectado corretamente, execute:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>gh<span class="w"> </span>auth<span class="w"> </span>status
+</span></code></pre></div>
+<h2 id="14-dotfiles-configuracao-padrao">14. Dotfiles (configuração padrão)<a class="headerlink" href="#14-dotfiles-configuracao-padrao" title="Permanent link">⚓︎</a></h2>
+<p>No terminal do Ubuntu, defina uma variável para seu nome de usuário GitHub:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">GITHUB_USERNAME</span><span class="o">=</span><span class="sb">`</span>gh<span class="w"> </span>api<span class="w"> </span>user<span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span>-r<span class="w"> </span><span class="s1">'.login'</span><span class="sb">`</span>
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-33-1"><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a><span class="nb">echo</span><span class="w"> </span><span class="nv">$GITHUB_USERNAME</span>
+</span></code></pre></div>
+<p>Esta variável só é definida enquanto o terminal estiver aberto. Se ele for fechado, esta etapa deve ser refeita.</p>
+<h3 id="141-configurar-protocolo-ssh">14.1 Configurar protocolo ssh<a class="headerlink" href="#141-configurar-protocolo-ssh" title="Permanent link">⚓︎</a></h3>
+<p>Abra o arquivo "~/.ssh/config" no seu diretório pessoal com o nano:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-34-1"><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a>nano<span class="w"> </span>~/.ssh/config
+</span></code></pre></div>
+<p>Adicione, no arquivo, as linhas a seguir:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-35-1"><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>Host github.com
+</span><span id="__span-35-2"><a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a>  HostName ssh.github.com
+</span><span id="__span-35-3"><a id="__codelineno-35-3" name="__codelineno-35-3" href="#__codelineno-35-3"></a>  Port 443
+</span><span id="__span-35-4"><a id="__codelineno-35-4" name="__codelineno-35-4" href="#__codelineno-35-4"></a>  User git
+</span><span id="__span-35-5"><a id="__codelineno-35-5" name="__codelineno-35-5" href="#__codelineno-35-5"></a>  IdentitiesOnly yes
+</span><span id="__span-35-6"><a id="__codelineno-35-6" name="__codelineno-35-6" href="#__codelineno-35-6"></a>  AddKeysToAgent yes
+</span><span id="__span-35-7"><a id="__codelineno-35-7" name="__codelineno-35-7" href="#__codelineno-35-7"></a>  IdentityFile ~/.ssh/id_ed25519
+</span><span id="__span-35-8"><a id="__codelineno-35-8" name="__codelineno-35-8" href="#__codelineno-35-8"></a>  IdentityFile ~/.ssh/id_rsa
+</span></code></pre></div>
+<p>Feche o arquivo e execute o código:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-36-1"><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a>ssh -T git@github.com
+</span></code></pre></div>
+<p><strong>Obs.</strong>: ao tentar autenticar no GitHub utilizando o CLI <code>gh</code> pode aparecer o erro:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-37-1"><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a>could not prompt: Incorrect function.
+</span><span id="__span-37-2"><a id="__codelineno-37-2" name="__codelineno-37-2" href="#__codelineno-37-2"></a>You appear to be running in MinTTY without pseudo terminal support.
+</span><span id="__span-37-3"><a id="__codelineno-37-3" name="__codelineno-37-3" href="#__codelineno-37-3"></a>To learn about workarounds for this error, run:  gh help mintty
+</span></code></pre></div>
+<p>Para isso, pode-se tentar utilizar o <code>winpty</code> antes do comando:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-38-1"><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a>winpty gh auth login
+</span></code></pre></div>
+<h3 id="142-fork-do-repositorio-dotfiles">14.2 Fork do repositório Dotfiles<a class="headerlink" href="#142-fork-do-repositorio-dotfiles" title="Permanent link">⚓︎</a></h3>
+<p>A SPLOR utiliza um fork próprio do <a href="https://github.com/lewagon/dotfiles">repositório original do Le Wagon</a>, que contém as configurações padrão recomendadas pela equipe.</p>
+<p>Utilize sempre o repositório corporativo <a href="https://github.com/splor-mg/dotfiles">splor-mg/dotfiles</a>, que possui uma configuração padrão que pode ser utilizada, mas que deve ser clonada no computador, uma vez que a configuração é pessoal.</p>
+<p>Para isso, execute os seguintes comandos:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-39-1"><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a>mkdir<span class="w"> </span>-p<span class="w"> </span>~/code/<span class="nv">$GITHUB_USERNAME</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span><span class="nv">$_</span>
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-40-1"><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a>gh<span class="w"> </span>repo<span class="w"> </span>fork<span class="w"> </span>splor-mg/dotfiles<span class="w"> </span>–clone
+</span></code></pre></div>
+<h3 id="143-instalador-do-dotfiles">14.3 Instalador do Dotfiles<a class="headerlink" href="#143-instalador-do-dotfiles" title="Permanent link">⚓︎</a></h3>
+<p>Execute o instalador <code>dotfiles</code>:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-41-1"><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a><span class="nb">cd</span><span class="w"> </span>~/code/<span class="nv">$GITHUB_USERNAME</span>/dotfiles
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-42-1"><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a>zsh<span class="w"> </span>install.sh
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-43-1"><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a>gh<span class="w"> </span>api<span class="w"> </span>user/emails<span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span>-r<span class="w"> </span><span class="s1">'.[].email'</span>
+</span></code></pre></div>
+<p>Ele pode te pedir para rodar a linha abaixo:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-44-1"><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a>gh<span class="w"> </span>auth<span class="w"> </span>refresh<span class="w"> </span>-h<span class="w"> </span>github.com<span class="w"> </span>-s<span class="w"> </span>user
+</span></code></pre></div>
+<p>Isso fará com que você tenha novamente que autenticar no GitHub. Após isso, rode novamente a última linha que deu erro.
+Assim, você deve receber uma lista com seus e-mails registrados.</p>
+<h3 id="144-instalador-git">14.4 Instalador git<a class="headerlink" href="#144-instalador-git" title="Permanent link">⚓︎</a></h3>
+<p>Execute o instalador git:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-45-1"><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a><span class="nb">cd</span><span class="w"> </span>~/code/<span class="nv">$GITHUB_USERNAME</span>/dotfiles<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>zsh<span class="w"> </span>git_setup.sh
+</span></code></pre></div>
+<p>Ele irá te solicitar seu nome (Nome Sobrenome) e seu e-mail, que deverá ser um dos listados anteriormente. Este email será exibido publicamente na internet, então, caso não queira que seu e-mail apareça em repositórios públicos aos quais você possa contribuir, selecione o endereço @users.noreply.github.com.</p>
+<p>Agora reinicie o terminal executando:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-46-1"><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a><span class="nb">exec</span><span class="w"> </span>zsh
+</span></code></pre></div>
+<h2 id="15-desativar-prompt-de-senha-ssh">15. Desativar prompt de senha SSH<a class="headerlink" href="#15-desativar-prompt-de-senha-ssh" title="Permanent link">⚓︎</a></h2>
+<p>Para que a senha não seja solicitada sempre que for comunicar com um repositório distante, é necessário adicionar o plugin <code>ssh-agent</code> ao <code>oh my zsh</code>.</p>
+<p>Para isso, primeiramente, abra o arquivo <code>.zshrc</code>, executando o seguinte comando no terminal Ubuntu:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-47-1"><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a>code<span class="w"> </span>~/.zshrc
+</span></code></pre></div>
+<p>No arquivo aberto, identifique a linha que começa com <code>plugins=</code> e adicione <code>ssh-agent</code> no final dessa lista.</p>
+<p>Salve o arquivo <code>.zshrc</code> com <code>Ctrl</code> + <code>S</code> e feche o editor de texto.</p>
+<h2 id="16-instalar-o-poetry">16. Instalar o Poetry<a class="headerlink" href="#16-instalar-o-poetry" title="Permanent link">⚓︎</a></h2>
+<h3 id="161-voltando-a-home-opcional">16.1 Voltando à home (Opcional)<a class="headerlink" href="#161-voltando-a-home-opcional" title="Permanent link">⚓︎</a></h3>
+<p>Primeiro, caso queira voltar o diretório para a home (~), digite o comando:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-48-1"><a id="__codelineno-48-1" name="__codelineno-48-1" href="#__codelineno-48-1"></a><span class="nb">cd</span>
+</span></code></pre></div>
+<h3 id="162-atualizacao-do-python-opcional">16.2 Atualização do Python (Opcional)<a class="headerlink" href="#162-atualizacao-do-python-opcional" title="Permanent link">⚓︎</a></h3>
+<p>Caso queira também, confira a versão atual do Python com <code>python3 --version</code> e atualize os repositórios e os pacotes com os comandos a seguir:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-49-1"><a id="__codelineno-49-1" name="__codelineno-49-1" href="#__codelineno-49-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>update
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-50-1"><a id="__codelineno-50-1" name="__codelineno-50-1" href="#__codelineno-50-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>upgrade<span class="w"> </span>-y
+</span></code></pre></div>
+<p>Instale a versão mais recente do Python disponível nos repositórios:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-51-1"><a id="__codelineno-51-1" name="__codelineno-51-1" href="#__codelineno-51-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>python3<span class="w"> </span>python3-pip<span class="w"> </span>python3-venv
+</span></code></pre></div>
+<h3 id="163-instalacao-do-poetry">16.3 Instalação do Poetry<a class="headerlink" href="#163-instalacao-do-poetry" title="Permanent link">⚓︎</a></h3>
+<p>Agora, instale o pipx com os comandos a seguir:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-52-1"><a id="__codelineno-52-1" name="__codelineno-52-1" href="#__codelineno-52-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>pipx
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-53-1"><a id="__codelineno-53-1" name="__codelineno-53-1" href="#__codelineno-53-1"></a>pipx<span class="w"> </span>ensurepath
+</span></code></pre></div>
+<p>Abra um novo terminal ou aplique o PATH manualmente:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-54-1"><a id="__codelineno-54-1" name="__codelineno-54-1" href="#__codelineno-54-1"></a><span class="nb">source</span><span class="w"> </span>~/.bashrc
+</span></code></pre></div>
+<p>Verifique a instalação, consultando a versão através do comando <code>pipx --version</code>.</p>
+<p>Por fim, instale o Poetry:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-55-1"><a id="__codelineno-55-1" name="__codelineno-55-1" href="#__codelineno-55-1"></a>pipx<span class="w"> </span>install<span class="w"> </span>poetry
+</span></code></pre></div>
+<h2 id="17-conclusao">17. Conclusão<a class="headerlink" href="#17-conclusao" title="Permanent link">⚓︎</a></h2>
+<p>Agora finalmente a sua máquina está configurada e você pode dar início aos seus trabalhos.</p>
+<p>Espero que tudo tenha dado certo até aqui, mas, caso tenha encontrado algum problema, você pode procurar as soluções na internet e nos nossos issues ou perguntar se algum membro da equipe já passou por isso.</p>
+<p>Desejo uma boa sorte na sua nova jornada!</p></div>
+
+
+
+
+
+
+
+  
+    
+  
+  
+    
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Última atualização">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">10 de março de 2026 10:59:35</span>
+  </span>
+
+    
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Criada">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">26 de fevereiro de 2026 17:31:21</span>
+  </span>
+
+    
+    
+    
+  </aside>
+
+
+
+  
+
+
+
+  <h2 id="__comments">Comentários</h2>
+  <!-- Insert generated snippet here -->
+  <script src="https://giscus.app/client.js"
+      data-repo="automatiza-mg/handbook"
+      data-repo-id="R_kgDOKOVUVA"
+      data-category="Q&A"
+      data-category-id="DIC_kwDOKOVUVM4CZq25"
+      data-mapping="pathname"
+      data-strict="0"
+      data-reactions-enabled="1"
+      data-emit-metadata="0"
+      data-input-position="bottom"
+      data-theme="preferred_color_scheme"
+      data-lang="en"
+      crossorigin="anonymous"
+      async>
+</script>
+  <!-- Synchronize Giscus theme with palette -->
+  <script>
+    var giscus = document.querySelector("script[src*=giscus]")
+
+    /* Set palette on initial load */
+    var palette = __md_get("__palette")
+    if (palette && typeof palette.color === "object") {
+      var theme = palette.color.scheme === "slate" ? "dark" : "light"
+      giscus.setAttribute("data-theme", theme)
+    }
+
+    /* Register event handlers after documented loaded */
+    document.addEventListener("DOMContentLoaded", function() {
+      var ref = document.querySelector("[data-md-component=palette]")
+      ref.addEventListener("change", function() {
+        var palette = __md_get("__palette")
+        if (palette && typeof palette.color === "object") {
+          var theme = palette.color.scheme === "slate" ? "dark" : "light"
+
+          /* Instruct Giscus to change theme */
+          var frame = document.querySelector(".giscus-frame")
+          frame.contentWindow.postMessage(
+            { giscus: { setConfig: { theme } } },
+            "https://giscus.app"
+          )
+        }
+      })
+    })
+  </script>
+  
+
+      
+    </article>
+  </div>
+
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Voltar ao topo
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+        
+      
+      <nav class="md-footer__inner md-grid" aria-label="Rodapé" >
+        
+          
+          <a href="../-tutorial-cria%C3%A7%C3%A3o-e-registro-de-decreto-no-grp/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: 🖥 Tutorial: Criação e Registro de Decreto no GRP">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              <div class="md-ellipsis">
+                🖥 Tutorial: Criação e Registro de Decreto no GRP
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../etl---reuni%C3%A3o-0061/" class="md-footer__link md-footer__link--next" aria-label="Próximo: ETL - Reunião 006.1">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Próximo
+              </span>
+              <div class="md-ellipsis">
+                ETL - Reunião 006.1
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://automatiza-mg.github.io/automatizacoes/" target="_blank" rel="noopener" title="Projeto Automatiza-MG" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M0 80c0-26.5 21.5-48 48-48h96c26.5 0 48 21.5 48 48v16h192V80c0-26.5 21.5-48 48-48h96c26.5 0 48 21.5 48 48v96c0 26.5-21.5 48-48 48h-96c-26.5 0-48-21.5-48-48v-16H192v16c0 1.7-.1 3.4-.3 5L272 288h96c26.5 0 48 21.5 48 48v96c0 26.5-21.5 48-48 48h-96c-26.5 0-48-21.5-48-48v-96c0-1.7.1-3.4.3-5L144 224H48c-26.5 0-48-21.5-48-48z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://www.youtube.com/@automatiza-mg" target="_blank" rel="noopener" title="Canal automatiza-mg no YouTube." class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305m-317.51 213.508V175.185l142.739 81.205z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://squidfunk.github.io/mkdocs-material/reference/icons-emojis/#search" target="_blank" rel="noopener" title="Material for MkDocs Icons, Emojis." class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M64 32C64 14.3 49.7 0 32 0S0 14.3 0 32v448c0 17.7 14.3 32 32 32s32-14.3 32-32V352l64.3-16.1c41.1-10.3 84.6-5.5 122.5 13.4 44.2 22.1 95.5 24.8 141.7 7.4l34.7-13c12.5-4.7 20.8-16.6 20.8-30V66c0-23-24.2-38-44.8-27.7l-9.6 4.8c-46.3 23.2-100.8 23.2-147.1 0-35.1-17.6-75.4-22-113.5-12.5L64 48z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.action.edit", "content.action.view", "navigation.footer", "content.code.annotate", "navigation.tabs", "navigation.tabs.sticky", "navigation.indexes", "content.tooltips", "navigation.expand", "navigation.indexes", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "Mais 1 nesta p\u00e1gina", "search.result.more.other": "Mais # nesta p\u00e1gina", "search.result.none": "Nenhum resultado encontrado", "search.result.one": "1 resultado encontrado", "search.result.other": "# resultados encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.f1b6f286.min.js"></script>
+      
+        <script src="../../assets/style.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@10.4.0/dist/mermaid.min.js"></script>
+      
+    
+  </body>
+</html>
