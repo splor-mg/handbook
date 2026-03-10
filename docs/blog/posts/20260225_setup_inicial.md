@@ -501,31 +501,45 @@ echo $GITHUB_USERNAME
 
 Esta variável só é definida enquanto o terminal estiver aberto. Se ele for fechado, esta etapa deve ser refeita.
 
-### 14.1 Configurar proxy
+### 14.1 Configurar protocolo ssh
 
-Novamente, deverá ser configurado o proxy para o GitHub CLI. Para isso, resgate execute os seguintes comandos:
+Abra o arquivo "~/.ssh/config" no seu diretório pessoal com o nano:
 
 ```bash
-git config --global http.proxy PROXY
+nano ~/.ssh/config
 ```
 
-```bash
-gh config set git_protocol https
+Adicione, no arquivo, as linhas a seguir:
+
+```
+Host github.com
+  HostName ssh.github.com
+  Port 443
+  User git
+  IdentitiesOnly yes
+  AddKeysToAgent yes
+  IdentityFile ~/.ssh/id_ed25519
+  IdentityFile ~/.ssh/id_rsa
 ```
 
-Faça login novamente com o comando:
+Feche o arquivo e execute o código:
 
-```bash
-gh auth login
+```
+ssh -T git@github.com
 ```
 
-Serão feitas algumas perguntas. Escolha: GitHub.com > HTTPS > Autenticação pela Web.
+**Obs.**: ao tentar autenticar no GitHub utilizando o CLI `gh` pode aparecer o erro:
 
-Essa solução irá funcionar momentaneamente. Caso você reinicie o terminal, será necessário configurar novamente. Para evitar isso, adicionalmente, pode-se definir globalmente para forçar qualquer URL SSH virar HTTPS, com os comandos abaixo:
+```
+could not prompt: Incorrect function.
+You appear to be running in MinTTY without pseudo terminal support.
+To learn about workarounds for this error, run:  gh help mintty
+```
 
-```bash
-git config --global url."https://github.com/".insteadOf ssh://git@github.com/
-git config --global url."https://github.com/".insteadOf git@github.com:
+Para isso, pode-se tentar utilizar o `winpty` antes do comando:
+
+```
+winpty gh auth login
 ```
 
 ### 14.2 Fork do repositório Dotfiles
@@ -610,6 +624,7 @@ Primeiro, caso queira voltar o diretório para a home (~), digite o comando:
 ```bash
 cd
 ```
+
 ### 16.2 Atualização do Python (Opcional)
 
 Caso queira também, confira a versão atual do Python com `python3 --version` e atualize os repositórios e os pacotes com os comandos a seguir:
@@ -640,7 +655,7 @@ sudo apt install -y pipx
 pipx ensurepath
 ```
 
-Abra um novo terminal e insira o *passphrase*, que será solicitado, ou aplique o PATH manualmente:
+Abra um novo terminal ou aplique o PATH manualmente:
 
 ```bash
 source ~/.bashrc
@@ -653,3 +668,12 @@ Por fim, instale o Poetry:
 ```bash
 pipx install poetry
 ```
+
+
+## 17. Conclusão
+
+Agora finalmente a sua máquina está configurada e você pode dar início aos seus trabalhos.
+
+Espero que tudo tenha dado certo até aqui, mas, caso tenha encontrado algum problema, você pode procurar as soluções na internet e nos nossos issues ou perguntar se algum membro da equipe já passou por isso.
+
+Desejo uma boa sorte na sua nova jornada!
