@@ -132,7 +132,7 @@ print(f"Chave do Gmail: {gmail_key}")
 
 Para testar o Script:
 
-- Clonar ou dar pull/fetch no repositório [dados-armazen-siaf-2025](github.com/splor-mg/dados-armazem-siafi-2025).
+- Clonar ou dar pull/fetch no repositório [dados-armazen-siaf-2025](https://github.com/splor-mg/dados-armazem-siafi-2025).
 - Acessar a `33_extract_python` (criada por mim durante o encontro).
 - Criar o arquivo `.env` localmente.
 - Solicitar ao Henrique a chave de e-mail (`GMAIL_R_KEY`) necessária para a extração.
