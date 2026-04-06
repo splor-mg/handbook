@@ -670,7 +670,43 @@ pipx install poetry
 ```
 
 
-## 17. Conclusão
+## 17. Ambiente virtual com o Poetry (bônus)
+
+Por padrão, o Poetry cria os ambientes virtuais em um diretório global (fora do projeto), como `~/.cache/pypoetry/virtualenvs/...`. Por isso, é necessário [configurar](https://python-poetry.org/docs/configuration/#virtualenvsin-project) para que todos os projetos Poetry criem .venv por padrão.
+
+No terminal Ubuntu, execute o comando abaixo e, caso queira consultar sua lista de configurações, execute `poetry config --list`.
+
+```bash
+poetry config virtualenvs.in-project true
+```
+
+Após isso, dentro de um repositório que possui o arquivo "pyproject.toml", execute:
+
+```bash
+poetry env activate
+source .venv/bin/activate
+```
+
+Ou apenas:
+
+```bash
+eval $(poetry env activate)
+```
+
+**Observação**: caso já haja um ambiente virtual criado para aquele repositório (e caso esteja em .cache), será necessário excluir a pasta antes de executar o comando anterior. Consulte esse caminho pelo comando `poetry env info --path`.
+
+Assim, execute o comando abaixo para que seja instalada todas as suas dependências dentro do seu novo ambiente virtual.
+
+```bash
+poetry install
+```
+
+Para sair, execute o comando `deactivate` e, para retornar, execute apenas `source .venv/bin/activate`.
+
+**Observação**: Dentro desse ambiente, não é necessário usar `poetry run` antes de todos os comandos.
+
+
+## 18. Conclusão
 
 Agora finalmente a sua máquina está configurada e você pode dar início aos seus trabalhos.
 
