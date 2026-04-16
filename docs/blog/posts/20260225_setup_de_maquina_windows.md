@@ -7,9 +7,9 @@ categories:
   - Treinamento
 ---
 
-# Setup da máquina
+# Setup de máquina Windows
 
-Neste treinamento, montamos um passo a passo com instruções para configurar a máquina, com base no [tutorial de setup do Le Wagon](https://github.com/lewagon/setup/blob/master/windows.pt.md).
+Neste treinamento, montamos um passo a passo com instruções de como realizar o setup de um computador Windows, com base no [tutorial de setup do Le Wagon](https://github.com/lewagon/setup/blob/master/windows.pt.md), utilizando [WSL](https://learn.microsoft.com/en-us/windows/wsl/faq).
 
 Você deve ter permissão de Administrador da máquina para conseguir realizar as instalações. Para isso, faça a solicitação conforme orientações "[Permissão para Gerenciar o Próprio Computador](https://cecad365.sharepoint.com/:u:/r/sites/cartadeservicos/SitePages/Administrador-Local-da-M%C3%A1quina.aspx?csf=1&web=1&e=1I6m5p)" da carta de serviços Subgef.
 
