@@ -54,7 +54,7 @@ Essas alterações são definidas a partir dos modelos (models) da aplicação.
         python manage.py migrate
         ```
 
-Quando é feita a instalação do Django, o banco de dados utilizado localmente é o SQLite. No entanto, o SQLite apresenta certas limitações e o próprio Django recomenda a utilização do PostgreSQL[^1]. Tal mudança, exige a configuração de um servidor, a instalação da ferramenta e, por fim, a configuração do projeto para conexão com a nova instância de banco de dados.
+Quando é feita a instalação do Django, o banco de dados utilizado localmente é o SQLite. No entanto, o SQLite apresenta certas limitações e o próprio Django recomenda a utilização do PostgreSQL[^1]. Tal mudança, exige a configuração de um servidor, a instalação da ferramenta e, por fim, a configuração do projeto para conexão com a nova instância de banco de dados. Tais etapas serão descritas a seguir.
 
 ## Servidor
 
@@ -65,6 +65,10 @@ No ambiente de produção, o banco de dados ficará hospedado em um servidor par
 A máquina virtual será contratada na Microsoft Azure, que é uma plataforma de computação em nuvem contratada pelo governo. Isso permite criar e gerenciar servidores de forma flexível, sem a necessidade de adquirir hardware físico. Com a Azure, é possível definir recursos como memória, processamento e armazenamento conforme a necessidade do projeto, além de configurar rede, segurança e acesso remoto. A equipe da AID possui acesso à plataforma Azure, por meio do seu assessor chefe, que é o responsável pela criação e configuração desta máquina.
 
 Dessa forma, o banco de dados PostgreSQL ficará instalado nessa máquina virtual, funcionando como um servidor acessível que receberá as requisições de alteração do banco de dados e consultas. Ou seja, após a criação da máquina será feita a instalação do PostgreSQL, a criação do banco de dados e a configuração de conexão com a aplicação responsável pelas migrações - tema que será tratado mais abaixo.
+
+??? Info "Definições da máquina"
+
+    O estudo para definição da máquina ideal para hospedagem do banco ainda será feito e pode ser acompanhado neste [issue](https://github.com/splor-mg/datamart/issues/4). Após tais definições, o processo será descrito nesse post.
 
 ### Passo a passo de acesso à máquina virtual
 
@@ -86,7 +90,7 @@ Dessa forma, o banco de dados PostgreSQL ficará instalado nessa máquina virtua
 
 ### Pulo do gato: Configurando o `~/.ssh/config` :black_cat:
 
-O arquivo ~/.ssh/config é um arquivo de configuração do cliente SSH. Ele permite definir parâmetros de conexão para servidores remotos, evitando a necessidade de informar todas as opções manualmente a cada acesso. Na prática, esse arquivo funciona como um “atalho configurado”. Em vez de executar um comando longo com várias opções, você define essas opções uma única vez no arquivo e depois acessa o servidor usando apenas um nome.
+O arquivo ~/.ssh/config é um arquivo de configuração do cliente SSH. Ele permite definir parâmetros de conexão para servidores remotos, evitando a necessidade de informar todas as opções manualmente a cada acesso. Na prática, esse arquivo funciona como um atalho configurado, em vez de executar um comando longo com várias opções, você define essas opções uma única vez no arquivo e depois acessa o servidor usando apenas um nome.
 
 #### Onde fica o arquivo
 
@@ -135,15 +139,15 @@ Host minha-vm
     ProxyCommand connect -H usuario@proxycamg.prodemge.gov.br:8080 %h %p
 ```
 
-O ProxyCommand define como a conexão SSH deve ser encaminhada através do proxy. Os parâmetros %h e %p representam, respectivamente, o host e a porta de destino. Quando a proxy é configurada, ao rodar o comando no terminal para acessar A vm, será solicitada a sua senha de rede - que no caso da  Cidade Administrativa é a mesma senha de login no computador.
+O ProxyCommand define como a conexão SSH deve ser encaminhada através do proxy. Os parâmetros `%h` e `%p` representam, respectivamente, o host e a porta de destino. Quando a proxy é configurada, ao rodar o comando no terminal para acessar a vm será solicitada a sua senha de rede, que é a mesma senha de login no computador no caso da Cidade Administrativa.
 
 ??? failure "UNPROTECTED PRIVATE KEY FILE"
 
-    O erro "UNPROTECTED PRIVATE KEY FILE Permissions 0644 ... are too open" significa que a sua chave `.pem` está com permissões muito abertas, e o SSH se recusa a usá-la por segurança.
+    Ao tentar acessar a vm, você pode encontrar o erro **"UNPROTECTED PRIVATE KEY FILE Permissions 0644 ... are too open"**. Ele significa que a sua chave `.pem` está com permissões muito abertas, e o SSH se recusa a usá-la por segurança.
 
-    Para resolver execute este comando no terminal (dentro da pasta onde está a chave):
+    Para resolver execute este comando no terminal **dentro da pasta onde está a chave**:
     ```zsh
-    chmod 400 Metabase_key.pem
+    chmod 400 <sua-chave>.pem
     ```
     Isso vai deixar a chave com permissão somente leitura para você, que é o exigido pelo SSH. Depois disso, tente novamente.
 
@@ -193,51 +197,56 @@ Diferente de soluções mais simples, como o SQLite, o PostgreSQL é projetado p
 
 Este guia descreve como instalar, configurar e preparar o banco de dados no servidor, evitando problemas de acesso como perda de autenticação.
 
-1. Instalar o PostgreSQL
+#### Passo 1: Instalar o PostgreSQL
 
 Considerando que a VM é uma máquina Ubuntu:
-
 ```zsh
 sudo apt update
 sudo apt install postgresql postgresql-contrib
 ```
-2. Acessar o PostgreSQL como administrador
-```zsh
+
+#### Passo 2: Acessar o PostgreSQL como administrador
+``` zsh
 sudo -u postgres psql
 ```
-3. Criar banco e usuário dentro do psql:
+
+#### Passo 3: Criar banco e usuário dentro do psql
 ```sql
 CREATE DATABASE datamart;
 CREATE USER meu_usuario WITH PASSWORD 'minha_senha';
 GRANT ALL PRIVILEGES ON DATABASE datamart TO meu_usuario;
 ```
-4. Definir senha para o usuário postgres ainda dentro do psql:
+
+#### Passo 4: Definir senha para o usuário postgres ainda dentro do psql
 ```sql
 ALTER USER postgres WITH PASSWORD 'senha_forte';
 ```
-- Isso evita perda de acesso ao alterar o método de autenticação.
+Isso evita perda de acesso ao alterar o método de autenticação.
 
-5. Saia com:
+#### Passo 5: Saia com
 ```zsh
 \q
 ```
-6. Localizar o arquivo de configuração de autenticação
+#### Passo 6: Localize o arquivo de configuração de autenticação
 ```zsh
 sudo -u postgres psql -c "SHOW hba_file;"
 ```
-Exemplo de saída:
-```zsh
-/etc/postgresql/14/main/pg_hba.conf
-```
+??? Info "Exemplo de saída"
 
-7. Editar o arquivo `pg_hba.conf`
+    ```zsh
+    /etc/postgresql/14/main/pg_hba.conf
+    ```
+
+#### Passo 7: Editar o arquivo `pg_hba.conf`
+
+Configuração recomendada pois evita bloqueio de acesso.
+
+1. Acesse o arquivo: 
 ```zsh
 sudo nano /etc/postgresql/14/main/pg_hba.conf
 ```
 
-7. Configuração recomendada (evita bloqueio de acesso)
-
-Substitua ou ajuste as linhas locais para o seguinte:
+2. Substitua ou ajuste as linhas locais para o seguinte:
 ```
 # Permite acesso administrativo sem senha via sistema
 local   all             postgres                                peer
@@ -250,33 +259,42 @@ host    all             all             127.0.0.1/32            scram-sha-256
 host    all             all             ::1/128                 scram-sha-256
 
 ```
-- Essa configuração é importante porque mantém acesso administrativo com `sudo -u postgres psql` e evita bloqueio total ao exigir senha apenas para outros usuários. Além disso, permite conexão segura para aplicações, como Django.
+Essa configuração é importante porque mantém acesso administrativo com `sudo -u postgres psql` e evita bloqueio total ao exigir senha apenas para outros usuários. Além disso, permite conexão segura para aplicações, como Django.
 
-Salvar e reiniciar o PostgreSQL
+#### Passo 8: Salvar e reiniciar o PostgreSQL
+```zsh
 sudo systemctl restart postgresql
+```
 
-Testar acesso
-Acesso administrativo:
+#### Passo 9: Testar acesso
+
+- Acesso administrativo:
+```zsh
 sudo -u postgres psql
-
-Acesso com usuário e senha:
+```
+- Acesso com usuário e senha:
+```zsh
 psql -h localhost -U meu_usuario -d datamart -W
-(Opcional) Permitir acesso externo
+```
+#### Passo 10: (Opcional) Permitir acesso externo
 
 Se for necessário acessar o banco fora da VM:
 
-Editar postgresql.conf:
+- Editar postgresql.conf:
+```zsh
 sudo nano /etc/postgresql/*/main/postgresql.conf
-
-Alterar:
-
+```
+- Alterar:
+```
 listen_addresses = '*'
 Adicionar no pg_hba.conf:
 host    all    all    0.0.0.0/0    scram-sha-256
-Reiniciar:
+```
+- Reiniciar:
+```zsh
 sudo systemctl restart postgresql
-Liberar porta na nuvem
-
+```
+- Liberar porta na nuvem
 No painel da Microsoft Azure, liberar a porta 5432 apenas para IPs confiáveis.
 
 
