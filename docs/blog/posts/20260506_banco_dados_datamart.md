@@ -1,7 +1,7 @@
 ---
 date: 2026-05-06
 authors: [raianecardoso]
-draft: true
+draft: false
 comments: true
 categories:
   - Datamart
@@ -9,7 +9,7 @@ categories:
 
 #  Banco de Dados do projeto Datamart
 
-O projeto Datamart da SPLOR tem como objetivo organizar e unificar os dados orçamentários de Minas Gerais, que hoje estão dispersos em diversos repositórios, em um único banco de dados com o histórico orçamentário desde 2002, chamado **Datamart**.
+O [projeto Datamart](https://splor-mg.github.io/handbook/linha_do_tempo/datamart/) da SPLOR tem como objetivo organizar e unificar os dados orçamentários de Minas Gerais, que hoje estão dispersos em diversos repositórios, em um único banco de dados com o histórico orçamentário desde 2002, chamado **Datamart**. 
 
 <!-- more -->
 
@@ -23,7 +23,7 @@ O [Django](https://www.djangoproject.com/) é um framework escrito em Python, ut
 
 Para este projeto específico, uma das principais funcionalidades do Django é o seu sistema de _ORM (Object-Relational Mapping)_, que permite trabalhar com o banco de dados utilizando código Python, sem a necessidade de escrever SQL diretamente na maior parte do tempo. Além disso, o Django é responsável por criar e manter a estrutura do banco de dados utilizando um sistema chamado _migrations_.
 
-As _migrations_ são arquivos que descrevem alterações na estrutura do banco, como:
+As _migrations_ são arquivos que descrevem alterações na estrutura do banco ao longo do tempo, como:
 
 - criação de tabelas
 - alteração de colunas
@@ -54,7 +54,7 @@ Essas alterações são definidas a partir dos modelos (models) da aplicação.
         python manage.py migrate
         ```
 
-Quando é feita a instalação do Django, o banco de dados utilizado localmente é o SQLite. No entanto, o SQLite apresenta certas limitações e o próprio Django recomenda a utilização do PostgreSQL[^1]. Tal mudança, exige a configuração de um servidor, a instalação da ferramenta e, por fim, a configuração do projeto para conexão com a nova instância de banco de dados. Tais etapas serão descritas a seguir.
+Quando é feita a instalação do Django, o banco de dados utilizado localmente é o SQLite. No entanto, o SQLite apresenta certas limitações e o próprio Django recomenda a utilização do PostgreSQL[^1]. Tal mudança, para o ambiente de produção, exige a configuração de um servidor, a instalação da ferramenta e, por fim, a configuração do projeto para conexão com a nova instância de banco de dados. Estas etapas serão descritas a seguir.
 
 ## Servidor
 
@@ -85,7 +85,7 @@ Dessa forma, o banco de dados PostgreSQL ficará instalado nessa máquina virtua
 === "Exemplo"
 
     ``` zsh
-    ssh -i ~/Downloads/minha-chave.pem metabase_ssh_key@4.201.194.246
+    ssh -i ~/Downloads/minha-chave.pem metabase_ssh_key@192.168.1.45
     ```
 
 ### Pulo do gato: Configurando o `~/.ssh/config` :black_cat:
@@ -105,7 +105,7 @@ Se o arquivo não existir, ele pode ser criado manualmente.
 Cada servidor é definido por um bloco que começa com Host. Exemplo:
 ``` zsh
 Host minha-vm
-    HostName 4.201.194.246
+    HostName 192.168.1.45
     User metabase_ssh_key
     IdentityFile ~/.ssh/Metabase_key.pem
 ```
@@ -120,7 +120,7 @@ O que significa cada campo:
 
 - Sem o arquivo de configuração:
 ``` zsh
-ssh -i ~/.ssh/Metabase_key.pem metabase_ssh_key@4.201.194.246
+ssh -i ~/.ssh/Metabase_key.pem metabase_ssh_key@192.168.1.45
 ```
 
 - Com o config:
@@ -130,13 +130,14 @@ ssh minha-vm
 
 ### Uso de proxy (ambiente corporativo)
 
-Em redes corporativas, o acesso externo pode exigir um proxy. Nesse caso, adiciona-se a diretiva ProxyCommand:
+Em redes corporativas, o acesso externo pode exigir a utilização de um endereço de proxy autenticada[^2]. Nesse caso, adiciona-se a diretiva ProxyCommand:
+
 ``` zsh
 Host minha-vm
-    HostName 4.201.194.246
+    HostName 192.168.1.45
     User metabase_ssh_key
     IdentityFile ~/.ssh/Metabase_key.pem
-    ProxyCommand connect -H usuario@proxycamg.prodemge.gov.br:8080 %h %p
+    ProxyCommand connect -H <endereço_proxy_autenticada> %h %p
 ```
 
 O ProxyCommand define como a conexão SSH deve ser encaminhada através do proxy. Os parâmetros `%h` e `%p` representam, respectivamente, o host e a porta de destino. Quando a proxy é configurada, ao rodar o comando no terminal para acessar a vm será solicitada a sua senha de rede, que é a mesma senha de login no computador no caso da Cidade Administrativa.
@@ -182,14 +183,22 @@ Diferente de soluções mais simples, como o SQLite, o PostgreSQL é projetado p
 
     - Após instalar, abra o terminal:
         - `psql -U postgres`
-    - Se pedir senha, use a que você definiu.
+    - Se pedir senha, use a que você definiu durante o processo de instalação.
     - Agora execute:
-        - `CREATE DATABASE meu_banco`
-        - `CREATE USER meu_usuario WITH PASSWORD 'minha_senha'`
-        - `ALTER ROLE meu_usuario SET client_encoding TO 'utf8'`
-        - `ALTER ROLE meu_usuario SET default_transaction_isolation TO 'read committed'`
-        - `ALTER ROLE meu_usuario SET timezone TO 'UTC'`
-        - `GRANT ALL PRIVILEGES ON DATABASE meu_banco TO meu_usuario`
+            ```sql
+            -- Cria um novo banco de dados chamado "meu_banco"
+            CREATE DATABASE meu_banco;
+            -- Cria um novo usuário chamado "meu_usuario" com senha de acesso
+            CREATE USER meu_usuario WITH PASSWORD 'minha_senha';
+            -- Define a codificação padrão do usuário como UTF-8
+            ALTER ROLE meu_usuario SET client_encoding TO 'utf8';
+            -- Define o nível padrão de isolamento de transações
+            ALTER ROLE meu_usuario SET default_transaction_isolation TO 'read committed';
+            -- Define o fuso horário padrão das conexões do usuário como UTC
+            ALTER ROLE meu_usuario SET timezone TO 'UTC';
+            -- Concede ao usuário todas as permissões sobre o banco criado
+            GRANT ALL PRIVILEGES ON DATABASE meu_banco TO meu_usuario;
+            ```
     - Saia com:
         - `\q`
 
@@ -300,3 +309,4 @@ No painel da Microsoft Azure, liberar a porta 5432 apenas para IPs confiáveis.
 
 ___
 [^1]: Ver [Migrations](https://docs.djangoproject.com/en/6.0/topics/migrations/#module-django.db.migrations).
+[^2]: As informações de proxy autenticada, ou não, da Cidade Administrativa estão disponíveis no [Bitwarden](https://splor-mg.github.io/handbook/gestao_splor/governanca/bitwarden_cofre_senhas/?h=bit#recursos-adicionais), que é o gestor de credenciais da Assessoria de Inteligência de Dados.
