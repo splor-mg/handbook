@@ -1,3 +1,4 @@
+
 # Painéis
 
 > **AID-SPLOR/SEPLAG**
@@ -38,11 +39,11 @@
                    : Adicionar dados de outras variáveis orçamentárias ao repo
     ```
 
-??? info "Projeto no Github — Gestão à Vista"
+??? info "Links úteis"
 
-    Acesse o painel do projeto no GitHub:
+    Acesse os Issues do projeto no GitHub:
 
-    [ Acessar Painel ](https://github.com/orgs/splor-mg/projects/13/views/15?sliceBy%5Bvalue%5D=Paineis){ .md-button }
+    [ Acessar Issues ](https://github.com/orgs/splor-mg/projects/13/views/15?sliceBy%5Bvalue%5D=Paineis){ .md-button }
 
 ??? success "Ganhos Esperados"
 

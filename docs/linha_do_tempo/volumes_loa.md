@@ -1,3 +1,4 @@
+
 # Volumes LOA
 
 > **AID-SPLOR/SEPLAG**
@@ -40,11 +41,15 @@
                    : Configuração do Dockerhub
     ```
 
-??? info "Projeto no Github — Gestão à Vista"
+??? info "Links úteis"
 
-    Acesse o painel do projeto no GitHub:
+    Acesse os Issues do projeto no GitHub:
 
-    [ Acessar Painel ](https://github.com/orgs/splor-mg/projects/13/views/15?sliceBy%5Bvalue%5D=Volumes+LOA){ .md-button }
+    [ Acessar Issues ](https://github.com/orgs/splor-mg/projects/13/views/15?sliceBy%5Bvalue%5D=Volumes+LOA){ .md-button }
+
+    Posts sobre o Projeto Volumes LOA:
+
+    [ Acessar Posts ]( https://splor-mg.github.io/handbook/blog/category/volumes-loa){ .md-button }
 
 ??? success "Ganhos Esperados"
 
