@@ -12,4 +12,12 @@ Além disso, a linha do tempo é um recurso valioso para a comunicação com as 
 
 A construção rotineira dessas linhas do tempo, para além dos ganhos já destacados, contribui para o aprimoramento da **documentação dos projetos**, permitindo a preservação do conhecimento institucional e a continuidade das iniciativas. Esse processo, consigo, impulsiona a **gestão do conhecimento,** viabilizando análises mais assertivas e promovendo um ambiente de **aprendizado contínuo**.
 
+## Projetos
+
+- [Projeto Dados Abertos MG](../linha_do_tempo/projeto_dados_abertos_mg/)
+- [DataMart](../linha_do_tempo/datamart/)
+- [Painéis](../linha_do_tempo/paineis/)
+- [Volumes LOA](../linha_do_tempo/volumes_loa/)
+- [Feed Legislativo](../linha_do_tempo/feed_legislativo/)
+
 [^1]: Criado com auxílio de [Mermaid timelines](https://mermaid.js.org/syntax/timeline.html).

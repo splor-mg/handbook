@@ -1,3 +1,4 @@
+
 # Datamart
 
 > **AID-SPLOR/SEPLAG**
@@ -46,11 +47,15 @@
                    : Qualidade e validação dos dados
     ```
 
-??? info "Projeto no Github — Gestão à Vista"
+??? info "Links úteis"
 
     Acesse o painel do projeto no GitHub:
 
     [ Acessar Painel ](https://github.com/orgs/splor-mg/projects/13/views/28){ .md-button }
+
+    Posts sobre o Projeto Datamart:
+
+    [ Acessar Posts ]( https://splor-mg.github.io/handbook/blog/category/datamart){ .md-button }
 
 ??? success "Ganhos Esperados"
 
