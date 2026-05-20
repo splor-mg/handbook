@@ -12,8 +12,8 @@
 
 !!! abstract "Descrição"
 
-    O projeto Capacitações reúne iniciativas voltadas para a formação tecnológica de pessoas que, embora não sejam da área de TI, lidam cotidianamente com processos, informações e desafios que podem ser melhor enfrentados com o apoio de ferramentas digitais. A principal iniciativa é o Trilha Dev, um ecossistema de aprendizagem criado pela Splor-MG com uma proposta direta: tornar a tecnologia mais acessível, prática e conectada ao dia a dia de trabalho, partindo do princípio de que não é preciso ser desenvolvedor para se beneficiar dela. 
-    O curso está disponível a todos que queiram aprimorar seus conhecimentos, sendo possível propor melhorias e compartilhar experiências ao longo do percurso. Nesse sentido, o projeto segue aberto a novas frentes conforme as necessidades e oportunidades que surgirem.
+    O projeto Capacitações reúne iniciativas voltadas para a formação tecnológica de pessoas que, embora não sejam da área de TI, lidam cotidianamente com processos, informações e desafios que podem ser melhor enfrentados com o apoio de ferramentas digitais. A principal iniciativa é o [Trilha Dev](https://trilhadev.planejamento.mg.gov.br/main/), um ecossistema de aprendizagem criado pela Splor-MG com uma proposta direta: tornar a tecnologia mais acessível, prática e conectada ao dia a dia de trabalho, partindo do princípio de que não é preciso ser desenvolvedor para se beneficiar dela.
+    Os cursos estão disponíveis a todos que queiram aprimorar seus conhecimentos, sendo possível propor melhorias e compartilhar experiências ao longo do percurso. Nesse sentido, o projeto segue aberto a novas frentes conforme as necessidades e oportunidades que surgirem.
 
 ??? tip "Objetivos"
 
@@ -28,19 +28,22 @@
     ```mermaid
     timeline
     title Linha do Tempo — Capacitações
-    Maio - Outubro 2025 : Estruturação do curso Trilha-Dev
-                        : Treinamento DCPPN
-                        : Primeira Turma - Início da Jornada
-                        : 8 Encontros + Certificações
-    Novembro - Dezembro 2025 : Trilha-dev Python 2ª turma
-                             : Início Trilha-dev Python
-                             : Início da curadoria de exercícios
-    Janeiro 2026 : Inclusão de vídeos e documentação - Conteúdo básico Python
-    Fevereiro 2026 : Inclusão de vídeos e documentação - Estruturas de controle e coleções
-    Maio 2026 : Inclusão de vídeos e documentação - Módulos e pacotes Python
-    Próximos Passos : Estruturar e documentar o conteúdo restante do Trilha-dev Python
-                    : Desenvolver script para emissão de certificados
-                    : Criar Trilha-dev dados abertos
+    Maio - Julho 2025   : Estruturação do curso Início da Jornada
+                        : Gravações
+    Agosto - Outubro 2025: Trilha-dev Início da Jornada
+                             : Primeira Turma - Início da Jornada
+                             : Encontros síncronos semanais
+                             : Documentação dos Encontros
+    Novembro - Dezembro 2025 : Certificação
+                             : Desenvolvimento de projetos por equipe
+    Janeiro - Março 2026 : Estruturação do curso Python
+                         : Gravação de conteúdo
+                         : Seleção de exercícios
+    Abril - Maio 2026 : Trilha - dev Python
+                      : Primeira Turma - Início da Jornada
+                      : Encontros síncronos semanais
+                      : Documentação dos Encontros
+    Próximos Passos : Selecionar projetos setoriais para automatizar
     ```
 
 ??? info "Links úteis"
@@ -48,9 +51,9 @@
     Acesse o painel do projeto no GitHub:
 
     [ Acessar Issues ](https://github.com/orgs/splor-mg/projects/13/views/15?sliceBy%5Bvalue%5D=Capacita%C3%A7%C3%B5es){ .md-button }
-    
+
     Acesse a página do Trilha Dev:
-    
+
     [ Acessar o Trilha Dev ](https://trilhadev.planejamento.mg.gov.br/main/){ .md-button }
 
 ??? success "Ganhos Esperados"
