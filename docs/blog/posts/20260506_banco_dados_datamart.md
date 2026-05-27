@@ -56,17 +56,59 @@ Essas alterações são definidas a partir dos [models](https://docs.djangoproje
 
 ### A organização dos dados da Splor
 
-A proposta é que o Datamart seja um [banco de dados relacional](https://aws.amazon.com/pt/rds/what-is-a-relational-database/?trk=faq_card), cujo os esquemas e relacionamentos entre os dados estejam predefinidos, neste caso, nos models. Assim, como tarefa inicial, foi necessário definir como organizar e compatibilizar os dados da splor, atualmente distribuídos em datapackages para os models do Django.
+A proposta é que o Datamart seja um [banco de dados relacional](https://aws.amazon.com/pt/rds/what-is-a-relational-database/?trk=faq_card), cujo os esquemas e relacionamentos entre os dados estejam predefinidos, neste caso, nos models do Django. Assim, como tarefa inicial, foi necessário definir como organizar e compatibilizar os dados da Splor, atualmente distribuídos em _datapackages_ para a estrutura  do Django.
 
-Cada datapackage corresponde à um conjunto de dados, como [dados_siafi](https://github.com/splor-mg/dados-armazem-siafi/blob/main/datapackage.yaml), [dados_aux_classificadores](https://github.com/splor-mg/dados-orcamentarios/blob/main/datapackages/dados_aux_classificadores/datapackage.yaml), [dados_reestimativa](https://github.com/splor-mg/dados-reestimativa/blob/main/datapackage.yaml), os quais, por sua vez, possuem tabelas específicas relacionadas entre si.
+Cada _datapackage_ corresponde à um conjunto de dados, como [dados_siafi](https://github.com/splor-mg/dados-armazem-siafi/blob/main/datapackage.yaml), [dados_aux_classificadores](https://github.com/splor-mg/dados-orcamentarios/blob/main/datapackages/dados_aux_classificadores/datapackage.yaml), [dados_reestimativa](https://github.com/splor-mg/dados-reestimativa/blob/main/datapackage.yaml), os quais, por sua vez, possuem tabelas específicas relacionadas entre si.
 
-Para transportar esse lógica para Django definiu-se que o [projeto Django](https://docs.djangoproject.com/pt-br/6.0/glossary/#term-project) seria o Datamart e que cada datapackage seria um app do projeto Datamart. Assim, cada app possui a seu model, que, por sua vez, definee descreve as tabelas. 
+Para transportar esse lógica para Django, definiu-se que o [projeto Django](https://docs.djangoproject.com/pt-br/6.0/glossary/#term-project) seria o Datamart e que cada _datapackage_ seria um app do projeto Datamart. Assim, cada app possui a seu model, que, por sua vez, define e descreve as tabelas.
 
 ??? question "Projeto vs. App"
 
     __Qual a diferença entre um projeto e um app no Django?__ __Um app__ é uma aplicação web que executa algo, por exemplo: um sistema de blog, uma base de dados de registros públicos ou uma pequena aplicação de enquete. __Um projeto__ é uma coleção de configurações e apps para um website específico. Um projeto pode conter múltiplos apps. Um app pode estar em múltiplos projetos.
 
-Quando é feita a instalação do Django, o banco de dados utilizado localmente é o SQLite. No entanto, o SQLite apresenta certas limitações e o próprio Django recomenda a utilização do PostgreSQL[^1]. Tal mudança, para o ambiente de produção, exige a configuração de um servidor, a instalação da ferramenta e, por fim, a configuração do projeto para conexão com a nova instância de banco de dados. Estas etapas serão descritas nas seções seguir.
+Assim, temos:
+
+```
+Projeto: datamat
+
+App: dados_siafi
+- Receita
+- Despesa
+- UO
+
+App: dados_classificador
+- Acao
+- ElementoItem
+- UO
+```
+??? note "Veja no projeto"
+
+    (inserir imagem)
+
+O Django, seguindo o fluxo de criação dos arquivos de migração e de aplicação dessa migração ao banco dade dados, cria as tabelas assim:
+```
+dados_siafi_receita
+dados_siafi_despesa
+dados_siafi_uo
+
+dados_classificador_acao
+dados_classificador_elementoitem
+dados_classificador_uo
+```
+Ou seja:
+```
+<nome_da_app>_<nome_do_model>
+```
+Então, neste exemplo, existem duas tabelas diferentes para UO:
+```
+dados_siafi_uo
+dados_classificador_uo
+```
+Mesmo tendo o mesmo nome de model (UO), elas são independentes, o que irá ajudar a manter a integridade dos dados.
+
+Quanto ao banco de dados, é importante destacar que quando é feita a instalação do Django, por padrâo, também é feita a instalação local da instância de banco de dados SQLite. No entanto, o SQLite apresenta certas limitações e o próprio Django recomenda a utilização do PostgreSQL[^1] em projetos mais robustos em produção.
+
+Tal mudança, para o ambiente de produção, exige a configuração de um servidor, a instalação da ferramenta PostgreSQL e, por fim, a configuração do projeto para conexão com a nova instância de banco de dados. Estas etapas serão descritas nas seções seguir.
 
 ## Servidor
 
