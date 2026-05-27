@@ -83,7 +83,8 @@ App: dados_classificador
 ```
 ??? note "Veja no projeto"
 
-    (inserir imagem)
+    <img width="1540" height="1028" alt="django" src="https://github.com/user-attachments/assets/eb4b7d6f-b8b5-469f-9cf6-27b60a298d0a" />
+
 
 O Django, seguindo o fluxo de criação dos arquivos de migração e de aplicação dessa migração ao banco dade dados, cria as tabelas assim:
 ```
