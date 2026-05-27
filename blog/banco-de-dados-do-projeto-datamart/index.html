@@ -2264,6 +2264,21 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Construção do banco com o Django">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-organizacao-dos-dados-da-splor" class="md-nav__link">
+    <span class="md-ellipsis">
+      A organização dos dados da Splor
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -2313,17 +2328,17 @@
   
 </li>
         
-      </ul>
-    </nav>
-  
-</li>
-        
           <li class="md-nav__item">
   <a href="#como-isso-simplifica-o-acesso" class="md-nav__link">
     <span class="md-ellipsis">
       Como isso simplifica o acesso
     </span>
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -2539,7 +2554,7 @@
                           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20a8 8 0 0 0 8-8 8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8m0-18a10 10 0 0 1 10 10 10 10 0 0 1-10 10C6.47 22 2 17.5 2 12A10 10 0 0 1 12 2m.5 5v5.25l4.5 2.67-.75 1.23L11 13V7z"/></svg>
                           <span class="md-ellipsis">
                             
-                              8 min de leitura
+                              9 min de leitura
                             
                           </span>
                         </div>
@@ -2580,25 +2595,25 @@
 
 
 <div><h1 id="banco-de-dados-do-projeto-datamart">Banco de Dados do projeto Datamart<a class="headerlink" href="#banco-de-dados-do-projeto-datamart" title="Permanent link">⚓︎</a></h1>
-<p>O <a href="https://splor-mg.github.io/handbook/linha_do_tempo/datamart/">projeto Datamart</a> da SPLOR tem como objetivo organizar e unificar os dados orçamentários de Minas Gerais, que hoje estão dispersos em diversos repositórios, em um único banco de dados com o histórico orçamentário desde 2002, chamado <strong>Datamart</strong>. </p>
+<p>O <a href="https://splor-mg.github.io/handbook/linha_do_tempo/datamart/">projeto Datamart</a> da SPLOR tem como objetivo organizar e unificar os dados orçamentários de Minas Gerais, que hoje estão dispersos em diversos repositórios, em um único banco de dados com o histórico orçamentário desde 2002, chamado <strong>Datamart</strong>.</p>
 <!-- more -->
 
 <p>A ideia é que, além de padronizar os processos de extração e consolidação destes dados, esse projeto possa oferecer uma ferramenta de consulta self-service de acesso aos dados do banco de forma direta, confiável e sem depender de intermediários técnicos.</p>
 <p>Neste post, iremos documentar o processo decisório e o passo a passo de construção do banco de dados de produção.</p>
 <h2 id="construcao-do-banco-com-o-django">Construção do banco com o Django<a class="headerlink" href="#construcao-do-banco-com-o-django" title="Permanent link">⚓︎</a></h2>
-<p>O <a href="https://www.djangoproject.com/">Django</a> é um framework escrito em Python, utilizado, principalmente para o desenvolvimento de aplicações web. Um das grandes vantagens de utilizar o Django é que ele fornece uma estrutura pronta para lidar com rotas, autenticação, formulários e, principalmente, integração com banco de dados, o que torna o desenvolvimento rápido e seguro.</p>
+<p>O <a href="https://www.djangoproject.com/">Django</a> é um framework escrito em Python, utilizado principalmente para o desenvolvimento de aplicações web. Uma das grandes vantagens de utilizar o Django é que ele fornece uma estrutura pronta para lidar com rotas, autenticação, formulários e, em especial, integração com banco de dados, o que torna o desenvolvimento rápido e seguro.</p>
 <p>Para este projeto específico, uma das principais funcionalidades do Django é o seu sistema de <em>ORM (Object-Relational Mapping)</em>, que permite trabalhar com o banco de dados utilizando código Python, sem a necessidade de escrever SQL diretamente na maior parte do tempo. Além disso, o Django é responsável por criar e manter a estrutura do banco de dados utilizando um sistema chamado <em>migrations</em>.</p>
 <p>As <em>migrations</em> são arquivos que descrevem alterações na estrutura do banco ao longo do tempo, como:</p>
 <ul>
-<li>criação de tabelas</li>
-<li>alteração de colunas</li>
-<li>remoção de campos</li>
-<li>criação de relacionamentos entre tabelas</li>
+<li>Criação de tabelas.</li>
+<li>Alteração de colunas.</li>
+<li>Remoção de campos.</li>
+<li>Criação de relacionamentos entre tabelas.</li>
 </ul>
-<p>Essas alterações são definidas a partir dos modelos (models) da aplicação.</p>
+<p>Essas alterações são definidas a partir dos <a href="https://docs.djangoproject.com/en/6.0/topics/db/models/">models</a> de cada aplicação.</p>
 <div class="admonition fluxo">
 <p class="admonition-title">Fluxo</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked id="definição-dos-modelos" name="__tabbed_1" type="radio"><input id="criação-das-migrations" name="__tabbed_1" type="radio"><input id="aplicação-das-migrations" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="definição-dos-modelos">Definição dos modelos</label><label for="criação-das-migrations">Criação das migrations</label><label for="aplicação-das-migrations">Aplicação das migrations</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked id="definição-dos-models" name="__tabbed_1" type="radio"><input id="criação-das-migrations" name="__tabbed_1" type="radio"><input id="aplicação-das-migrations" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="definição-dos-models">Definição dos models</label><label for="criação-das-migrations">Criação das migrations</label><label for="aplicação-das-migrations">Aplicação das migrations</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>As tabelas do banco são descritas em Python, dentro do arquivo <code>models.py</code>
@@ -2608,7 +2623,7 @@
 </span></code></pre></div>
 </div>
 <div class="tabbed-block">
-<p>Quando há mudanças nos modelos, o Django gera um arquivo de migration com o comando:
+<p>Quando há mudanças nos models, o Django gera um arquivo de migration com o comando:
 </p><div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">python</span> <span class="n">manage</span><span class="o">.</span><span class="n">py</span> <span class="n">makemigrations</span>
 </span></code></pre></div>
 </div>
@@ -2620,7 +2635,46 @@
 </div>
 </div>
 </div>
-<p>Quando é feita a instalação do Django, o banco de dados utilizado localmente é o SQLite. No entanto, o SQLite apresenta certas limitações e o próprio Django recomenda a utilização do PostgreSQL<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>. Tal mudança, para o ambiente de produção, exige a configuração de um servidor, a instalação da ferramenta e, por fim, a configuração do projeto para conexão com a nova instância de banco de dados. Estas etapas serão descritas a seguir.</p>
+<h3 id="a-organizacao-dos-dados-da-splor">A organização dos dados da Splor<a class="headerlink" href="#a-organizacao-dos-dados-da-splor" title="Permanent link">⚓︎</a></h3>
+<p>A proposta é que o Datamart seja um <a href="https://aws.amazon.com/pt/rds/what-is-a-relational-database/?trk=faq_card">banco de dados relacional</a>, cujo os esquemas e relacionamentos entre os dados estejam predefinidos, neste caso, nos models do Django. Assim, como tarefa inicial, foi necessário definir como organizar e compatibilizar os dados da Splor, atualmente distribuídos em <em>datapackages</em> para a estrutura  do Django.</p>
+<p>Cada <em>datapackage</em> corresponde à um conjunto de dados, como <a href="https://github.com/splor-mg/dados-armazem-siafi/blob/main/datapackage.yaml">dados_siafi</a>, <a href="https://github.com/splor-mg/dados-orcamentarios/blob/main/datapackages/dados_aux_classificadores/datapackage.yaml">dados_aux_classificadores</a>, <a href="https://github.com/splor-mg/dados-reestimativa/blob/main/datapackage.yaml">dados_reestimativa</a>, os quais, por sua vez, possuem tabelas específicas relacionadas entre si.</p>
+<p>Para transportar esse lógica para Django, definiu-se que o <a href="https://docs.djangoproject.com/pt-br/6.0/glossary/#term-project">projeto Django</a> seria o Datamart e que cada <em>datapackage</em> seria um app do projeto Datamart. Assim, cada app possui a seu model, que, por sua vez, define e descreve as tabelas.</p>
+<details class="question">
+<summary>Projeto vs. App</summary>
+<p><strong>Qual a diferença entre um projeto e um app no Django?</strong> <strong>Um app</strong> é uma aplicação web que executa algo, por exemplo: um sistema de blog, uma base de dados de registros públicos ou uma pequena aplicação de enquete. <strong>Um projeto</strong> é uma coleção de configurações e apps para um website específico. Um projeto pode conter múltiplos apps. Um app pode estar em múltiplos projetos.</p>
+</details>
+<p>Assim, temos:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Projeto: datamat
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>App: dados_siafi
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>- Receita
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>- Despesa
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>- UO
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>App: dados_classificador
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>- Acao
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>- ElementoItem
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>- UO
+</span></code></pre></div>
+<p>O Django, seguindo o fluxo de criação dos arquivos de migração e de aplicação dessa migração ao banco dade dados, cria as tabelas assim:
+</p><div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>dados_siafi_receita
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>dados_siafi_despesa
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>dados_siafi_uo
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>dados_classificador_acao
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>dados_classificador_elementoitem
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>dados_classificador_uo
+</span></code></pre></div>
+Ou seja:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>&lt;nome_da_app&gt;_&lt;nome_do_model&gt;
+</span></code></pre></div>
+Então, neste exemplo, existem duas tabelas diferentes para UO:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>dados_siafi_uo
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>dados_classificador_uo
+</span></code></pre></div>
+Mesmo tendo o mesmo nome de model (UO), elas são independentes, o que irá ajudar a manter a integridade dos dados.
+<p>Quanto ao banco de dados, é importante destacar que quando é feita a instalação do Django, por padrâo, também é feita a instalação local da instância de banco de dados SQLite. No entanto, o SQLite apresenta certas limitações e o próprio Django recomenda a utilização do PostgreSQL<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> em projetos mais robustos em produção.</p>
+<p>Tal mudança, para o ambiente de produção, exige a configuração de um servidor, a instalação da ferramenta PostgreSQL e, por fim, a configuração do projeto para conexão com a nova instância de banco de dados. Estas etapas serão descritas nas seções seguir.</p>
 <h2 id="servidor">Servidor<a class="headerlink" href="#servidor" title="Permanent link">⚓︎</a></h2>
 <p>Um servidor é um computador configurado para fornecer serviços, dados ou aplicações para outros computadores através de uma rede. Diferente de um computador pessoal, ele é projetado para ficar disponível continuamente, respondendo a requisições de clientes, como aplicações web ou sistemas que precisam acessar um banco de dados.</p>
 <p>No ambiente de produção, o banco de dados ficará hospedado em um servidor para garantir disponibilidade, segurança e acesso remoto controlado. Neste projeto, esse servidor não é uma máquina física dedicada, é uma máquina virtual, que é um computador criado por software dentro da infraestrutura de um provedor de nuvem.</p>
@@ -2639,11 +2693,11 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked id="comando" name="__tabbed_2" type="radio"><input id="exemplo" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="comando">Comando</label><label for="exemplo">Exemplo</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="language-zsh highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>ssh<span class="w"> </span>-i<span class="w"> </span>caminho/para/sua-chave.pem<span class="w"> </span>usuario@ip-do-servidor
+<div class="language-zsh highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>ssh<span class="w"> </span>-i<span class="w"> </span>caminho/para/sua-chave.pem<span class="w"> </span>usuario@ip-do-servidor
 </span></code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="language-zsh highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>ssh<span class="w"> </span>-i<span class="w"> </span>~/Downloads/minha-chave.pem<span class="w"> </span>metabase_ssh_key@192.168.1.45
+<div class="language-zsh highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>ssh<span class="w"> </span>-i<span class="w"> </span>~/Downloads/minha-chave.pem<span class="w"> </span>metabase_ssh_key@192.168.1.45
 </span></code></pre></div>
 </div>
 </div>
@@ -2659,10 +2713,10 @@
 <p>Se o arquivo não existir, ele pode ser criado manualmente.</p>
 <h4 id="estrutura-do-arquivo">Estrutura do arquivo<a class="headerlink" href="#estrutura-do-arquivo" title="Permanent link">⚓︎</a></h4>
 <p>Cada servidor é definido por um bloco que começa com Host. Exemplo:
-</p><div class="language-zsh highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>Host<span class="w"> </span>minha-vm
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">    </span>HostName<span class="w"> </span><span class="m">192</span>.168.1.45
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span>User<span class="w"> </span>metabase_ssh_key
-</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">    </span>IdentityFile<span class="w"> </span>~/.ssh/Metabase_key.pem
+</p><div class="language-zsh highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>Host<span class="w"> </span>minha-vm
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">    </span>HostName<span class="w"> </span><span class="m">192</span>.168.1.45
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">    </span>User<span class="w"> </span>metabase_ssh_key
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">    </span>IdentityFile<span class="w"> </span>~/.ssh/Metabase_key.pem
 </span></code></pre></div>
 O que significa cada campo:
 <ul>
@@ -2671,33 +2725,33 @@ O que significa cada campo:
 <li><strong>User</strong>: usuário utilizado para autenticação na máquina remota.</li>
 <li><strong>IdentityFile</strong>: caminho para o arquivo <code>.pem</code> (chave privada usada no acesso).</li>
 </ul>
-<h3 id="como-isso-simplifica-o-acesso">Como isso simplifica o acesso<a class="headerlink" href="#como-isso-simplifica-o-acesso" title="Permanent link">⚓︎</a></h3>
+<h4 id="como-isso-simplifica-o-acesso">Como isso simplifica o acesso<a class="headerlink" href="#como-isso-simplifica-o-acesso" title="Permanent link">⚓︎</a></h4>
 <ul>
 <li>
 <p>Sem o arquivo de configuração:
-</p><div class="language-zsh highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>ssh<span class="w"> </span>-i<span class="w"> </span>~/.ssh/Metabase_key.pem<span class="w"> </span>metabase_ssh_key@192.168.1.45
+</p><div class="language-zsh highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>ssh<span class="w"> </span>-i<span class="w"> </span>~/.ssh/Metabase_key.pem<span class="w"> </span>metabase_ssh_key@192.168.1.45
 </span></code></pre></div>
 </li>
 <li>
 <p>Com o config:
-</p><div class="language-zsh highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>ssh<span class="w"> </span>minha-vm
+</p><div class="language-zsh highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>ssh<span class="w"> </span>minha-vm
 </span></code></pre></div>
 </li>
 </ul>
 <h3 id="uso-de-proxy-ambiente-corporativo">Uso de proxy (ambiente corporativo)<a class="headerlink" href="#uso-de-proxy-ambiente-corporativo" title="Permanent link">⚓︎</a></h3>
 <p>Em redes corporativas, o acesso externo pode exigir a utilização de um endereço de proxy autenticada<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>. Nesse caso, adiciona-se a diretiva ProxyCommand:</p>
-<div class="language-zsh highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>Host<span class="w"> </span>minha-vm
-</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">    </span>HostName<span class="w"> </span><span class="m">192</span>.168.1.45
-</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">    </span>User<span class="w"> </span>metabase_ssh_key
-</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">    </span>IdentityFile<span class="w"> </span>~/.ssh/Metabase_key.pem
-</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">    </span>ProxyCommand<span class="w"> </span>connect<span class="w"> </span>-H<span class="w"> </span>&lt;endereço_proxy_autenticada&gt;<span class="w"> </span>%h<span class="w"> </span>%p
+<div class="language-zsh highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>Host<span class="w"> </span>minha-vm
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="w">    </span>HostName<span class="w"> </span><span class="m">192</span>.168.1.45
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">    </span>User<span class="w"> </span>metabase_ssh_key
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="w">    </span>IdentityFile<span class="w"> </span>~/.ssh/Metabase_key.pem
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="w">    </span>ProxyCommand<span class="w"> </span>connect<span class="w"> </span>-H<span class="w"> </span>&lt;endereço_proxy_autenticada&gt;<span class="w"> </span>%h<span class="w"> </span>%p
 </span></code></pre></div>
 <p>O ProxyCommand define como a conexão SSH deve ser encaminhada através do proxy. Os parâmetros <code>%h</code> e <code>%p</code> representam, respectivamente, o host e a porta de destino. Quando a proxy é configurada, ao rodar o comando no terminal para acessar a vm será solicitada a sua senha de rede, que é a mesma senha de login no computador no caso da Cidade Administrativa.</p>
 <details class="failure">
 <summary>UNPROTECTED PRIVATE KEY FILE</summary>
 <p>Ao tentar acessar a vm, você pode encontrar o erro <strong>"UNPROTECTED PRIVATE KEY FILE Permissions 0644 ... are too open"</strong>. Ele significa que a sua chave <code>.pem</code> está com permissões muito abertas, e o SSH se recusa a usá-la por segurança.</p>
 <p>Para resolver execute este comando no terminal <strong>dentro da pasta onde está a chave</strong>:
-</p><div class="language-zsh highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>chmod<span class="w"> </span><span class="m">400</span><span class="w"> </span>&lt;sua-chave&gt;.pem
+</p><div class="language-zsh highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>chmod<span class="w"> </span><span class="m">400</span><span class="w"> </span>&lt;sua-chave&gt;.pem
 </span></code></pre></div>
 Isso vai deixar a chave com permissão somente leitura para você, que é o exigido pelo SSH. Depois disso, tente novamente.
 </details>
@@ -2719,12 +2773,12 @@ Isso vai deixar a chave com permissão somente leitura para você, que é o exig
 </ul>
 </li>
 <li><strong>Mac (Homebrew)</strong>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>  brew install postgresql
-</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>  brew services start postgresql
+<div class="language-text highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>  brew install postgresql
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>  brew services start postgresql
 </span></code></pre></div></li>
 <li><strong>Linux (Ubuntu/Debian)</strong>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>    sudo apt update
-</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>    sudo apt install postgresql postgresql-contrib
+<div class="language-text highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>    sudo apt update
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>    sudo apt install postgresql postgresql-contrib
 </span></code></pre></div></li>
 </ul>
 </details>
@@ -2737,18 +2791,18 @@ Isso vai deixar a chave com permissão somente leitura para você, que é o exig
 </li>
 <li>Se pedir senha, use a que você definiu durante o processo de instalação.</li>
 <li>Agora execute:
-        <div class="language-sql highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c1">-- Cria um novo banco de dados chamado "meu_banco"</span>
-</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">DATABASE</span><span class="w"> </span><span class="n">meu_banco</span><span class="p">;</span>
-</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="c1">-- Cria um novo usuário chamado "meu_usuario" com senha de acesso</span>
-</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">USER</span><span class="w"> </span><span class="n">meu_usuario</span><span class="w"> </span><span class="k">WITH</span><span class="w"> </span><span class="n">PASSWORD</span><span class="w"> </span><span class="s1">'minha_senha'</span><span class="p">;</span>
-</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="c1">-- Define a codificação padrão do usuário como UTF-8</span>
-</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="k">ALTER</span><span class="w"> </span><span class="k">ROLE</span><span class="w"> </span><span class="n">meu_usuario</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">client_encoding</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="s1">'utf8'</span><span class="p">;</span>
-</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="c1">-- Define o nível padrão de isolamento de transações</span>
-</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="k">ALTER</span><span class="w"> </span><span class="k">ROLE</span><span class="w"> </span><span class="n">meu_usuario</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">default_transaction_isolation</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="s1">'read committed'</span><span class="p">;</span>
-</span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="c1">-- Define o fuso horário padrão das conexões do usuário como UTC</span>
-</span><span id="__span-12-10"><a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a><span class="k">ALTER</span><span class="w"> </span><span class="k">ROLE</span><span class="w"> </span><span class="n">meu_usuario</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">timezone</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="s1">'UTC'</span><span class="p">;</span>
-</span><span id="__span-12-11"><a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a><span class="c1">-- Concede ao usuário todas as permissões sobre o banco criado</span>
-</span><span id="__span-12-12"><a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a><span class="k">GRANT</span><span class="w"> </span><span class="k">ALL</span><span class="w"> </span><span class="k">PRIVILEGES</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="k">DATABASE</span><span class="w"> </span><span class="n">meu_banco</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="n">meu_usuario</span><span class="p">;</span>
+        <div class="language-sql highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="c1">-- Cria um novo banco de dados chamado "meu_banco"</span>
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">DATABASE</span><span class="w"> </span><span class="n">meu_banco</span><span class="p">;</span>
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="c1">-- Cria um novo usuário chamado "meu_usuario" com senha de acesso</span>
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">USER</span><span class="w"> </span><span class="n">meu_usuario</span><span class="w"> </span><span class="k">WITH</span><span class="w"> </span><span class="n">PASSWORD</span><span class="w"> </span><span class="s1">'minha_senha'</span><span class="p">;</span>
+</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="c1">-- Define a codificação padrão do usuário como UTF-8</span>
+</span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="k">ALTER</span><span class="w"> </span><span class="k">ROLE</span><span class="w"> </span><span class="n">meu_usuario</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">client_encoding</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="s1">'utf8'</span><span class="p">;</span>
+</span><span id="__span-16-7"><a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a><span class="c1">-- Define o nível padrão de isolamento de transações</span>
+</span><span id="__span-16-8"><a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a><span class="k">ALTER</span><span class="w"> </span><span class="k">ROLE</span><span class="w"> </span><span class="n">meu_usuario</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">default_transaction_isolation</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="s1">'read committed'</span><span class="p">;</span>
+</span><span id="__span-16-9"><a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a><span class="c1">-- Define o fuso horário padrão das conexões do usuário como UTC</span>
+</span><span id="__span-16-10"><a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a><span class="k">ALTER</span><span class="w"> </span><span class="k">ROLE</span><span class="w"> </span><span class="n">meu_usuario</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">timezone</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="s1">'UTC'</span><span class="p">;</span>
+</span><span id="__span-16-11"><a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a><span class="c1">-- Concede ao usuário todas as permissões sobre o banco criado</span>
+</span><span id="__span-16-12"><a id="__codelineno-16-12" name="__codelineno-16-12" href="#__codelineno-16-12"></a><span class="k">GRANT</span><span class="w"> </span><span class="k">ALL</span><span class="w"> </span><span class="k">PRIVILEGES</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="k">DATABASE</span><span class="w"> </span><span class="n">meu_banco</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="n">meu_usuario</span><span class="p">;</span>
 </span></code></pre></div></li>
 <li>Saia com:<ul>
 <li><code>\q</code></li>
@@ -2760,80 +2814,80 @@ Isso vai deixar a chave com permissão somente leitura para você, que é o exig
 <p>Este guia descreve como instalar, configurar e preparar o banco de dados no servidor, evitando problemas de acesso como perda de autenticação.</p>
 <h4 id="passo-1-instalar-o-postgresql">Passo 1: Instalar o PostgreSQL<a class="headerlink" href="#passo-1-instalar-o-postgresql" title="Permanent link">⚓︎</a></h4>
 <p>Considerando que a VM é uma máquina Ubuntu:
-</p><div class="language-zsh highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>update
-</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>postgresql<span class="w"> </span>postgresql-contrib
+</p><div class="language-zsh highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>update
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>postgresql<span class="w"> </span>postgresql-contrib
 </span></code></pre></div>
 <h4 id="passo-2-acessar-o-postgresql-como-administrador">Passo 2: Acessar o PostgreSQL como administrador<a class="headerlink" href="#passo-2-acessar-o-postgresql-como-administrador" title="Permanent link">⚓︎</a></h4>
-<div class="language-zsh highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>sudo<span class="w"> </span>-u<span class="w"> </span>postgres<span class="w"> </span>psql
+<div class="language-zsh highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>sudo<span class="w"> </span>-u<span class="w"> </span>postgres<span class="w"> </span>psql
 </span></code></pre></div>
 <h4 id="passo-3-criar-banco-e-usuario-dentro-do-psql">Passo 3: Criar banco e usuário dentro do psql<a class="headerlink" href="#passo-3-criar-banco-e-usuario-dentro-do-psql" title="Permanent link">⚓︎</a></h4>
-<div class="language-sql highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">DATABASE</span><span class="w"> </span><span class="n">datamart</span><span class="p">;</span>
-</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">USER</span><span class="w"> </span><span class="n">meu_usuario</span><span class="w"> </span><span class="k">WITH</span><span class="w"> </span><span class="n">PASSWORD</span><span class="w"> </span><span class="s1">'minha_senha'</span><span class="p">;</span>
-</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="k">GRANT</span><span class="w"> </span><span class="k">ALL</span><span class="w"> </span><span class="k">PRIVILEGES</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="k">DATABASE</span><span class="w"> </span><span class="n">datamart</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="n">meu_usuario</span><span class="p">;</span>
+<div class="language-sql highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">DATABASE</span><span class="w"> </span><span class="n">datamart</span><span class="p">;</span>
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">USER</span><span class="w"> </span><span class="n">meu_usuario</span><span class="w"> </span><span class="k">WITH</span><span class="w"> </span><span class="n">PASSWORD</span><span class="w"> </span><span class="s1">'minha_senha'</span><span class="p">;</span>
+</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="k">GRANT</span><span class="w"> </span><span class="k">ALL</span><span class="w"> </span><span class="k">PRIVILEGES</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="k">DATABASE</span><span class="w"> </span><span class="n">datamart</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="n">meu_usuario</span><span class="p">;</span>
 </span></code></pre></div>
 <h4 id="passo-4-definir-senha-para-o-usuario-postgres-ainda-dentro-do-psql">Passo 4: Definir senha para o usuário postgres ainda dentro do psql<a class="headerlink" href="#passo-4-definir-senha-para-o-usuario-postgres-ainda-dentro-do-psql" title="Permanent link">⚓︎</a></h4>
-<p></p><div class="language-sql highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="k">ALTER</span><span class="w"> </span><span class="k">USER</span><span class="w"> </span><span class="n">postgres</span><span class="w"> </span><span class="k">WITH</span><span class="w"> </span><span class="n">PASSWORD</span><span class="w"> </span><span class="s1">'senha_forte'</span><span class="p">;</span>
+<p></p><div class="language-sql highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="k">ALTER</span><span class="w"> </span><span class="k">USER</span><span class="w"> </span><span class="n">postgres</span><span class="w"> </span><span class="k">WITH</span><span class="w"> </span><span class="n">PASSWORD</span><span class="w"> </span><span class="s1">'senha_forte'</span><span class="p">;</span>
 </span></code></pre></div>
 Isso evita perda de acesso ao alterar o método de autenticação.
 <h4 id="passo-5-saia-com">Passo 5: Saia com<a class="headerlink" href="#passo-5-saia-com" title="Permanent link">⚓︎</a></h4>
-<div class="language-zsh highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="se">\q</span>
+<div class="language-zsh highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="se">\q</span>
 </span></code></pre></div>
 <h4 id="passo-6-localize-o-arquivo-de-configuracao-de-autenticacao">Passo 6: Localize o arquivo de configuração de autenticação<a class="headerlink" href="#passo-6-localize-o-arquivo-de-configuracao-de-autenticacao" title="Permanent link">⚓︎</a></h4>
-<div class="language-zsh highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>sudo<span class="w"> </span>-u<span class="w"> </span>postgres<span class="w"> </span>psql<span class="w"> </span>-c<span class="w"> </span><span class="s2">"SHOW hba_file;"</span>
+<div class="language-zsh highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>sudo<span class="w"> </span>-u<span class="w"> </span>postgres<span class="w"> </span>psql<span class="w"> </span>-c<span class="w"> </span><span class="s2">"SHOW hba_file;"</span>
 </span></code></pre></div>
 <details class="info">
 <summary>Exemplo de saída</summary>
-<div class="language-zsh highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>/etc/postgresql/14/main/pg_hba.conf
+<div class="language-zsh highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>/etc/postgresql/14/main/pg_hba.conf
 </span></code></pre></div>
 </details>
 <h4 id="passo-7-editar-o-arquivo-pg_hbaconf">Passo 7: Editar o arquivo <code>pg_hba.conf</code><a class="headerlink" href="#passo-7-editar-o-arquivo-pg_hbaconf" title="Permanent link">⚓︎</a></h4>
 <p>Configuração recomendada pois evita bloqueio de acesso.</p>
 <ol>
 <li>
-<p>Acesse o arquivo: 
-</p><div class="language-zsh highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>sudo<span class="w"> </span>nano<span class="w"> </span>/etc/postgresql/14/main/pg_hba.conf
+<p>Acesse o arquivo:
+</p><div class="language-zsh highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>sudo<span class="w"> </span>nano<span class="w"> </span>/etc/postgresql/14/main/pg_hba.conf
 </span></code></pre></div>
 </li>
 <li>
 <p>Substitua ou ajuste as linhas locais para o seguinte:
-</p><div class="language-text highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a># Permite acesso administrativo sem senha via sistema
-</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>local   all             postgres                                peer
-</span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>
-</span><span id="__span-21-4"><a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a># Exige senha para outros usuários locais (Django, apps)
-</span><span id="__span-21-5"><a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a>local   all             all                                     scram-sha-256
-</span><span id="__span-21-6"><a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a>
-</span><span id="__span-21-7"><a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a># Conexões via TCP (localhost)
-</span><span id="__span-21-8"><a id="__codelineno-21-8" name="__codelineno-21-8" href="#__codelineno-21-8"></a>host    all             all             127.0.0.1/32            scram-sha-256
-</span><span id="__span-21-9"><a id="__codelineno-21-9" name="__codelineno-21-9" href="#__codelineno-21-9"></a>host    all             all             ::1/128                 scram-sha-256
+</p><div class="language-text highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a># Permite acesso administrativo sem senha via sistema
+</span><span id="__span-25-2"><a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a>local   all             postgres                                peer
+</span><span id="__span-25-3"><a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a>
+</span><span id="__span-25-4"><a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a># Exige senha para outros usuários locais (Django, apps)
+</span><span id="__span-25-5"><a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a>local   all             all                                     scram-sha-256
+</span><span id="__span-25-6"><a id="__codelineno-25-6" name="__codelineno-25-6" href="#__codelineno-25-6"></a>
+</span><span id="__span-25-7"><a id="__codelineno-25-7" name="__codelineno-25-7" href="#__codelineno-25-7"></a># Conexões via TCP (localhost)
+</span><span id="__span-25-8"><a id="__codelineno-25-8" name="__codelineno-25-8" href="#__codelineno-25-8"></a>host    all             all             127.0.0.1/32            scram-sha-256
+</span><span id="__span-25-9"><a id="__codelineno-25-9" name="__codelineno-25-9" href="#__codelineno-25-9"></a>host    all             all             ::1/128                 scram-sha-256
 </span></code></pre></div>
 Essa configuração é importante porque mantém acesso administrativo com <code>sudo -u postgres psql</code> e evita bloqueio total ao exigir senha apenas para outros usuários. Além disso, permite conexão segura para aplicações, como Django.
 </li>
 </ol>
 <h4 id="passo-8-salvar-e-reiniciar-o-postgresql">Passo 8: Salvar e reiniciar o PostgreSQL<a class="headerlink" href="#passo-8-salvar-e-reiniciar-o-postgresql" title="Permanent link">⚓︎</a></h4>
-<div class="language-zsh highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>postgresql
+<div class="language-zsh highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>postgresql
 </span></code></pre></div>
 <h4 id="passo-9-testar-acesso">Passo 9: Testar acesso<a class="headerlink" href="#passo-9-testar-acesso" title="Permanent link">⚓︎</a></h4>
 <ul>
 <li>Acesso administrativo:
-<div class="language-zsh highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>sudo<span class="w"> </span>-u<span class="w"> </span>postgres<span class="w"> </span>psql
+<div class="language-zsh highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>sudo<span class="w"> </span>-u<span class="w"> </span>postgres<span class="w"> </span>psql
 </span></code></pre></div></li>
 <li>Acesso com usuário e senha:
-<div class="language-zsh highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>psql<span class="w"> </span>-h<span class="w"> </span>localhost<span class="w"> </span>-U<span class="w"> </span>meu_usuario<span class="w"> </span>-d<span class="w"> </span>datamart<span class="w"> </span>-W
+<div class="language-zsh highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>psql<span class="w"> </span>-h<span class="w"> </span>localhost<span class="w"> </span>-U<span class="w"> </span>meu_usuario<span class="w"> </span>-d<span class="w"> </span>datamart<span class="w"> </span>-W
 </span></code></pre></div></li>
 </ul>
 <h4 id="passo-10-opcional-permitir-acesso-externo">Passo 10: (Opcional) Permitir acesso externo<a class="headerlink" href="#passo-10-opcional-permitir-acesso-externo" title="Permanent link">⚓︎</a></h4>
 <p>Se for necessário acessar o banco fora da VM:</p>
 <ul>
 <li>Editar postgresql.conf:
-<div class="language-zsh highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>sudo<span class="w"> </span>nano<span class="w"> </span>/etc/postgresql/*/main/postgresql.conf
+<div class="language-zsh highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>sudo<span class="w"> </span>nano<span class="w"> </span>/etc/postgresql/*/main/postgresql.conf
 </span></code></pre></div></li>
 <li>Alterar:
-<div class="language-text highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>listen_addresses = '*'
-</span><span id="__span-26-2"><a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a>Adicionar no pg_hba.conf:
-</span><span id="__span-26-3"><a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a>host    all    all    0.0.0.0/0    scram-sha-256
+<div class="language-text highlight"><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>listen_addresses = '*'
+</span><span id="__span-30-2"><a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a>Adicionar no pg_hba.conf:
+</span><span id="__span-30-3"><a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a>host    all    all    0.0.0.0/0    scram-sha-256
 </span></code></pre></div></li>
 <li>Reiniciar:
-<div class="language-zsh highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>postgresql
+<div class="language-zsh highlight"><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>postgresql
 </span></code></pre></div></li>
 <li>Liberar porta na nuvem
 No painel da Microsoft Azure, liberar a porta 5432 apenas para IPs confiáveis.</li>
@@ -2872,7 +2926,7 @@ No painel da Microsoft Azure, liberar a porta 5432 apenas para IPs confiáveis.<
     <span class="md-icon" title="Última atualização">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">11 de maio de 2026 18:00:28</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">27 de maio de 2026 15:02:13</span>
   </span>
 
     

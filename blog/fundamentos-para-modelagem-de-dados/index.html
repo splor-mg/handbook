@@ -2624,11 +2624,11 @@ Identificar e corrigir problemas, preenchendo lacunas no modelo.</p>
 </ul>
 </div>
 <div class="tabbed-block">
-<div class="mermaid">erDiagram
+<pre class="mermaid"><code>erDiagram
     FUNCIONARIO ||--o{ DEPENDENTE : "possui"
     PEDIDO ||--o{ ITEM_PEDIDO : "contém"
     ALUNO ||--o{ NOTA : "recebe"
-    DISCIPLINA ||--o{ NOTA : "avalia"</div>
+    DISCIPLINA ||--o{ NOTA : "avalia"</code></pre>
 </div>
 </div>
 </div>
@@ -2856,12 +2856,12 @@ Identificar e corrigir problemas, preenchendo lacunas no modelo.</p>
 <li><code>|</code> (linha vertical com barra) = um ou muitos (1..*)</li>
 </ul>
 <p><strong>Exemplo prático - Sistema Acadêmico:</strong></p>
-<div class="mermaid">erDiagram
+<pre class="mermaid"><code>erDiagram
     DEPARTAMENTO ||--o{ PROFESSOR : "pertence a"
     PROFESSOR ||--o{ AULA : "ministra"
     AULA ||--o{ ALUNO : "matriculado em"
     DEPARTAMENTO ||--o{ AULA : "oferece"
-    AULA ||--|| SALA : "ocorre em"</div>
+    AULA ||--|| SALA : "ocorre em"</code></pre>
 <p><strong>Explicação dos relacionamentos:</strong></p>
 <ul>
 <li><strong>DEPARTAMENTO ||--o{ PROFESSOR</strong>: Um departamento pode ter zero ou muitos professores, e um professor pertence a exatamente um departamento</li>
@@ -2901,13 +2901,13 @@ Identificar e corrigir problemas, preenchendo lacunas no modelo.</p>
 </span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>(1,1)           (1,1)
 </span></code></pre></div>
 <p><strong>Exemplo prático - Sistema de E-commerce:</strong></p>
-<div class="mermaid">erDiagram
+<pre class="mermaid"><code>erDiagram
     CLIENTE ||--o{ PEDIDO : "faz"
     PEDIDO ||--|| CARRINHO : "contém"
     PEDIDO ||--o{ ITEM_PEDIDO : "inclui"
     PRODUTO ||--o{ ITEM_PEDIDO : "vendido em"
     CATEGORIA ||--o{ PRODUTO : "classifica"
-    CLIENTE ||--o{ ENDERECO : "possui"</div>
+    CLIENTE ||--o{ ENDERECO : "possui"</code></pre>
 <p><strong>Explicação dos relacionamentos:</strong>
 - <strong>CLIENTE ||--o{ PEDIDO</strong>: Um cliente pode fazer zero ou muitos pedidos, e um pedido pertence a exatamente um cliente
 - <strong>PEDIDO ||--|| CARRINHO</strong>: Um pedido contém exatamente um carrinho, e um carrinho pertence a exatamente um pedido
@@ -3028,10 +3028,10 @@ Identificar e corrigir problemas, preenchendo lacunas no modelo.</p>
 - <strong>PROFESSOR</strong> ensina <strong>AULA</strong> em <strong>SALA</strong>
 - A pergunta "Qual professor ensina qual aula?" não é suficiente
 - Precisamos saber <strong>também</strong> "em qual sala" para ter a informação completa</p>
-<div class="mermaid">erDiagram
+<pre class="mermaid"><code>erDiagram
     PROFESSOR ||--o{ AULA_PROFESSOR_SALA : "ministra em"
     SALA ||--o{ AULA_PROFESSOR_SALA : "local de"
-    AULA ||--o{ AULA_PROFESSOR_SALA : "ocorre com"</div>
+    AULA ||--o{ AULA_PROFESSOR_SALA : "ocorre com"</code></pre>
 </details>
 <details class="info">
 <summary>Outros exemplos</summary>

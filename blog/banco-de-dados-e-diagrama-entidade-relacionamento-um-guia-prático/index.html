@@ -2492,7 +2492,7 @@ Falar que a relação é a representação de uma regra de negócio, não sendo,
 <div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked id="der" name="__tabbed_1" type="radio"><input id="tabelas" name="__tabbed_1" type="radio"><input id="resultado-da-consulta" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="der">DER</label><label for="tabelas">Tabelas</label><label for="resultado-da-consulta">Resultado da Consulta</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="mermaid">erDiagram
+<pre class="mermaid"><code>erDiagram
     FUNCIONARIO {
         int id
         string nome_pessoa
@@ -2502,7 +2502,7 @@ Falar que a relação é a representação de uma regra de negócio, não sendo,
         string nome_cargo
         int funcionario_id
     }
-    FUNCIONARIO ||--|| CARGO : "ocupa"</div>
+    FUNCIONARIO ||--|| CARGO : "ocupa"</code></pre>
 </div>
 <div class="tabbed-block">
 <table>
@@ -2619,14 +2619,14 @@ Como sabemos, em um casamento monogâmico, uma pessoa só pode ser casada com um
 <div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked id="der_1" name="__tabbed_2" type="radio"><input id="tabela" name="__tabbed_2" type="radio"><input id="resultado-da-consulta_1" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="der_1">DER</label><label for="tabela">Tabela</label><label for="resultado-da-consulta_1">Resultado da Consulta</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="mermaid">erDiagram
+<pre class="mermaid"><code>erDiagram
     PESSOA {
         int id
         string cpf
         string nome
         int conjuge_id
     }
-    PESSOA ||--|| PESSOA : "id = conjuge_id"</div>
+    PESSOA ||--|| PESSOA : "id = conjuge_id"</code></pre>
 </div>
 <div class="tabbed-block">
 <table>
@@ -2730,7 +2730,7 @@ Isso evita duplicação de informações, já que o relacionamento é bidirecion
 <div class="tabbed-set tabbed-alternate" data-tabs="3:3"><input checked id="der_2" name="__tabbed_3" type="radio"><input id="tabelas_1" name="__tabbed_3" type="radio"><input id="resultado-da-consulta_2" name="__tabbed_3" type="radio"><div class="tabbed-labels"><label for="der_2">DER</label><label for="tabelas_1">Tabelas</label><label for="resultado-da-consulta_2">Resultado da Consulta</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="mermaid">erDiagram
+<pre class="mermaid"><code>erDiagram
     MAE {
         int id
         string nome
@@ -2742,7 +2742,7 @@ Isso evita duplicação de informações, já que o relacionamento é bidirecion
         string cpf
         int mae_id
     }
-    MAE ||--o{ FILHO : "id = mae_id"</div>
+    MAE ||--o{ FILHO : "id = mae_id"</code></pre>
 </div>
 <div class="tabbed-block">
 <table>
@@ -2896,7 +2896,7 @@ Este tipo de relacionamento é mais complexo e geralmente requer uma tabela inte
 <div class="tabbed-set tabbed-alternate" data-tabs="4:3"><input checked id="der_3" name="__tabbed_4" type="radio"><input id="tabelas_2" name="__tabbed_4" type="radio"><input id="resultado-da-consulta_3" name="__tabbed_4" type="radio"><div class="tabbed-labels"><label for="der_3">DER</label><label for="tabelas_2">Tabelas</label><label for="resultado-da-consulta_3">Resultado da Consulta</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="mermaid">erDiagram
+<pre class="mermaid"><code>erDiagram
     ALUNO {
         int id
         string nome
@@ -2914,7 +2914,7 @@ Este tipo de relacionamento é mais complexo e geralmente requer uma tabela inte
         date data_matricula
     }
     ALUNO ||--o{ MATRICULA : "id = aluno_id"
-    DISCIPLINA ||--o{ MATRICULA : "id = disciplina_id"</div>
+    DISCIPLINA ||--o{ MATRICULA : "id = disciplina_id"</code></pre>
 </div>
 <div class="tabbed-block">
 <table>
