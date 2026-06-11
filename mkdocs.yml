@@ -34,6 +34,8 @@ nav:
     - Repositórios:
       - gestao_splor/repositorios/nomenclaturas.md
       - gestao_splor/repositorios/publico_privado.md
+    - Infraestrutura Azure:
+      - gestao_splor/azure/nomenclatura_azure.md
     - Atividades (Issues):
       - gestao_splor/issues/labels.md
       - gestao_splor/issues/tipos.md
