@@ -14,11 +14,11 @@ A construção rotineira dessas linhas do tempo, para além dos ganhos já desta
 
 ## Projetos
 
-- [DataMart](../linha_do_tempo/datamart/)
-- [Capacitações](../linha_do_tempo/capacitacoes/)
-- [Painéis](../linha_do_tempo/paineis/)
-- [Volumes LOA](../linha_do_tempo/volumes_loa/)
-- [Feed Legislativo](../linha_do_tempo/feed_legislativo/)
-- [Projeto Dados Abertos MG](../linha_do_tempo/projeto_dados_abertos_mg/)
+- [DataMart](datamart.md)
+- [Capacitações](capacitacoes.md)
+- [Painéis](paineis.md)
+- [Volumes LOA](volumes_loa.md)
+- [Feed Legislativo](feed_legislativo.md)
+- [Projeto Dados Abertos MG](projeto_dados_abertos_mg.md)
 
 [^1]: Criado com auxílio de [Mermaid timelines](https://mermaid.js.org/syntax/timeline.html).
