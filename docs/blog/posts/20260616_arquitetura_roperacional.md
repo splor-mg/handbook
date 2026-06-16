@@ -11,6 +11,132 @@ categories:
 
 #  Arquitetura Analítica por trás do Relatório Operacional
 
-Incluir texto.
+A equipe da Splor-MG conta com o **painel relatório operacional** (roperacional) para realizar suas análises em nível gerencial. Este painel agrupa relatórios, a partir de dados históricos e atualizados, dos principais fluxos orçamentários do estado existentes no armazém de informações, universos SIAFI e SIAD, e da reestimativa de receitas e despesas, em diferentes níveis de agregação[^1].
+
+Atualmente, a construção deste painel se baseia em códigos da linguagem R e na ferramenta de visualização [QlikView](https://www.qlik.com/us/products/qlikview)[^2]. Considerando a descontinuidade da ferramenta do Qlik e a padronização dos processos de ETL utilizando a linguagem Python, a ideia deste post é consolidar alguns dos conceitos arquiteturais da construção do relatório operacional, bem como descrever o processo de reconstrução desse painel a partir dessas mudanças programadas.
 
 <!-- more -->
+
+## Contexto Conceitual
+
+Para compreensão dos conceitos e técnicas aplicadas nesse processo, é preciso entender que estes fazem parte da área de conhecimento de Modelagem de Dados[^3], que é uma subárea de Banco de Dados dentro da Ciência de Dados, Engenharia de Dados e Business Intelligence (BI).
+```
+Computação / Sistemas de Informação
+        │
+        └── Banco de Dados
+              │
+              ├── Modelagem de Dados
+              │     ├── Modelo Relacional
+              │     ├── Normalização
+              │     └── Modelagem Dimensional
+              │            ├── Tabelas Fato
+              │            ├── Tabelas Dimensão
+              │            ├── Star Schema
+              │            └── Snowflake Schema
+              │
+              ├── Data Warehouse
+              ├── Data Mart
+              ├── Business Intelligence (BI)
+              └── Engenharia de Dados
+```
+Não é nosso objetivo esgotar os conceitos, entretanto se faz mister o nivelamento do tópico _Modelagem Dimensional_ de maneira contextualizada à Splor.
+
+### Modelagem Dimensional
+
+A modelagem dimensional é uma técnica de modelagem de dados criada especificamente para ambientes analíticos. E, foi, portanto, escolhida como técnica para a construção do roperacional[^1].
+
+Esta técnica organiza os dados em duas categorias: _fatos_ e _dimensões_. Os fatos são implementados por meio de tabelas fato e as dimensões por meio de tabelas dimensão. A ideia central é separar o evento que aconteceu do contexto que explica esse evento. Por exemplo, para responder à pergunta _Quanto foi gasto por unidade orçamentária em cada mês_ temos o fato, que é o gasto, e as informações que descrevem esse gasto, que são as dimensões (unidade orçamentária, elemento de despesa, ação, etc).
+
+```
+                 Tempo
+                   |
+                   |
+Unidade --- Execução Orçamentária --- Ação
+                   |
+                   |
+            Elemento de Despesa
+```
+#### Tabelas fato vs. Tabela Dimensão
+
+A tabela fato armazena os eventos de negócio e suas métricas numéricas, enquanto a tabela dimensão armazena os atributos descritivos. No contexto da Splor, os fatos correspondem aos eventos orçamentários e financeiros registrados nos sistemas corporativos, como execução orçamentária, arrecadação de receitas, concessão de créditos, distribuição de cotas e registros de restos a pagar.
+
+A título de exemplo, vejamos o datapackage [dados-armazem-siafi](https://github.com/splor-mg/dados-armazem-siafi) como modelo para identificarmos e diferenciarmos as tabelas fato e tabelas dimensão. Este datapackage reúne o conjunto de dados relacionados ao Siafi, cuja estrutura pode ser lida no arquivo [datapackage.json](https://github.com/splor-mg/dados-armazem-siafi-2026/blob/main/datapackage.json), ou, esquematicamente:
+
+```
+dados-armazem-siafi
+
+├── execucao.csv
+├── credito.csv
+├── cota.csv
+├── receita.csv
+├── alteracoes_orcamentarias.csv
+├── restos_pagar.csv
+└── restos_pagar_folha.csv
+```
+Cada um desses recursos ou tabelas está descrito nos [schemas do repositório](https://github.com/splor-mg/dados-armazem-siafi-2026/tree/main/schemas). Isto é, cada field representa uma coluna da respectiva tabela. Veja o [receita.yaml](https://github.com/splor-mg/dados-armazem-siafi-2026/blob/main/schemas/receita.yaml):
+
+```
+  fields:
+      - name: Ano de Exercício
+        type: integer
+        target: ano
+      - name: Mês - Numérico
+        type: integer
+        target: mes_cod
+      - name: Unidade Orçamentária - Código
+        type: integer
+        target: uo_cod
+      - name: Fonte Recurso - Código
+        type: integer
+        target: fonte_cod
+      - name: Classificação Receita - Código
+        type: integer
+        target: receita_cod
+      - name: Classificação Receita - Formatado
+        type: string
+        target: receita_cod_formatado
+      - name: Valor Previsto Inicial
+        type: number
+        target: vlr_previsto_inicial
+        decimalChar: ','
+      - name: Valor Previsto Adicional
+        type: number
+        target: vlr_previsto_adicional
+        decimalChar: ','
+      - name: Valor Previsto Atualizado
+        type: number
+        target: vlr_previsto_atualizado
+        decimalChar: ','
+      - name: Valor Contabilizado
+        type: number
+        target: vlr_contabilizado
+        decimalChar: ','
+      - name: Valor Efetivado Ajustado
+        type: number
+        target: vlr_efetivado_ajustado
+        decimalChar: ','
+```
+Agora, se consultamos o datapackage dados-armazem-siafi-2026, que contém os dados registrados no exercício de 2026, poderemos encontrar, por exemplo, na sua pasta data o arquivo receita.csv. Nele, podemos ver algo assim (resumidamente):
+
+| ano  | mês | uo_cod| fonte_cod | vlr_previsto_inicial | vlr_efetivado_ajustado |
+| ---- | --- | ----- | ---- | -------- | ---------- |
+| 2026 | 03  | 26443 | 10   |  150000  | 100000     |
+
+Nessa tabela, os campos `vlr_previsto_inicial` e `vlr_efetivado_ajustado` representam as medidas numéricas do fenômeno observado e compõem a parte factual dos dados.
+
+Já os campos `ano`, `mes_cod`, `uo_cod` e `fonte_cod` atuam como chaves dimensionais, permitindo relacionar o fato às respectivas tabelas dimensão, responsáveis por armazenar informações descritivas. Por exemplo:
+
+- `uo_cod` = `26443` → Secretaria de Estado de Saúde;
+- `fonte_cod` = `10` → Receita própria;
+- `ano` = `2026` e `mes_cod` = `03` → março de 2026.
+
+Em um modelo dimensional completo, essas descrições estariam armazenadas em tabelas específicas, como `dim_uo`, `dim_fonte` e `dim_tempo`, enquanto a tabela fato armazenaria apenas as chaves e os valores numéricos a serem analisados.
+
+Embora o `dados-armazem-siafi` seja utilizado como exemplo neste texto, é importante destacar que ele não constitui, por si só, um modelo dimensional. Trata-se de um repositório de dados operacionais e analíticos do Siafi. A modelagem dimensional surge posteriormente, durante a construção do relatório operacional, quando esses dados são reorganizados em tabelas fato, tabelas dimensão e estruturas auxiliares, como a LinkTable, para otimizar a navegação e a análise no ambiente do QlikView.
+
+
+
+---
+[^1]: Ver [Relacionamento das bases no relatório operacional: método Concatenate x Linktable](https://splor-mg.github.io/notas/main/20231804T160439/).
+[^2]: Ver [Webnar Inteligência.MG #2 - Qlikview](https://splor-mg.github.io/handbook/blog/webnar-intelig%C3%AAnciamg-2---qlikview/).
+[^3]: Ver[Fundamentos para Modelagem de Dados](https://splor-mg.github.io/handbook/blog/fundamentos-para-modelagem-de-dados/).
