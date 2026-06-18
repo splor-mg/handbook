@@ -198,7 +198,7 @@ Inicialmente, para cada conjunto de dimensões compartilhado por duas ou mais ta
         ``` markdown
         | ano  | mês | uo    | fonte | valor  |
         | ---- | --- | ----- | ----- | ------ |
-        | 2026 | 03  | 26443 | 10    | 100000 |
+        | 2026 | 03  | 2061 | 60    | 100000 |
 
         ```
 
@@ -218,7 +218,7 @@ Inicialmente, para cada conjunto de dimensões compartilhado por duas ou mais ta
         ``` markdown
         | ano  | mês | uo    | ação | elemento | valor  |
         | ---- | --- | ----- | ---- | -------- | ------ |
-        | 2026 | 03  | 26443 | 20RK | 339030   | 150000 |
+        | 2026 | 03  | 2061 | 20RK | 339030   | 150000 |
 
         ```
 
@@ -237,7 +237,7 @@ Inicialmente, para cada conjunto de dimensões compartilhado por duas ou mais ta
         ``` markdown
         | ano  | mês | uo    | ação | valor |
         | ---- | --- | ----- | ---- | ----- |
-        | 2026 | 03  | 26443 | 20RK | 80000 |
+        | 2026 | 03  | 2061 | 20RK | 80000 |
 
         ```
 
@@ -250,16 +250,17 @@ Inicialmente, para cada conjunto de dimensões compartilhado por duas ou mais ta
         ```
 
 
-Em seguida, constrói-se a Linktable empilhando as combinações de chaves e dimensões provenientes das tabelas fato e eliminando registros duplicados por meio de uma operação `distinct`.
+Em seguida, constrói-se a Linktable empilhando as combinações dimensionais e as respectivas chaves técnicas utilizadas pelas tabelas fato. Ainda, elimina-se registros duplicados por meio de uma operação `distinct`.
 
 | ano  | mês | uo    | fonte | ação | elemento | k_receita | k_execucao | k_credito |
 | ---- | --- | ----- | ----- | ---- | -------- | --------- | ---------- | --------- |
-| 2026 | 03  | 26443 | 10    | null | null     | R001      | null       | null      |
-| 2026 | 03  | 26443 | null  | 20RK | 339030   | null      | E001       | null      |
-| 2026 | 03  | 26443 | null  | 20RK | null     | null      | null       | C001      |
+| 2026 | 03  | 2061 | 60    | null | null     | R001      | null       | null      |
+| 2026 | 03  | 2061 | null  | 20RK | 339030   | null      | E001       | null      |
+| 2026 | 03  | 2061 | null  | 20RK | null     | null      | null       | C001      |
 
 
-O resultado é uma tabela intermediária que centraliza as dimensões compartilhadas e estabelece a ligação entre as diferentes tabelas fato. Cada linha da Linktable passa a conter as chaves necessárias para relacionar os diversos conjuntos dimensionais existentes no modelo. Um detalhe importante é que cada linha não contém todas as dimensões preenchidas. Ela contém apenas as dimensões necessárias para identificar a chave correspondente.
+O resultado é uma tabela intermediária que centraliza as dimensões utilizadas pelas tabelas fato, sejam elas compartilhadas ou específicas de determinados fatos. Efetivamente, ela estabelece a ligação entre as diferentes tabelas fato.
+Cada linha da Linktable passa a conter as chaves necessárias para relacionar os diversos conjuntos dimensionais existentes no modelo. Um detalhe importante é que cada linha não contém todas as dimensões preenchidas. Ela contém apenas as dimensões necessárias para identificar a chave correspondente.
 
 ```mermaid
 flowchart TD
@@ -343,9 +344,26 @@ LINK --- E
 
 LINK --- C
 ```
+## Construção de Link Tables a partir de um Data Package
+
+Até o momento, nos dedicamos a compreender o processo de criação do roperacional com R no ambiente do Qlik. Já  esta seção será dedicada a descrever o passo a passo para a implementação de um código de construção de Link Tables a partir de um Data Package. A princípio, esta tarefa pode parecer uma mera migração de R para Python, mas o processo vai além disso, podendo se transformar em uma pequena biblioteca Python para modelagem dimensional e Link Tables a partir de Data Packages.
+
+Ademais, apesar do título da seção, vale a pena mencionar que a Linktable não é o objetivo, ela é uma solução para um problema de associação entre múltiplos fatos com granularidades distintas. Então, os passos a seguir superam a sua construção.
+
+```
+Identificar granularidades
+↓
+Identificar dimensões compartilhadas
+↓
+Construir chaves técnicas
+↓
+Construir a Link Table
+↓
+Associar as tabelas fato
+```
 
 ---
 [^1]: Ver [Relacionamento das bases no relatório operacional: método Concatenate x Linktable](https://splor-mg.github.io/notas/main/20231804T160439/).
 [^2]: Ver [Webnar Inteligência.MG #2 - Qlikview](https://splor-mg.github.io/handbook/blog/webnar-intelig%C3%AAnciamg-2---qlikview/).
 [^3]: Ver[Fundamentos para Modelagem de Dados](https://splor-mg.github.io/handbook/blog/fundamentos-para-modelagem-de-dados/).
-[^4]: A arquitetura conceitual não exige que as tabelas fato mantenham apenas as chaves e as métricas numéricas. Na prática, o script do Qlik pode manter outras colunas auxiliares, mas este foi o comportamento descrito na nota [nota]([^1]) mencionada.
+[^4]: A arquitetura conceitual não exige que as tabelas fato mantenham apenas as chaves e as métricas numéricas. Na prática, o script do Qlik pode manter outras colunas auxiliares, mas este foi o comportamento descrito na nota "Relacionamento das bases no relatório operacional: método Concatenate x Linktable" já mencionada.
