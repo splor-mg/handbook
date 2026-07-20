@@ -2828,7 +2828,7 @@
                           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20a8 8 0 0 0 8-8 8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8m0-18a10 10 0 0 1 10 10 10 10 0 0 1-10 10C6.47 22 2 17.5 2 12A10 10 0 0 1 12 2m.5 5v5.25l4.5 2.67-.75 1.23L11 13V7z"/></svg>
                           <span class="md-ellipsis">
                             
-                              16 min de leitura
+                              17 min de leitura
                             
                           </span>
                         </div>
@@ -2909,7 +2909,7 @@ Dentro da seção "<em>Two-factor authentication</em>", escolha o método que pr
 <h2 id="4-configurar-proxy-camg">4. Configurar proxy (CAMG)<a class="headerlink" href="#4-configurar-proxy-camg" title="Permanent link">⚓︎</a></h2>
 <p>Caso esteja na CAMG, será necessário configurar proxy.</p>
 <p>Para isso, pesquise no Windows por "Editar as variáveis de ambiente do sistema" e clique em "Variáveis de Ambiente...". Nas variáveis de usuário, clique em "Novo...".</p>
-<p>O valor a ser informado da variável deve ser solicitado a algum membro da equipe. Esta informação também pode ser consultada no Bitwarden da assessoria.</p>
+<p>Devem ser criadas duas variáveis com os nomes "HTTP_PROXY" e "HTPPS_PROXY". O valor a ser colocado nas duas variáveis pode ser consultado no Bitwarden da assessoria (proxy não autenticada para as duas).</p>
 <p>O terminal deve ser reiniciado para aceitar a nova configuração.</p>
 <h2 id="5-subsistema-windows-para-linux-wsl">5. Subsistema Windows para Linux (WSL)<a class="headerlink" href="#5-subsistema-windows-para-linux-wsl" title="Permanent link">⚓︎</a></h2>
 <p>O <a href="https://learn.microsoft.com/en-us/windows/wsl/faq">WSL</a> é o ambiente de desenvolvimento que será utilizado para executar o Ubuntu. Para instalar:</p>
@@ -2976,6 +2976,11 @@ Dentro da seção "<em>Two-factor authentication</em>", escolha o método que pr
 </details>
 <h2 id="6-ubuntu">6. Ubuntu<a class="headerlink" href="#6-ubuntu" title="Permanent link">⚓︎</a></h2>
 <p>O processo anterior instala o Ubuntu e, neste terminal, é solicitado que você defina um nome de usuário e uma senha.</p>
+<details class="warning">
+<summary>Ubuntu não instalado automaticamente</summary>
+<p>Pode ocorrer de o WSL ser instalado corretamente com o comando <code>wsl --install</code>, mas o Ubuntu não ser instalado junto. Isso pode ser verificado digitando-se o comando <code>wsl</code> no terminal. 
+Caso, após pressionar <code>Enter</code>, o sistema exiba um aviso de que o WSL não possui distribuições disponíveis, você precisará instalar o Ubuntu separadamente. Para isso, digite o comando <code>wsl.exe --install Ubuntu</code>.</p>
+</details>
 <p><strong>Observação</strong>: Ao digitar a senha, nada aparecerá na tela, pois é um recurso de segurança para mascarar a senha. Após digitar a senha, pressione <code>Enter</code>.</p>
 <h3 id="61-versao-do-ubuntu">6.1 Versão do Ubuntu<a class="headerlink" href="#61-versao-do-ubuntu" title="Permanent link">⚓︎</a></h3>
 <p>Para conferir a versão do Ubuntu, pressione <code>Windows</code> + <code>R</code>, escreva <code>cmd</code> e digite o comando <code>wsl -l -v</code>. Se a versão apontada não for a 2, escreva o comando <code>wsl --set-version Ubuntu 2</code>.</p>
@@ -3040,6 +3045,13 @@ Dentro da seção "<em>Two-factor authentication</em>", escolha o método que pr
 </li>
 </ol>
 <p><img alt="JSON do Terminal" src="../../assets/setup-inicial/json_terminal.png"></p>
+<details class="note">
+<summary>O que significam as alterações no JSON</summary>
+<ul>
+<li><code>"warning.multiLinePaste": false,</code>: Desativa o aviso de segurança do terminal ao colar textos com quebras de linha.</li>
+<li><code>"commandline": "wsl.exe ~"</code> - Força o Ubuntu a iniciar no diretório "Home" do Linux: o comando padrão que o Windows usa para abrir o Ubuntu muitas vezes inicia o terminal dentro da pasta do seu usuário do Windows. Trabalhar com arquivos do Linux estando montado no disco do Windows (/mnt/c/) deixa o desempenho do WSL consideravelmente mais lento. O símbolo do til (~) é um atalho no mundo Unix que representa a pasta raiz do usuário (ex: /home/seunome). Adicionar esse til ao comando garante que o terminal abra diretamente no sistema de arquivos nativo do Linux, onde a leitura e escrita de dados, e a execução de códigos (seja em C, Python, etc.) funcionam com velocidade máxima.</li>
+</ul>
+</details>
 <p>Salve as alterações apertando <code>Ctrl</code> + <code>S</code> e feche o arquivo JSON.</p>
 <p>Agora, ao abrir o Terminal do Windows, ele irá iniciar o Ubuntu por padrão.</p>
 <h2 id="9-configuracoes-do-vs-code">9. Configurações do VS Code<a class="headerlink" href="#9-configuracoes-do-vs-code" title="Permanent link">⚓︎</a></h2>
@@ -3071,9 +3083,14 @@ Dentro da seção "<em>Two-factor authentication</em>", escolha o método que pr
 </span></code></pre></div>
 <p>Digite a sua senha, quando solicitado.</p>
 <details class="warning">
-<summary>Caso não consiga mudar a localidade</summary>
-<p>Caso receba o aviso <code>bash: warning: setlocale: LC_ALL: cannot change locale (en_US.utf-8)</code>, execute os comandos a seguir:
-</p><div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>sudo<span class="w"> </span>update-locale<span class="w"> </span><span class="nv">LANG</span><span class="o">=</span>en_US.UTF8
+<summary>Problemas na mudança da localidade</summary>
+<p>Dependendo das configurações atuais do seu sistema, o comando anterior pode não ser suficiente.</p>
+<p><strong>1. A localidade não foi alterada (sem mensagem de erro)</strong>
+Quando já existe uma localidade configurada diferente da "en_US.UTF-8", pode ocorrer de o comando acima não alterar a localidade existente (não exibe nenhuma mensagem de erro, mas a localidade não é alterada).
+Isso ocorre pois o comando acima <strong>gera</strong> uma nova locale caso ela não exista, mas não a define como principal. Para defini-la como padrão, digite o comando <code>sudo update-locale LANG=en_US.UTF-8</code>.</p>
+<p><strong>2. Erro de mudança de localidade (cannot change locale)</strong>
+Caso receba o aviso <code>bash: warning: setlocale: LC_ALL: cannot change locale (en_US.utf-8)</code>, execute os comandos a seguir:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>sudo<span class="w"> </span>update-locale<span class="w"> </span><span class="nv">LANG</span><span class="o">=</span>en_US.UTF8
 </span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>update
 </span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>language-pack-en<span class="w"> </span>language-pack-en-base<span class="w"> </span>manpages
 </span></code></pre></div>
@@ -3314,7 +3331,7 @@ Assim, você deve receber uma lista com seus e-mails registrados.</p>
     <span class="md-icon" title="Última atualização">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">1 de abril de 2026 14:31:39</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">20 de julho de 2026 19:53:24</span>
   </span>
 
     
