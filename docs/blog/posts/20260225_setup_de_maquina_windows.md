@@ -67,7 +67,7 @@ Caso esteja na CAMG, será necessário configurar proxy.
 
 Para isso, pesquise no Windows por "Editar as variáveis de ambiente do sistema" e clique em "Variáveis de Ambiente...". Nas variáveis de usuário, clique em "Novo...".
 
-O valor a ser informado da variável deve ser solicitado a algum membro da equipe. Esta informação também pode ser consultada no Bitwarden da assessoria.
+Devem ser criadas duas variáveis com os nomes "HTTP_PROXY" e "HTPPS_PROXY". O valor a ser colocado nas duas variáveis pode ser consultado no Bitwarden da assessoria (proxy não autenticada para as duas).
 
 O terminal deve ser reiniciado para aceitar a nova configuração.
 
@@ -161,6 +161,10 @@ O [WSL](https://learn.microsoft.com/en-us/windows/wsl/faq) é o ambiente de dese
 ## 6. Ubuntu
 
 O processo anterior instala o Ubuntu e, neste terminal, é solicitado que você defina um nome de usuário e uma senha.
+
+??? warning "Ubuntu não instalado automaticamente"
+    Pode ocorrer de o WSL ser instalado corretamente com o comando `wsl --install`, mas o Ubuntu não ser instalado junto. Isso pode ser verificado digitando-se o comando `wsl` no terminal. 
+    Caso, após pressionar `Enter`, o sistema exiba um aviso de que o WSL não possui distribuições disponíveis, você precisará instalar o Ubuntu separadamente. Para isso, digite o comando `wsl.exe --install Ubuntu`.
 
 **Observação**: Ao digitar a senha, nada aparecerá na tela, pois é um recurso de segurança para mascarar a senha. Após digitar a senha, pressione `Enter`.
 
@@ -264,6 +268,12 @@ Depois, clique em "Abrir o arquivo JSON" e faça as seguintes edições:
 
 ![JSON do Terminal](../../assets/setup-inicial/json_terminal.png)
 
+
+??? note "O que significam as alterações no JSON"
+    * `"warning.multiLinePaste": false,`: Desativa o aviso de segurança do terminal ao colar textos com quebras de linha.
+    * `"commandline": "wsl.exe ~"` - Força o Ubuntu a iniciar no diretório "Home" do Linux: o comando padrão que o Windows usa para abrir o Ubuntu muitas vezes inicia o terminal dentro da pasta do seu usuário do Windows. Trabalhar com arquivos do Linux estando montado no disco do Windows (/mnt/c/) deixa o desempenho do WSL consideravelmente mais lento. O símbolo do til (~) é um atalho no mundo Unix que representa a pasta raiz do usuário (ex: /home/seunome). Adicionar esse til ao comando garante que o terminal abra diretamente no sistema de arquivos nativo do Linux, onde a leitura e escrita de dados, e a execução de códigos (seja em C, Python, etc.) funcionam com velocidade máxima.
+
+
 Salve as alterações apertando `Ctrl` + `S` e feche o arquivo JSON.
 
 Agora, ao abrir o Terminal do Windows, ele irá iniciar o Ubuntu por padrão.
@@ -316,8 +326,16 @@ sudo locale-gen en_US.UTF-8
 
 Digite a sua senha, quando solicitado.
 
-??? warning "Caso não consiga mudar a localidade"
+??? warning "Problemas na mudança da localidade"
+    Dependendo das configurações atuais do seu sistema, o comando anterior pode não ser suficiente.
+
+    **1. A localidade não foi alterada (sem mensagem de erro)**
+    Quando já existe uma localidade configurada diferente da "en_US.UTF-8", pode ocorrer de o comando acima não alterar a localidade existente (não exibe nenhuma mensagem de erro, mas a localidade não é alterada).
+    Isso ocorre pois o comando acima **gera** uma nova locale caso ela não exista, mas não a define como principal. Para defini-la como padrão, digite o comando `sudo update-locale LANG=en_US.UTF-8`.
+
+    **2. Erro de mudança de localidade (cannot change locale)**
     Caso receba o aviso `bash: warning: setlocale: LC_ALL: cannot change locale (en_US.utf-8)`, execute os comandos a seguir:
+    
     ```bash
     sudo update-locale LANG=en_US.UTF8
     sudo apt-get update
