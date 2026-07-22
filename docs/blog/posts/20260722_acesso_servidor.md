@@ -84,7 +84,18 @@ Após a conclusão do chamado de fixação do IP, a chefia deverá solicitar à 
     Atenciosamente,
 
 
-## 3. Conectar-se ao servidor
+## 3. Verificar se o servidor está em uso
+
+Antes de acessar o servidor, verifique no grupo do Teams da equipe se há algum usuário conectado.
+
+Isso porque, o servidor permite apenas uma sessão por vez. Portanto, ao realizar uma nova conexão, o usuário atualmente conectado será desconectado automaticamente.
+
+Portanto, sempre avise no grupo quando for acessar o servidor.
+
+Caso ainda não esteja no grupo, peça a um dos membros da equipe para ser incluído, antes de acessar o servidor.
+.
+
+## 4. Conectar-se ao servidor
 
 Após liberação do acesso, tente acessar seguindo o passo a passo:
 
