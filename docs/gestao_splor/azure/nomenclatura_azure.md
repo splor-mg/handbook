@@ -141,7 +141,7 @@ Aplicadas no nível de Resource Group (via Bicep). Um recurso individual pode so
 
 !!! tip "Herança de tags"
 
-    Tags do RG **não são herdadas** automaticamente pelos recursos — pendência em aberto: atribuir as policies built-in *Inherit a tag from the resource group if missing* (uma por tag) na subscription pra forçar a herança sem sobrescrever exceções já tagueadas manualmente.
+    Tags do RG são herdadas automaticamente pelos recursos via Azure Policy built-in *Inherit a tag from the resource group if missing* (6 atribuições, uma por tag, com identidade `SystemAssigned` própria cada — não sobrescreve tag já definida manualmente no recurso). `diretoria` não existe em nenhum RG hoje — infra compartilhada, sem diretoria única dona; só aparece em recursos individuais tagueados na mão.
 
 ## Pontos de Atenção
 
