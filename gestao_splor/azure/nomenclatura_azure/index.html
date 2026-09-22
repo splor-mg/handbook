@@ -1790,45 +1790,18 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#rg-aid-ai-prd-ia-foundry" class="md-nav__link">
+  <a href="#ai-foundry-modelo-de-contas-por-regiao-nao-hubproject" class="md-nav__link">
     <span class="md-ellipsis">
-      rg-aid-ai-prd - IA / Foundry
+      AI Foundry — modelo de contas por região, não Hub/Project
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#rg-aid-data-prd-dados-synapse" class="md-nav__link">
+  <a href="#papeis-validos-de-vm-campo-papel" class="md-nav__link">
     <span class="md-ellipsis">
-      rg-aid-data-prd - Dados / Synapse
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#rg-aid-infra-prd-servidores-e-rede" class="md-nav__link">
-    <span class="md-ellipsis">
-      rg-aid-infra-prd - Servidores e Rede
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#rg-aid-backup-prd-backup" class="md-nav__link">
-    <span class="md-ellipsis">
-      rg-aid-backup-prd - Backup
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#rg-aid-ai-dev-desenvolvimento" class="md-nav__link">
-    <span class="md-ellipsis">
-      rg-aid-ai-dev - Desenvolvimento
+      Papéis válidos de VM (campo {papel})
     </span>
   </a>
   
@@ -1836,6 +1809,15 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sufixos-de-ambiente" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sufixos de ambiente
+    </span>
+  </a>
   
 </li>
       
@@ -2543,45 +2525,18 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#rg-aid-ai-prd-ia-foundry" class="md-nav__link">
+  <a href="#ai-foundry-modelo-de-contas-por-regiao-nao-hubproject" class="md-nav__link">
     <span class="md-ellipsis">
-      rg-aid-ai-prd - IA / Foundry
+      AI Foundry — modelo de contas por região, não Hub/Project
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#rg-aid-data-prd-dados-synapse" class="md-nav__link">
+  <a href="#papeis-validos-de-vm-campo-papel" class="md-nav__link">
     <span class="md-ellipsis">
-      rg-aid-data-prd - Dados / Synapse
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#rg-aid-infra-prd-servidores-e-rede" class="md-nav__link">
-    <span class="md-ellipsis">
-      rg-aid-infra-prd - Servidores e Rede
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#rg-aid-backup-prd-backup" class="md-nav__link">
-    <span class="md-ellipsis">
-      rg-aid-backup-prd - Backup
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#rg-aid-ai-dev-desenvolvimento" class="md-nav__link">
-    <span class="md-ellipsis">
-      rg-aid-ai-dev - Desenvolvimento
+      Papéis válidos de VM (campo {papel})
     </span>
   </a>
   
@@ -2589,6 +2544,15 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sufixos-de-ambiente" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sufixos de ambiente
+    </span>
+  </a>
   
 </li>
       
@@ -2669,14 +2633,18 @@
 
 <div><h1 id="nomenclatura-de-recursos-azure">Nomenclatura de Recursos Azure ☁️<a class="headerlink" href="#nomenclatura-de-recursos-azure" title="Permanent link">⚓︎</a></h1>
 <h2 id="contexto">Contexto<a class="headerlink" href="#contexto" title="Permanent link">⚓︎</a></h2>
-<p>A AID (Assessoria de Inteligência de Dados) provisiona a infraestrutura da SPLOR na Azure (subscription <code>SEPLAGMG-SPLOR</code>): servidores, backup, Synapse e modelos/agentes no Azure AI Foundry.</p>
-<p>Esta página documenta a convenção de nomenclatura adotada, baseada no <a href="https://learn.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/resource-naming">Cloud Adoption Framework (CAF)</a> da Microsoft, adaptada ao nosso contexto.</p>
+<p>A AID (Assessoria de Inteligência de Dados) provisiona a infraestrutura da SPLOR na Azure (subscription <code>SEPLAGMG-SPLOR</code>): servidores, backup e modelos/agentes no Azure AI Foundry.</p>
+<p>Esta página documenta a convenção de nomenclatura efetivamente implementada, baseada no <a href="https://learn.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/resource-naming">Cloud Adoption Framework (CAF)</a> da Microsoft, adaptada ao nosso contexto. Toda a infraestrutura é declarada como código (Bicep + Deployment Stacks) no repositório <a href="https://github.com/splor-mg/azure-migration"><code>splor-mg/azure-migration</code></a>, que é a fonte de verdade — esta página é um resumo para consulta rápida.</p>
 <div class="admonition warning">
 <p class="admonition-title">Por que definir antes de criar?</p>
 <p>Resource groups <strong>não podem ser renomeados</strong> depois de criados - a única alternativa é recriar e migrar os recursos. O custo de errar a nomenclatura no início é alto.</p>
 </div>
+<div class="admonition note">
+<p class="admonition-title">Recursos movidos mantêm nome legado</p>
+<p>Recursos que vieram da subscription antiga via <code>az resource move</code> mantêm o nome com que nasceram lá (ex.: o Public IP <code>aid-ip</code>), em vez de serem renomeados para o padrão CAF. Só recursos criados do zero na SPLOR seguem a convenção abaixo à risca.</p>
+</div>
 <h2 id="convencao-geral">Convenção Geral<a class="headerlink" href="#convencao-geral" title="Permanent link">⚓︎</a></h2>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>[tipo]-aid-[workload]-[ambiente]
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>{abreviacao-tipo}-aid-{workload-ou-papel}-{ambiente}[-{regiao}][-{nn}]
 </span></code></pre></div>
 <table>
 <thead>
@@ -2688,9 +2656,9 @@
 </thead>
 <tbody>
 <tr>
-<td><code>tipo</code></td>
+<td><code>abreviacao-tipo</code></td>
 <td>Prefixo abreviado do tipo de recurso, conforme as <a href="https://learn.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/resource-abbreviations">abreviações do CAF</a></td>
-<td><code>rg</code>, <code>vnet</code>, <code>vm</code>, <code>kv</code></td>
+<td><code>rg</code>, <code>vm</code>, <code>vnet</code>, <code>nsg</code></td>
 </tr>
 <tr>
 <td><code>aid</code></td>
@@ -2698,14 +2666,24 @@
 <td><code>aid</code></td>
 </tr>
 <tr>
-<td><code>workload</code></td>
-<td>A carga de trabalho</td>
-<td><code>ai</code>, <code>data</code>, <code>infra</code>, <code>backup</code></td>
+<td><code>workload-ou-papel</code></td>
+<td>A carga de trabalho (RG, app) ou o papel arquitetural (VM, NIC)</td>
+<td><code>runtime</code>, <code>llm</code>, <code>network</code>, <code>shared</code>, <code>backup</code></td>
 </tr>
 <tr>
 <td><code>ambiente</code></td>
 <td>Ambiente de execução</td>
-<td><code>prd</code>, <code>dev</code></td>
+<td><code>prd</code>, <code>dev</code>, <code>lab</code></td>
+</tr>
+<tr>
+<td><code>regiao</code></td>
+<td>Só onde aplicável (VNet, Cognitive Services)</td>
+<td><code>brs</code>, <code>eus2</code>, <code>swc</code></td>
+</tr>
+<tr>
+<td><code>nn</code></td>
+<td>Só quando há múltiplas instâncias do mesmo papel</td>
+<td><code>01</code>, <code>02</code></td>
 </tr>
 </tbody>
 </table>
@@ -2713,9 +2691,10 @@
 <p>Recursos que compartilham <strong>ciclo de vida</strong> ficam no mesmo resource group. O RG é a unidade de:</p>
 <ol>
 <li><strong>Deleção em massa</strong> - se faz sentido apagar tudo junto, fica junto</li>
-<li><strong>RBAC (role-based access control)</strong> - Permissões atribuídas no escopo do RG, não recurso a recurso (ex.: equipe de dados tem <code>Contributor</code> no RG de dados, sem acesso aos agentes)</li>
-<li><strong>Custo</strong> - cada RG vira um filtro pronto no Cost Management (custo dos modelos vs. Synapse vs. VMs)</li>
+<li><strong>RBAC (role-based access control)</strong> - Permissões atribuídas no escopo do RG, não recurso a recurso</li>
+<li><strong>Custo</strong> - cada RG vira um filtro pronto no Cost Management</li>
 </ol>
+<p>Aqui a separação é por <strong>camada arquitetural</strong> (rede, identidade/segredos, modelos LLM, runtime de cada ambiente, backup), não por caso de uso — um caso de uso específico (ex.: análise de pleitos) não ganha RG próprio, só um deployment de modelo ou uma tag <code>projeto</code>.</p>
 <h2 id="resource-groups">Resource Groups<a class="headerlink" href="#resource-groups" title="Permanent link">⚓︎</a></h2>
 <table>
 <thead>
@@ -2726,233 +2705,266 @@
 </thead>
 <tbody>
 <tr>
-<td><code>rg-aid-ai-prd</code></td>
-<td>AI Foundry Hub, projects, deployments de modelos, AI Search</td>
+<td><code>rg-aid-network-prd</code> / <code>rg-aid-network-nonprd</code></td>
+<td>VNets, subnets, NSGs</td>
 </tr>
 <tr>
-<td><code>rg-aid-data-prd</code></td>
-<td>Synapse, Data Lake, storage de dados</td>
+<td><code>rg-aid-shared-prd</code></td>
+<td>Key Vault, Log Analytics Workspace, identidades gerenciadas</td>
 </tr>
 <tr>
-<td><code>rg-aid-infra-prd</code></td>
-<td>VMs, VNet, NSGs, IPs</td>
+<td><code>rg-aid-llm-prd</code></td>
+<td>Contas AI Foundry (Cognitive Services) e deployments de modelo</td>
+</tr>
+<tr>
+<td><code>rg-aid-runtime-prd</code></td>
+<td>VM de produção (host de containers Easypanel)</td>
+</tr>
+<tr>
+<td><code>rg-aid-runtime-dev</code></td>
+<td>VM de bancada de testes manual (não é espelho de prd — ver nota abaixo)</td>
+</tr>
+<tr>
+<td><code>rg-aid-runtime-lab</code></td>
+<td>VMs de laboratório/experimentação, compartilhadas entre equipes</td>
 </tr>
 <tr>
 <td><code>rg-aid-backup-prd</code></td>
-<td>Recovery Services Vault, políticas de backup</td>
-</tr>
-<tr>
-<td><code>rg-aid-ai-dev</code></td>
-<td>Ambiente de desenvolvimento (espelha <code>prd</code> com sufixo <code>dev</code>)</td>
+<td>Recovery Services Vault e políticas de backup</td>
 </tr>
 </tbody>
 </table>
 <h2 id="nomenclatura-por-recurso">Nomenclatura por Recurso<a class="headerlink" href="#nomenclatura-por-recurso" title="Permanent link">⚓︎</a></h2>
-<h3 id="rg-aid-ai-prd-ia-foundry"><code>rg-aid-ai-prd</code> - IA / Foundry<a class="headerlink" href="#rg-aid-ai-prd-ia-foundry" title="Permanent link">⚓︎</a></h3>
 <table>
 <thead>
 <tr>
-<th>Recurso</th>
-<th>Nome</th>
-<th>Observação</th>
+<th>Tipo de recurso</th>
+<th>Padrão</th>
+<th>Exemplo</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>AI Foundry Hub</td>
-<td><code>hub-aid-prd</code></td>
-<td>1 hub para a AID inteira</td>
+<td>Resource Group</td>
+<td><code>rg-aid-{workload}-{amb}</code></td>
+<td><code>rg-aid-runtime-prd</code>, <code>rg-aid-llm-prd</code></td>
 </tr>
 <tr>
-<td>AI Foundry Project</td>
-<td><code>proj-[caso-de-uso]</code></td>
-<td>1 project por caso de uso (ex.: <code>proj-agente-teams</code>, <code>proj-rag-orcamento</code>)</td>
+<td>Virtual Machine</td>
+<td><code>vm-aid-{papel}-{amb}[-{nn}]</code></td>
+<td><code>vm-aid-runtime-prd</code>, <code>vm-aid-runtime-dev</code></td>
 </tr>
 <tr>
-<td>Azure OpenAI / AI Services</td>
-<td><code>aoai-aid-prd</code></td>
-<td>Nome globalmente único; em caso de colisão usar <code>aoai-aid-splor-prd</code></td>
+<td>Virtual Network</td>
+<td><code>vnet-aid-{amb}-{regiao}</code></td>
+<td><code>vnet-aid-prd-brs</code>, <code>vnet-aid-nonprd-brs</code></td>
 </tr>
 <tr>
-<td>AI Search</td>
-<td><code>srch-aid-prd</code></td>
-<td>Globalmente único, só minúsculas e hífens</td>
+<td>Subnet</td>
+<td><code>snet-aid-{finalidade}[-{amb}]</code></td>
+<td><code>snet-aid-runtime</code>, <code>snet-aid-runtime-dev</code></td>
 </tr>
 <tr>
-<td>Storage do hub</td>
-<td><code>staidaiprd</code></td>
-<td>Ver <a href="#regra-especial-storage-accounts">regra de storage</a></td>
+<td>Network Security Group</td>
+<td><code>nsg-aid-{papel}-{amb}</code></td>
+<td><code>nsg-aid-runtime-prd</code></td>
+</tr>
+<tr>
+<td>Public IP</td>
+<td><code>pip-aid-{papel}-{amb}</code></td>
+<td><code>pip-aid-runtime-prd</code></td>
+</tr>
+<tr>
+<td>Network Interface</td>
+<td><code>nic-aid-{papel}-{amb}-{nn}</code></td>
+<td><code>nic-aid-runtime-prd-01</code></td>
+</tr>
+<tr>
+<td>Managed Disk (OS)</td>
+<td><code>disk-aid-{papel}-{amb}-os</code></td>
+<td><code>disk-aid-runtime-prd-os</code></td>
+</tr>
+<tr>
+<td>SSH Public Key</td>
+<td><code>sshkey-aid-{papel}-{amb}</code></td>
+<td><code>sshkey-aid-runtime-prd</code></td>
+</tr>
+<tr>
+<td>Recovery Services Vault</td>
+<td><code>rsv-aid-{amb}</code></td>
+<td><code>rsv-aid-prd</code></td>
 </tr>
 <tr>
 <td>Key Vault</td>
-<td><code>kv-aid-ai-prd</code></td>
-<td>Máx. 24 caracteres, globalmente único</td>
+<td><code>kv-aid-{amb}</code></td>
+<td><code>kv-aid-prd</code></td>
 </tr>
 <tr>
-<td>Container Registry</td>
-<td><code>craidaiprd</code></td>
-<td>Sem hífens, alfanumérico</td>
+<td>Log Analytics Workspace</td>
+<td><code>log-aid-{amb}</code></td>
+<td><code>log-aid-prd</code></td>
+</tr>
+<tr>
+<td>User Assigned Identity</td>
+<td><code>id-aid-{workload}-{amb}</code></td>
+<td><code>id-aid-runtime-prd</code>, <code>id-aid-llm-prd</code></td>
+</tr>
+<tr>
+<td>Cognitive Services (AI Foundry)</td>
+<td><code>cog-aid-{finalidade}-{amb}-{regiao}</code></td>
+<td><code>cog-aid-foundry-prd-eus2</code></td>
+</tr>
+<tr>
+<td>Storage Account</td>
+<td><code>staid{workload}{amb}{regiao}</code></td>
+<td><code>staidlogsprdbrs</code> (ver <a href="#regra-especial-storage-accounts">regra de storage</a>)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="ai-foundry-modelo-de-contas-por-regiao-nao-hubproject">AI Foundry — modelo de contas por região, não Hub/Project<a class="headerlink" href="#ai-foundry-modelo-de-contas-por-regiao-nao-hubproject" title="Permanent link">⚓︎</a></h3>
+<p>Diferente de um modelo baseado em Hub/Project do Foundry, aqui a arquitetura é <strong>contas Cognitive Services por região</strong>, com deployments de modelo diretamente na conta:</p>
+<table>
+<thead>
+<tr>
+<th>Conta</th>
+<th>Região</th>
+<th>Papel</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>cog-aid-foundry-prd-eus2</code></td>
+<td>eastus2</td>
+<td>Primária — todo tráfego roteia pra cá por padrão</td>
+</tr>
+<tr>
+<td><code>cog-aid-foundry-prd-swc</code></td>
+<td>swedencentral</td>
+<td>Secundária (HA) — deployments idênticos, ativa em incidente da primária</td>
+</tr>
+</tbody>
+</table>
+<p>Deployments seguem <code>{modelo}-{purpose}</code> (ex.: <code>gpt-5-default</code>, <code>gpt-5.5-analise-pleitos</code>). <code>default</code> é o purpose do deployment de uso geral; um purpose novo só se justifica por um caso de uso real, nunca "criar por criar".</p>
+<h3 id="papeis-validos-de-vm-campo-papel">Papéis válidos de VM (campo <code>{papel}</code>)<a class="headerlink" href="#papeis-validos-de-vm-campo-papel" title="Permanent link">⚓︎</a></h3>
+<p>VMs nomeadas pelo <strong>papel arquitetural</strong>, não pelo conteúdo. O conteúdo muda; o papel não.</p>
+<table>
+<thead>
+<tr>
+<th>Papel</th>
+<th>Significado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>runtime</code></td>
+<td>Host de containers multi-serviço (Docker / Easypanel hospedando vários apps)</td>
+</tr>
+<tr>
+<td><code>app</code></td>
+<td>VM dedicada a uma aplicação única</td>
+</tr>
+<tr>
+<td><code>worker</code></td>
+<td>Processamento batch / jobs assíncronos</td>
+</tr>
+<tr>
+<td><code>db</code></td>
+<td>Servidor de banco de dados standalone</td>
+</tr>
+<tr>
+<td><code>gpu</code></td>
+<td>Carga de ML/LLM com GPU</td>
+</tr>
+<tr>
+<td><code>bastion</code></td>
+<td>Jump host para acesso administrativo</td>
 </tr>
 </tbody>
 </table>
 <div class="admonition note">
-<p class="admonition-title">Separação por caso de uso</p>
-<p>A separação por caso de uso acontece no nível de <strong>project</strong> do Foundry, não em RGs diferentes. Todo o Foundry mora em um único RG, com deployments de modelo no hub compartilhados pelos projects.</p>
+<p class="admonition-title"><code>vm-aid-runtime-dev</code> não é ambiente de desenvolvimento no sentido comum</p>
+<p>Apesar do sufixo <code>dev</code>, essa VM não sincroniza automaticamente com a <code>prd</code>. É uma bancada de testes manual: quem for usar instala e configura item por item, sem nunca importar o banco de dados da prd em massa (evita reativar automações reais de produção por engano). Detalhes na <a href="https://github.com/splor-mg/azure-migration/blob/main/docs/05-decisoes-tomadas.md">ADR-024 do repositório de migração</a>.</p>
 </div>
-<h3 id="rg-aid-data-prd-dados-synapse"><code>rg-aid-data-prd</code> - Dados / Synapse<a class="headerlink" href="#rg-aid-data-prd-dados-synapse" title="Permanent link">⚓︎</a></h3>
+<h2 id="sufixos-de-ambiente">Sufixos de ambiente<a class="headerlink" href="#sufixos-de-ambiente" title="Permanent link">⚓︎</a></h2>
 <table>
 <thead>
 <tr>
-<th>Recurso</th>
-<th>Nome</th>
-<th>Observação</th>
+<th>Sufixo</th>
+<th>Uso</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Synapse Workspace</td>
-<td><code>synw-aid-prd</code></td>
-<td>Globalmente único</td>
+<td><code>prd</code></td>
+<td>Produção — recursos com SLA, dados reais, integrações com sistemas em produção</td>
 </tr>
 <tr>
-<td>Data Lake (ADLS Gen2)</td>
-<td><code>dlsaidprd</code></td>
-<td>Regra de storage</td>
+<td><code>dev</code></td>
+<td>Bancada de testes — validação manual antes de promover para prd</td>
 </tr>
 <tr>
-<td>Storage geral</td>
-<td><code>staiddataprd</code></td>
-<td>Regra de storage</td>
-</tr>
-<tr>
-<td>SQL Pool dedicado</td>
-<td><code>sqlpool-aid-prd</code></td>
-<td>Dentro do workspace</td>
-</tr>
-<tr>
-<td>Spark Pool</td>
-<td><code>sparkaid</code></td>
-<td>Máx. 15 caracteres, sem hífen</td>
+<td><code>lab</code></td>
+<td>Laboratório, treinamento, experimentação</td>
 </tr>
 </tbody>
 </table>
-<h3 id="rg-aid-infra-prd-servidores-e-rede"><code>rg-aid-infra-prd</code> - Servidores e Rede<a class="headerlink" href="#rg-aid-infra-prd-servidores-e-rede" title="Permanent link">⚓︎</a></h3>
-<table>
-<thead>
-<tr>
-<th>Recurso</th>
-<th>Nome</th>
-<th>Observação</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>VNet</td>
-<td><code>vnet-aid-prd</code></td>
-<td></td>
-</tr>
-<tr>
-<td>Subnet</td>
-<td><code>snet-aid-[finalidade]-prd</code></td>
-<td>Uma por finalidade (ex.: <code>snet-aid-app-prd</code>)</td>
-</tr>
-<tr>
-<td>NSG</td>
-<td><code>nsg-aid-[finalidade]-prd</code></td>
-<td>Espelha a subnet</td>
-</tr>
-<tr>
-<td>VM</td>
-<td><code>vm-aid-[função]-prd-NN</code></td>
-<td>Ex.: <code>vm-aid-n8n-prd-01</code>; Windows limita o nome do SO a 15 caracteres</td>
-</tr>
-<tr>
-<td>Disco</td>
-<td><code>disk-[nome-da-vm]-os</code></td>
-<td></td>
-</tr>
-<tr>
-<td>IP público</td>
-<td><code>pip-[nome-da-vm]</code></td>
-<td></td>
-</tr>
-<tr>
-<td>NIC</td>
-<td><code>nic-[nome-da-vm]</code></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<h3 id="rg-aid-backup-prd-backup"><code>rg-aid-backup-prd</code> - Backup<a class="headerlink" href="#rg-aid-backup-prd-backup" title="Permanent link">⚓︎</a></h3>
-<table>
-<thead>
-<tr>
-<th>Recurso</th>
-<th>Nome</th>
-<th>Observação</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Recovery Services Vault</td>
-<td><code>rsv-aid-prd</code></td>
-<td></td>
-</tr>
-<tr>
-<td>Política de backup</td>
-<td><code>bkpol-[alvo]-[frequência]</code></td>
-<td>Ex.: <code>bkpol-vm-diario</code>, <code>bkpol-vm-semanal</code></td>
-</tr>
-</tbody>
-</table>
-<h3 id="rg-aid-ai-dev-desenvolvimento"><code>rg-aid-ai-dev</code> - Desenvolvimento<a class="headerlink" href="#rg-aid-ai-dev-desenvolvimento" title="Permanent link">⚓︎</a></h3>
-<p>Espelha a estrutura de produção trocando o sufixo: <code>hub-aid-dev</code>, <code>synw-aid-dev</code>, <code>staidaidev</code>. Permite comparar custos dev vs. prd com um único filtro.</p>
 <h2 id="regra-especial-storage-accounts">Regra Especial: Storage Accounts<a class="headerlink" href="#regra-especial-storage-accounts" title="Permanent link">⚓︎</a></h2>
 <p>Storage account tem restrição própria: <strong>3 a 24 caracteres, apenas letras minúsculas e números, sem hífen, nome único globalmente</strong>.</p>
-<p>Padrão: <code>st</code> + área + workload + ambiente, tudo colado:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>staidaiprd
+<p>Padrão: <code>st</code> + <code>aid</code> + workload + ambiente + região, tudo colado:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>staidlogsprdbrs
 </span></code></pre></div>
-<p>Se o nome já estiver tomado globalmente, acrescentar diferenciador da organização: <code>staidsplorprd</code> ou <code>stcamgaidprd</code>.</p>
+<p>Se o nome já estiver tomado globalmente, acrescentar diferenciador da organização.</p>
 <h2 id="tags-obrigatorias">Tags Obrigatórias<a class="headerlink" href="#tags-obrigatorias" title="Permanent link">⚓︎</a></h2>
-<p>Aplicar em todos os recursos, a partir do RG:</p>
+<p>Aplicadas no nível de Resource Group (via Bicep). Um recurso individual pode sobrescrever <code>diretoria</code>/<code>projeto</code> quando ele serve um caso de uso específico diferente do padrão do RG (ex.: um deployment de modelo que atende uma diretoria só).</p>
 <table>
 <thead>
 <tr>
 <th>Tag</th>
 <th>Valores</th>
+<th>Notas</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><code>area</code></td>
 <td><code>AID</code></td>
+<td>Fixo</td>
 </tr>
 <tr>
-<td><code>subsecretaria</code></td>
-<td><code>SPLOR</code></td>
+<td><code>superintendencia</code></td>
+<td><code>SPLOR</code>, <code>SCPTS</code>, <code>Gabinete</code></td>
+<td><code>Gabinete</code> quando o recurso serve a AID/Gabinete diretamente — a AID é assessoria ligada ao Gabinete, não subordinada a uma superintendência</td>
+</tr>
+<tr>
+<td><code>diretoria</code></td>
+<td><code>DCPPN</code>, <code>DCAF</code>, <code>DCMEFO</code>, <code>DCTP</code>, <code>DCCG</code></td>
+<td>Vazio quando <code>superintendencia=Gabinete</code></td>
 </tr>
 <tr>
 <td><code>ambiente</code></td>
-<td><code>prd</code> / <code>dev</code></td>
+<td><code>prd</code> / <code>dev</code> / <code>lab</code></td>
+<td></td>
 </tr>
 <tr>
 <td><code>projeto</code></td>
-<td><code>agente-teams</code>, <code>rag-orcamento</code>, <code>compartilhado</code></td>
+<td>Caso de uso (ex.: <code>analise-pleitos</code>, <code>compartilhado</code>)</td>
+<td><code>compartilhado</code> para infra que serve múltiplos casos de uso</td>
 </tr>
 <tr>
 <td><code>responsavel</code></td>
 <td>E-mail do dono técnico</td>
+<td></td>
 </tr>
 </tbody>
 </table>
 <div class="admonition tip">
 <p class="admonition-title">Herança de tags</p>
-<p>Tags do RG <strong>não são herdadas</strong> automaticamente pelos recursos. Utilizamos a Azure Policy built-in <em>Inherit a tag from the resource group</em> atribuída na subscription para forçar a herança.</p>
+<p>Tags do RG <strong>não são herdadas</strong> automaticamente pelos recursos — pendência em aberto: atribuir as policies built-in <em>Inherit a tag from the resource group if missing</em> (uma por tag) na subscription pra forçar a herança sem sobrescrever exceções já tagueadas manualmente.</p>
 </div>
 <h2 id="pontos-de-atencao">Pontos de Atenção<a class="headerlink" href="#pontos-de-atencao" title="Permanent link">⚓︎</a></h2>
 <ul>
-<li><strong>Região</strong>: modelos/Foundry em <code>eastus2</code> (melhor disponibilidade de modelos). Para dados do Synapse, avaliar <code>brazilsouth</code> caso haja requisito LGPD de residência de dados.</li>
-<li><strong>Move de recursos</strong>: mover recursos entre RGs é possível, mas Foundry hub/projects têm restrições - criar já no RG correto.</li>
+<li><strong>Nomes legados</strong>: recursos movidos entre subscriptions via <code>az resource move</code> mantêm o nome de origem (ver nota no topo). Nunca renomear um recurso movido pra "consertar" a nomenclatura.</li>
+<li><strong>Deployments Cognitive Services</strong>: sub-recurso de <code>Microsoft.CognitiveServices/accounts</code> — não aparecem em <code>az resource list</code>, mas suportam tag própria via <code>az resource show --ids .../deployments/{nome}</code>.</li>
 </ul></div>
 
 
@@ -2976,7 +2988,7 @@
     <span class="md-icon" title="Última atualização">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">11 de junho de 2026 01:05:20</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">22 de setembro de 2026 16:57:34</span>
   </span>
 
     
